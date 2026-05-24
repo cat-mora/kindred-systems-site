@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "kindredsystems.com"}],
+      "destination": "https://www.kindredsystems.com.au/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{"type": "host", "value": "www.kindredsystems.com"}],
+      "destination": "https://www.kindredsystems.com.au/$1",
+      "permanent": true
+    }
+  ]
+}
