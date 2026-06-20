@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kindred Systems | AI workers for revenue, retention and operations</title>
-  <meta name="description" content="Kindred Systems builds AI voice agents for calls, bookings and rebooking, plus managed AI employees for established businesses needing support across sales, marketing, research, reporting, customer support and operations." />
+  <title>Kindred Systems | AI Advisory, Consulting and Implementation</title>
+  <meta name="description" content="Kindred Systems helps leaders bridge the gap between business priorities and AI. Advisory, consulting and implementation from a commercial specialist with 20 years experience across marketing, growth, customer experience and business operations." />
   <link rel="canonical" href="https://kindredsystems.com.au/" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="manifest" href="assets/site.webmanifest" />
-  <meta property="og:title" content="Kindred Systems | AI workers for revenue, retention and operations" />
-  <meta property="og:description" content="Kindred Systems is the AI consultancy behind AI Assistant Pro, Digital Employee Pro and AI Companion Calls. We identify where your business is losing time, money or opportunity — then match you to the right AI solution." />
+  <meta property="og:title" content="Kindred Systems | AI Advisory, Consulting and Implementation" />
+  <meta property="og:description" content="Kindred Systems helps leaders bridge the gap between business priorities and AI. Advisory, consulting and implementation from a commercial specialist with 20 years experience." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kindredsystems.com.au/" />
   <meta property="og:image" content="https://kindredsystems.com.au/assets/ks_social-share.jpg?v=2" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kindred Systems | AI workers for revenue, retention and operations" />
-  <meta name="twitter:description" content="Kindred Systems is the AI consultancy behind AI Assistant Pro, Digital Employee Pro and AI Companion Calls. We identify where your business is losing time, money or opportunity — then match you to the right AI solution." />
+  <meta name="twitter:title" content="Kindred Systems | AI Advisory, Consulting and Implementation" />
+  <meta name="twitter:description" content="Kindred Systems helps leaders bridge the gap between business priorities and AI. Advisory, consulting and implementation from a commercial specialist with 20 years experience." />
   <meta name="twitter:image" content="https://kindredsystems.com.au/assets/ks_social-share.jpg?v=2" />
   <style>
     :root {
@@ -217,12 +217,18 @@
     }
 
     .proof-card h3 {
-      font-size: 25px;
-      margin-bottom: 12px;
+      font-size: 22px;
+      margin-bottom: 14px;
     }
 
     .proof-card p {
-      margin: 0 0 18px;
+      margin: 0 0 14px;
+      font-size: 15px;
+      line-height: 1.54;
+    }
+
+    .proof-card p:last-child {
+      margin-bottom: 0;
     }
 
     .pill-list {
@@ -265,9 +271,119 @@
       margin-top: 14px;
     }
 
-    .cards {
+    .how-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .how-item {
+      background: var(--white);
+      border: 1px solid rgba(16, 42, 67, 0.08);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(16, 42, 67, 0.07);
+    }
+
+    .how-item .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(143,169,154,0.18);
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .how-item h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .how-item p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.54;
+    }
+
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .about-left {
+      position: sticky;
+      top: 100px;
+    }
+
+    .about-name-block {
+      margin-bottom: 24px;
+    }
+
+    .about-name-block h2 {
+      font-size: clamp(34px, 4vw, 50px);
+      margin-bottom: 10px;
+    }
+
+    .about-title {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .cred-list {
+      display: grid;
+      gap: 14px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cred-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 15px;
+    }
+
+    .dot {
+      width: 13px;
+      height: 13px;
+      margin-top: 5px;
+      border-radius: 50%;
+      background: var(--sage);
+      box-shadow: 10px -6px 0 rgba(191, 164, 106, 0.85);
+    }
+
+    .about-body p {
+      margin: 0 0 20px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .about-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
@@ -317,21 +433,6 @@
       font-weight: 700;
     }
 
-    .coming {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(191, 164, 106, 0.16);
-      color: #7A5D17;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
     .split {
       display: grid;
       grid-template-columns: 0.92fr 1.08fr;
@@ -346,86 +447,113 @@
       padding: 34px;
     }
 
-    .panel.white {
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .contact-option {
       background: var(--white);
-    }
-
-    .list {
-      display: grid;
-      gap: 18px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .list li {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 12px;
-      align-items: start;
-    }
-
-    .dot {
-      width: 13px;
-      height: 13px;
-      margin-top: 7px;
-      border-radius: 50%;
-      background: var(--sage);
-      box-shadow: 10px -6px 0 rgba(191, 164, 106, 0.85);
-    }
-
-    .use-case-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .use-case {
-      padding: 24px;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.78);
       border: 1px solid rgba(16, 42, 67, 0.08);
-      color: var(--body);
-      min-height: 100%;
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 18px 40px rgba(16, 42, 67, 0.07);
     }
 
-    .use-case h3 {
-      font-size: 23px;
+    .contact-option h3 {
+      font-size: 22px;
       margin-bottom: 10px;
     }
 
-    .use-case p {
-      margin: 0 0 14px;
+    .contact-option p {
+      margin: 0 0 22px;
+      font-size: 15px;
+      color: var(--body);
+      line-height: 1.54;
     }
 
-    .use-case ul {
-      margin: 0;
-      padding-left: 18px;
+    .enquiry-form {
+      display: grid;
+      gap: 14px;
     }
 
-    .use-case li {
-      margin: 8px 0;
+    .form-row {
+      display: grid;
+      gap: 6px;
     }
 
-    .fit-note {
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(16, 42, 67, 0.10);
+    .form-row label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--bluecharcoal);
+      letter-spacing: 0.04em;
+    }
+
+    .form-row input,
+    .form-row textarea,
+    .form-row select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid rgba(16, 42, 67, 0.18);
+      border-radius: 12px;
+      background: var(--ivory2);
+      font-size: 15px;
+      color: var(--body);
+      font-family: inherit;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-row input:focus,
+    .form-row textarea:focus,
+    .form-row select:focus {
+      border-color: var(--sage);
+    }
+
+    .form-row textarea {
+      min-height: 100px;
+    }
+
+    .form-submit {
+      margin-top: 6px;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .form-success {
+      display: none;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: rgba(143,169,154,0.14);
       color: var(--bluecharcoal);
       font-weight: 700;
+      font-size: 15px;
     }
 
-    .kai {
+    .section-divider {
+      border: none;
+      border-top: 1px solid rgba(16, 42, 67, 0.08);
+      margin: 0;
+    }
+
+    .kai-bar {
       background: linear-gradient(135deg, var(--navy), #1B3C57);
       color: var(--white);
       border-radius: 36px;
-      padding: 52px;
+      padding: 48px 52px;
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow);
     }
 
-    .kai:after {
+    .kai-bar:after {
       content: "";
       position: absolute;
       width: 300px;
@@ -436,31 +564,27 @@
       top: -80px;
     }
 
-    .kai h2, .kai h3 {
+    .kai-bar h2, .kai-bar h3 {
       color: var(--white);
     }
 
-    .kai p {
+    .kai-bar p {
       color: rgba(255, 255, 255, 0.82);
-      max-width: 800px;
+      max-width: 700px;
+      margin: 14px 0 28px;
+      font-size: 18px;
     }
 
-    .kai .button {
+    .kai-bar .button {
       background: var(--white);
       color: var(--navy);
       box-shadow: none;
     }
 
-    .kai .button.secondary {
+    .kai-bar .button.secondary {
       background: transparent;
       color: var(--white);
       border-color: rgba(255, 255, 255, 0.34);
-    }
-
-    .founder-note {
-      background: var(--white);
-      border-top: 1px solid rgba(16, 42, 67, 0.08);
-      border-bottom: 1px solid rgba(16, 42, 67, 0.08);
     }
 
     .footer {
@@ -480,9 +604,18 @@
     @media (max-width: 920px) {
       .hero-grid,
       .split,
-      .cards,
-      .use-case-grid {
+      .how-grid,
+      .about-split,
+      .contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .about-left {
+        position: static;
       }
 
       .nav-links {
@@ -497,7 +630,7 @@
         padding: 24px;
       }
 
-      .kai {
+      .kai-bar {
         padding: 34px 26px;
       }
     }
@@ -505,10 +638,6 @@
     @media (max-width: 560px) {
       .container {
         width: min(100% - 28px, 1120px);
-      }
-      .brand-logo-svg {
-        width: 360px;
-        max-width: calc(100vw - 42px);
       }
 
       h1 {
@@ -535,11 +664,10 @@
     "@type": "Organization",
     "name": "Kindred Systems",
     "url": "https://kindredsystems.com.au/",
-    "description": "AI voice agents for calls, bookings and rebooking, plus managed AI employees for established businesses needing support across sales, marketing, research, reporting, customer support and operations.",
+    "description": "AI advisory, consulting and implementation for leaders who need someone to bridge the gap between business priorities and AI. Kindred Systems also offers productised AI solutions including AI Assistant Pro and Digital Employee Pro.",
     "brand": [
       {"@type": "Brand", "name": "AI Assistant Pro"},
-      {"@type": "Brand", "name": "Digital Employee Pro"},
-      {"@type": "Brand", "name": "AI Companion Calls"}
+      {"@type": "Brand", "name": "Digital Employee Pro"}
     ],
     "areaServed": "Australia"
   }
@@ -550,52 +678,138 @@
     <header>
       <div class="container nav">
         <a class="brand" href="#top" aria-label="Kindred Systems home">
-          <img class="brand-logo-img" src="assets/kindred-logo-header.png" alt="Kindred Systems. AI workers for business, voice and companion support" />
+          <img class="brand-logo-img" src="assets/kindred-logo-header.png" alt="Kindred Systems. AI advisory, consulting and implementation." />
         </a>
         <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#advisory">Advisory</a>
+          <a href="#about">About</a>
           <a href="#products">Products</a>
-          <a href="#growth">Growth lens</a>
-          <a href="#kai">Talk to Kai</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <main id="top">
+
+      <!-- HERO -->
       <section class="hero">
         <div class="container hero-grid">
           <div>
             <div class="eyebrow">Kindred Systems</div>
-            <h1>AI workers matched to the work that makes money, saves money or brings customers back.</h1>
-            <p class="lead">Kindred Systems builds commercial AI support in two lanes: natural-sounding voice agents for phone calls, bookings, callbacks and rebooking, and managed AI employee systems for established businesses that need work done across sales, marketing, research, reporting, customer support and operations. We identify where a business is losing time, money or opportunity, then build the AI worker that makes commercial sense.</p>
+            <h1>AI strategy and implementation for leaders who need to close the gap.</h1>
+            <p class="lead">AI is moving quickly. Leaders know something needs to change but are unsure where to start, what to prioritise or how to connect the business priorities to the actual work. Kindred Systems helps you cut through that.</p>
             <div class="hero-actions">
-              <a class="button" href="#kai">Talk to Kai, our AI Growth Advisor</a>
-              <a class="button secondary" href="#products">See the AI worker options</a>
+              <a class="button" href="#contact">Book a call</a>
+              <a class="button secondary" href="#advisory">How it works</a>
             </div>
           </div>
-          <aside class="proof-card" aria-label="Kindred Systems commercial approach">
-            <h3>Built with commercial judgement, not AI novelty.</h3>
-            <p>Kindred Systems was founded by a marketing and business growth specialist with more than 20 years of experience, including building, scaling and selling a service business.</p>
-            <p>The commercial lens comes first: revenue, margin, follow-up, customer experience and operational drag guide the AI worker we build.</p>
-            <div class="pill-list" aria-label="Kindred Systems focus areas">
-              <span class="pill">Calls answered</span>
-              <span class="pill">Leads called back</span>
-              <span class="pill">Customers rebooked</span>
-              <span class="pill">Operations supported</span>
+          <aside class="proof-card" aria-label="Kindred Systems approach">
+            <h3>Commercial first, not technology first.</h3>
+            <p>The starting point is always the business: where customers or information get stuck, which outcomes need to improve, what the team can realistically adopt.</p>
+            <p>The answer may be an agent, a better workflow, connected systems or better use of what you already have. Kindred Systems maps it before anyone builds it.</p>
+            <div class="pill-list">
+              <span class="pill">AI advisory</span>
+              <span class="pill">Use case mapping</span>
+              <span class="pill">Solution design</span>
+              <span class="pill">Implementation</span>
+              <span class="pill">Productised AI services</span>
             </div>
           </aside>
         </div>
       </section>
 
+      <hr class="section-divider" />
+
+      <!-- ADVISORY -->
+      <section id="advisory">
+        <div class="container">
+          <div class="section-intro">
+            <div class="eyebrow">Advisory and consulting</div>
+            <h2>Turning business priorities into a clear AI plan.</h2>
+            <p>Most AI problems are not technology problems. They are clarity problems: leaders do not have someone who can look at the business, understand the operations, and translate that into a sequenced plan that a technical team can execute, or that Kindred Systems can build.</p>
+            <p>That is the gap Kindred Systems fills.</p>
+          </div>
+
+          <div class="how-grid">
+            <div class="how-item">
+              <div class="step-num">1</div>
+              <h3>Understand the business</h3>
+              <p>Goals, existing systems, data, roles, customer experience, and constraints around governance and adoption. No prescribed tool or number of agents before this is done.</p>
+            </div>
+            <div class="how-item">
+              <div class="step-num">2</div>
+              <h3>Map the use cases</h3>
+              <p>Identify where money, time or customer experience is being lost. Prioritise the opportunities with the strongest commercial case and the clearest path to implementation.</p>
+            </div>
+            <div class="how-item">
+              <div class="step-num">3</div>
+              <h3>Define and deliver</h3>
+              <p>Translate business needs into clear requirements. Organisations with internal technical teams get a plan they can execute. Smaller businesses can engage Kindred Systems to build and manage it.</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 40px;">
+            <div class="panel" style="max-width: 860px;">
+              <p style="margin:0; font-size: 18px; line-height: 1.6;"><strong>Advisory engagements</strong> suit organisations with internal technology teams who need someone to define priorities, map use cases and translate business needs into requirements. <strong>Implementation engagements</strong> suit smaller businesses that want Kindred Systems to design, build and manage selected solutions. Both draw on the same commercial lens.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container about-split">
+          <div class="about-left">
+            <div class="about-name-block">
+              <div class="eyebrow">About</div>
+              <h2>Cathryn, Founder</h2>
+              <p class="about-title">AI Growth &amp; Implementation Advisor</p>
+            </div>
+            <ul class="cred-list">
+              <li><span class="dot"></span><span>20+ years across marketing, sales, customer experience, CRM and growth</span></li>
+              <li><span class="dot"></span><span>Founded, scaled and exited an international business after 400% revenue growth in two years</span></li>
+              <li><span class="dot"></span><span>Hands-on AI implementation: agents, voice systems, automation, customer journeys, payment and delivery workflows</span></li>
+              <li><span class="dot"></span><span>Bachelor of Business (Communications), QUT</span></li>
+              <li><span class="dot"></span><span>Based in Brisbane, Queensland</span></li>
+            </ul>
+            <div class="tech-pills">
+              <span class="pill">Claude</span>
+              <span class="pill">ChatGPT</span>
+              <span class="pill">Vapi</span>
+              <span class="pill">Twilio</span>
+              <span class="pill">GitHub</span>
+              <span class="pill">Vercel</span>
+              <span class="pill">Stripe</span>
+              <span class="pill">Supabase</span>
+              <span class="pill">Loops</span>
+              <span class="pill">Power Platform</span>
+              <span class="pill">Copilot Studio</span>
+            </div>
+          </div>
+          <div class="about-body">
+            <p>My background is commercial, not purely technical. For 20 years I worked across marketing, sales, customer experience, CRM, communications and growth. Marketing and acquisition are areas of deep experience, but I also look at the full customer journey: from first contact through service delivery, retention and referral, and the operations behind it.</p>
+            <p>I founded and scaled an international business, building its offer, marketing engine, sales process and delivery team. When the market changed during COVID, I repositioned the business, contributing to 400% revenue growth over two years. I led 21 people and later exited through acquisition.</p>
+            <p>That experience shapes how I approach AI. I do not start with a favourite tool or a prescribed number of agents. I start with goals, existing systems, data, team roles, customer experience and the constraints around governance and adoption. Then I work out what actually needs to change and in what order.</p>
+            <p>Through Kindred Systems, I work across advisory, solution design and implementation. I also created AI Assistant Pro and Digital Employee Pro as productised services for businesses that want a managed, done-for-you option.</p>
+            <p>I work best with founders and leadership teams who want someone who can see the wider business context and help move the right work forward.</p>
+            <div style="margin-top: 28px;">
+              <a class="button secondary" href="https://www.linkedin.com/in/cathryn-mora/" target="_blank" rel="noopener">View LinkedIn profile</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- PRODUCTS -->
       <section id="products">
         <div class="container">
           <div class="section-intro">
-            <div class="eyebrow">Product fit</div>
-            <h2>Different businesses need different AI workers.</h2>
-            <p>AI Assistant Pro and Digital Employee Pro are built for different buyers, different budgets and different commercial problems.</p>
-            <p>AI Assistant Pro is for small service businesses that need natural-sounding AI voice agents on the phone. The agent can answer calls, call leads back, speak with customers, book appointments, rebook past customers and escalate calls when a person needs to step in.</p>
-            <p>Digital Employee Pro is for established businesses that need multiple AI agents managed as one AI employee system across sales, marketing, research, reporting, customer support, documents, CRM and internal operations.</p>
-            <p>A pest control operator who needs annual rebooking calls is not the same buyer as an established firm that wants managed AI support across several parts of the business. Kindred Systems identifies where money, time or opportunity is being lost, then recommends the AI worker that makes commercial sense.</p>
+            <div class="eyebrow">Productised services</div>
+            <h2>AI Assistant Pro and Digital Employee Pro.</h2>
+            <p>For businesses that want a built, managed and ongoing AI solution rather than a consulting engagement, Kindred Systems offers two productised services. Both are designed, implemented and managed by Kindred Systems.</p>
           </div>
 
           <div class="cards">
@@ -603,141 +817,105 @@
               <span class="label">Natural-sounding voice agents</span>
               <h3>AI Assistant Pro</h3>
               <p>AI Assistant Pro is a voice-agent product for sole operators, tradies, clinics and small family-run service businesses that need phone conversations handled properly.</p>
-              <p>The missed-call setup is a voice agent that answers or calls back, has a natural conversation, makes an appointment or transfers/escalates when needed. Rebooking and reactivation agents stay voice-led, with extra capability to work from customer records or calendars, identify people due for service, send email or SMS where useful, then call to book.</p>
-              <p>Clients can choose the accent and speaking style, so the voice suits the business rather than sounding like a generic call centre bot.</p>
-              <p class="price-note">Usually a setup fee, then around A$295 to A$795/month (approx US$210 to US$565/month).</p>
-              <p class="so-that">More phone conversations, web enquiries and past customers become booked work, without the owner or their partner chasing every call, diary gap or reminder manually.</p>
+              <p>The missed-call setup answers or calls back, has a natural conversation, makes an appointment or transfers when needed. Rebooking and reactivation agents can work from customer records or calendars, identify people due for service, send email or SMS where useful, then call to book.</p>
+              <p>Clients choose the accent and speaking style so the voice suits the business, not a generic call centre.</p>
+              <p class="price-note">Usually a setup fee, then around A$295 to A$795 per month.</p>
+              <p class="so-that">More phone conversations, web enquiries and past customers become booked work, without the owner chasing every call, diary gap or reminder manually.</p>
             </article>
 
             <article class="card">
               <span class="label">Managed AI employee systems</span>
               <h3>Digital Employee Pro</h3>
-              <p>Digital Employee Pro gives established businesses multiple agents, managed as one AI employee system.</p>
-              <p>These agents usually work across desktop and business systems rather than on the phone: sales, marketing, research, reporting, customer support, document handling, CRM tasks and internal operations.</p>
-              <p>A voice agent can be added where it makes sense, but the main offer is a managed AI working layer across the business.</p>
-              <p class="price-note">Premium engagements are scoped around the commercial value of the work, with monthly retainers up to around A$5,000/month (approx US$3,550/month).</p>
-              <p class="so-that">More valuable work gets done across the business, without hiring another person for every operational gap or expecting the leadership team to manage AI tools, models and maintenance themselves.</p>
-            </article>
-
-            <article class="card">
-              <span class="coming">Coming soon</span>
-              <h3>AI Companion Calls</h3>
-              <p>AI Companion Calls will offer friendly AI phone conversations for people who would value regular connection between real-world conversations.</p>
-              <p>The service will be transparent that it is AI, encourage real-world connection, and include safeguards around privacy, dependency and concerning conversations.</p>
-              <p class="so-that">A warm, respectful AI conversation option for people who may have fewer daily conversations than they need, without pretending AI replaces family, friends or community.</p>
+              <p>Digital Employee Pro gives established businesses multiple agents, managed as one AI employee system across sales, marketing, research, reporting, customer support, document handling, CRM tasks and internal operations.</p>
+              <p>A voice agent can be added where the business case supports it, but the main offer is a managed AI working layer that knows the business and improves over time.</p>
+              <p class="price-note">Premium engagements are scoped around commercial value, with monthly retainers up to around A$5,000 per month.</p>
+              <p class="so-that">More valuable work gets done across the business, without hiring another person for every operational gap or expecting leadership to manage AI tools and maintenance themselves.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="growth">
-        <div class="container split">
-          <div class="section-intro">
-            <div class="eyebrow">Commercial lens</div>
-            <h2>Kindred Systems starts with the business problem.</h2>
-          </div>
-          <div>
-            <p>Some businesses lose money when the phone rings while the owner is on the tools, in appointments or driving between jobs. Some pay for ads or website traffic, then let form enquiries sit too long. Some have past customers who should be booked again, but nobody has time to chase the reminders.</p>
-            <p>AI Assistant Pro solves those problems with voice agents. The agent speaks to people, answers questions from the approved business information, books appointments, transfers urgent calls and can call past customers when they are due for another service.</p>
-            <p>Established firms usually have a different problem. Valuable work sits in inboxes, CRMs, documents, meeting notes, reports, support queues and people's heads. Digital Employee Pro solves that with managed AI agents that work across software, documents and workflows.</p>
-            <p><strong>Kindred Systems looks for the work that affects revenue, margin, follow-up, customer experience or operational drag, then builds the AI worker around the commercial result.</strong></p>
-          </div>
-        </div>
-      </section>
+      <hr class="section-divider" />
 
-      <section>
-        <div class="container split">
-          <div class="panel">
-            <h2>Product fit in plain English.</h2>
-            <p>A small service business should not be sold a complex managed AI employee when it needs a natural-sounding voice agent to answer calls, call leads back, book appointments or rebook annual customers.</p>
-            <p>An established firm should not be limited to a basic phone agent when the bigger opportunity sits across sales operations, marketing operations, customer support, document work, reporting or internal workflows.</p>
-          </div>
-          <div class="use-case-grid" aria-label="Product fit examples">
-            <div class="use-case">
-              <h3>AI Assistant Pro</h3>
-              <p>Best for sole operators, family-run and appointment-based service businesses where the return comes from phone conversations becoming booked work.</p>
-              <p>Think: the owner on the tools, in appointments or driving between jobs, while their partner is also trying to manage calls, reminders and diary gaps around their own work and life. AI Assistant Pro gives that business a voice agent that can speak to callers naturally, book, rebook or escalate.</p>
-              <ul>
-                <li>Pest control annual reminders and rebooking</li>
-                <li>Air conditioning servicing and seasonal callbacks</li>
-                <li>Cleaning, pool, garden and maintenance services</li>
-                <li>Dental, skin, wellness and appointment businesses</li>
-                <li>Trades, urgent calls, quote requests and website leads</li>
-              </ul>
-              <p class="fit-note">The return comes from more phone calls, form enquiries and past customers becoming booked work at a price that makes sense for a smaller business.</p>
-            </div>
-            <div class="use-case">
-              <h3>Digital Employee Pro</h3>
-              <p>Best for established businesses where the value sits across complex workflows, executive leverage, sales operations, marketing operations, customer knowledge, reporting or internal systems. It is not voice-first, although a voice agent can be added if the business case is strong.</p>
-              <ul>
-                <li>Law firms, insurance brokers and professional services firms with document-heavy workflows</li>
-                <li>Agencies, consultants and B2B service businesses with recurring delivery, client reporting or sales operations</li>
-                <li>Publishing, education or advisory businesses with enquiry-to-sale processes and repeatable fulfilment work</li>
-                <li>Real estate, finance, property and B2B firms with research, CRM, proposal or account-management workflows</li>
-                <li>Manufacturers, wholesalers and established teams needing AI support across sales, marketing, research, reporting, customer support or operations</li>
-              </ul>
-              <p class="fit-note">The return comes from managed AI employees that know the business, work across its tools and improve over time, where the value can justify a higher monthly investment.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <!-- KAI -->
       <section id="kai">
         <div class="container">
-          <div class="kai">
-            <div class="eyebrow" style="color: rgba(255,255,255,0.88);">Try the experience</div>
-            <h2>Talk to Kai from Kindred Systems.</h2>
-            <p>Kai is the Kindred Systems AI Growth Advisor. Kai asks about your business, how enquiries come in, where follow-up falls over, whether customers come back regularly and which operational tasks keep slipping.</p>
-            <p>The conversation helps identify whether your best starting point is call answering, instant callback, rebooking, sales follow-up, marketing support or a managed AI employee.</p>
+          <div class="kai-bar">
+            <div class="eyebrow" style="color: rgba(255,255,255,0.78);">Not sure where to start?</div>
+            <h2>Talk to Kai, our AI Growth Advisor.</h2>
+            <p>Kai asks about your business: how enquiries come in, where follow-up falls over, whether customers come back regularly and which operational tasks keep slipping. The conversation helps clarify whether advisory, a productised service or a specific use case is the right starting point.</p>
             <div class="hero-actions">
               <a class="button" href="#contact">Talk to Kai</a>
-              <a class="button secondary" href="#contact">Ask about a specific use case</a>
+              <a class="button secondary" href="#contact">Send an enquiry instead</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="founder-note">
-        <div class="container split">
-          <div class="section-intro">
-            <h2>AI changes the economics of work. We are honest about that.</h2>
-          </div>
-          <div>
-            <p>Some businesses use AI because they are not ready to hire. Some use it because the next hire does not yet make financial sense. Some use it because calls, reminders, admin and follow-up already cost money when they are missed.</p>
-            <p>Kindred Systems builds AI workers for work that can now be handled another way, while leaving people for judgement, relationships, leadership and the work that genuinely needs a human.</p>
-            <p><strong>The aim is a stronger business: more money made, less money wasted and fewer opportunities missed.</strong></p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="container split">
-          <div class="section-intro">
-            <h2>Common names for this work.</h2>
-          </div>
-          <div class="search-terms">
-            <p>Some people search for an <strong>AI receptionist for small business</strong>, an <strong>AI phone answering service</strong>, an <strong>AI voice agent</strong>, an <strong>AI appointment booking agent</strong>, an <strong>instant lead callback system</strong>, an <strong>AI rebooking agent</strong>, a <strong>digital employee</strong>, a <strong>managed AI worker</strong> or <strong>AI companion calls</strong>. Kindred Systems connects the language to the business outcome: phone conversations handled, leads called back, customers rebooked, work completed and less avoidable cost.</p>
-          </div>
-        </div>
-      </section>
-
+      <!-- CONTACT -->
       <section id="contact">
         <div class="container">
           <div class="section-intro">
+            <div class="eyebrow">Get in touch</div>
             <h2>Start with the problem worth solving.</h2>
-            <p>A business does not need the biggest AI system. It needs the AI worker most likely to make money, save money or bring customers back.</p>
+            <p>Some people prefer to talk it through. Others prefer to put something in writing first. Both work.</p>
           </div>
-          <div class="hero-actions">
-            <a class="button" href="mailto:hello@kindredsystems.com.au?subject=AI%20worker%20use%20case">Email Kindred Systems</a>
-            <a class="button secondary" href="#products">Review the product lines</a>
+
+          <div class="contact-grid">
+            <div class="contact-option">
+              <h3>Book a call</h3>
+              <p>Prefer to have a conversation? Book a time directly and we will talk through where the business is, what you are trying to achieve and whether Kindred Systems is a fit.</p>
+              <a class="button" href="https://tidycal.com/kindredsystems/aap-cathryn-intro" target="_blank" rel="noopener" style="width: 100%; justify-content: center;">Book a call</a>
+              <p class="form-note" style="margin-top: 14px;">Pick a time that works and we will confirm it.</p>
+            </div>
+
+            <div class="contact-option">
+              <h3>Send an enquiry</h3>
+              <p>Tell us a bit about your business and what you are trying to solve. We will review it and come back to you directly.</p>
+              <form class="enquiry-form" id="enquiryForm" action="https://splitforms.com/api/submit" method="POST">
+                <input type="hidden" name="access_key" value="8ef19dd493c548d0b485d37ea6fe109f" />
+                <div class="form-row">
+                  <label for="name">Your name</label>
+                  <input type="text" id="name" name="name" placeholder="Name" required />
+                </div>
+                <div class="form-row">
+                  <label for="email">Email address</label>
+                  <input type="email" id="email" name="email" placeholder="you@yourcompany.com" required />
+                </div>
+                <div class="form-row">
+                  <label for="business">Business or organisation</label>
+                  <input type="text" id="business" name="business" placeholder="Business name" />
+                </div>
+                <div class="form-row">
+                  <label for="interest">What are you looking for?</label>
+                  <select id="interest" name="interest">
+                    <option value="">Select one</option>
+                    <option value="Advisory or consulting">Advisory or consulting</option>
+                    <option value="AI Assistant Pro">AI Assistant Pro (voice agents)</option>
+                    <option value="Digital Employee Pro">Digital Employee Pro (managed AI)</option>
+                    <option value="Not sure yet">Not sure yet</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="message">What are you trying to solve?</label>
+                  <textarea id="message" name="message" placeholder="Brief description of the problem or what you want to improve"></textarea>
+                </div>
+                <div class="form-submit">
+                  <button type="submit" class="button" style="width: 100%; justify-content: center; cursor: pointer; font-family: inherit;">Send enquiry</button>
+                </div>
+                <p class="form-note">We review all enquiries and respond within one business day.</p>
+              </form>
+              <div class="form-success" id="formSuccess">Thanks, we have received your enquiry and will be in touch shortly.</div>
+            </div>
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="footer">
       <div class="container footer-row">
-        <div>© <span id="year"></span> Kindred Systems. AI workers for calls, growth, business operations and companion support.</div>
+        <div>&copy; <span id="year"></span> Kindred Systems. AI advisory, consulting and implementation for business.</div>
         <div>Kindred Systems is transparent about AI use, privacy and responsible implementation.</div>
       </div>
     </footer>
@@ -745,6 +923,30 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('enquiryForm');
+    const success = document.getElementById('formSuccess');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+          } else {
+            alert('Something went wrong. Please email us at info@kindredsystems.com.au');
+          }
+        } catch(err) {
+          alert('Something went wrong. Please email us at info@kindredsystems.com.au');
+        }
+      });
+    }
   </script>
 </body>
 </html>
