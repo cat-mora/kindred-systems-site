@@ -1,0 +1,33 @@
+name: Code Check
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for broken HTML
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: .
+          css: true
+        continue-on-error: true
+
+      - name: Check for large files (>1MB)
+        run: |
+          echo "Checking for unexpectedly large files..."
+          find . -not -path './.git/*' -size +1M -exec echo "WARNING: Large file found: {}" \;
+
+      - name: Check for common issues
+        run: |
+          echo "Checking for TODO/FIXME/console.log markers..."
+          grep -rn --include="*.js" --include="*.html" "console\.log" . && echo "WARNING: console.log found" || echo "No console.log found"
+          grep -rn --include="*.html" --include="*.js" "TODO\|FIXME\|HACK" . && echo "WARNING: TODO/FIXME/HACK markers found" || echo "No TODO/FIXME/HACK markers found"
+          echo "All checks complete."
