@@ -10,6 +10,16 @@ Kindred Systems builds AI workers for commercial and human connection use cases,
 
 The website is currently a static HTML site deployed through Vercel.
 
+## Project Docs
+
+Cross-business platform documentation lives in `/project-docs/`:
+
+- [`project-docs/tidycal.md`](project-docs/tidycal.md) — TidyCal booking platform setup, all business URLs, naming convention, scalability plan
+
+Business-specific documentation lives in each product repo's own `/project-docs/` folder.
+
+---
+
 ## Purpose of this site
 
 This is the parent-company credibility site, not the full sales page for each product.
@@ -24,6 +34,18 @@ It should help visitors understand:
 - that the company is being built as a serious, scalable and transferable business asset
 
 This site will often be used from LinkedIn, early sales conversations, partner discussions and business profile links. It should look credible, commercially sharp and clear.
+
+## Platform Tools (shared across all businesses)
+
+| Tool | Purpose | Account | Status |
+|---|---|---|---|
+| TidyCal Agency | Booking pages for all businesses | kindredsystems slug | ✅ Live — see project-docs/tidycal.md |
+| Google Workspace | Email for all businesses | Kindred Systems account | ✅ Active |
+| Vercel | Hosting for all websites | kindred-systems-team | ✅ Active |
+| GitHub | Code repos for all sites | cat-mora | ✅ Active |
+| Canva | Brand assets for all businesses | Cathryn's account | ✅ Active |
+
+---
 
 ## Current file structure
 
@@ -42,6 +64,8 @@ assets/
   android-chrome-512.png
   social-share.png
   site.webmanifest
+project-docs/
+  tidycal.md
 README.md
 ```
 
@@ -128,11 +152,11 @@ Do not use:
 
 - em dashes
 - exaggerated claims
-- vague AI phrases such as “unlock”, “elevate”, “seamless”, “game-changing”, “empower” or “transform”
-- passive phrases such as “the first job is...”
-- “that matters because...”
-- “it’s not just X, it’s Y”
-- overused phrases such as “AI-powered solutions” or “tailored solutions”
+- vague AI phrases such as "unlock", "elevate", "seamless", "game-changing", "empower" or "transform"
+- passive phrases such as "the first job is..."
+- "that matters because..."
+- "it's not just X, it's Y"
+- overused phrases such as "AI-powered solutions" or "tailored solutions"
 
 Prefer direct wording that names the buyer, the problem and the commercial outcome.
 
@@ -273,4 +297,3 @@ Likely next updates:
 Keep the site simple and static unless there is a clear reason to add complexity.
 
 This company is being built as a transferable business asset. Clean files, clear decisions and documented processes matter.
-
