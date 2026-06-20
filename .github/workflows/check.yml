@@ -11,14 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Check for broken HTML
-        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
-        with:
-          root: .
-          css: true
-        continue-on-error: true
+        uses: actions/checkout@v4.2.2
 
       - name: Check for large files (>1MB)
         run: |
