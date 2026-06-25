@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Kindred Systems</title>
+  <meta name="description" content="Kindred Systems is an AI advisory and solutions business founded by Cathryn Mora. Commercial experience first. AI capability built on top." />
+  <link rel="canonical" href="https://kindredsystems.com.au/about/" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta property="og:title" content="About | Kindred Systems" />
+  <meta property="og:description" content="Kindred Systems is an AI advisory and solutions business founded by Cathryn Mora. Commercial experience first. AI capability built on top." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kindredsystems.com.au/about/" />
+  <meta property="og:image" content="https://kindredsystems.com.au/assets/ks_social-share.jpg?v=2" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://kindredsystems.com.au/about/#webpage",
+        "url": "https://kindredsystems.com.au/about/",
+        "name": "About | Kindred Systems",
+        "isPartOf": { "@id": "https://kindredsystems.com.au/#org" },
+        "about": { "@id": "https://kindredsystems.com.au/#org" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kindredsystems.com.au/" },
+            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://kindredsystems.com.au/about/" }
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://kindredsystems.com.au/about/#cathryn",
+        "name": "Cathryn Mora",
+        "jobTitle": "Founder",
+        "worksFor": { "@id": "https://kindredsystems.com.au/#org" },
+        "url": "https://kindredsystems.com.au/about/",
+        "description": "20+ years across marketing, sales, customer experience, CRM and growth. Founded and exited an international business. Hands-on AI systems built and deployed.",
+        "knowsAbout": ["AI strategy", "AI implementation", "voice agents", "automation", "commercial operations", "customer experience"],
+        "alumniOf": { "@type": "EducationalOrganization", "name": "Queensland University of Technology" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressRegion": "QLD", "addressCountry": "AU" }
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --navy: #102A43;
+      --bluecharcoal: #183247;
+      --charcoal: #252A2D;
+      --body: #3F474A;
+      --muted: #66706D;
+      --sage: #8FA99A;
+      --brass: #BFA46A;
+      --ivory: #F7F1E6;
+      --ivory2: #FBF8F1;
+      --stone: #E7E1D6;
+      --white: #FFFFFF;
+      --shadow: 0 24px 70px rgba(16, 42, 67, 0.10);
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--body);
+      background: var(--ivory2);
+      line-height: 1.58;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* ── NAV ── */
+    header {
+      padding: 20px 0;
+      background: rgba(251, 248, 241, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(16, 42, 67, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo-img {
+      display: block;
+      width: 420px;
+      max-width: min(420px, calc(100vw - 120px));
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--bluecharcoal);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--bluecharcoal);
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--brass); }
+    .nav-links a.active { color: var(--brass); font-weight: 700; }
+
+    .nav-cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 10px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .nav-cta:hover { background: var(--bluecharcoal); color: var(--white) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 110;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ivory2);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover { color: var(--brass); }
+
+    .mobile-menu .mobile-cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 16px 40px;
+      border-radius: 100px;
+      font-size: 18px;
+      margin-top: 8px;
+    }
+
+    /* ── BUTTONS ── */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.18s;
+      cursor: pointer;
+      white-space: nowrap;
+      background: var(--navy);
+      color: var(--white);
+      border: 2px solid var(--navy);
+    }
+
+    .button:hover { background: var(--bluecharcoal); border-color: var(--bluecharcoal); }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .button.secondary:hover { background: var(--navy); color: var(--white); }
+
+    /* ── SHARED ── */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--brass);
+      flex-shrink: 0;
+    }
+
+    section { padding: 72px 0; }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--stone);
+      margin: 0;
+    }
+
+    h1 { font-size: clamp(30px, 4.5vw, 50px); font-weight: 800; line-height: 1.1; letter-spacing: -1.2px; color: var(--navy); margin: 0 0 22px; }
+    h2 { font-size: clamp(24px, 3.2vw, 38px); font-weight: 700; line-height: 1.15; letter-spacing: -0.8px; color: var(--navy); margin: 0 0 18px; }
+    h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 0 0 12px; }
+
+    /* ── FOUNDER ── */
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .founder-photo {
+      width: 100%;
+      border-radius: 20px;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .founder-body p {
+      font-size: 17px;
+      line-height: 1.72;
+      color: var(--body);
+      margin: 0 0 20px;
+    }
+
+    .cred-list {
+      list-style: none;
+      padding: 0;
+      margin: 28px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cred-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .cred-list li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brass);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .tech-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+
+    .pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: var(--ivory);
+      color: var(--bluecharcoal);
+      border: 1px solid var(--stone);
+    }
+
+    /* ── KINDRED SECTION ── */
+    .kindred-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 44px;
+    }
+
+    .kindred-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .kindred-card h3 { font-size: 18px; }
+    .kindred-card p { font-size: 15px; line-height: 1.68; color: var(--body); margin: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      padding: 40px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--brass); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .founder-grid { grid-template-columns: 1fr; gap: 36px; }
+      .founder-photo { max-width: 280px; }
+      .kindred-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      section { padding: 52px 0; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+    <a href="/" onclick="closeMobile()">Home</a>
+    <a href="/advisory/" onclick="closeMobile()">Advisory</a>
+    <a href="/ai-solutions/" onclick="closeMobile()">AI Solutions</a>
+    <a href="/about/" onclick="closeMobile()">About</a>
+    <a href="/contact/" onclick="closeMobile()">Contact</a>
+    <a href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora" class="mobile-cta" target="_blank" rel="noopener">Book a call</a>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Kindred Systems home">
+        <img class="brand-logo-img" src="/assets/kindred-logo-header.png" alt="Kindred Systems" />
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="/advisory/">Advisory</a>
+        <a href="/ai-solutions/">AI Solutions</a>
+        <a href="/about/" class="active">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora" class="nav-cta" target="_blank" rel="noopener">Book a call</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- KINDRED SYSTEMS -->
+    <section>
+      <div class="container">
+        <div class="eyebrow">About Kindred Systems</div>
+        <h1>An AI advisory and solutions business built for commercial outcomes.</h1>
+        <p style="font-size: 19px; line-height: 1.65; max-width: 720px; margin: 0 0 48px; color: var(--body);">Kindred Systems works with business leaders who want to make practical AI decisions and build real capability. Not AI for its own sake. AI that makes the business more money or saves it.</p>
+
+        <div class="kindred-grid">
+          <div class="kindred-card">
+            <h3>What Kindred Systems does</h3>
+            <p>Advisory work for mid-market and enterprise businesses that need someone to sit between commercial and technical teams. Managed AI solutions for businesses that want AI built and maintained for them. Both approaches start from the same place: what does the business need to achieve?</p>
+          </div>
+          <div class="kindred-card">
+            <h3>What Kindred Systems does not do</h3>
+            <p>Generic AI training. AI for AI's sake. Enterprise-scale systems integration. Technology-first recommendations before the business problem is understood. Advisory engagements are declined where the fit is not right for both sides.</p>
+          </div>
+          <div class="kindred-card">
+            <h3>Who Kindred Systems works with</h3>
+            <p>Mid-market and enterprise leadership, operations and technical teams who need advisory support. Established businesses that want a managed AI employee system. Small service businesses that need phone conversations, bookings and follow-ups handled properly.</p>
+          </div>
+          <div class="kindred-card">
+            <h3>Where Kindred Systems is going</h3>
+            <p>Building a group of AI services and products that operate as a coherent, transferable business. Advisory work, managed AI employees, AI voice agents and, over time, software that brings these capabilities together for more businesses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- FOUNDER -->
+    <section>
+      <div class="container">
+        <div class="eyebrow">Founder</div>
+        <div class="founder-grid">
+          <div>
+            <img class="founder-photo" src="/assets/cathryn-advisory-2.jpg" alt="Cathryn Mora, Founder of Kindred Systems" />
+          </div>
+          <div class="founder-body">
+            <h2>Cathryn Mora</h2>
+            <p>My background is commercial, not purely technical. For 20 years I worked across marketing, sales, customer experience, CRM, communications and growth. The measure of success was always commercial: revenue, retention, adoption, results.</p>
+            <p>I founded and scaled an international business from the ground up, building its offer, marketing engine, sales process and delivery team. When the market changed during COVID, I repositioned the business, contributing to 400% revenue growth over two years. I led 21 people and exited through acquisition.</p>
+            <p>That experience shapes how I approach AI. I do not start with a favourite tool or a prescribed number of agents. I start with goals, existing systems, data, team roles, customer experience and the real constraints around adoption and governance. Then I work out what actually needs to change and in what order.</p>
+            <p>Through Kindred Systems, I work across advisory, solution design and hands-on AI implementation. I have built and deployed voice agents, automation workflows, lead-response systems and agent orchestration. The advisory work is grounded in what AI actually does in practice, not what vendors say it does.</p>
+
+            <ul class="cred-list">
+              <li>20+ years across marketing, sales, customer experience, CRM and growth</li>
+              <li>Founded, scaled and exited an international business after 400% revenue growth in two years</li>
+              <li>Hands-on AI implementation: voice agents, automation, agent systems, customer journeys, payment and delivery workflows</li>
+              <li>Bachelor of Business (Communications), Queensland University of Technology</li>
+              <li>Based in Brisbane, Queensland</li>
+            </ul>
+
+            <div class="tech-pills">
+              <span class="pill">AI strategy</span>
+              <span class="pill">Voice agents</span>
+              <span class="pill">Automation workflows</span>
+              <span class="pill">Agent systems</span>
+              <span class="pill">Customer journeys</span>
+              <span class="pill">Implementation advisory</span>
+              <span class="pill">Adoption planning</span>
+              <span class="pill">Commercial operations</span>
+            </div>
+
+            <div style="margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap;">
+              <a class="button" href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora" target="_blank" rel="noopener">Book a call with Cathryn</a>
+              <a class="button secondary" href="/advisory/">Explore advisory</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>&copy; <span id="year"></span> Kindred Systems. AI advisory and AI solutions for business.</div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/advisory/">Advisory</a>
+        <a href="/ai-solutions/">AI Solutions</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    }
+  </script>
+
+</body>
+</html>
