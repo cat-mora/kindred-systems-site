@@ -579,7 +579,7 @@
               <p>Because the goal was never to spend your evenings returning calls and chasing bookings.</p>
               <p>Clients choose the voice, accent and speaking style so it sounds like the business, not a call centre. The agent can call back, transfer when needed, take a message, or book directly into the calendar.</p>
               <p>Rebooking and reactivation agents work from customer records or calendars, identify people due for service, and follow up by call, SMS or email.</p>
-              <div class="solution-price">From A$295/month + setup fee &nbsp;&middot;&nbsp; Four service levels</div>
+              <div class="solution-price">From A$295/month + setup fee &nbsp;·&nbsp; Four service levels</div>
             </div>
             <div>
               <ul class="feature-list">
@@ -637,7 +637,7 @@
                 <strong>So that:</strong> more valuable work gets done across the business without hiring another person for every operational gap, or expecting leadership to manage AI tools and maintenance themselves.
               </div>
 
-              <div class="solution-price" style="margin-top: 20px;">Setup from A$2,000 &nbsp;&middot;&nbsp; Monthly retainer from A$1,500 &nbsp;&middot;&nbsp; Scoped to commercial value</div>
+              <div class="solution-price" style="margin-top: 20px;">Setup from A$2,000 &nbsp;·&nbsp; Monthly retainer from A$1,500 &nbsp;·&nbsp; Scoped to commercial value</div>
 
               <p style="font-size: 14px; color: var(--muted); margin-top: 16px; line-height: 1.6;">Digital Employee Pro is currently in late development. Businesses interested in being among the first to access it are welcome to register below or book a call to talk through what they need.</p>
             </div>
@@ -681,12 +681,12 @@
         <div class="notify-section" id="notify">
           <h2>Be among the first to access Digital Employee Pro.</h2>
           <p>Digital Employee Pro is in late development. Leave your email and we will reach out when it is ready to take on new clients. No spam, no sales sequence.</p>
-          <form class="notify-form" action="https://splitforms.com/api/submit" method="POST">
-            <input type="hidden" name="access_key" value="8ef19dd493c548d0b485d37ea6fe109f" />
-            <input type="hidden" name="subject" value="DEP interest - kindredsystems.com.au/ai-solutions" />
+          <form class="notify-form" id="notifyForm" action="https://formspree.io/f/xpqgpdzg" method="POST">
+            <input type="hidden" name="_subject" value="DEP waitlist - kindredsystems.com.au/ai-solutions" />
             <input type="email" name="email" placeholder="your@email.com" required />
             <button type="submit" class="button brass">Notify me</button>
           </form>
+          <p id="notifySuccess" style="display:none; color: rgba(255,255,255,0.85); font-size:15px; margin-top:16px;">Done. We will be in touch when Digital Employee Pro is ready.</p>
         </div>
       </div>
     </section>
@@ -720,6 +720,27 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const notifyForm = document.getElementById('notifyForm');
+    const notifySuccess = document.getElementById('notifySuccess');
+    if (notifyForm) {
+      notifyForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = new FormData(notifyForm);
+        try {
+          const res = await fetch(notifyForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+          const json = await res.json();
+          if (res.ok && json.ok) {
+            notifyForm.style.display = 'none';
+            notifySuccess.style.display = 'block';
+          } else {
+            alert('Something went wrong. Please try again.');
+          }
+        } catch(err) {
+          alert('Something went wrong. Please try again.');
+        }
+      });
+    }
 
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');

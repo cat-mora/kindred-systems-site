@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Kindred Systems</title>
+  <meta name="description" content="Get in touch with Kindred Systems. Book a call with Cathryn or send an enquiry." />
+  <link rel="canonical" href="https://kindredsystems.com.au/contact/" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta property="og:title" content="Contact | Kindred Systems" />
+  <meta property="og:description" content="Get in touch with Kindred Systems. Book a call with Cathryn or send an enquiry." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kindredsystems.com.au/contact/" />
+  <meta property="og:image" content="https://kindredsystems.com.au/assets/ks_social-share.jpg?v=2" />
+  <style>
+    :root {
+      --navy: #102A43;
+      --bluecharcoal: #183247;
+      --charcoal: #252A2D;
+      --body: #3F474A;
+      --muted: #66706D;
+      --sage: #8FA99A;
+      --brass: #BFA46A;
+      --ivory: #F7F1E6;
+      --ivory2: #FBF8F1;
+      --stone: #E7E1D6;
+      --white: #FFFFFF;
+      --shadow: 0 24px 70px rgba(16, 42, 67, 0.10);
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--body);
+      background: var(--ivory2);
+      line-height: 1.58;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    header {
+      padding: 20px 0;
+      background: rgba(251, 248, 241, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(16, 42, 67, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
+
+    .brand-logo-img {
+      display: block;
+      width: 420px;
+      max-width: min(420px, calc(100vw - 120px));
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--bluecharcoal);
+    }
+
+    .nav-links a { color: var(--bluecharcoal); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--brass); }
+    .nav-links a.active { color: var(--brass); font-weight: 700; }
+
+    .nav-cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 10px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+
+    .nav-cta:hover { background: var(--bluecharcoal); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 110;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ivory2);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 24px; font-weight: 600; color: var(--navy); }
+    .mobile-menu a:hover { color: var(--brass); }
+    .mobile-menu .mobile-cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 16px 40px;
+      border-radius: 100px;
+      font-size: 18px;
+      margin-top: 8px;
+    }
+
+    /* BUTTONS */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.18s;
+      cursor: pointer;
+      white-space: nowrap;
+      background: var(--navy);
+      color: var(--white);
+      border: 2px solid var(--navy);
+      font-family: inherit;
+    }
+
+    .button:hover { background: var(--bluecharcoal); border-color: var(--bluecharcoal); }
+
+    /* SHARED */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--brass);
+      flex-shrink: 0;
+    }
+
+    section { padding: 80px 0; }
+
+    h1 { font-size: clamp(30px, 4.5vw, 50px); font-weight: 800; line-height: 1.1; letter-spacing: -1.2px; color: var(--navy); margin: 0 0 16px; }
+    h2 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 0 0 12px; }
+
+    /* CONTACT GRID */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 44px;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px 44px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--body);
+      margin: 0 0 24px;
+    }
+
+    /* FORM */
+    .form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+
+    .form-row label { font-size: 13px; font-weight: 600; color: var(--bluecharcoal); }
+
+    .form-row input,
+    .form-row textarea {
+      padding: 11px 16px;
+      border: 1.5px solid var(--stone);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--body);
+      background: var(--ivory2);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-row input:focus,
+    .form-row textarea:focus { border-color: var(--navy); }
+
+    .form-row textarea { resize: vertical; min-height: 110px; }
+
+    .form-note { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 12px 0 0; }
+
+    .form-success {
+      display: none;
+      background: var(--ivory);
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-size: 15px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      padding: 40px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.55); }
+    .footer-links a:hover { color: var(--brass); }
+
+    /* RESPONSIVE */
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-card { padding: 28px 24px; }
+      section { padding: 56px 0; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+    <a href="/" onclick="closeMobile()">Home</a>
+    <a href="/advisory/" onclick="closeMobile()">Advisory</a>
+    <a href="/ai-solutions/" onclick="closeMobile()">AI Solutions</a>
+    <a href="/about/" onclick="closeMobile()">About</a>
+    <a href="/contact/" onclick="closeMobile()">Contact</a>
+    <a href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora" class="mobile-cta" target="_blank" rel="noopener">Book a call</a>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Kindred Systems home">
+        <img class="brand-logo-img" src="/assets/kindred-logo-header.png" alt="Kindred Systems" />
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="/advisory/">Advisory</a>
+        <a href="/ai-solutions/">AI Solutions</a>
+        <a href="/about/">About</a>
+        <a href="/contact/" class="active">Contact</a>
+        <a href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora" class="nav-cta" target="_blank" rel="noopener">Book a call</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="eyebrow">Get in touch</div>
+        <h1>Start with a conversation.</h1>
+        <p style="font-size: 18px; color: var(--body); max-width: 580px; line-height: 1.65; margin: 0;">Book a call or send a message. Either way, we will get back to you within one business day.</p>
+
+        <div class="contact-grid">
+
+          <div class="contact-card">
+            <h2>Book a call</h2>
+            <p>A 30-minute conversation to talk through your situation and whether there is a good fit. No obligation on either side.</p>
+            <a class="button" href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora" target="_blank" rel="noopener" style="width: 100%; justify-content: center;">Book a time with Cathryn</a>
+            <p class="form-note" style="margin-top: 14px;">You will receive a confirmation with a few short questions to help make the conversation useful.</p>
+          </div>
+
+          <div class="contact-card">
+            <h2>Send a message</h2>
+            <p>Prefer to write first? Tell us about your business and what you are trying to solve.</p>
+            <form id="contactForm" action="https://formspree.io/f/xpqgpdzg" method="POST">
+              <input type="hidden" name="_subject" value="Website enquiry - kindredsystems.com.au/contact" />
+              <div class="form-row">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" placeholder="Name" required />
+              </div>
+              <div class="form-row">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="you@yourcompany.com" required />
+              </div>
+              <div class="form-row">
+                <label for="message">What are you trying to solve?</label>
+                <textarea id="message" name="message" placeholder="Brief description of your situation"></textarea>
+              </div>
+              <button type="submit" class="button" style="width: 100%; justify-content: center;">Send message</button>
+              <p class="form-note">We respond within one business day.</p>
+            </form>
+            <div class="form-success" id="formSuccess">Thanks. We have received your message and will be in touch within one business day.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>&copy; <span id="year"></span> Kindred Systems. AI advisory and AI solutions for business.</div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/advisory/">Advisory</a>
+        <a href="/ai-solutions/">AI Solutions</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+          const json = await res.json();
+          if (res.ok && json.ok) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+          } else {
+            alert('Something went wrong. Please try again.');
+          }
+        } catch(err) {
+          alert('Something went wrong. Please try again.');
+        }
+      });
+    }
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    }
+  </script>
+
+</body>
+</html>
