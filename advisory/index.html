@@ -667,7 +667,7 @@
           <div class="eyebrow">Advisory &amp; Consulting</div>
           <h1>Technical capability and business direction are different things.</h1>
           <p class="lead">Many organisations have people who understand the tools and people who understand the business. What is often missing is someone who can sit between the two: translating commercial priorities into clear implementation decisions, and keeping both sides moving in the same direction.</p>
-          <p class="lead" style="margin-top: 0;">That is what this advisory work is.</p>
+          <p class="lead" style="margin-top: 0;">This is what I do.</p>
           <div class="hero-actions">
             <a class="button" href="#offers">How to work together</a>
             <a class="button secondary" href="#contact">Book a call</a>
@@ -880,8 +880,8 @@
           <div class="about-body">
             <h2 style="margin-bottom: 22px; font-size: clamp(26px, 3.5vw, 40px);">Commercial first. Always.</h2>
             <p>My background is not technical in the traditional sense. For 20 years I worked across marketing, sales, customer experience, CRM, communications and growth. The measure of success was always commercial, not technical.</p>
-            <p>I founded and scaled an international business from the ground up, contributing to significant revenue growth before exiting through acquisition. That experience shapes how I approach AI work: I do not start with a favourite tool. I start with the outcome, the team, the constraints, and the reality of what adoption actually looks like in practice.</p>
-            <p>Through Kindred Systems, I advise established businesses on AI priorities, implementation decisions and adoption. I have also built and deployed AI systems hands-on: voice agents, automation workflows, lead-response systems, agent orchestration. The advisory work is grounded in what AI actually does, not what vendors say it does.</p>
+            <p>I founded and scaled an international business from the ground up, contributing to significant revenue growth before exiting through acquisition. That experience shapes how I approach AI work: I do not start with a favourite tool. I start with the outcome, the team, the constraints, and the reality of what adoption looks like in practice.</p>
+            <p>Through Kindred Systems, I advise established businesses on AI priorities, implementation decisions and adoption. I have also built and deployed AI systems hands-on: voice agents, automation workflows, lead-response systems, agent orchestration. The advisory work is grounded in what AI can realistically do, not what vendors and hype say it does.</p>
             <p>I work best with founders, operations leaders and leadership teams who want someone who can see the full picture, ask the right questions, and help the right work get done in the right order.</p>
             <div class="cred-pills">
               <span class="pill">AI strategy</span>
@@ -955,9 +955,8 @@
           <div class="contact-option">
             <h3>Send an enquiry</h3>
             <p>Tell us about your business and what you are trying to solve. We review all enquiries and respond within one business day.</p>
-            <form class="enquiry-form" id="enquiryForm" action="https://splitforms.com/api/submit" method="POST">
-              <input type="hidden" name="access_key" value="8ef19dd493c548d0b485d37ea6fe109f" />
-              <input type="hidden" name="subject" value="Advisory enquiry - kindredsystems.com.au/advisory" />
+            <form class="enquiry-form" id="enquiryForm" action="https://formspree.io/f/xpqgpdzg" method="POST">
+              <input type="hidden" name="_subject" value="Advisory enquiry - kindredsystems.com.au/advisory" />
               <div class="form-row">
                 <label for="name">Your name</label>
                 <input type="text" id="name" name="name" placeholder="Name" required />
@@ -1020,14 +1019,15 @@
         const data = new FormData(form);
         try {
           const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-          if (res.ok) {
+          const json = await res.json();
+          if (res.ok && json.ok) {
             form.style.display = 'none';
             success.style.display = 'block';
           } else {
-            alert('Something went wrong. Please email info@kindredsystems.com.au');
+            alert('Something went wrong. Please try again or email info@kindredsystems.com.au');
           }
         } catch(err) {
-          alert('Something went wrong. Please email info@kindredsystems.com.au');
+          alert('Something went wrong. Please try again or email info@kindredsystems.com.au');
         }
       });
     }

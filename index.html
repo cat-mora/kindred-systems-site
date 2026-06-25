@@ -93,6 +93,7 @@
       margin: 0 auto;
     }
 
+    /* ── NAV ── */
     header {
       padding: 20px 0;
       background: rgba(251, 248, 241, 0.95);
@@ -156,6 +157,7 @@
 
     .nav-cta:hover { background: var(--bluecharcoal); color: var(--white) !important; }
 
+    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -213,6 +215,7 @@
       margin-top: 8px;
     }
 
+    /* ── BUTTONS ── */
     .button {
       display: inline-flex;
       align-items: center;
@@ -248,6 +251,7 @@
 
     .button.brass:hover { background: #a88d54; border-color: #a88d54; }
 
+    /* ── SHARED ── */
     .eyebrow {
       font-size: 11px;
       font-weight: 700;
@@ -281,6 +285,7 @@
     h2 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 700; line-height: 1.15; letter-spacing: -0.8px; color: var(--navy); margin: 0 0 20px; }
     h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 0 0 12px; }
 
+    /* ── HERO ── */
     .hero { padding: 80px 0 72px; }
 
     .hero-grid {
@@ -327,6 +332,7 @@
       border: 1px solid var(--stone);
     }
 
+    /* ── PATH SECTION ── */
     .paths-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -400,6 +406,7 @@
     .aap-card h3 { font-size: 18px; margin: 0 0 8px; }
     .aap-card p { font-size: 14px; line-height: 1.6; color: var(--body); margin: 0; }
 
+    /* ── ABOUT STRIP ── */
     .about-strip {
       background: var(--navy);
       border-radius: var(--radius);
@@ -436,6 +443,7 @@
       border: 1px solid rgba(255,255,255,0.15);
     }
 
+    /* ── FOOTER ── */
     footer {
       background: var(--navy);
       color: rgba(255,255,255,0.55);
@@ -464,6 +472,7 @@
 
     .footer-links a:hover { color: var(--brass); }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; gap: 36px; }
       .hero p.lead { max-width: 100%; }
@@ -487,6 +496,7 @@
 </head>
 <body>
 
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
     <a href="/advisory/" onclick="closeMobile()">Advisory</a>
     <a href="/ai-solutions/" onclick="closeMobile()">AI Solutions</a>
@@ -515,11 +525,12 @@
 
   <main>
 
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">Kindred Systems</div>
-          <h1>AI should make your business more money or save it. If it isn&rsquo;t doing either, something went wrong before the technology was chosen.</h1>
+          <h1>AI should make your business more money or save it. If it isn&rsquo;t, nobody asked the right questions first.</h1>
           <p class="lead">Most AI projects fail because the business case comes second. Kindred Systems starts the other way around: with your goals, your operations and the commercial results you need. Then we work out what AI should do and either build it or help your team do it properly.</p>
           <div class="hero-actions">
             <a class="button" href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora" target="_blank" rel="noopener">Book a call</a>
@@ -543,6 +554,7 @@
 
     <hr class="section-divider" />
 
+    <!-- PATHS -->
     <section>
       <div class="container">
         <div class="eyebrow">Where to start</div>
@@ -580,10 +592,11 @@
 
     <hr class="section-divider" />
 
+    <!-- ABOUT STRIP -->
     <section>
       <div class="container">
         <div class="about-strip">
-          <img src="/assets/cathryn.jpg" alt="Cathryn Mora, Founder of Kindred Systems" />
+          <img src="/assets/cathryn-advisory.jpg" alt="Cathryn Mora, Founder of Kindred Systems" />
           <div>
             <div class="eyebrow" style="color: rgba(191,164,106,0.9);">About Cathryn</div>
             <h2>Commercial experience first. AI capability built on top.</h2>
@@ -604,6 +617,7 @@
 
     <hr class="section-divider" />
 
+    <!-- FINAL CTA -->
     <section style="padding: 72px 0;">
       <div class="container" style="text-align: center;">
         <div class="eyebrow" style="justify-content: center;">Get started</div>
@@ -611,7 +625,7 @@
         <p style="font-size: 18px; color: var(--body); max-width: 520px; margin: 0 auto 36px; line-height: 1.65;">Book a 30-minute call to talk through your business, what you are trying to achieve, and what the right next step looks like.</p>
         <div class="hero-actions" style="justify-content: center;">
           <a class="button" href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora" target="_blank" rel="noopener">Book a call with Cathryn</a>
-          <a class="button secondary" href="/contact/">Send an enquiry</a>
+          <a class="button secondary" href="/advisory/#contact">Send an enquiry</a>
         </div>
       </div>
     </section>
