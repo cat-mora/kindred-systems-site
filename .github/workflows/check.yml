@@ -12,15 +12,105 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Prettier
+        run: npm install --global prettier
+
+      - name: Auto-fix formatting
+        run: prettier --write "**/*.html" "**/*.css" "**/*.js" --ignore-path .gitignore || true
+
+      - name: Commit fixes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet || (git add -A && git commit -m "chore: auto-fix formatting")
+
+      - name: Push fixes
+        run: git push || true
 
       - name: Check for large files (>1MB)
         run: |
-          echo "Checking for unexpectedly large files..."
           find . -not -path './.git/*' -size +1M -exec echo "WARNING: Large file found: {}" \;
 
-      - name: Check for common issues
+      - name: Check for remaining issues
+        id: issues
         run: |
-          echo "Checking for TODO/FIXME/console.log markers..."
-          grep -rn --include="*.js" --include="*.html" "console\.log" . && echo "WARNING: console.log found" || echo "No console.log found"
-          grep -rn --include="*.html" --include="*.js" "TODO\|FIXME\|HACK" . && echo "WARNING: TODO/FIXME/HACK markers found" || echo "No TODO/FIXME/HACK markers found"
-          echo "All checks complete."
+          ERRORS=""
+          CONSOLELOGS=$(grep -rn --include="*.js" --include="*.html" "console\.log" . 2>/dev/null || true)
+          MARKERS=$(grep -rn --include="*.html" --include="*.js" "TODO\|FIXME\|HACK" . 2>/dev/null || true)
+          if [ -n "$CONSOLELOGS" ]; then ERRORS="$ERRORS\nconsole.log found:\n$CONSOLELOGS"; fi
+          if [ -n "$MARKERS" ]; then ERRORS="$ERRORS\nTODO/FIXME/HACK found:\n$MARKERS"; fi
+          if [ -n "$ERRORS" ]; then
+            echo "HAS_ERRORS=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Retry check (attempt 2)
+        id: retry2
+        if: steps.issues.outputs.HAS_ERRORS == 'true'
+        run: |
+          prettier --write "**/*.html" "**/*.css" "**/*.js" --ignore-path .gitignore || true
+          git diff --quiet || (git add -A && git commit -m "chore: auto-fix formatting (retry 2)" && git push) || true
+          ERRORS=""
+          CONSOLELOGS=$(grep -rn --include="*.js" --include="*.html" "console\.log" . 2>/dev/null || true)
+          MARKERS=$(grep -rn --include="*.html" --include="*.js" "TODO\|FIXME\|HACK" . 2>/dev/null || true)
+          if [ -n "$CONSOLELOGS" ]; then ERRORS="$ERRORS console.log"; fi
+          if [ -n "$MARKERS" ]; then ERRORS="$ERRORS TODO/FIXME"; fi
+          if [ -n "$ERRORS" ]; then echo "STILL_ERRORS=true" >> $GITHUB_OUTPUT; fi
+
+      - name: Retry check (attempt 3)
+        id: retry3
+        if: steps.retry2.outputs.STILL_ERRORS == 'true'
+        run: |
+          prettier --write "**/*.html" "**/*.css" "**/*.js" --ignore-path .gitignore || true
+          git diff --quiet || (git add -A && git commit -m "chore: auto-fix formatting (retry 3)" && git push) || true
+          ERRORS=""
+          CONSOLELOGS=$(grep -rn --include="*.js" --include="*.html" "console\.log" . 2>/dev/null || true)
+          MARKERS=$(grep -rn --include="*.html" --include="*.js" "TODO\|FIXME\|HACK" . 2>/dev/null || true)
+          if [ -n "$CONSOLELOGS" ]; then ERRORS="$ERRORS console.log"; fi
+          if [ -n "$MARKERS" ]; then ERRORS="$ERRORS TODO/FIXME"; fi
+          if [ -n "$ERRORS" ]; then echo "STILL_ERRORS=true" >> $GITHUB_OUTPUT; fi
+
+      - name: Retry check (attempt 4)
+        id: retry4
+        if: steps.retry3.outputs.STILL_ERRORS == 'true'
+        run: |
+          prettier --write "**/*.html" "**/*.css" "**/*.js" --ignore-path .gitignore || true
+          git diff --quiet || (git add -A && git commit -m "chore: auto-fix formatting (retry 4)" && git push) || true
+          ERRORS=""
+          CONSOLELOGS=$(grep -rn --include="*.js" --include="*.html" "console\.log" . 2>/dev/null || true)
+          MARKERS=$(grep -rn --include="*.html" --include="*.js" "TODO\|FIXME\|HACK" . 2>/dev/null || true)
+          if [ -n "$CONSOLELOGS" ]; then ERRORS="$ERRORS console.log"; fi
+          if [ -n "$MARKERS" ]; then ERRORS="$ERRORS TODO/FIXME"; fi
+          if [ -n "$ERRORS" ]; then echo "STILL_ERRORS=true" >> $GITHUB_OUTPUT; fi
+
+      - name: Retry check (attempt 5)
+        id: retry5
+        if: steps.retry4.outputs.STILL_ERRORS == 'true'
+        run: |
+          prettier --write "**/*.html" "**/*.css" "**/*.js" --ignore-path .gitignore || true
+          git diff --quiet || (git add -A && git commit -m "chore: auto-fix formatting (retry 5)" && git push) || true
+          ERRORS=""
+          CONSOLELOGS=$(grep -rn --include="*.js" --include="*.html" "console\.log" . 2>/dev/null || true)
+          MARKERS=$(grep -rn --include="*.html" --include="*.js" "TODO\|FIXME\|HACK" . 2>/dev/null || true)
+          if [ -n "$CONSOLELOGS" ]; then ERRORS="$ERRORS console.log"; fi
+          if [ -n "$MARKERS" ]; then ERRORS="$ERRORS TODO/FIXME"; fi
+          if [ -n "$ERRORS" ]; then echo "STILL_ERRORS=true" >> $GITHUB_OUTPUT; fi
+
+      - name: Open GitHub Issue if still broken
+        if: steps.retry5.outputs.STILL_ERRORS == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[Code Check Failed] ${context.sha.substring(0,7)} — needs attention`,
+              body: `## Code check failed after 5 auto-fix attempts\n\n**Repo:** ${context.repo.repo}\n**Commit:** ${context.sha}\n**Branch:** ${context.ref}\n**Run:** ${context.runId}\n\nAuto-formatting was attempted 5 times but issues remain. Hermes: please diagnose, fix, push, and close this issue. If you cannot fix it, escalate to Cat.\n\n[View workflow run](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`
+            })
