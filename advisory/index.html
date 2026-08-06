@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Advisory | Kindred Systems</title>
+    <title>AI Business Outcomes Advisory &amp; Executive AI Sprint | Kindred Systems</title>
     <meta
       name="description"
-      content="Growth and systems advisory for established businesses. Kindred Systems helps owners and leadership teams improve growth, conversion, customer experience and team capacity, including where AI fits."
+      content="Kindred Systems helps established organisations get real results from AI: a 90-day Advisory engagement or a short Executive AI Sprint."
     />
     <link rel="canonical" href="https://kindredsystems.com.au/advisory/" />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -23,10 +23,10 @@
       href="/assets/favicon-32.png"
     />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-    <meta property="og:title" content="Advisory | Kindred Systems" />
+    <meta property="og:title" content="AI Business Outcomes Advisory & Executive AI Sprint | Kindred Systems" />
     <meta
       property="og:description"
-      content="Growth and systems advisory for established businesses."
+      content="Kindred Systems helps established organisations get real results from AI: a 90-day Advisory engagement or a short Executive AI Sprint."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kindredsystems.com.au/advisory/" />
@@ -42,7 +42,7 @@
             "@type": "WebPage",
             "@id": "https://kindredsystems.com.au/advisory/#webpage",
             "url": "https://kindredsystems.com.au/advisory/",
-            "name": "Advisory | Kindred Systems",
+            "name": "AI Business Outcomes Advisory & Executive AI Sprint | Kindred Systems",
             "isPartOf": { "@id": "https://kindredsystems.com.au/#org" },
             "breadcrumb": {
               "@type": "BreadcrumbList",
@@ -64,9 +64,9 @@
           },
           {
             "@type": "Service",
-            "name": "Growth and Systems Advisory",
+            "name": "AI Business Outcomes Advisory",
             "provider": { "@id": "https://kindredsystems.com.au/#org" },
-            "description": "Growth and systems advisory for established businesses. Discovery calls, growth and systems reviews, strategy days, implementation advisory and fractional growth and systems advice.",
+            "description": "Kindred Systems helps established organisations turn AI investment into a measurable business outcome, through a 90-day Advisory engagement or a short Executive AI Sprint.",
             "url": "https://kindredsystems.com.au/advisory/",
             "areaServed": "AU",
             "hasOfferCatalog": {
@@ -81,26 +81,14 @@
                 },
                 {
                   "@type": "Offer",
-                  "name": "Growth & Systems Review",
+                  "name": "AI Business Outcomes Advisory",
                   "price": "2500",
                   "priceCurrency": "AUD"
                 },
                 {
                   "@type": "Offer",
-                  "name": "Growth & Systems Strategy Day",
-                  "price": "3500",
-                  "priceCurrency": "AUD"
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Growth & Implementation Advisory",
-                  "price": "12500",
-                  "priceCurrency": "AUD"
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Fractional Growth & Systems Adviser",
-                  "price": "3000",
+                  "name": "Executive AI Sprint",
+                  "price": "1900",
                   "priceCurrency": "AUD"
                 }
               ]
@@ -504,8 +492,11 @@
         font-size: 17px;
         line-height: 1.68;
         color: var(--body);
-        margin: 0;
+        margin: 0 0 18px;
         max-width: 760px;
+      }
+      .ai-note p:last-child {
+        margin-bottom: 0;
       }
       .offers-grid {
         display: flex;
@@ -521,7 +512,10 @@
         display: grid;
         grid-template-columns: 1fr auto;
         gap: 32px;
-        align-items: center;
+        align-items: start;
+      }
+      .offer-card .offer-cta {
+        align-self: center;
       }
       .offer-card.featured {
         border-top: 4px solid var(--brass);
@@ -708,10 +702,66 @@
       .footer-links a:hover {
         color: var(--brass);
       }
+      .proof-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .proof-stat {
+        background: var(--white);
+        border-radius: 18px;
+        padding: 24px 26px;
+        box-shadow: 0 4px 20px rgba(16, 42, 67, 0.06);
+      }
+      .proof-stat .stat-number {
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--navy);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+      .proof-stat p {
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--body);
+        margin: 0;
+      }
+      .proof-stat .stat-source {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 8px;
+      }
+      .ladder-list {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .ladder-list li {
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--body);
+        padding-left: 20px;
+        position: relative;
+      }
+      .ladder-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--brass);
+      }
       @media (max-width: 920px) {
         .hero-inner,
         .about-grid,
-        .contact-grid {
+        .contact-grid,
+        .proof-strip {
           grid-template-columns: 1fr;
         }
         .steps-grid {
@@ -776,7 +826,7 @@
       <a href="/about/" onclick="closeMobile()">About</a>
       <a href="/contact/" onclick="closeMobile()">Contact</a>
       <a
-        href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora"
+        href="https://tidycal.com/kindredsystems/discovery-call"
         class="mobile-cta"
         target="_blank"
         rel="noopener"
@@ -798,7 +848,7 @@
           <a href="/about/">About</a>
           <a href="/contact/">Contact</a>
           <a
-            href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora"
+            href="https://tidycal.com/kindredsystems/discovery-call"
             class="nav-cta"
             target="_blank"
             rel="noopener"
@@ -821,18 +871,20 @@
         <div class="container hero-inner">
           <div>
             <div class="eyebrow">Advisory &amp; Consulting</div>
-            <h1>Growth and systems advice for established businesses.</h1>
+            <h1>
+              Two ways to make AI make you money, save you money, or both,
+              well beyond what it&rsquo;s costing you now.
+            </h1>
             <p class="lead">
-              Kindred Systems helps owners and leadership teams improve the
-              parts of the business that shape growth, conversion, customer
-              experience and team capacity. The work begins with whatever's in
-              front of you, weak lead follow-up, inconsistent customer
-              experience, or uncertainty about an AI investment, then looks at
-              the wider context: the customer journey, where handovers fail, and
-              what's likely to produce the strongest return.
+              If you&rsquo;ve already invested in AI and the results still
+              aren&rsquo;t showing up in revenue, cost or time, you don&rsquo;t
+              need another AI initiative. You need someone independent to
+              find whatever will make you money, save you money, or both,
+              then get it done with the tools you already have. That&rsquo;s
+              the whole job, delivered one of two ways below.
             </p>
             <div class="hero-actions">
-              <a class="button" href="#offers">Engagement options</a>
+              <a class="button" href="#offers">See the two ways to work together</a>
               <a class="button secondary" href="#contact">Book a call</a>
             </div>
           </div>
@@ -855,70 +907,29 @@
 
       <hr class="section-divider" />
 
-      <section>
+      <section style="padding-top: 0">
         <div class="container">
-          <div class="eyebrow">Who this is for</div>
-          <h2>This work is suited to businesses that:</h2>
-          <ul class="plain-list">
-            <li>
-              Know performance could be stronger but need a clearer view of
-              where to focus
-            </li>
-            <li>
-              Are investing in marketing, systems or technology without enough
-              return
-            </li>
-            <li>
-              Have demand but are losing opportunities through follow-up or
-              customer experience gaps
-            </li>
-            <li>Have capable teams carrying too much repetitive work</li>
-            <li>
-              Need an independent commercial perspective before committing more
-              budget
-            </li>
-            <li>
-              Want support connecting commercial, operational and technology
-              priorities
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <hr class="section-divider" />
-
-      <section>
-        <div class="container">
-          <div class="eyebrow">How Kindred works</div>
-          <h2>A practical, four-step approach.</h2>
-          <div class="steps-grid">
-            <div class="step-card">
-              <div class="step-num">01</div>
-              <h4>Understand the business</h4>
+          <div class="proof-strip">
+            <div class="proof-stat">
+              <div class="stat-number">56%</div>
               <p>
-                Current commercial position, customer journey, systems, people
-                and priorities.
+                of CEOs saw no cost or revenue benefit from a year of AI
+                spending. Only 12% got both.
               </p>
+              <span class="stat-source">PwC Global CEO Survey, 2026</span>
             </div>
-            <div class="step-card">
-              <div class="step-num">02</div>
-              <h4>Find the constraint</h4>
-              <p>Separate the symptom from what's causing it.</p>
+            <div class="proof-stat">
+              <div class="stat-number">95%</div>
+              <p>of enterprise AI pilots produced no measurable P&amp;L change.</p>
+              <span class="stat-source">MIT, 2025</span>
             </div>
-            <div class="step-card">
-              <div class="step-num">03</div>
-              <h4>Prioritise the work</h4>
+            <div class="proof-stat">
+              <div class="stat-number">2/3</div>
               <p>
-                A practical sequence based on impact, urgency and feasibility.
+                of organisations are stuck in pilots that never reach
+                production.
               </p>
-            </div>
-            <div class="step-card">
-              <div class="step-num">04</div>
-              <h4>Support delivery</h4>
-              <p>
-                Ongoing advisory, working alongside internal teams, or helping
-                find the right external capability.
-              </p>
+              <span class="stat-source">McKinsey</span>
             </div>
           </div>
         </div>
@@ -928,17 +939,80 @@
 
       <section>
         <div class="container">
-          <div class="eyebrow">AI within advisory</div>
-          <h2 style="margin-bottom: 20px">
-            Where AI fits, and what should sit around it.
-          </h2>
+          <div class="eyebrow">Sound familiar?</div>
+          <h2>What this usually looks like.</h2>
+          <ul class="plain-list">
+            <li>Nobody can tell you what the AI spend earned.</li>
+            <li>
+              Marketing&rsquo;s tried five different AI tools this year, and
+              nobody can say if any of them sold anything.
+            </li>
+            <li>The AI chatbot on the website hasn&rsquo;t moved a single sales number.</li>
+            <li>The platform everyone was excited about a year ago is gathering dust.</li>
+            <li>Nobody owns AI strategy, so it&rsquo;s stalled everywhere at once.</li>
+          </ul>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">What changes</div>
+          <h2>What working this way gets you.</h2>
+          <p
+            style="
+              margin: 16px 0 0;
+              font-size: 18px;
+              max-width: 760px;
+              color: var(--body);
+              line-height: 1.5;
+            "
+          >
+            Money made, money saved, or both, with a plain answer ready
+            whenever you need one. That&rsquo;s what both engagements below
+            are built to deliver, each working to a clearly scoped block of
+            time so the focus stays sharp and the result stays measurable.
+          </p>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">How Kindred approaches AI</div>
+          <h2 style="margin-bottom: 20px">How this gets done, in practice.</h2>
           <div class="ai-note">
             <p>
-              AI now comes up in most leadership conversations. Kindred helps
-              decide where it should sit within the wider business: the business
-              case, the workflow around it, who owns it, and the customer
-              experience it creates. For larger organisations, this can mean
-              working alongside internal technology and operations teams.
+              Every engagement starts with what you already believe you
+              need AI to do, and that&rsquo;s usually a good starting
+              brief. From there, the work is finding whatever inside that
+              brief will do the most for your cost, your revenue, or the
+              value of the business itself, using the tools you already
+              have rather than a new piece of software to buy.
+            </p>
+            <p>
+              Sometimes that&rsquo;s exactly what you expected. Sometimes
+              it becomes clear once the work is underway that the bigger
+              opportunity sits somewhere slightly different, and that gets
+              worked through together, not sprung on you afterwards. None
+              of this is improvised. I work to a proven framework built to
+              get you a result, not to keep you relying on me longer than
+              you need to.
+            </p>
+            <p>
+              What you&rsquo;re left with isn&rsquo;t a slide deck, and
+              it&rsquo;s often not something new either. More often
+              it&rsquo;s a tool or workflow you already had, finally used
+              to its full potential, because I&rsquo;ve gone looking for
+              whatever&rsquo;s most likely to move the needle fastest:
+              something that&rsquo;s worked before, or something nobody has
+              tried yet. Either way, it becomes a real asset: your own
+              people can run it and keep building on it for years after the
+              engagement ends. The point isn&rsquo;t to keep you relying on
+              me. It&rsquo;s for the result to keep growing once
+              I&rsquo;m gone.
             </p>
           </div>
         </div>
@@ -949,7 +1023,7 @@
       <section id="offers">
         <div class="container">
           <div class="eyebrow">Engagement options</div>
-          <h2>Five ways to engage.</h2>
+          <h2>Two ways to work together.</h2>
           <p
             style="
               margin: 16px 0 0;
@@ -969,11 +1043,11 @@
                 <div class="offer-num">01 &nbsp;&middot;&nbsp; ENTRY POINT</div>
                 <h3>Discovery Call</h3>
                 <div class="offer-price free">Free</div>
-                <div class="offer-format">Up to 60 minutes, one-off</div>
+                <div class="offer-format">45 minutes, one-off</div>
                 <p class="covers">
-                  A no-obligation conversation about where things stand for your
-                  business and whether a bigger engagement is the right next
-                  step.
+                  A no-obligation conversation about where things stand for
+                  your business, and whether one of the two engagements
+                  below is the right next step.
                 </p>
               </div>
               <div class="offer-cta">
@@ -983,78 +1057,109 @@
               </div>
             </div>
 
-            <div class="offer-card">
+            <div class="offer-card featured">
               <div>
                 <div class="offer-num">02</div>
-                <h3>Growth &amp; Systems Review</h3>
-                <div class="offer-price">A$2,500 + GST</div>
-                <div class="offer-format">
-                  One-off, delivered within about a week
-                </div>
+                <h3>AI Business Outcomes Advisory</h3>
+                <div class="offer-price gold">From A$2,500/month + GST</div>
+                <div class="offer-format">90-day engagement</div>
                 <p class="covers">
-                  A focused review of a specific business issue, with a clear
-                  view of what to prioritise next.
+                  You know the feeling: another AI licence renewed, another
+                  update that says things are &ldquo;progressing&rdquo;, and
+                  still nobody in the business can put a dollar figure on
+                  what any of it has earned. Ninety days in, you can.
+                  You&rsquo;ll be able to say exactly what changed, what it
+                  was worth, and why the spend was worth it, in plain terms
+                  you can put in front of anyone who asks.
+                </p>
+                <ul class="ladder-list">
+                  <li>
+                    You stop spreading budget across half-finished
+                    initiatives, because the 90 days is built around
+                    whichever one will make you the most money, save you the
+                    most money, or both.
+                  </li>
+                  <li>
+                    This is a KPI-focused process, agreed with you at the
+                    start. Your team leaves with whatever assets they
+                    actually need to keep hitting that number, not just a
+                    plan for how the 90 days began.
+                  </li>
+                  <li>
+                    You stop needing to keep paying someone, because the
+                    assets we build together stay with your people after
+                    the 90 days end, and keep working long after
+                    I&rsquo;m gone.
+                  </li>
+                  <li>
+                    You stop losing days to a question that could&rsquo;ve
+                    been answered that afternoon, because alongside the
+                    weekly sessions, you can reach me directly on any
+                    working day, not just wait for the next meeting.
+                  </li>
+                </ul>
+                <p class="covers" style="font-size: 13px; color: var(--muted)">
+                  None of this is improvised. The 90 days runs on a proven
+                  framework built to get you a result, not to keep me
+                  around longer than necessary.
                 </p>
               </div>
               <div class="offer-cta">
-                <a class="button" href="#contact">Enquire about a Review</a>
+                <a class="button brass" href="#contact"
+                  >Enquire about the Advisory</a
+                >
               </div>
             </div>
 
             <div class="offer-card">
               <div>
                 <div class="offer-num">03</div>
-                <h3>Growth &amp; Systems Strategy Day</h3>
-                <div class="offer-price">A$3,500 + GST</div>
-                <div class="offer-format">One day</div>
+                <h3>Executive AI Sprint</h3>
+                <div class="offer-price">From A$1,900/day + GST</div>
+                <div class="offer-format">Minimum 5 consecutive days</div>
                 <p class="covers">
-                  A structured working session for leadership teams to resolve a
-                  defined question or agree a plan.
+                  Built for larger organisations, where more is riding on
+                  the decision. You know how it goes at that scale:
+                  leadership needs a call defended, the numbers behind it
+                  haven&rsquo;t been independently tested, and the deadline
+                  isn&rsquo;t moving. Having someone inside the business for
+                  a defined stretch of consecutive days changes that. What
+                  goes forward is a case that&rsquo;s been pressure-tested
+                  before anyone has to defend it in the room.
+                </p>
+                <ul class="ladder-list">
+                  <li>
+                    The decision rests on evidence that&rsquo;s been
+                    pressure-tested beforehand, so it holds up when someone
+                    pushes back on it afterwards.
+                  </li>
+                  <li>
+                    You&rsquo;re not waiting a week for the next scheduled
+                    call to get an answer. A question raised on day one
+                    gets resolved by day two, while the evidence is still
+                    fresh and the right people are still in the room.
+                  </li>
+                  <li>
+                    What&rsquo;s been assumed internally gets checked
+                    before it goes to whoever signs off, so nobody&rsquo;s
+                    putting their name to a number that turns out to be
+                    wrong.
+                  </li>
+                  <li>
+                    The findings and the assets go to your own team, so
+                    you&rsquo;re not paying an outside firm to keep holding
+                    knowledge about your own business.
+                  </li>
+                </ul>
+                <p class="covers" style="font-size: 13px; color: var(--muted)">
+                  Delivered over a consecutive stretch of days or weeks. For
+                  Brisbane-based clients, this can be delivered in person.
+                  For larger delivery requirements, Kindred Systems can
+                  partner with an advisory firm to scale the work.
                 </p>
               </div>
               <div class="offer-cta">
-                <a class="button" href="#contact"
-                  >Enquire about a Strategy Day</a
-                >
-              </div>
-            </div>
-
-            <div class="offer-card featured">
-              <div>
-                <div class="offer-num">04</div>
-                <h3>Growth &amp; Implementation Advisory</h3>
-                <div class="offer-price gold">From A$12,500 + GST</div>
-                <div class="offer-format">
-                  Typically 5 to 10 days across 2 to 4 weeks
-                </div>
-                <p class="covers">
-                  Strategic support for a significant change, defining
-                  priorities, bringing the right people in, and keeping delivery
-                  tied to the commercial outcome.
-                </p>
-              </div>
-              <div class="offer-cta">
-                <a class="button brass" href="#contact"
-                  >Enquire about Advisory</a
-                >
-              </div>
-            </div>
-
-            <div class="offer-card">
-              <div>
-                <div class="offer-num">05</div>
-                <h3>Fractional Growth &amp; Systems Adviser</h3>
-                <div class="offer-price">From A$3,000/month + GST</div>
-                <div class="offer-format">Ongoing, month to month</div>
-                <p class="covers">
-                  Ongoing advisory support for businesses that want continuity
-                  and a commercially grounded outside view on a regular basis.
-                </p>
-              </div>
-              <div class="offer-cta">
-                <a class="button" href="#contact"
-                  >Enquire about Fractional Advisory</a
-                >
+                <a class="button" href="#contact">Enquire about the Sprint</a>
               </div>
             </div>
           </div>
@@ -1080,8 +1185,10 @@
               <p>
                 My background is not technical in the traditional sense. For 20
                 years I worked across marketing, sales, customer experience,
-                CRM, communications and growth. The measure of success was
-                always commercial, not technical.
+                CRM, communications, growth and commercial operations, in
+                both bricks-and-mortar and online businesses, agencies,
+                not-for-profits and my own company. The measure of success
+                was always commercial, not technical.
               </p>
               <p>
                 I founded and scaled an international business from the ground
@@ -1167,11 +1274,11 @@
               </p>
             </div>
             <div class="know-item">
-              <h4>Retainer capacity</h4>
+              <h4>Advisory capacity</h4>
               <p>
-                Fractional Growth &amp; Systems Adviser slots are limited.
-                Unused monthly capacity does not roll forward. Retained clients
-                receive priority access for time-sensitive questions.
+                AI Business Outcomes Advisory slots are limited to keep each
+                90-day engagement well resourced. Enquire early if your
+                timeline is fixed, such as a board date or budget cycle.
               </p>
             </div>
           </div>
@@ -1183,7 +1290,10 @@
       <section id="contact">
         <div class="container">
           <div class="eyebrow">Get in touch</div>
-          <h2>Start with the problem worth solving.</h2>
+          <h2>
+            Have you invested in AI and need help getting a measurable return
+            from it?
+          </h2>
           <p
             style="
               margin: 14px 0 0;
@@ -1201,26 +1311,24 @@
             <div class="contact-option">
               <h3>Book a call</h3>
               <p>
-                A 30-minute conversation to talk through your situation, what
+                A 45-minute conversation to talk through your situation, what
                 you are trying to achieve, and whether this is the right fit. No
                 obligation on either side.
               </p>
-              <a
-                class="button"
-                href="https://tidycal.com/kindredsystems/chat-with-cathryn-mora"
-                target="_blank"
-                rel="noopener"
+              <div
                 style="
-                  width: 100%;
-                  justify-content: center;
-                  margin-bottom: 14px;
+                  min-height: 500px;
+                  border-radius: var(--radius);
+                  overflow: hidden;
+                  background: var(--white);
                 "
-                >Book a time</a
               >
-              <p class="form-note">
-                30 minutes. You will receive a confirmation with a few short
-                questions to help make the conversation useful.
-              </p>
+                <div
+                  class="tidycal-embed"
+                  data-path="kindredsystems/discovery-call"
+                ></div>
+                <script src="https://tidycal.com/js/embed.js" async></script>
+              </div>
             </div>
 
             <div class="contact-option">
@@ -1276,18 +1384,11 @@
                     <option value="Discovery Call">
                       Discovery Call (Free)
                     </option>
-                    <option value="Growth & Systems Review">
-                      Growth &amp; Systems Review (A$2,500)
+                    <option value="AI Business Outcomes Advisory">
+                      AI Business Outcomes Advisory (from A$2,500/month)
                     </option>
-                    <option value="Growth & Systems Strategy Day">
-                      Growth &amp; Systems Strategy Day (A$3,500)
-                    </option>
-                    <option value="Growth & Implementation Advisory">
-                      Growth &amp; Implementation Advisory (from A$12,500)
-                    </option>
-                    <option value="Fractional Growth & Systems Adviser">
-                      Fractional Growth &amp; Systems Adviser (from
-                      A$3,000/month)
+                    <option value="Executive AI Sprint">
+                      Executive AI Sprint (from A$1,900/day)
                     </option>
                     <option value="Not sure yet">Not sure which one yet</option>
                   </select>
@@ -1335,8 +1436,8 @@
     <footer>
       <div class="container footer-inner">
         <div>
-          &copy; <span id="year"></span> Kindred Systems. AI advisory for
-          business.
+          &copy; <span id="year"></span> Kindred Systems. AI investment,
+          turned into business results.
         </div>
         <nav class="footer-links" aria-label="Footer navigation">
           <a href="/advisory/">Advisory</a>
