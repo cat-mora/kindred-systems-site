@@ -266,6 +266,27 @@ Examples:
 - AI digital worker for operations
 - AI companion calls
 
+## Advisory positioning (Kindred Systems core offer)
+
+As of August 2026, the Kindred Systems advisory business (separate from the AI Assistant Pro / Digital Employee Pro product lines above) sells two offers only:
+
+- **Free Discovery Call** — a 30-minute conversation, no obligation on either side.
+- **AI Business Outcomes Advisory** — from A$2,500/month + GST, a 90-day engagement. One agreed measurable outcome, moved in 90 days.
+- **Executive AI Sprint** — from A$1,900/day + GST, minimum 5 consecutive days (or weeks), delivered remotely or in person if the client is in Brisbane.
+
+There is no longer a tiered/5-package pricing structure on the advisory pages (`index.html`, `advisory/index.html`, `about/index.html`). Do not reintroduce one without approval.
+
+Positioning: "Kindred Systems helps established organisations turn AI investment into measurable business outcomes." The core insight driving the copy: most organisations don't have an AI problem, they have a business outcomes problem, money and effort going into AI with no clear commercial return.
+
+Copywriting rules specific to the advisory pages:
+
+- Sell the benefit of the benefit (outcome → so what → and then what), not a delivery framework. Cat's own methodology (L.E.A.P.: Limiting Focus, Establishing Plan, Developing Assets, Reviewing Progress, from Laura Meyer's Expert Freedom coaching) is how the work gets delivered once a client signs, not how it gets sold. Do not expose "L.E.A.P.," "Month 1/2/3," or any step-by-step framework language on public pages. If a page needs to gesture at rigour, say something like "there's a proper method behind this, it belongs in the discovery call, not a page."
+- Avoid staccato, social-media-style short sentences in hero/lead copy. Write flowing prose that follows a reality-first, then-insight, then-solution arc (describe the prospect's current situation in plain sentences, reveal the insight once earned, then introduce Kindred Systems as the solution).
+- Avoid the word "governance" in client-facing copy unless it's explained in plain language. It tends to read as a legal/compliance term to prospects and Cat herself found it unclear.
+- Business-outcomes bullets should always include at least one explicit make-money bullet and one explicit save-money bullet.
+- Never describe the A$2,500+/month or A$1,900+/day engagements as being about "one result" without framing the scale of that result (it can be worth hundreds of thousands of dollars, not a small/incremental fix).
+- Follow the additional brand banned-word list in "Brand and copy rules" above, plus (per the Aug 2026 messaging review): no negative-construct triplets ("Not X. Not Y. Not Z.") and no "not X but Y" formulations.
+
 ## What not to change without approval
 
 Do not change the core product positioning without approval.
