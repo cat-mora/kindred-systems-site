@@ -9,7 +9,10 @@
       name="description"
       content="New client intake form for Kindred Systems AI Business Outcomes Advisory."
     />
-    <link rel="canonical" href="https://kindredsystems.com.au/advisory/intake/" />
+    <link
+      rel="canonical"
+      href="https://kindredsystems.com.au/advisory/intake/"
+    />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
     <link
       rel="icon"
@@ -248,7 +251,9 @@
         border: 1.5px solid var(--stone);
         border-radius: 10px;
         cursor: pointer;
-        transition: border-color 0.15s, background 0.15s;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
         background: var(--ivory2);
       }
       .opt-item:hover {
@@ -390,404 +395,2685 @@
         <h1>Before we meet, tell us a little more.</h1>
 
         <div class="form-card">
-          <form id="intakeForm" action="https://formspree.io/f/xpqgpdzg" method="POST">
-            <input type="hidden" name="_subject" value="New client intake form - kindredsystems.com.au" />
-<p class="intro">Thanks for taking the time to fill this in. It picks up from our conversation and gives us what we need to put together your first 90-day plan when we meet. Every question here is optional, so skip anything that doesn't apply or that you're not sure about, your best guess is enough. Where it helps, there's an example under the question so you know what kind of answer is useful.</p><section class="form-section"><h2 class="sec-title">1. Overview</h2><div class="q-block">
-    <label class="q-label" for="business_name">Business name <span class="opt-tag">(optional)</span></label>
-    
-    <input type="text" id="business_name" name="business_name" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label" for="contact_name_role">Your name and role <span class="opt-tag">(optional)</span></label>
-    
-    <input type="text" id="contact_name_role" name="contact_name_role" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label" for="contact_phone_email">Best phone number and email to reach you on <span class="opt-tag">(optional)</span></label>
-    
-    <input type="text" id="contact_phone_email" name="contact_phone_email" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label">Annual revenue <span class="opt-tag">(optional)</span></label>
-    <div class="hint">Approximate is fine.</div>
-    <div class="opt-group"><label class="opt-item" for="r1"><input type="radio" id="r1" name="revenue_band" value="Under $2 million"><span>Under $2 million</span></label><label class="opt-item" for="r2"><input type="radio" id="r2" name="revenue_band" value="$2 million to $5 million"><span>$2 million to $5 million</span></label><label class="opt-item" for="r3"><input type="radio" id="r3" name="revenue_band" value="$5 million to $10 million"><span>$5 million to $10 million</span></label><label class="opt-item" for="r4"><input type="radio" id="r4" name="revenue_band" value="$10 million or more"><span>$10 million or more</span></label></div>
-  </div><div class="q-block">
-    <label class="q-label">Team size <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="r5"><input type="radio" id="r5" name="team_size_band" value="Under 8"><span>Under 8</span></label><label class="opt-item" for="r6"><input type="radio" id="r6" name="team_size_band" value="8 to 19"><span>8 to 19</span></label><label class="opt-item" for="r7"><input type="radio" id="r7" name="team_size_band" value="20 to 49"><span>20 to 49</span></label><label class="opt-item" for="r8"><input type="radio" id="r8" name="team_size_band" value="50 or more"><span>50 or more</span></label></div>
-  </div><div class="q-block">
-    <label class="q-label">Which teams do you have in-house? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">Tick all that apply.</div>
-    <div class="opt-group"><label class="opt-item" for="c9"><input type="checkbox" id="c9" name="teams_inhouse[]" value="Marketing"><span>Marketing</span></label><label class="opt-item" for="c10"><input type="checkbox" id="c10" name="teams_inhouse[]" value="Sales"><span>Sales</span></label><label class="opt-item" for="c11"><input type="checkbox" id="c11" name="teams_inhouse[]" value="Customer service"><span>Customer service</span></label><label class="opt-item" for="c12"><input type="checkbox" id="c12" name="teams_inhouse[]" value="Operations"><span>Operations</span></label><label class="opt-item" for="c13"><input type="checkbox" id="c13" name="teams_inhouse[]" value="IT / technology"><span>IT / technology</span></label><label class="opt-item" for="c14"><input type="checkbox" id="c14" name="teams_inhouse[]" value="Finance"><span>Finance</span></label><label class="opt-item" for="c15"><input type="checkbox" id="c15" name="teams_inhouse[]" value="HR / People"><span>HR / People</span></label><label class="opt-item" for="c16"><input type="checkbox" id="c16" name="teams_inhouse[]" value="Product / R&amp;D"><span>Product / R&amp;D</span></label><label class="opt-item opt-other" for="c17"><input type="checkbox" id="c17" name="teams_inhouse[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="teams_inhouse_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="teams_inhouse_details">Details <span class="opt-tag">(optional)</span></label><input type="text" id="teams_inhouse_details" name="teams_inhouse_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="timing_notes">Anything about the timing of your business we should know? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">Seasonal peaks, busy periods, or anything else coming up that affects when you can focus on this.</div>
-    <textarea id="timing_notes" name="timing_notes" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="overview_anything_else">Anything else about your business we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="overview_anything_else" name="overview_anything_else" rows="2" class="text-input"></textarea>
-  </div></section><section class="form-section"><h2 class="sec-title">2. The Opportunity</h2><div class="q-block">
-    <label class="q-label" for="opportunity_main_thing">In your own words, what's the main thing that's brought you to this engagement? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="opportunity_main_thing" name="opportunity_main_thing" rows="3" class="text-input"></textarea>
-  </div><div class="q-block">
-  <label class="q-label">Which part of the business does this mainly involve? <span class="opt-tag">(optional)</span></label>
-  <div class="hint">Tick as many as apply. If you tick one or more, you'll only see the follow-up questions for those areas below. If you're not sure at all, tick &ldquo;I'm not sure&rdquo; and we'll show you everything, so nothing gets missed.</div>
-  <div class="opt-group" id="problemAreaGroup"><label class="opt-item" for="pa18"><input type="checkbox" id="pa18" class="problem-area-check" data-shows="block-a block-c" name="problem_areas[]" value="Marketing"><span>Marketing</span></label><label class="opt-item" for="pa19"><input type="checkbox" id="pa19" class="problem-area-check" data-shows="block-b block-c" name="problem_areas[]" value="Sales"><span>Sales</span></label><label class="opt-item" for="pa20"><input type="checkbox" id="pa20" class="problem-area-check" data-shows="block-c" name="problem_areas[]" value="Sales and marketing (the handoff between the two)"><span>Sales and marketing (the handoff between the two)</span></label><label class="opt-item" for="pa21"><input type="checkbox" id="pa21" class="problem-area-check" data-shows="block-d" name="problem_areas[]" value="Operations"><span>Operations</span></label><label class="opt-item" for="pa22"><input type="checkbox" id="pa22" class="problem-area-check" data-shows="block-e" name="problem_areas[]" value="Productivity"><span>Productivity</span></label><label class="opt-item" for="pa23"><input type="checkbox" id="pa23" class="problem-area-check" data-shows="block-f" name="problem_areas[]" value="Customer experience"><span>Customer experience</span></label><label class="opt-item" for="pa24"><input type="checkbox" id="pa24" class="problem-area-check" data-shows="block-g" name="problem_areas[]" value="Adoption and consistency (AI used differently across the team)"><span>Adoption and consistency (AI used differently across the team)</span></label><label class="opt-item" for="pa25"><input type="checkbox" id="pa25" class="problem-area-check" data-shows="block-h" name="problem_areas[]" value="ROI and prioritisation (too many ideas, not sure which to act on)"><span>ROI and prioritisation (too many ideas, not sure which to act on)</span></label><label class="opt-item" for="pa26"><input type="checkbox" id="pa26" class="problem-area-check" data-shows="block-a block-b block-c block-d block-e block-f block-g block-h block-other" name="problem_areas[]" value="I'm not sure, just that it isn't doing much for the business"><span>I'm not sure, just that it isn't doing much for the business</span></label><label class="opt-item opt-other" for="pa27"><input type="checkbox" id="pa27" class="problem-area-check" data-shows="block-other" name="problem_areas[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="problem_areas_other"></label></div><div class="details-row"><label class="details-label" for="problem_areas_details">Details <span class="opt-tag">(optional)</span></label><input type="text" id="problem_areas_details" name="problem_areas_details" class="text-input"></div></div><div class="area-block" id="block-a" data-block>
-    <div class="block-title">Marketing</div>
-    <blockquote class="area-quote">&ldquo;We're producing more content with AI, but it isn't generating more leads or better results.&rdquo;</blockquote>
-    <div class="q-block">
-    <label class="q-label">Which parts of marketing are you using AI for? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c28"><input type="checkbox" id="c28" name="mkt_which_parts[]" value="Blog, website or SEO content"><span>Blog, website or SEO content</span></label><label class="opt-item" for="c29"><input type="checkbox" id="c29" name="mkt_which_parts[]" value="Social media posts or captions"><span>Social media posts or captions</span></label><label class="opt-item" for="c30"><input type="checkbox" id="c30" name="mkt_which_parts[]" value="Email marketing (subject lines, copy or send timing)"><span>Email marketing (subject lines, copy or send timing)</span></label><label class="opt-item" for="c31"><input type="checkbox" id="c31" name="mkt_which_parts[]" value="Ad campaigns (copy, targeting or bidding)"><span>Ad campaigns (copy, targeting or bidding)</span></label><label class="opt-item" for="c32"><input type="checkbox" id="c32" name="mkt_which_parts[]" value="Images, graphics or video"><span>Images, graphics or video</span></label><label class="opt-item" for="c33"><input type="checkbox" id="c33" name="mkt_which_parts[]" value="Analytics or reporting summaries"><span>Analytics or reporting summaries</span></label><label class="opt-item" for="c34"><input type="checkbox" id="c34" name="mkt_which_parts[]" value="A chatbot on your website"><span>A chatbot on your website</span></label><label class="opt-item opt-other" for="c35"><input type="checkbox" id="c35" name="mkt_which_parts[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="mkt_which_parts_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="mkt_which_parts_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">which tools, how long you've used them, roughly how much of your output</div><input type="text" id="mkt_which_parts_details" name="mkt_which_parts_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label">Since you started using AI here, has output gone up, stayed about the same, or dropped? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="r36"><input type="radio" id="r36" name="mkt_output_change" value="Up"><span>Up</span></label><label class="opt-item" for="r37"><input type="radio" id="r37" name="mkt_output_change" value="About the same"><span>About the same</span></label><label class="opt-item" for="r38"><input type="radio" id="r38" name="mkt_output_change" value="Down"><span>Down</span></label><label class="opt-item" for="r39"><input type="radio" id="r39" name="mkt_output_change" value="Not sure"><span>Not sure</span></label></div>
-  </div><div class="q-block">
-    <label class="q-label">And has performance, leads, enquiries or engagement, gone up, stayed about the same, or dropped? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="r40"><input type="radio" id="r40" name="mkt_performance_change" value="Up"><span>Up</span></label><label class="opt-item" for="r41"><input type="radio" id="r41" name="mkt_performance_change" value="About the same"><span>About the same</span></label><label class="opt-item" for="r42"><input type="radio" id="r42" name="mkt_performance_change" value="Down"><span>Down</span></label><label class="opt-item" for="r43"><input type="radio" id="r43" name="mkt_performance_change" value="Not tracked"><span>Not tracked</span></label></div>
-  </div><div class="q-block">
-    <label class="q-label">Is there a channel, format or initiative you used to run that got dropped and never picked back up? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c44"><input type="checkbox" id="c44" name="mkt_dropped[]" value="A lead magnet, free guide or ebook"><span>A lead magnet, free guide or ebook</span></label><label class="opt-item" for="c45"><input type="checkbox" id="c45" name="mkt_dropped[]" value="A webinar or webinar series"><span>A webinar or webinar series</span></label><label class="opt-item" for="c46"><input type="checkbox" id="c46" name="mkt_dropped[]" value="A referral or affiliate program"><span>A referral or affiliate program</span></label><label class="opt-item" for="c47"><input type="checkbox" id="c47" name="mkt_dropped[]" value="A specific paid ad channel"><span>A specific paid ad channel</span></label><label class="opt-item" for="c48"><input type="checkbox" id="c48" name="mkt_dropped[]" value="An email newsletter or nurture sequence"><span>An email newsletter or nurture sequence</span></label><label class="opt-item" for="c49"><input type="checkbox" id="c49" name="mkt_dropped[]" value="A free challenge or email course"><span>A free challenge or email course</span></label><label class="opt-item" for="c50"><input type="checkbox" id="c50" name="mkt_dropped[]" value="A podcast or video series"><span>A podcast or video series</span></label><label class="opt-item" for="c51"><input type="checkbox" id="c51" name="mkt_dropped[]" value="A customer community, such as a Facebook group"><span>A customer community, such as a Facebook group</span></label><label class="opt-item opt-other" for="c52"><input type="checkbox" id="c52" name="mkt_dropped[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="mkt_dropped_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="mkt_dropped_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">what it was, roughly when it stopped</div><input type="text" id="mkt_dropped_details" name="mkt_dropped_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="mkt_stronger_period">Was there a period before this where marketing was working better than it is now? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">What were you doing differently then?</div>
-    <textarea id="mkt_stronger_period" name="mkt_stronger_period" rows="2" class="text-input"></textarea>
-  </div>
-    <div class="q-block">
-    <label class="q-label" for="block-a_anything_else">Anything else about marketing we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="block-a_anything_else" name="block-a_anything_else" rows="2" class="text-input"></textarea>
-  </div>
-  </div><div class="area-block" id="block-b" data-block>
-    <div class="block-title">Sales</div>
-    <blockquote class="area-quote">&ldquo;Our sales team has AI tools, but they're not helping us convert more leads or shorten the sales process.&rdquo;</blockquote>
-    <div class="q-block">
-    <label class="q-label">Which parts of the sales process is AI currently touching? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c53"><input type="checkbox" id="c53" name="sales_which_parts[]" value="Lead qualification or scoring"><span>Lead qualification or scoring</span></label><label class="opt-item" for="c54"><input type="checkbox" id="c54" name="sales_which_parts[]" value="Follow-up and nurture emails"><span>Follow-up and nurture emails</span></label><label class="opt-item" for="c55"><input type="checkbox" id="c55" name="sales_which_parts[]" value="Proposals or quotes"><span>Proposals or quotes</span></label><label class="opt-item" for="c56"><input type="checkbox" id="c56" name="sales_which_parts[]" value="CRM notes and admin (call summaries, logging)"><span>CRM notes and admin (call summaries, logging)</span></label><label class="opt-item" for="c57"><input type="checkbox" id="c57" name="sales_which_parts[]" value="Forecasting or pipeline reporting"><span>Forecasting or pipeline reporting</span></label><label class="opt-item" for="c58"><input type="checkbox" id="c58" name="sales_which_parts[]" value="Meeting scheduling"><span>Meeting scheduling</span></label><label class="opt-item opt-other" for="c59"><input type="checkbox" id="c59" name="sales_which_parts[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="sales_which_parts_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="sales_which_parts_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">which tools, how long you've used them</div><input type="text" id="sales_which_parts_details" name="sales_which_parts_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label">Since introducing AI here, has your close rate or sales cycle length changed? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="r60"><input type="radio" id="r60" name="sales_close_rate_change" value="Better"><span>Better</span></label><label class="opt-item" for="r61"><input type="radio" id="r61" name="sales_close_rate_change" value="About the same"><span>About the same</span></label><label class="opt-item" for="r62"><input type="radio" id="r62" name="sales_close_rate_change" value="Worse"><span>Worse</span></label><label class="opt-item" for="r63"><input type="radio" id="r63" name="sales_close_rate_change" value="Not tracked"><span>Not tracked</span></label></div>
-  </div><div class="q-block">
-    <label class="q-label">Is there a sales tool or process that was set up and then stopped being used properly? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c64"><input type="checkbox" id="c64" name="sales_abandoned_tool[]" value="A lead-scoring model in the CRM"><span>A lead-scoring model in the CRM</span></label><label class="opt-item" for="c65"><input type="checkbox" id="c65" name="sales_abandoned_tool[]" value="An email or outreach sequence built once and never updated"><span>An email or outreach sequence built once and never updated</span></label><label class="opt-item" for="c66"><input type="checkbox" id="c66" name="sales_abandoned_tool[]" value="A call-recording or conversation tool"><span>A call-recording or conversation tool</span></label><label class="opt-item" for="c67"><input type="checkbox" id="c67" name="sales_abandoned_tool[]" value="A proposal or quote template tool"><span>A proposal or quote template tool</span></label><label class="opt-item" for="c68"><input type="checkbox" id="c68" name="sales_abandoned_tool[]" value="A sales playbook or reference document"><span>A sales playbook or reference document</span></label><label class="opt-item opt-other" for="c69"><input type="checkbox" id="c69" name="sales_abandoned_tool[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="sales_abandoned_tool_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="sales_abandoned_tool_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">what it was, roughly when it stopped being used</div><input type="text" id="sales_abandoned_tool_details" name="sales_abandoned_tool_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="sales_time_sink">What does your sales team say is still taking up their time despite having these tools? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="sales_time_sink" name="sales_time_sink" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="sales_stronger_period">Was there a period where sales was performing noticeably better? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">What was different about how the team worked then?</div>
-    <textarea id="sales_stronger_period" name="sales_stronger_period" rows="2" class="text-input"></textarea>
-  </div>
-    <div class="q-block">
-    <label class="q-label" for="block-b_anything_else">Anything else about sales we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="block-b_anything_else" name="block-b_anything_else" rows="2" class="text-input"></textarea>
-  </div>
-  </div><div class="area-block" id="block-c" data-block>
-    <div class="block-title">Sales and marketing (the handoff between the two)</div>
-    <blockquote class="area-quote">&ldquo;We're getting leads, but we're losing too many between enquiry and sale, and we think AI could help us improve the process.&rdquo;</blockquote>
-    <div class="q-block">
-    <label class="q-label" for="handoff_share_convert">Roughly what share of enquiries turn into a sale today, if you know? <span class="opt-tag">(optional)</span></label>
-    
-    <input type="text" id="handoff_share_convert" name="handoff_share_convert" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label">Where do you lose the most people? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c70"><input type="checkbox" id="c70" name="handoff_where_lost[]" value="First response"><span>First response</span></label><label class="opt-item" for="c71"><input type="checkbox" id="c71" name="handoff_where_lost[]" value="Follow-up"><span>Follow-up</span></label><label class="opt-item" for="c72"><input type="checkbox" id="c72" name="handoff_where_lost[]" value="Quote or proposal stage"><span>Quote or proposal stage</span></label><label class="opt-item" for="c73"><input type="checkbox" id="c73" name="handoff_where_lost[]" value="Final decision stage"><span>Final decision stage</span></label><label class="opt-item" for="c74"><input type="checkbox" id="c74" name="handoff_where_lost[]" value="Not sure"><span>Not sure</span></label><label class="opt-item opt-other" for="c75"><input type="checkbox" id="c75" name="handoff_where_lost[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="handoff_where_lost_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="handoff_where_lost_details">Details <span class="opt-tag">(optional)</span></label><input type="text" id="handoff_where_lost_details" name="handoff_where_lost_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="handoff_response_speed">How quickly does someone typically hear back after they first get in touch? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">e.g. within minutes, same day, a few days</div>
-    <input type="text" id="handoff_response_speed" name="handoff_response_speed" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label">Which of these, if any, are already part of how a new enquiry is handled? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c76"><input type="checkbox" id="c76" name="handoff_already_in_place[]" value="An instant automatic reply"><span>An instant automatic reply</span></label><label class="opt-item" for="c77"><input type="checkbox" id="c77" name="handoff_already_in_place[]" value="AI chat on your website that qualifies enquiries"><span>AI chat on your website that qualifies enquiries</span></label><label class="opt-item" for="c78"><input type="checkbox" id="c78" name="handoff_already_in_place[]" value="Lead scoring before it reaches a salesperson"><span>Lead scoring before it reaches a salesperson</span></label><label class="opt-item" for="c79"><input type="checkbox" id="c79" name="handoff_already_in_place[]" value="Automatic routing to the right person"><span>Automatic routing to the right person</span></label><label class="opt-item" for="c80"><input type="checkbox" id="c80" name="handoff_already_in_place[]" value="A follow-up sequence that runs without someone triggering it manually"><span>A follow-up sequence that runs without someone triggering it manually</span></label><label class="opt-item" for="c81"><input type="checkbox" id="c81" name="handoff_already_in_place[]" value="None of these yet"><span>None of these yet</span></label><label class="opt-item opt-other" for="c82"><input type="checkbox" id="c82" name="handoff_already_in_place[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="handoff_already_in_place_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="handoff_already_in_place_details">Details <span class="opt-tag">(optional)</span></label><input type="text" id="handoff_already_in_place_details" name="handoff_already_in_place_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="handoff_used_to_convert">Is there a version of this process that used to convert better? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">What was different about it then?</div>
-    <textarea id="handoff_used_to_convert" name="handoff_used_to_convert" rows="2" class="text-input"></textarea>
-  </div>
-    <div class="q-block">
-    <label class="q-label" for="block-c_anything_else">Anything else about sales and marketing (the handoff between the two) we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="block-c_anything_else" name="block-c_anything_else" rows="2" class="text-input"></textarea>
-  </div>
-  </div><div class="area-block" id="block-d" data-block>
-    <div class="block-title">Operations</div>
-    <blockquote class="area-quote">&ldquo;We're using AI, but the team is still spending too much time on repetitive admin and manual work.&rdquo;</blockquote>
-    <div class="q-block">
-    <label class="q-label" for="ops_manual_tasks">Which tasks or processes still take up the most manual time day to day? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">e.g. invoicing, data entry, scheduling, reporting</div>
-    <textarea id="ops_manual_tasks" name="ops_manual_tasks" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label">Which of these have you already tried using AI for? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c83"><input type="checkbox" id="c83" name="ops_already_tried[]" value="Document or invoice processing"><span>Document or invoice processing</span></label><label class="opt-item" for="c84"><input type="checkbox" id="c84" name="ops_already_tried[]" value="Meeting notes or action items"><span>Meeting notes or action items</span></label><label class="opt-item" for="c85"><input type="checkbox" id="c85" name="ops_already_tried[]" value="Scheduling or rostering"><span>Scheduling or rostering</span></label><label class="opt-item" for="c86"><input type="checkbox" id="c86" name="ops_already_tried[]" value="Data entry from forms or emails"><span>Data entry from forms or emails</span></label><label class="opt-item" for="c87"><input type="checkbox" id="c87" name="ops_already_tried[]" value="Expense processing"><span>Expense processing</span></label><label class="opt-item" for="c88"><input type="checkbox" id="c88" name="ops_already_tried[]" value="HR admin (onboarding, policy questions, leave)"><span>HR admin (onboarding, policy questions, leave)</span></label><label class="opt-item" for="c89"><input type="checkbox" id="c89" name="ops_already_tried[]" value="Reporting or dashboards"><span>Reporting or dashboards</span></label><label class="opt-item opt-other" for="c90"><input type="checkbox" id="c90" name="ops_already_tried[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="ops_already_tried_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="ops_already_tried_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">what you tried and what happened</div><input type="text" id="ops_already_tried_details" name="ops_already_tried_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="ops_time_per_week">Roughly how much team time a week do you think goes into this? <span class="opt-tag">(optional)</span></label>
-    
-    <input type="text" id="ops_time_per_week" name="ops_time_per_week" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label">Is there a tool or workflow that was set up at some point and then fell out of use? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c91"><input type="checkbox" id="c91" name="ops_fell_out_of_use[]" value="An automation built by someone who's since left"><span>An automation built by someone who's since left</span></label><label class="opt-item" for="c92"><input type="checkbox" id="c92" name="ops_fell_out_of_use[]" value="A licence bought for the whole team that only a few people use"><span>A licence bought for the whole team that only a few people use</span></label><label class="opt-item" for="c93"><input type="checkbox" id="c93" name="ops_fell_out_of_use[]" value="A tool piloted in one area that never rolled out further"><span>A tool piloted in one area that never rolled out further</span></label><label class="opt-item" for="c94"><input type="checkbox" id="c94" name="ops_fell_out_of_use[]" value="A report or dashboard nobody looks at anymore"><span>A report or dashboard nobody looks at anymore</span></label><label class="opt-item" for="c95"><input type="checkbox" id="c95" name="ops_fell_out_of_use[]" value="A tool that broke and was never fixed"><span>A tool that broke and was never fixed</span></label><label class="opt-item opt-other" for="c96"><input type="checkbox" id="c96" name="ops_fell_out_of_use[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="ops_fell_out_of_use_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="ops_fell_out_of_use_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">what it was, roughly when it stopped</div><input type="text" id="ops_fell_out_of_use_details" name="ops_fell_out_of_use_details" class="text-input"></div>
-  </div>
-    <div class="q-block">
-    <label class="q-label" for="block-d_anything_else">Anything else about operations we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="block-d_anything_else" name="block-d_anything_else" rows="2" class="text-input"></textarea>
-  </div>
-  </div><div class="area-block" id="block-e" data-block>
-    <div class="block-title">Productivity</div>
-    <blockquote class="area-quote">&ldquo;We expected AI to save the team time, but we're not seeing a meaningful productivity improvement.&rdquo;</blockquote>
-    <div class="q-block">
-    <label class="q-label" for="prod_where_expected">Where did you expect AI to free up time that hasn't shown up yet? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">e.g. writing, meeting notes, research, admin</div>
-    <textarea id="prod_where_expected" name="prod_where_expected" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="prod_time_measured">Is that time being measured anywhere today, or is this a general sense? <span class="opt-tag">(optional)</span></label>
-    
-    <input type="text" id="prod_time_measured" name="prod_time_measured" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label">Which of these has the business already bought or tried, even if it's not being used much now? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c97"><input type="checkbox" id="c97" name="prod_already_bought[]" value="A company-wide AI licence (Microsoft Copilot, Google Gemini, ChatGPT or similar)"><span>A company-wide AI licence (Microsoft Copilot, Google Gemini, ChatGPT or similar)</span></label><label class="opt-item" for="c98"><input type="checkbox" id="c98" name="prod_already_bought[]" value="A meeting notes or transcription tool"><span>A meeting notes or transcription tool</span></label><label class="opt-item" for="c99"><input type="checkbox" id="c99" name="prod_already_bought[]" value="An internal AI search or knowledge tool"><span>An internal AI search or knowledge tool</span></label><label class="opt-item" for="c100"><input type="checkbox" id="c100" name="prod_already_bought[]" value="A research or writing assistant"><span>A research or writing assistant</span></label><label class="opt-item" for="c101"><input type="checkbox" id="c101" name="prod_already_bought[]" value="Coding assistance for technical staff"><span>Coding assistance for technical staff</span></label><label class="opt-item" for="c102"><input type="checkbox" id="c102" name="prod_already_bought[]" value="A scheduling assistant"><span>A scheduling assistant</span></label><label class="opt-item opt-other" for="c103"><input type="checkbox" id="c103" name="prod_already_bought[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="prod_already_bought_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="prod_already_bought_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">which ones, roughly how many people use them</div><input type="text" id="prod_already_bought_details" name="prod_already_bought_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="prod_honest_read">What's the team's honest read on why the time saving hasn't shown up? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="prod_honest_read" name="prod_honest_read" rows="2" class="text-input"></textarea>
-  </div>
-    <div class="q-block">
-    <label class="q-label" for="block-e_anything_else">Anything else about productivity we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="block-e_anything_else" name="block-e_anything_else" rows="2" class="text-input"></textarea>
-  </div>
-  </div><div class="area-block" id="block-f" data-block>
-    <div class="block-title">Customer experience</div>
-    <blockquote class="area-quote">&ldquo;We want to use AI to improve response times or customer service without making the experience feel worse.&rdquo;</blockquote>
-    <div class="q-block">
-    <label class="q-label">Where does AI currently touch the customer experience? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c104"><input type="checkbox" id="c104" name="cx_where_touches[]" value="Response times"><span>Response times</span></label><label class="opt-item" for="c105"><input type="checkbox" id="c105" name="cx_where_touches[]" value="Live chat or support"><span>Live chat or support</span></label><label class="opt-item" for="c106"><input type="checkbox" id="c106" name="cx_where_touches[]" value="Self-service (order status, returns, account changes)"><span>Self-service (order status, returns, account changes)</span></label><label class="opt-item" for="c107"><input type="checkbox" id="c107" name="cx_where_touches[]" value="Personalisation"><span>Personalisation</span></label><label class="opt-item opt-other" for="c108"><input type="checkbox" id="c108" name="cx_where_touches[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="cx_where_touches_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="cx_where_touches_details">Details <span class="opt-tag">(optional)</span></label><input type="text" id="cx_where_touches_details" name="cx_where_touches_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label">Has anything here been paused, turned off, or fallen out of use? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c109"><input type="checkbox" id="c109" name="cx_paused[]" value="A chatbot that was turned off"><span>A chatbot that was turned off</span></label><label class="opt-item" for="c110"><input type="checkbox" id="c110" name="cx_paused[]" value="A tool that was piloted in one area and never expanded"><span>A tool that was piloted in one area and never expanded</span></label><label class="opt-item" for="c111"><input type="checkbox" id="c111" name="cx_paused[]" value="A personalisation feature set up once and never revisited"><span>A personalisation feature set up once and never revisited</span></label><label class="opt-item" for="c112"><input type="checkbox" id="c112" name="cx_paused[]" value="A self-service tool giving outdated answers"><span>A self-service tool giving outdated answers</span></label><label class="opt-item" for="c113"><input type="checkbox" id="c113" name="cx_paused[]" value="None of these"><span>None of these</span></label><label class="opt-item opt-other" for="c114"><input type="checkbox" id="c114" name="cx_paused[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="cx_paused_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="cx_paused_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">what it was, roughly when it stopped</div><input type="text" id="cx_paused_details" name="cx_paused_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="cx_customer_feedback">What have customers said, directly or through feedback, since AI was introduced here? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="cx_customer_feedback" name="cx_customer_feedback" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="cx_better_looks_like">What would better look like here, in plain terms? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="cx_better_looks_like" name="cx_better_looks_like" rows="2" class="text-input"></textarea>
-  </div>
-    <div class="q-block">
-    <label class="q-label" for="block-f_anything_else">Anything else about customer experience we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="block-f_anything_else" name="block-f_anything_else" rows="2" class="text-input"></textarea>
-  </div>
-  </div><div class="area-block" id="block-g" data-block>
-    <div class="block-title">Adoption and consistency</div>
-    <blockquote class="area-quote">&ldquo;Different people are using AI in different ways, some aren't using it at all, and there's no consistent approach across the business.&rdquo;</blockquote>
-    <div class="q-block">
-    <label class="q-label">Roughly what share of the team uses AI regularly? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="r115"><input type="radio" id="r115" name="adopt_share_using" value="Almost everyone"><span>Almost everyone</span></label><label class="opt-item" for="r116"><input type="radio" id="r116" name="adopt_share_using" value="Most"><span>Most</span></label><label class="opt-item" for="r117"><input type="radio" id="r117" name="adopt_share_using" value="Some"><span>Some</span></label><label class="opt-item" for="r118"><input type="radio" id="r118" name="adopt_share_using" value="A few"><span>A few</span></label><label class="opt-item" for="r119"><input type="radio" id="r119" name="adopt_share_using" value="Not sure"><span>Not sure</span></label></div>
-  </div><div class="q-block">
-    <label class="q-label">Where does usage vary the most, and why do you think that is? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c120"><input type="checkbox" id="c120" name="adopt_where_varies[]" value="Some roles have obvious uses and others don't"><span>Some roles have obvious uses and others don't</span></label><label class="opt-item" for="c121"><input type="checkbox" id="c121" name="adopt_where_varies[]" value="Training was a single demo, or nothing"><span>Training was a single demo, or nothing</span></label><label class="opt-item" for="c122"><input type="checkbox" id="c122" name="adopt_where_varies[]" value="There's no clear policy on what's allowed"><span>There's no clear policy on what's allowed</span></label><label class="opt-item" for="c123"><input type="checkbox" id="c123" name="adopt_where_varies[]" value="People aren't sure it's welcomed by leadership"><span>People aren't sure it's welcomed by leadership</span></label><label class="opt-item" for="c124"><input type="checkbox" id="c124" name="adopt_where_varies[]" value="Some people worry about being judged for using it"><span>Some people worry about being judged for using it</span></label><label class="opt-item opt-other" for="c125"><input type="checkbox" id="c125" name="adopt_where_varies[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="adopt_where_varies_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="adopt_where_varies_details">Details <span class="opt-tag">(optional)</span></label><input type="text" id="adopt_where_varies_details" name="adopt_where_varies_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="adopt_training">Has the team had proper training and guidelines, or has it mostly been left to individuals to work out? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="adopt_training" name="adopt_training" rows="2" class="text-input"></textarea>
-  </div>
-    <div class="q-block">
-    <label class="q-label" for="block-g_anything_else">Anything else about adoption and consistency we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="block-g_anything_else" name="block-g_anything_else" rows="2" class="text-input"></textarea>
-  </div>
-  </div><div class="area-block" id="block-h" data-block>
-    <div class="block-title">ROI and prioritisation</div>
-    <blockquote class="area-quote">&ldquo;We've invested in AI and have plenty of ideas about what else we could do, but we don't know which opportunities will actually make or save the business money.&rdquo;</blockquote>
-    <div class="q-block">
-    <label class="q-label" for="roi_ideas_list">What are the AI ideas or projects currently on your list? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">A rough list is fine.</div>
-    <textarea id="roi_ideas_list" name="roi_ideas_list" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label">Does any of this sound familiar? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c126"><input type="checkbox" id="c126" name="roi_sounds_familiar[]" value="An idea from a leadership meeting that was never followed up"><span>An idea from a leadership meeting that was never followed up</span></label><label class="opt-item" for="c127"><input type="checkbox" id="c127" name="roi_sounds_familiar[]" value="A vendor pitch sitting in a proposal nobody's actioned"><span>A vendor pitch sitting in a proposal nobody's actioned</span></label><label class="opt-item" for="c128"><input type="checkbox" id="c128" name="roi_sounds_familiar[]" value="A trial or prototype that was never costed for wider use"><span>A trial or prototype that was never costed for wider use</span></label><label class="opt-item" for="c129"><input type="checkbox" id="c129" name="roi_sounds_familiar[]" value="People already using AI informally for real work, just not officially"><span>People already using AI informally for real work, just not officially</span></label><label class="opt-item" for="c130"><input type="checkbox" id="c130" name="roi_sounds_familiar[]" value="One team's tool being considered for the whole business without being sized first"><span>One team's tool being considered for the whole business without being sized first</span></label><label class="opt-item opt-other" for="c131"><input type="checkbox" id="c131" name="roi_sounds_familiar[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="roi_sounds_familiar_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="roi_sounds_familiar_details">Details <span class="opt-tag">(optional)</span></label><input type="text" id="roi_sounds_familiar_details" name="roi_sounds_familiar_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="roi_whats_stopping">What's stopping you from prioritising between them today? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="roi_whats_stopping" name="roi_whats_stopping" rows="2" class="text-input"></textarea>
-  </div>
-    <div class="q-block">
-    <label class="q-label" for="block-h_anything_else">Anything else about ROI and prioritisation we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="block-h_anything_else" name="block-h_anything_else" rows="2" class="text-input"></textarea>
-  </div>
-  </div><div class="area-block" id="block-other" data-block>
-  <div class="block-title">If none of the above quite fit</div>
-  <div class="q-block">
-    <label class="q-label" for="other_main_issue">In your own words, what's the main issue? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="other_main_issue" name="other_main_issue" rows="2" class="text-input"></textarea>
-  </div>
-  <div class="q-block">
-    <label class="q-label" for="other_already_tried">What have you already tried? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="other_already_tried" name="other_already_tried" rows="2" class="text-input"></textarea>
-  </div>
-  <div class="q-block">
-    <label class="q-label" for="other_elsewhere">Is there anything in a different part of the business that might be feeding into this, even if it's not where you'd usually look? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="other_elsewhere" name="other_elsewhere" rows="2" class="text-input"></textarea>
-  </div>
-  <div class="q-block">
-    <label class="q-label" for="other_anything_else">Anything else about this we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="other_anything_else" name="other_anything_else" rows="2" class="text-input"></textarea>
-  </div>
-</div><div class="block-title" style="margin-top:36px">Shown to everyone, regardless of what's ticked above</div><div class="q-block">
-    <label class="q-label" for="universal_feeding_in">Is there anything else going on, even somewhere else in the business, that you think might be feeding into this? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">It's common for the real issue to sit next to the one that's easiest to name. If in doubt, mention it.</div>
-    <textarea id="universal_feeding_in" name="universal_feeding_in" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label">Which of these is the priority for you right now? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">Tick as many as apply, and mark the one that's the priority in the details field.</div>
-    <div class="opt-group"><label class="opt-item" for="c132"><input type="checkbox" id="c132" name="priority_outcome[]" value="More revenue"><span>More revenue</span></label><label class="opt-item" for="c133"><input type="checkbox" id="c133" name="priority_outcome[]" value="Cost savings"><span>Cost savings</span></label><label class="opt-item" for="c134"><input type="checkbox" id="c134" name="priority_outcome[]" value="Time saved"><span>Time saved</span></label><label class="opt-item" for="c135"><input type="checkbox" id="c135" name="priority_outcome[]" value="A better customer experience"><span>A better customer experience</span></label><label class="opt-item opt-other" for="c136"><input type="checkbox" id="c136" name="priority_outcome[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="priority_outcome_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="priority_outcome_details">Details <span class="opt-tag">(optional)</span></label><input type="text" id="priority_outcome_details" name="priority_outcome_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="cost_of_no_change">If nothing changes over the next 90 days, what does that cost you? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">In money, time, or a missed opportunity.</div>
-    <textarea id="cost_of_no_change" name="cost_of_no_change" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="decision_maker">Who makes the final call on spend and priorities for this engagement? <span class="opt-tag">(optional)</span></label>
-    
-    <input type="text" id="decision_maker" name="decision_maker" class="text-input">
-  </div></section><section class="form-section"><h2 class="sec-title">3. Current AI and Systems</h2><div class="q-block">
-    <label class="q-label">Which AI tools or platforms are you using right now, if any? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">Tick all that apply.</div>
-    <div class="opt-group"><label class="opt-item" for="c137"><input type="checkbox" id="c137" name="ai_tools[]" value="Microsoft 365 Copilot (Word, Outlook, Teams, Excel)"><span>Microsoft 365 Copilot (Word, Outlook, Teams, Excel)</span></label><label class="opt-item" for="c138"><input type="checkbox" id="c138" name="ai_tools[]" value="Google Gemini for Workspace"><span>Google Gemini for Workspace</span></label><label class="opt-item" for="c139"><input type="checkbox" id="c139" name="ai_tools[]" value="ChatGPT, Claude or similar, used by individuals or teams"><span>ChatGPT, Claude or similar, used by individuals or teams</span></label><label class="opt-item" for="c140"><input type="checkbox" id="c140" name="ai_tools[]" value="An AI feature inside your CRM (e.g. Salesforce Einstein or Agentforce, HubSpot Breeze)"><span>An AI feature inside your CRM (e.g. Salesforce Einstein or Agentforce, HubSpot Breeze)</span></label><label class="opt-item" for="c141"><input type="checkbox" id="c141" name="ai_tools[]" value="An AI feature inside another core business system (finance, HR or operations platform)"><span>An AI feature inside another core business system (finance, HR or operations platform)</span></label><label class="opt-item" for="c142"><input type="checkbox" id="c142" name="ai_tools[]" value="A dedicated AI platform or vendor for one specific task (e.g. a chatbot, a transcription tool)"><span>A dedicated AI platform or vendor for one specific task (e.g. a chatbot, a transcription tool)</span></label><label class="opt-item" for="c143"><input type="checkbox" id="c143" name="ai_tools[]" value="Workflow automation with AI built in (e.g. Zapier, Make, Power Automate)"><span>Workflow automation with AI built in (e.g. Zapier, Make, Power Automate)</span></label><label class="opt-item" for="c144"><input type="checkbox" id="c144" name="ai_tools[]" value="Something built specifically for you"><span>Something built specifically for you</span></label><label class="opt-item" for="c145"><input type="checkbox" id="c145" name="ai_tools[]" value="Not sure / need to check"><span>Not sure / need to check</span></label><label class="opt-item" for="c146"><input type="checkbox" id="c146" name="ai_tools[]" value="Nothing yet"><span>Nothing yet</span></label><label class="opt-item opt-other" for="c147"><input type="checkbox" id="c147" name="ai_tools[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="ai_tools_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="ai_tools_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">which ones, how long you've used them, roughly how many people</div><input type="text" id="ai_tools_details" name="ai_tools_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="ai_how_long">Roughly how long have you been using them? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">e.g. a few months, over a year, just started</div>
-    <input type="text" id="ai_how_long" name="ai_how_long" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label" for="ai_who_uses">Who uses them day to day? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">e.g. just leadership, one team, most of the company</div>
-    <input type="text" id="ai_who_uses" name="ai_who_uses" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label" for="ai_consistency">Is AI used the same way across the team, or does it vary from person to person? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="ai_consistency" name="ai_consistency" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="ai_worked_well">What's worked well so far? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="ai_worked_well" name="ai_worked_well" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="ai_not_worked">What hasn't worked, or hasn't gone the way you expected? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="ai_not_worked" name="ai_not_worked" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="ai_other_systems">What other systems or software sit around this area of the business? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">CRM, marketing platform, project management, customer service tools, and so on.</div>
-    <textarea id="ai_other_systems" name="ai_other_systems" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="ai_anything_else">Anything else about your AI and systems setup we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="ai_anything_else" name="ai_anything_else" rows="2" class="text-input"></textarea>
-  </div></section><section class="form-section"><h2 class="sec-title">4. Team</h2><div class="q-block">
-    <label class="q-label" for="team_members">List your current team members relevant to this engagement, and their roles. <span class="opt-tag">(optional)</span></label>
-    <div class="hint">Names and roles are fine, or just roles if that's easier.</div>
-    <textarea id="team_members" name="team_members" rows="3" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="team_gaps">Are there any gaps, or roles you're looking to fill? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="team_gaps" name="team_gaps" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="team_carry_forward">Who will be responsible for carrying this work forward once the engagement ends? <span class="opt-tag">(optional)</span></label>
-    
-    <input type="text" id="team_carry_forward" name="team_carry_forward" class="text-input">
-  </div><div class="q-block">
-    <label class="q-label" for="team_anything_else">Anything else about your team we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="team_anything_else" name="team_anything_else" rows="2" class="text-input"></textarea>
-  </div></section><section class="form-section"><h2 class="sec-title">5. Process</h2><div class="q-block">
-    <label class="q-label" for="process_walkthrough">Walk me through how this process currently works, step by step. <span class="opt-tag">(optional)</span></label>
-    <div class="hint">For example, how a lead becomes a customer, how a request gets handled, or how work moves through the team.</div>
-    <textarea id="process_walkthrough" name="process_walkthrough" rows="3" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="process_breaks">Where does it typically slow down, break, or get missed? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">e.g. a specific step, a handoff between people, a particular time of month</div>
-    <textarea id="process_breaks" name="process_breaks" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="process_anything_else">Anything else about how this process works we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="process_anything_else" name="process_anything_else" rows="2" class="text-input"></textarea>
-  </div></section><section class="form-section"><h2 class="sec-title">6. What's Working</h2><div class="q-block">
-    <label class="q-label" for="working_most_effective">What's the most effective thing you're doing in this area right now, and why do you think it works? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="working_most_effective" name="working_most_effective" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="working_stronger_period">Was there a period where this was working better than it is today? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">What were you doing differently then?</div>
-    <textarea id="working_stronger_period" name="working_stronger_period" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label">Are there tools, subscriptions or AI features you're already paying for, or already set up, that aren't being used anymore? <span class="opt-tag">(optional)</span></label>
-    
-    <div class="opt-group"><label class="opt-item" for="c148"><input type="checkbox" id="c148" name="working_unused_tools[]" value="A company-wide AI licence only a few people use"><span>A company-wide AI licence only a few people use</span></label><label class="opt-item" for="c149"><input type="checkbox" id="c149" name="working_unused_tools[]" value="A meeting notes or transcription tool that's stopped being used"><span>A meeting notes or transcription tool that's stopped being used</span></label><label class="opt-item" for="c150"><input type="checkbox" id="c150" name="working_unused_tools[]" value="An automation someone built that's no longer maintained"><span>An automation someone built that's no longer maintained</span></label><label class="opt-item" for="c151"><input type="checkbox" id="c151" name="working_unused_tools[]" value="A chatbot or self-service tool that's been turned off"><span>A chatbot or self-service tool that's been turned off</span></label><label class="opt-item" for="c152"><input type="checkbox" id="c152" name="working_unused_tools[]" value="A platform bought after a demo and never rolled out"><span>A platform bought after a demo and never rolled out</span></label><label class="opt-item" for="c153"><input type="checkbox" id="c153" name="working_unused_tools[]" value="None of these"><span>None of these</span></label><label class="opt-item opt-other" for="c154"><input type="checkbox" id="c154" name="working_unused_tools[]" value="Other"><span>Other:</span><input type="text" class="opt-other-input" name="working_unused_tools_other" placeholder="please specify"></label></div>
-    <div class="details-row"><label class="details-label" for="working_unused_tools_details">Details <span class="opt-tag">(optional)</span></label><div class="hint">what it is, roughly when it stopped being used</div><input type="text" id="working_unused_tools_details" name="working_unused_tools_details" class="text-input"></div>
-  </div><div class="q-block">
-    <label class="q-label" for="working_hidden_ideas">Is there anything you've thought about trying but haven't raised yet, even if it's not fully formed? <span class="opt-tag">(optional)</span></label>
-    <div class="hint">Even a half-formed idea is useful here.</div>
-    <textarea id="working_hidden_ideas" name="working_hidden_ideas" rows="2" class="text-input"></textarea>
-  </div><div class="q-block">
-    <label class="q-label" for="working_anything_else">Anything else about what's working we should know? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="working_anything_else" name="working_anything_else" rows="2" class="text-input"></textarea>
-  </div></section><section class="form-section"><h2 class="sec-title">7. Anything else</h2><div class="q-block">
-    <label class="q-label" for="final_anything_else">Anything else you think I should know before we meet? <span class="opt-tag">(optional)</span></label>
-    
-    <textarea id="final_anything_else" name="final_anything_else" rows="3" class="text-input"></textarea>
-  </div></section>
+          <form
+            id="intakeForm"
+            action="https://formspree.io/f/xpqgpdzg"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New client intake form - kindredsystems.com.au"
+            />
+            <p class="intro">
+              Thanks for taking the time to fill this in. It picks up from our
+              conversation and gives us what we need to put together your first
+              90-day plan when we meet. Every question here is optional, so skip
+              anything that doesn't apply or that you're not sure about, your
+              best guess is enough. Where it helps, there's an example under the
+              question so you know what kind of answer is useful.
+            </p>
+            <section class="form-section">
+              <h2 class="sec-title">1. Overview</h2>
+              <div class="q-block">
+                <label class="q-label" for="business_name"
+                  >Business name <span class="opt-tag">(optional)</span></label
+                >
+
+                <input
+                  type="text"
+                  id="business_name"
+                  name="business_name"
+                  class="text-input"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="contact_name_role"
+                  >Your name and role
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <input
+                  type="text"
+                  id="contact_name_role"
+                  name="contact_name_role"
+                  class="text-input"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="contact_phone_email"
+                  >Best phone number and email to reach you on
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <input
+                  type="text"
+                  id="contact_phone_email"
+                  name="contact_phone_email"
+                  class="text-input"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label"
+                  >Annual revenue <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">Approximate is fine.</div>
+                <div class="opt-group">
+                  <label class="opt-item" for="r1"
+                    ><input
+                      type="radio"
+                      id="r1"
+                      name="revenue_band"
+                      value="Under $2 million"
+                    /><span>Under $2 million</span></label
+                  ><label class="opt-item" for="r2"
+                    ><input
+                      type="radio"
+                      id="r2"
+                      name="revenue_band"
+                      value="$2 million to $5 million"
+                    /><span>$2 million to $5 million</span></label
+                  ><label class="opt-item" for="r3"
+                    ><input
+                      type="radio"
+                      id="r3"
+                      name="revenue_band"
+                      value="$5 million to $10 million"
+                    /><span>$5 million to $10 million</span></label
+                  ><label class="opt-item" for="r4"
+                    ><input
+                      type="radio"
+                      id="r4"
+                      name="revenue_band"
+                      value="$10 million or more"
+                    /><span>$10 million or more</span></label
+                  >
+                </div>
+              </div>
+              <div class="q-block">
+                <label class="q-label"
+                  >Team size <span class="opt-tag">(optional)</span></label
+                >
+
+                <div class="opt-group">
+                  <label class="opt-item" for="r5"
+                    ><input
+                      type="radio"
+                      id="r5"
+                      name="team_size_band"
+                      value="Under 8"
+                    /><span>Under 8</span></label
+                  ><label class="opt-item" for="r6"
+                    ><input
+                      type="radio"
+                      id="r6"
+                      name="team_size_band"
+                      value="8 to 19"
+                    /><span>8 to 19</span></label
+                  ><label class="opt-item" for="r7"
+                    ><input
+                      type="radio"
+                      id="r7"
+                      name="team_size_band"
+                      value="20 to 49"
+                    /><span>20 to 49</span></label
+                  ><label class="opt-item" for="r8"
+                    ><input
+                      type="radio"
+                      id="r8"
+                      name="team_size_band"
+                      value="50 or more"
+                    /><span>50 or more</span></label
+                  >
+                </div>
+              </div>
+              <div class="q-block">
+                <label class="q-label"
+                  >Which teams do you have in-house?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">Tick all that apply.</div>
+                <div class="opt-group">
+                  <label class="opt-item" for="c9"
+                    ><input
+                      type="checkbox"
+                      id="c9"
+                      name="teams_inhouse[]"
+                      value="Marketing"
+                    /><span>Marketing</span></label
+                  ><label class="opt-item" for="c10"
+                    ><input
+                      type="checkbox"
+                      id="c10"
+                      name="teams_inhouse[]"
+                      value="Sales"
+                    /><span>Sales</span></label
+                  ><label class="opt-item" for="c11"
+                    ><input
+                      type="checkbox"
+                      id="c11"
+                      name="teams_inhouse[]"
+                      value="Customer service"
+                    /><span>Customer service</span></label
+                  ><label class="opt-item" for="c12"
+                    ><input
+                      type="checkbox"
+                      id="c12"
+                      name="teams_inhouse[]"
+                      value="Operations"
+                    /><span>Operations</span></label
+                  ><label class="opt-item" for="c13"
+                    ><input
+                      type="checkbox"
+                      id="c13"
+                      name="teams_inhouse[]"
+                      value="IT / technology"
+                    /><span>IT / technology</span></label
+                  ><label class="opt-item" for="c14"
+                    ><input
+                      type="checkbox"
+                      id="c14"
+                      name="teams_inhouse[]"
+                      value="Finance"
+                    /><span>Finance</span></label
+                  ><label class="opt-item" for="c15"
+                    ><input
+                      type="checkbox"
+                      id="c15"
+                      name="teams_inhouse[]"
+                      value="HR / People"
+                    /><span>HR / People</span></label
+                  ><label class="opt-item" for="c16"
+                    ><input
+                      type="checkbox"
+                      id="c16"
+                      name="teams_inhouse[]"
+                      value="Product / R&amp;D"
+                    /><span>Product / R&amp;D</span></label
+                  ><label class="opt-item opt-other" for="c17"
+                    ><input
+                      type="checkbox"
+                      id="c17"
+                      name="teams_inhouse[]"
+                      value="Other" /><span>Other:</span
+                    ><input
+                      type="text"
+                      class="opt-other-input"
+                      name="teams_inhouse_other"
+                      placeholder="please specify"
+                  /></label>
+                </div>
+                <div class="details-row">
+                  <label class="details-label" for="teams_inhouse_details"
+                    >Details <span class="opt-tag">(optional)</span></label
+                  ><input
+                    type="text"
+                    id="teams_inhouse_details"
+                    name="teams_inhouse_details"
+                    class="text-input"
+                  />
+                </div>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="timing_notes"
+                  >Anything about the timing of your business we should know?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  Seasonal peaks, busy periods, or anything else coming up that
+                  affects when you can focus on this.
+                </div>
+                <textarea
+                  id="timing_notes"
+                  name="timing_notes"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="overview_anything_else"
+                  >Anything else about your business we should know?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="overview_anything_else"
+                  name="overview_anything_else"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+            </section>
+            <section class="form-section">
+              <h2 class="sec-title">2. The Opportunity</h2>
+              <div class="q-block">
+                <label class="q-label" for="opportunity_main_thing"
+                  >In your own words, what's the main thing that's brought you
+                  to this engagement?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="opportunity_main_thing"
+                  name="opportunity_main_thing"
+                  rows="3"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label"
+                  >Which part of the business does this mainly involve?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  Tick as many as apply. If you tick one or more, you'll only
+                  see the follow-up questions for those areas below. If you're
+                  not sure at all, tick &ldquo;I'm not sure&rdquo; and we'll
+                  show you everything, so nothing gets missed.
+                </div>
+                <div class="opt-group" id="problemAreaGroup">
+                  <label class="opt-item" for="pa18"
+                    ><input
+                      type="checkbox"
+                      id="pa18"
+                      class="problem-area-check"
+                      data-shows="block-a block-c"
+                      name="problem_areas[]"
+                      value="Marketing"
+                    /><span>Marketing</span></label
+                  ><label class="opt-item" for="pa19"
+                    ><input
+                      type="checkbox"
+                      id="pa19"
+                      class="problem-area-check"
+                      data-shows="block-b block-c"
+                      name="problem_areas[]"
+                      value="Sales"
+                    /><span>Sales</span></label
+                  ><label class="opt-item" for="pa20"
+                    ><input
+                      type="checkbox"
+                      id="pa20"
+                      class="problem-area-check"
+                      data-shows="block-c"
+                      name="problem_areas[]"
+                      value="Sales and marketing (the handoff between the two)"
+                    /><span
+                      >Sales and marketing (the handoff between the two)</span
+                    ></label
+                  ><label class="opt-item" for="pa21"
+                    ><input
+                      type="checkbox"
+                      id="pa21"
+                      class="problem-area-check"
+                      data-shows="block-d"
+                      name="problem_areas[]"
+                      value="Operations"
+                    /><span>Operations</span></label
+                  ><label class="opt-item" for="pa22"
+                    ><input
+                      type="checkbox"
+                      id="pa22"
+                      class="problem-area-check"
+                      data-shows="block-e"
+                      name="problem_areas[]"
+                      value="Productivity"
+                    /><span>Productivity</span></label
+                  ><label class="opt-item" for="pa23"
+                    ><input
+                      type="checkbox"
+                      id="pa23"
+                      class="problem-area-check"
+                      data-shows="block-f"
+                      name="problem_areas[]"
+                      value="Customer experience"
+                    /><span>Customer experience</span></label
+                  ><label class="opt-item" for="pa24"
+                    ><input
+                      type="checkbox"
+                      id="pa24"
+                      class="problem-area-check"
+                      data-shows="block-g"
+                      name="problem_areas[]"
+                      value="Adoption and consistency (AI used differently across the team)"
+                    /><span
+                      >Adoption and consistency (AI used differently across the
+                      team)</span
+                    ></label
+                  ><label class="opt-item" for="pa25"
+                    ><input
+                      type="checkbox"
+                      id="pa25"
+                      class="problem-area-check"
+                      data-shows="block-h"
+                      name="problem_areas[]"
+                      value="ROI and prioritisation (too many ideas, not sure which to act on)"
+                    /><span
+                      >ROI and prioritisation (too many ideas, not sure which to
+                      act on)</span
+                    ></label
+                  ><label class="opt-item" for="pa26"
+                    ><input
+                      type="checkbox"
+                      id="pa26"
+                      class="problem-area-check"
+                      data-shows="block-a block-b block-c block-d block-e block-f block-g block-h block-other"
+                      name="problem_areas[]"
+                      value="I'm not sure, just that it isn't doing much for the business"
+                    /><span
+                      >I'm not sure, just that it isn't doing much for the
+                      business</span
+                    ></label
+                  ><label class="opt-item opt-other" for="pa27"
+                    ><input
+                      type="checkbox"
+                      id="pa27"
+                      class="problem-area-check"
+                      data-shows="block-other"
+                      name="problem_areas[]"
+                      value="Other" /><span>Other:</span
+                    ><input
+                      type="text"
+                      class="opt-other-input"
+                      name="problem_areas_other"
+                  /></label>
+                </div>
+                <div class="details-row">
+                  <label class="details-label" for="problem_areas_details"
+                    >Details <span class="opt-tag">(optional)</span></label
+                  ><input
+                    type="text"
+                    id="problem_areas_details"
+                    name="problem_areas_details"
+                    class="text-input"
+                  />
+                </div>
+              </div>
+              <div class="area-block" id="block-a" data-block>
+                <div class="block-title">Marketing</div>
+                <blockquote class="area-quote">
+                  &ldquo;We're producing more content with AI, but it isn't
+                  generating more leads or better results.&rdquo;
+                </blockquote>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Which parts of marketing are you using AI for?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c28"
+                      ><input
+                        type="checkbox"
+                        id="c28"
+                        name="mkt_which_parts[]"
+                        value="Blog, website or SEO content"
+                      /><span>Blog, website or SEO content</span></label
+                    ><label class="opt-item" for="c29"
+                      ><input
+                        type="checkbox"
+                        id="c29"
+                        name="mkt_which_parts[]"
+                        value="Social media posts or captions"
+                      /><span>Social media posts or captions</span></label
+                    ><label class="opt-item" for="c30"
+                      ><input
+                        type="checkbox"
+                        id="c30"
+                        name="mkt_which_parts[]"
+                        value="Email marketing (subject lines, copy or send timing)"
+                      /><span
+                        >Email marketing (subject lines, copy or send
+                        timing)</span
+                      ></label
+                    ><label class="opt-item" for="c31"
+                      ><input
+                        type="checkbox"
+                        id="c31"
+                        name="mkt_which_parts[]"
+                        value="Ad campaigns (copy, targeting or bidding)"
+                      /><span
+                        >Ad campaigns (copy, targeting or bidding)</span
+                      ></label
+                    ><label class="opt-item" for="c32"
+                      ><input
+                        type="checkbox"
+                        id="c32"
+                        name="mkt_which_parts[]"
+                        value="Images, graphics or video"
+                      /><span>Images, graphics or video</span></label
+                    ><label class="opt-item" for="c33"
+                      ><input
+                        type="checkbox"
+                        id="c33"
+                        name="mkt_which_parts[]"
+                        value="Analytics or reporting summaries"
+                      /><span>Analytics or reporting summaries</span></label
+                    ><label class="opt-item" for="c34"
+                      ><input
+                        type="checkbox"
+                        id="c34"
+                        name="mkt_which_parts[]"
+                        value="A chatbot on your website"
+                      /><span>A chatbot on your website</span></label
+                    ><label class="opt-item opt-other" for="c35"
+                      ><input
+                        type="checkbox"
+                        id="c35"
+                        name="mkt_which_parts[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="mkt_which_parts_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label class="details-label" for="mkt_which_parts_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    >
+                    <div class="hint">
+                      which tools, how long you've used them, roughly how much
+                      of your output
+                    </div>
+                    <input
+                      type="text"
+                      id="mkt_which_parts_details"
+                      name="mkt_which_parts_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Since you started using AI here, has output gone up, stayed
+                    about the same, or dropped?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="r36"
+                      ><input
+                        type="radio"
+                        id="r36"
+                        name="mkt_output_change"
+                        value="Up"
+                      /><span>Up</span></label
+                    ><label class="opt-item" for="r37"
+                      ><input
+                        type="radio"
+                        id="r37"
+                        name="mkt_output_change"
+                        value="About the same"
+                      /><span>About the same</span></label
+                    ><label class="opt-item" for="r38"
+                      ><input
+                        type="radio"
+                        id="r38"
+                        name="mkt_output_change"
+                        value="Down"
+                      /><span>Down</span></label
+                    ><label class="opt-item" for="r39"
+                      ><input
+                        type="radio"
+                        id="r39"
+                        name="mkt_output_change"
+                        value="Not sure"
+                      /><span>Not sure</span></label
+                    >
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >And has performance, leads, enquiries or engagement, gone
+                    up, stayed about the same, or dropped?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="r40"
+                      ><input
+                        type="radio"
+                        id="r40"
+                        name="mkt_performance_change"
+                        value="Up"
+                      /><span>Up</span></label
+                    ><label class="opt-item" for="r41"
+                      ><input
+                        type="radio"
+                        id="r41"
+                        name="mkt_performance_change"
+                        value="About the same"
+                      /><span>About the same</span></label
+                    ><label class="opt-item" for="r42"
+                      ><input
+                        type="radio"
+                        id="r42"
+                        name="mkt_performance_change"
+                        value="Down"
+                      /><span>Down</span></label
+                    ><label class="opt-item" for="r43"
+                      ><input
+                        type="radio"
+                        id="r43"
+                        name="mkt_performance_change"
+                        value="Not tracked"
+                      /><span>Not tracked</span></label
+                    >
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Is there a channel, format or initiative you used to run
+                    that got dropped and never picked back up?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c44"
+                      ><input
+                        type="checkbox"
+                        id="c44"
+                        name="mkt_dropped[]"
+                        value="A lead magnet, free guide or ebook"
+                      /><span>A lead magnet, free guide or ebook</span></label
+                    ><label class="opt-item" for="c45"
+                      ><input
+                        type="checkbox"
+                        id="c45"
+                        name="mkt_dropped[]"
+                        value="A webinar or webinar series"
+                      /><span>A webinar or webinar series</span></label
+                    ><label class="opt-item" for="c46"
+                      ><input
+                        type="checkbox"
+                        id="c46"
+                        name="mkt_dropped[]"
+                        value="A referral or affiliate program"
+                      /><span>A referral or affiliate program</span></label
+                    ><label class="opt-item" for="c47"
+                      ><input
+                        type="checkbox"
+                        id="c47"
+                        name="mkt_dropped[]"
+                        value="A specific paid ad channel"
+                      /><span>A specific paid ad channel</span></label
+                    ><label class="opt-item" for="c48"
+                      ><input
+                        type="checkbox"
+                        id="c48"
+                        name="mkt_dropped[]"
+                        value="An email newsletter or nurture sequence"
+                      /><span
+                        >An email newsletter or nurture sequence</span
+                      ></label
+                    ><label class="opt-item" for="c49"
+                      ><input
+                        type="checkbox"
+                        id="c49"
+                        name="mkt_dropped[]"
+                        value="A free challenge or email course"
+                      /><span>A free challenge or email course</span></label
+                    ><label class="opt-item" for="c50"
+                      ><input
+                        type="checkbox"
+                        id="c50"
+                        name="mkt_dropped[]"
+                        value="A podcast or video series"
+                      /><span>A podcast or video series</span></label
+                    ><label class="opt-item" for="c51"
+                      ><input
+                        type="checkbox"
+                        id="c51"
+                        name="mkt_dropped[]"
+                        value="A customer community, such as a Facebook group"
+                      /><span
+                        >A customer community, such as a Facebook group</span
+                      ></label
+                    ><label class="opt-item opt-other" for="c52"
+                      ><input
+                        type="checkbox"
+                        id="c52"
+                        name="mkt_dropped[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="mkt_dropped_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label class="details-label" for="mkt_dropped_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    >
+                    <div class="hint">what it was, roughly when it stopped</div>
+                    <input
+                      type="text"
+                      id="mkt_dropped_details"
+                      name="mkt_dropped_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="mkt_stronger_period"
+                    >Was there a period before this where marketing was working
+                    better than it is now?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+                  <div class="hint">What were you doing differently then?</div>
+                  <textarea
+                    id="mkt_stronger_period"
+                    name="mkt_stronger_period"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="block-a_anything_else"
+                    >Anything else about marketing we should know?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="block-a_anything_else"
+                    name="block-a_anything_else"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="area-block" id="block-b" data-block>
+                <div class="block-title">Sales</div>
+                <blockquote class="area-quote">
+                  &ldquo;Our sales team has AI tools, but they're not helping us
+                  convert more leads or shorten the sales process.&rdquo;
+                </blockquote>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Which parts of the sales process is AI currently touching?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c53"
+                      ><input
+                        type="checkbox"
+                        id="c53"
+                        name="sales_which_parts[]"
+                        value="Lead qualification or scoring"
+                      /><span>Lead qualification or scoring</span></label
+                    ><label class="opt-item" for="c54"
+                      ><input
+                        type="checkbox"
+                        id="c54"
+                        name="sales_which_parts[]"
+                        value="Follow-up and nurture emails"
+                      /><span>Follow-up and nurture emails</span></label
+                    ><label class="opt-item" for="c55"
+                      ><input
+                        type="checkbox"
+                        id="c55"
+                        name="sales_which_parts[]"
+                        value="Proposals or quotes"
+                      /><span>Proposals or quotes</span></label
+                    ><label class="opt-item" for="c56"
+                      ><input
+                        type="checkbox"
+                        id="c56"
+                        name="sales_which_parts[]"
+                        value="CRM notes and admin (call summaries, logging)"
+                      /><span
+                        >CRM notes and admin (call summaries, logging)</span
+                      ></label
+                    ><label class="opt-item" for="c57"
+                      ><input
+                        type="checkbox"
+                        id="c57"
+                        name="sales_which_parts[]"
+                        value="Forecasting or pipeline reporting"
+                      /><span>Forecasting or pipeline reporting</span></label
+                    ><label class="opt-item" for="c58"
+                      ><input
+                        type="checkbox"
+                        id="c58"
+                        name="sales_which_parts[]"
+                        value="Meeting scheduling"
+                      /><span>Meeting scheduling</span></label
+                    ><label class="opt-item opt-other" for="c59"
+                      ><input
+                        type="checkbox"
+                        id="c59"
+                        name="sales_which_parts[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="sales_which_parts_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label class="details-label" for="sales_which_parts_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    >
+                    <div class="hint">
+                      which tools, how long you've used them
+                    </div>
+                    <input
+                      type="text"
+                      id="sales_which_parts_details"
+                      name="sales_which_parts_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Since introducing AI here, has your close rate or sales
+                    cycle length changed?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="r60"
+                      ><input
+                        type="radio"
+                        id="r60"
+                        name="sales_close_rate_change"
+                        value="Better"
+                      /><span>Better</span></label
+                    ><label class="opt-item" for="r61"
+                      ><input
+                        type="radio"
+                        id="r61"
+                        name="sales_close_rate_change"
+                        value="About the same"
+                      /><span>About the same</span></label
+                    ><label class="opt-item" for="r62"
+                      ><input
+                        type="radio"
+                        id="r62"
+                        name="sales_close_rate_change"
+                        value="Worse"
+                      /><span>Worse</span></label
+                    ><label class="opt-item" for="r63"
+                      ><input
+                        type="radio"
+                        id="r63"
+                        name="sales_close_rate_change"
+                        value="Not tracked"
+                      /><span>Not tracked</span></label
+                    >
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Is there a sales tool or process that was set up and then
+                    stopped being used properly?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c64"
+                      ><input
+                        type="checkbox"
+                        id="c64"
+                        name="sales_abandoned_tool[]"
+                        value="A lead-scoring model in the CRM"
+                      /><span>A lead-scoring model in the CRM</span></label
+                    ><label class="opt-item" for="c65"
+                      ><input
+                        type="checkbox"
+                        id="c65"
+                        name="sales_abandoned_tool[]"
+                        value="An email or outreach sequence built once and never updated"
+                      /><span
+                        >An email or outreach sequence built once and never
+                        updated</span
+                      ></label
+                    ><label class="opt-item" for="c66"
+                      ><input
+                        type="checkbox"
+                        id="c66"
+                        name="sales_abandoned_tool[]"
+                        value="A call-recording or conversation tool"
+                      /><span
+                        >A call-recording or conversation tool</span
+                      ></label
+                    ><label class="opt-item" for="c67"
+                      ><input
+                        type="checkbox"
+                        id="c67"
+                        name="sales_abandoned_tool[]"
+                        value="A proposal or quote template tool"
+                      /><span>A proposal or quote template tool</span></label
+                    ><label class="opt-item" for="c68"
+                      ><input
+                        type="checkbox"
+                        id="c68"
+                        name="sales_abandoned_tool[]"
+                        value="A sales playbook or reference document"
+                      /><span
+                        >A sales playbook or reference document</span
+                      ></label
+                    ><label class="opt-item opt-other" for="c69"
+                      ><input
+                        type="checkbox"
+                        id="c69"
+                        name="sales_abandoned_tool[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="sales_abandoned_tool_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label
+                      class="details-label"
+                      for="sales_abandoned_tool_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    >
+                    <div class="hint">
+                      what it was, roughly when it stopped being used
+                    </div>
+                    <input
+                      type="text"
+                      id="sales_abandoned_tool_details"
+                      name="sales_abandoned_tool_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="sales_time_sink"
+                    >What does your sales team say is still taking up their time
+                    despite having these tools?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="sales_time_sink"
+                    name="sales_time_sink"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="sales_stronger_period"
+                    >Was there a period where sales was performing noticeably
+                    better? <span class="opt-tag">(optional)</span></label
+                  >
+                  <div class="hint">
+                    What was different about how the team worked then?
+                  </div>
+                  <textarea
+                    id="sales_stronger_period"
+                    name="sales_stronger_period"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="block-b_anything_else"
+                    >Anything else about sales we should know?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="block-b_anything_else"
+                    name="block-b_anything_else"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="area-block" id="block-c" data-block>
+                <div class="block-title">
+                  Sales and marketing (the handoff between the two)
+                </div>
+                <blockquote class="area-quote">
+                  &ldquo;We're getting leads, but we're losing too many between
+                  enquiry and sale, and we think AI could help us improve the
+                  process.&rdquo;
+                </blockquote>
+                <div class="q-block">
+                  <label class="q-label" for="handoff_share_convert"
+                    >Roughly what share of enquiries turn into a sale today, if
+                    you know? <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <input
+                    type="text"
+                    id="handoff_share_convert"
+                    name="handoff_share_convert"
+                    class="text-input"
+                  />
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Where do you lose the most people?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c70"
+                      ><input
+                        type="checkbox"
+                        id="c70"
+                        name="handoff_where_lost[]"
+                        value="First response"
+                      /><span>First response</span></label
+                    ><label class="opt-item" for="c71"
+                      ><input
+                        type="checkbox"
+                        id="c71"
+                        name="handoff_where_lost[]"
+                        value="Follow-up"
+                      /><span>Follow-up</span></label
+                    ><label class="opt-item" for="c72"
+                      ><input
+                        type="checkbox"
+                        id="c72"
+                        name="handoff_where_lost[]"
+                        value="Quote or proposal stage"
+                      /><span>Quote or proposal stage</span></label
+                    ><label class="opt-item" for="c73"
+                      ><input
+                        type="checkbox"
+                        id="c73"
+                        name="handoff_where_lost[]"
+                        value="Final decision stage"
+                      /><span>Final decision stage</span></label
+                    ><label class="opt-item" for="c74"
+                      ><input
+                        type="checkbox"
+                        id="c74"
+                        name="handoff_where_lost[]"
+                        value="Not sure"
+                      /><span>Not sure</span></label
+                    ><label class="opt-item opt-other" for="c75"
+                      ><input
+                        type="checkbox"
+                        id="c75"
+                        name="handoff_where_lost[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="handoff_where_lost_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label
+                      class="details-label"
+                      for="handoff_where_lost_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    ><input
+                      type="text"
+                      id="handoff_where_lost_details"
+                      name="handoff_where_lost_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="handoff_response_speed"
+                    >How quickly does someone typically hear back after they
+                    first get in touch?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+                  <div class="hint">
+                    e.g. within minutes, same day, a few days
+                  </div>
+                  <input
+                    type="text"
+                    id="handoff_response_speed"
+                    name="handoff_response_speed"
+                    class="text-input"
+                  />
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Which of these, if any, are already part of how a new
+                    enquiry is handled?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c76"
+                      ><input
+                        type="checkbox"
+                        id="c76"
+                        name="handoff_already_in_place[]"
+                        value="An instant automatic reply"
+                      /><span>An instant automatic reply</span></label
+                    ><label class="opt-item" for="c77"
+                      ><input
+                        type="checkbox"
+                        id="c77"
+                        name="handoff_already_in_place[]"
+                        value="AI chat on your website that qualifies enquiries"
+                      /><span
+                        >AI chat on your website that qualifies enquiries</span
+                      ></label
+                    ><label class="opt-item" for="c78"
+                      ><input
+                        type="checkbox"
+                        id="c78"
+                        name="handoff_already_in_place[]"
+                        value="Lead scoring before it reaches a salesperson"
+                      /><span
+                        >Lead scoring before it reaches a salesperson</span
+                      ></label
+                    ><label class="opt-item" for="c79"
+                      ><input
+                        type="checkbox"
+                        id="c79"
+                        name="handoff_already_in_place[]"
+                        value="Automatic routing to the right person"
+                      /><span
+                        >Automatic routing to the right person</span
+                      ></label
+                    ><label class="opt-item" for="c80"
+                      ><input
+                        type="checkbox"
+                        id="c80"
+                        name="handoff_already_in_place[]"
+                        value="A follow-up sequence that runs without someone triggering it manually"
+                      /><span
+                        >A follow-up sequence that runs without someone
+                        triggering it manually</span
+                      ></label
+                    ><label class="opt-item" for="c81"
+                      ><input
+                        type="checkbox"
+                        id="c81"
+                        name="handoff_already_in_place[]"
+                        value="None of these yet"
+                      /><span>None of these yet</span></label
+                    ><label class="opt-item opt-other" for="c82"
+                      ><input
+                        type="checkbox"
+                        id="c82"
+                        name="handoff_already_in_place[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="handoff_already_in_place_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label
+                      class="details-label"
+                      for="handoff_already_in_place_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    ><input
+                      type="text"
+                      id="handoff_already_in_place_details"
+                      name="handoff_already_in_place_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="handoff_used_to_convert"
+                    >Is there a version of this process that used to convert
+                    better? <span class="opt-tag">(optional)</span></label
+                  >
+                  <div class="hint">What was different about it then?</div>
+                  <textarea
+                    id="handoff_used_to_convert"
+                    name="handoff_used_to_convert"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="block-c_anything_else"
+                    >Anything else about sales and marketing (the handoff
+                    between the two) we should know?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="block-c_anything_else"
+                    name="block-c_anything_else"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="area-block" id="block-d" data-block>
+                <div class="block-title">Operations</div>
+                <blockquote class="area-quote">
+                  &ldquo;We're using AI, but the team is still spending too much
+                  time on repetitive admin and manual work.&rdquo;
+                </blockquote>
+                <div class="q-block">
+                  <label class="q-label" for="ops_manual_tasks"
+                    >Which tasks or processes still take up the most manual time
+                    day to day? <span class="opt-tag">(optional)</span></label
+                  >
+                  <div class="hint">
+                    e.g. invoicing, data entry, scheduling, reporting
+                  </div>
+                  <textarea
+                    id="ops_manual_tasks"
+                    name="ops_manual_tasks"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Which of these have you already tried using AI for?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c83"
+                      ><input
+                        type="checkbox"
+                        id="c83"
+                        name="ops_already_tried[]"
+                        value="Document or invoice processing"
+                      /><span>Document or invoice processing</span></label
+                    ><label class="opt-item" for="c84"
+                      ><input
+                        type="checkbox"
+                        id="c84"
+                        name="ops_already_tried[]"
+                        value="Meeting notes or action items"
+                      /><span>Meeting notes or action items</span></label
+                    ><label class="opt-item" for="c85"
+                      ><input
+                        type="checkbox"
+                        id="c85"
+                        name="ops_already_tried[]"
+                        value="Scheduling or rostering"
+                      /><span>Scheduling or rostering</span></label
+                    ><label class="opt-item" for="c86"
+                      ><input
+                        type="checkbox"
+                        id="c86"
+                        name="ops_already_tried[]"
+                        value="Data entry from forms or emails"
+                      /><span>Data entry from forms or emails</span></label
+                    ><label class="opt-item" for="c87"
+                      ><input
+                        type="checkbox"
+                        id="c87"
+                        name="ops_already_tried[]"
+                        value="Expense processing"
+                      /><span>Expense processing</span></label
+                    ><label class="opt-item" for="c88"
+                      ><input
+                        type="checkbox"
+                        id="c88"
+                        name="ops_already_tried[]"
+                        value="HR admin (onboarding, policy questions, leave)"
+                      /><span
+                        >HR admin (onboarding, policy questions, leave)</span
+                      ></label
+                    ><label class="opt-item" for="c89"
+                      ><input
+                        type="checkbox"
+                        id="c89"
+                        name="ops_already_tried[]"
+                        value="Reporting or dashboards"
+                      /><span>Reporting or dashboards</span></label
+                    ><label class="opt-item opt-other" for="c90"
+                      ><input
+                        type="checkbox"
+                        id="c90"
+                        name="ops_already_tried[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="ops_already_tried_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label class="details-label" for="ops_already_tried_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    >
+                    <div class="hint">what you tried and what happened</div>
+                    <input
+                      type="text"
+                      id="ops_already_tried_details"
+                      name="ops_already_tried_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="ops_time_per_week"
+                    >Roughly how much team time a week do you think goes into
+                    this? <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <input
+                    type="text"
+                    id="ops_time_per_week"
+                    name="ops_time_per_week"
+                    class="text-input"
+                  />
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Is there a tool or workflow that was set up at some point
+                    and then fell out of use?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c91"
+                      ><input
+                        type="checkbox"
+                        id="c91"
+                        name="ops_fell_out_of_use[]"
+                        value="An automation built by someone who's since left"
+                      /><span
+                        >An automation built by someone who's since left</span
+                      ></label
+                    ><label class="opt-item" for="c92"
+                      ><input
+                        type="checkbox"
+                        id="c92"
+                        name="ops_fell_out_of_use[]"
+                        value="A licence bought for the whole team that only a few people use"
+                      /><span
+                        >A licence bought for the whole team that only a few
+                        people use</span
+                      ></label
+                    ><label class="opt-item" for="c93"
+                      ><input
+                        type="checkbox"
+                        id="c93"
+                        name="ops_fell_out_of_use[]"
+                        value="A tool piloted in one area that never rolled out further"
+                      /><span
+                        >A tool piloted in one area that never rolled out
+                        further</span
+                      ></label
+                    ><label class="opt-item" for="c94"
+                      ><input
+                        type="checkbox"
+                        id="c94"
+                        name="ops_fell_out_of_use[]"
+                        value="A report or dashboard nobody looks at anymore"
+                      /><span
+                        >A report or dashboard nobody looks at anymore</span
+                      ></label
+                    ><label class="opt-item" for="c95"
+                      ><input
+                        type="checkbox"
+                        id="c95"
+                        name="ops_fell_out_of_use[]"
+                        value="A tool that broke and was never fixed"
+                      /><span
+                        >A tool that broke and was never fixed</span
+                      ></label
+                    ><label class="opt-item opt-other" for="c96"
+                      ><input
+                        type="checkbox"
+                        id="c96"
+                        name="ops_fell_out_of_use[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="ops_fell_out_of_use_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label
+                      class="details-label"
+                      for="ops_fell_out_of_use_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    >
+                    <div class="hint">what it was, roughly when it stopped</div>
+                    <input
+                      type="text"
+                      id="ops_fell_out_of_use_details"
+                      name="ops_fell_out_of_use_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="block-d_anything_else"
+                    >Anything else about operations we should know?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="block-d_anything_else"
+                    name="block-d_anything_else"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="area-block" id="block-e" data-block>
+                <div class="block-title">Productivity</div>
+                <blockquote class="area-quote">
+                  &ldquo;We expected AI to save the team time, but we're not
+                  seeing a meaningful productivity improvement.&rdquo;
+                </blockquote>
+                <div class="q-block">
+                  <label class="q-label" for="prod_where_expected"
+                    >Where did you expect AI to free up time that hasn't shown
+                    up yet? <span class="opt-tag">(optional)</span></label
+                  >
+                  <div class="hint">
+                    e.g. writing, meeting notes, research, admin
+                  </div>
+                  <textarea
+                    id="prod_where_expected"
+                    name="prod_where_expected"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="prod_time_measured"
+                    >Is that time being measured anywhere today, or is this a
+                    general sense?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <input
+                    type="text"
+                    id="prod_time_measured"
+                    name="prod_time_measured"
+                    class="text-input"
+                  />
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Which of these has the business already bought or tried,
+                    even if it's not being used much now?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c97"
+                      ><input
+                        type="checkbox"
+                        id="c97"
+                        name="prod_already_bought[]"
+                        value="A company-wide AI licence (Microsoft Copilot, Google Gemini, ChatGPT or similar)"
+                      /><span
+                        >A company-wide AI licence (Microsoft Copilot, Google
+                        Gemini, ChatGPT or similar)</span
+                      ></label
+                    ><label class="opt-item" for="c98"
+                      ><input
+                        type="checkbox"
+                        id="c98"
+                        name="prod_already_bought[]"
+                        value="A meeting notes or transcription tool"
+                      /><span
+                        >A meeting notes or transcription tool</span
+                      ></label
+                    ><label class="opt-item" for="c99"
+                      ><input
+                        type="checkbox"
+                        id="c99"
+                        name="prod_already_bought[]"
+                        value="An internal AI search or knowledge tool"
+                      /><span
+                        >An internal AI search or knowledge tool</span
+                      ></label
+                    ><label class="opt-item" for="c100"
+                      ><input
+                        type="checkbox"
+                        id="c100"
+                        name="prod_already_bought[]"
+                        value="A research or writing assistant"
+                      /><span>A research or writing assistant</span></label
+                    ><label class="opt-item" for="c101"
+                      ><input
+                        type="checkbox"
+                        id="c101"
+                        name="prod_already_bought[]"
+                        value="Coding assistance for technical staff"
+                      /><span
+                        >Coding assistance for technical staff</span
+                      ></label
+                    ><label class="opt-item" for="c102"
+                      ><input
+                        type="checkbox"
+                        id="c102"
+                        name="prod_already_bought[]"
+                        value="A scheduling assistant"
+                      /><span>A scheduling assistant</span></label
+                    ><label class="opt-item opt-other" for="c103"
+                      ><input
+                        type="checkbox"
+                        id="c103"
+                        name="prod_already_bought[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="prod_already_bought_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label
+                      class="details-label"
+                      for="prod_already_bought_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    >
+                    <div class="hint">
+                      which ones, roughly how many people use them
+                    </div>
+                    <input
+                      type="text"
+                      id="prod_already_bought_details"
+                      name="prod_already_bought_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="prod_honest_read"
+                    >What's the team's honest read on why the time saving hasn't
+                    shown up? <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="prod_honest_read"
+                    name="prod_honest_read"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="block-e_anything_else"
+                    >Anything else about productivity we should know?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="block-e_anything_else"
+                    name="block-e_anything_else"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="area-block" id="block-f" data-block>
+                <div class="block-title">Customer experience</div>
+                <blockquote class="area-quote">
+                  &ldquo;We want to use AI to improve response times or customer
+                  service without making the experience feel worse.&rdquo;
+                </blockquote>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Where does AI currently touch the customer experience?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c104"
+                      ><input
+                        type="checkbox"
+                        id="c104"
+                        name="cx_where_touches[]"
+                        value="Response times"
+                      /><span>Response times</span></label
+                    ><label class="opt-item" for="c105"
+                      ><input
+                        type="checkbox"
+                        id="c105"
+                        name="cx_where_touches[]"
+                        value="Live chat or support"
+                      /><span>Live chat or support</span></label
+                    ><label class="opt-item" for="c106"
+                      ><input
+                        type="checkbox"
+                        id="c106"
+                        name="cx_where_touches[]"
+                        value="Self-service (order status, returns, account changes)"
+                      /><span
+                        >Self-service (order status, returns, account
+                        changes)</span
+                      ></label
+                    ><label class="opt-item" for="c107"
+                      ><input
+                        type="checkbox"
+                        id="c107"
+                        name="cx_where_touches[]"
+                        value="Personalisation"
+                      /><span>Personalisation</span></label
+                    ><label class="opt-item opt-other" for="c108"
+                      ><input
+                        type="checkbox"
+                        id="c108"
+                        name="cx_where_touches[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="cx_where_touches_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label class="details-label" for="cx_where_touches_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    ><input
+                      type="text"
+                      id="cx_where_touches_details"
+                      name="cx_where_touches_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Has anything here been paused, turned off, or fallen out of
+                    use? <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c109"
+                      ><input
+                        type="checkbox"
+                        id="c109"
+                        name="cx_paused[]"
+                        value="A chatbot that was turned off"
+                      /><span>A chatbot that was turned off</span></label
+                    ><label class="opt-item" for="c110"
+                      ><input
+                        type="checkbox"
+                        id="c110"
+                        name="cx_paused[]"
+                        value="A tool that was piloted in one area and never expanded"
+                      /><span
+                        >A tool that was piloted in one area and never
+                        expanded</span
+                      ></label
+                    ><label class="opt-item" for="c111"
+                      ><input
+                        type="checkbox"
+                        id="c111"
+                        name="cx_paused[]"
+                        value="A personalisation feature set up once and never revisited"
+                      /><span
+                        >A personalisation feature set up once and never
+                        revisited</span
+                      ></label
+                    ><label class="opt-item" for="c112"
+                      ><input
+                        type="checkbox"
+                        id="c112"
+                        name="cx_paused[]"
+                        value="A self-service tool giving outdated answers"
+                      /><span
+                        >A self-service tool giving outdated answers</span
+                      ></label
+                    ><label class="opt-item" for="c113"
+                      ><input
+                        type="checkbox"
+                        id="c113"
+                        name="cx_paused[]"
+                        value="None of these"
+                      /><span>None of these</span></label
+                    ><label class="opt-item opt-other" for="c114"
+                      ><input
+                        type="checkbox"
+                        id="c114"
+                        name="cx_paused[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="cx_paused_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label class="details-label" for="cx_paused_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    >
+                    <div class="hint">what it was, roughly when it stopped</div>
+                    <input
+                      type="text"
+                      id="cx_paused_details"
+                      name="cx_paused_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="cx_customer_feedback"
+                    >What have customers said, directly or through feedback,
+                    since AI was introduced here?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="cx_customer_feedback"
+                    name="cx_customer_feedback"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="cx_better_looks_like"
+                    >What would better look like here, in plain terms?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="cx_better_looks_like"
+                    name="cx_better_looks_like"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="block-f_anything_else"
+                    >Anything else about customer experience we should know?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="block-f_anything_else"
+                    name="block-f_anything_else"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="area-block" id="block-g" data-block>
+                <div class="block-title">Adoption and consistency</div>
+                <blockquote class="area-quote">
+                  &ldquo;Different people are using AI in different ways, some
+                  aren't using it at all, and there's no consistent approach
+                  across the business.&rdquo;
+                </blockquote>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Roughly what share of the team uses AI regularly?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="r115"
+                      ><input
+                        type="radio"
+                        id="r115"
+                        name="adopt_share_using"
+                        value="Almost everyone"
+                      /><span>Almost everyone</span></label
+                    ><label class="opt-item" for="r116"
+                      ><input
+                        type="radio"
+                        id="r116"
+                        name="adopt_share_using"
+                        value="Most"
+                      /><span>Most</span></label
+                    ><label class="opt-item" for="r117"
+                      ><input
+                        type="radio"
+                        id="r117"
+                        name="adopt_share_using"
+                        value="Some"
+                      /><span>Some</span></label
+                    ><label class="opt-item" for="r118"
+                      ><input
+                        type="radio"
+                        id="r118"
+                        name="adopt_share_using"
+                        value="A few"
+                      /><span>A few</span></label
+                    ><label class="opt-item" for="r119"
+                      ><input
+                        type="radio"
+                        id="r119"
+                        name="adopt_share_using"
+                        value="Not sure"
+                      /><span>Not sure</span></label
+                    >
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Where does usage vary the most, and why do you think that
+                    is? <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c120"
+                      ><input
+                        type="checkbox"
+                        id="c120"
+                        name="adopt_where_varies[]"
+                        value="Some roles have obvious uses and others don't"
+                      /><span
+                        >Some roles have obvious uses and others don't</span
+                      ></label
+                    ><label class="opt-item" for="c121"
+                      ><input
+                        type="checkbox"
+                        id="c121"
+                        name="adopt_where_varies[]"
+                        value="Training was a single demo, or nothing"
+                      /><span
+                        >Training was a single demo, or nothing</span
+                      ></label
+                    ><label class="opt-item" for="c122"
+                      ><input
+                        type="checkbox"
+                        id="c122"
+                        name="adopt_where_varies[]"
+                        value="There's no clear policy on what's allowed"
+                      /><span
+                        >There's no clear policy on what's allowed</span
+                      ></label
+                    ><label class="opt-item" for="c123"
+                      ><input
+                        type="checkbox"
+                        id="c123"
+                        name="adopt_where_varies[]"
+                        value="People aren't sure it's welcomed by leadership"
+                      /><span
+                        >People aren't sure it's welcomed by leadership</span
+                      ></label
+                    ><label class="opt-item" for="c124"
+                      ><input
+                        type="checkbox"
+                        id="c124"
+                        name="adopt_where_varies[]"
+                        value="Some people worry about being judged for using it"
+                      /><span
+                        >Some people worry about being judged for using it</span
+                      ></label
+                    ><label class="opt-item opt-other" for="c125"
+                      ><input
+                        type="checkbox"
+                        id="c125"
+                        name="adopt_where_varies[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="adopt_where_varies_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label
+                      class="details-label"
+                      for="adopt_where_varies_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    ><input
+                      type="text"
+                      id="adopt_where_varies_details"
+                      name="adopt_where_varies_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="adopt_training"
+                    >Has the team had proper training and guidelines, or has it
+                    mostly been left to individuals to work out?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="adopt_training"
+                    name="adopt_training"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="block-g_anything_else"
+                    >Anything else about adoption and consistency we should
+                    know? <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="block-g_anything_else"
+                    name="block-g_anything_else"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="area-block" id="block-h" data-block>
+                <div class="block-title">ROI and prioritisation</div>
+                <blockquote class="area-quote">
+                  &ldquo;We've invested in AI and have plenty of ideas about
+                  what else we could do, but we don't know which opportunities
+                  will actually make or save the business money.&rdquo;
+                </blockquote>
+                <div class="q-block">
+                  <label class="q-label" for="roi_ideas_list"
+                    >What are the AI ideas or projects currently on your list?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+                  <div class="hint">A rough list is fine.</div>
+                  <textarea
+                    id="roi_ideas_list"
+                    name="roi_ideas_list"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label"
+                    >Does any of this sound familiar?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <div class="opt-group">
+                    <label class="opt-item" for="c126"
+                      ><input
+                        type="checkbox"
+                        id="c126"
+                        name="roi_sounds_familiar[]"
+                        value="An idea from a leadership meeting that was never followed up"
+                      /><span
+                        >An idea from a leadership meeting that was never
+                        followed up</span
+                      ></label
+                    ><label class="opt-item" for="c127"
+                      ><input
+                        type="checkbox"
+                        id="c127"
+                        name="roi_sounds_familiar[]"
+                        value="A vendor pitch sitting in a proposal nobody's actioned"
+                      /><span
+                        >A vendor pitch sitting in a proposal nobody's
+                        actioned</span
+                      ></label
+                    ><label class="opt-item" for="c128"
+                      ><input
+                        type="checkbox"
+                        id="c128"
+                        name="roi_sounds_familiar[]"
+                        value="A trial or prototype that was never costed for wider use"
+                      /><span
+                        >A trial or prototype that was never costed for wider
+                        use</span
+                      ></label
+                    ><label class="opt-item" for="c129"
+                      ><input
+                        type="checkbox"
+                        id="c129"
+                        name="roi_sounds_familiar[]"
+                        value="People already using AI informally for real work, just not officially"
+                      /><span
+                        >People already using AI informally for real work, just
+                        not officially</span
+                      ></label
+                    ><label class="opt-item" for="c130"
+                      ><input
+                        type="checkbox"
+                        id="c130"
+                        name="roi_sounds_familiar[]"
+                        value="One team's tool being considered for the whole business without being sized first"
+                      /><span
+                        >One team's tool being considered for the whole business
+                        without being sized first</span
+                      ></label
+                    ><label class="opt-item opt-other" for="c131"
+                      ><input
+                        type="checkbox"
+                        id="c131"
+                        name="roi_sounds_familiar[]"
+                        value="Other" /><span>Other:</span
+                      ><input
+                        type="text"
+                        class="opt-other-input"
+                        name="roi_sounds_familiar_other"
+                        placeholder="please specify"
+                    /></label>
+                  </div>
+                  <div class="details-row">
+                    <label
+                      class="details-label"
+                      for="roi_sounds_familiar_details"
+                      >Details <span class="opt-tag">(optional)</span></label
+                    ><input
+                      type="text"
+                      id="roi_sounds_familiar_details"
+                      name="roi_sounds_familiar_details"
+                      class="text-input"
+                    />
+                  </div>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="roi_whats_stopping"
+                    >What's stopping you from prioritising between them today?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="roi_whats_stopping"
+                    name="roi_whats_stopping"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="block-h_anything_else"
+                    >Anything else about ROI and prioritisation we should know?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="block-h_anything_else"
+                    name="block-h_anything_else"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="area-block" id="block-other" data-block>
+                <div class="block-title">If none of the above quite fit</div>
+                <div class="q-block">
+                  <label class="q-label" for="other_main_issue"
+                    >In your own words, what's the main issue?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="other_main_issue"
+                    name="other_main_issue"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="other_already_tried"
+                    >What have you already tried?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="other_already_tried"
+                    name="other_already_tried"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="other_elsewhere"
+                    >Is there anything in a different part of the business that
+                    might be feeding into this, even if it's not where you'd
+                    usually look? <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="other_elsewhere"
+                    name="other_elsewhere"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+                <div class="q-block">
+                  <label class="q-label" for="other_anything_else"
+                    >Anything else about this we should know?
+                    <span class="opt-tag">(optional)</span></label
+                  >
+
+                  <textarea
+                    id="other_anything_else"
+                    name="other_anything_else"
+                    rows="2"
+                    class="text-input"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="block-title" style="margin-top: 36px">
+                Shown to everyone, regardless of what's ticked above
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="universal_feeding_in"
+                  >Is there anything else going on, even somewhere else in the
+                  business, that you think might be feeding into this?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  It's common for the real issue to sit next to the one that's
+                  easiest to name. If in doubt, mention it.
+                </div>
+                <textarea
+                  id="universal_feeding_in"
+                  name="universal_feeding_in"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label"
+                  >Which of these is the priority for you right now?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  Tick as many as apply, and mark the one that's the priority in
+                  the details field.
+                </div>
+                <div class="opt-group">
+                  <label class="opt-item" for="c132"
+                    ><input
+                      type="checkbox"
+                      id="c132"
+                      name="priority_outcome[]"
+                      value="More revenue"
+                    /><span>More revenue</span></label
+                  ><label class="opt-item" for="c133"
+                    ><input
+                      type="checkbox"
+                      id="c133"
+                      name="priority_outcome[]"
+                      value="Cost savings"
+                    /><span>Cost savings</span></label
+                  ><label class="opt-item" for="c134"
+                    ><input
+                      type="checkbox"
+                      id="c134"
+                      name="priority_outcome[]"
+                      value="Time saved"
+                    /><span>Time saved</span></label
+                  ><label class="opt-item" for="c135"
+                    ><input
+                      type="checkbox"
+                      id="c135"
+                      name="priority_outcome[]"
+                      value="A better customer experience"
+                    /><span>A better customer experience</span></label
+                  ><label class="opt-item opt-other" for="c136"
+                    ><input
+                      type="checkbox"
+                      id="c136"
+                      name="priority_outcome[]"
+                      value="Other" /><span>Other:</span
+                    ><input
+                      type="text"
+                      class="opt-other-input"
+                      name="priority_outcome_other"
+                      placeholder="please specify"
+                  /></label>
+                </div>
+                <div class="details-row">
+                  <label class="details-label" for="priority_outcome_details"
+                    >Details <span class="opt-tag">(optional)</span></label
+                  ><input
+                    type="text"
+                    id="priority_outcome_details"
+                    name="priority_outcome_details"
+                    class="text-input"
+                  />
+                </div>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="cost_of_no_change"
+                  >If nothing changes over the next 90 days, what does that cost
+                  you? <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">In money, time, or a missed opportunity.</div>
+                <textarea
+                  id="cost_of_no_change"
+                  name="cost_of_no_change"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="decision_maker"
+                  >Who makes the final call on spend and priorities for this
+                  engagement? <span class="opt-tag">(optional)</span></label
+                >
+
+                <input
+                  type="text"
+                  id="decision_maker"
+                  name="decision_maker"
+                  class="text-input"
+                />
+              </div>
+            </section>
+            <section class="form-section">
+              <h2 class="sec-title">3. Current AI and Systems</h2>
+              <div class="q-block">
+                <label class="q-label"
+                  >Which AI tools or platforms are you using right now, if any?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">Tick all that apply.</div>
+                <div class="opt-group">
+                  <label class="opt-item" for="c137"
+                    ><input
+                      type="checkbox"
+                      id="c137"
+                      name="ai_tools[]"
+                      value="Microsoft 365 Copilot (Word, Outlook, Teams, Excel)"
+                    /><span
+                      >Microsoft 365 Copilot (Word, Outlook, Teams, Excel)</span
+                    ></label
+                  ><label class="opt-item" for="c138"
+                    ><input
+                      type="checkbox"
+                      id="c138"
+                      name="ai_tools[]"
+                      value="Google Gemini for Workspace"
+                    /><span>Google Gemini for Workspace</span></label
+                  ><label class="opt-item" for="c139"
+                    ><input
+                      type="checkbox"
+                      id="c139"
+                      name="ai_tools[]"
+                      value="ChatGPT, Claude or similar, used by individuals or teams"
+                    /><span
+                      >ChatGPT, Claude or similar, used by individuals or
+                      teams</span
+                    ></label
+                  ><label class="opt-item" for="c140"
+                    ><input
+                      type="checkbox"
+                      id="c140"
+                      name="ai_tools[]"
+                      value="An AI feature inside your CRM (e.g. Salesforce Einstein or Agentforce, HubSpot Breeze)"
+                    /><span
+                      >An AI feature inside your CRM (e.g. Salesforce Einstein
+                      or Agentforce, HubSpot Breeze)</span
+                    ></label
+                  ><label class="opt-item" for="c141"
+                    ><input
+                      type="checkbox"
+                      id="c141"
+                      name="ai_tools[]"
+                      value="An AI feature inside another core business system (finance, HR or operations platform)"
+                    /><span
+                      >An AI feature inside another core business system
+                      (finance, HR or operations platform)</span
+                    ></label
+                  ><label class="opt-item" for="c142"
+                    ><input
+                      type="checkbox"
+                      id="c142"
+                      name="ai_tools[]"
+                      value="A dedicated AI platform or vendor for one specific task (e.g. a chatbot, a transcription tool)"
+                    /><span
+                      >A dedicated AI platform or vendor for one specific task
+                      (e.g. a chatbot, a transcription tool)</span
+                    ></label
+                  ><label class="opt-item" for="c143"
+                    ><input
+                      type="checkbox"
+                      id="c143"
+                      name="ai_tools[]"
+                      value="Workflow automation with AI built in (e.g. Zapier, Make, Power Automate)"
+                    /><span
+                      >Workflow automation with AI built in (e.g. Zapier, Make,
+                      Power Automate)</span
+                    ></label
+                  ><label class="opt-item" for="c144"
+                    ><input
+                      type="checkbox"
+                      id="c144"
+                      name="ai_tools[]"
+                      value="Something built specifically for you"
+                    /><span>Something built specifically for you</span></label
+                  ><label class="opt-item" for="c145"
+                    ><input
+                      type="checkbox"
+                      id="c145"
+                      name="ai_tools[]"
+                      value="Not sure / need to check"
+                    /><span>Not sure / need to check</span></label
+                  ><label class="opt-item" for="c146"
+                    ><input
+                      type="checkbox"
+                      id="c146"
+                      name="ai_tools[]"
+                      value="Nothing yet"
+                    /><span>Nothing yet</span></label
+                  ><label class="opt-item opt-other" for="c147"
+                    ><input
+                      type="checkbox"
+                      id="c147"
+                      name="ai_tools[]"
+                      value="Other" /><span>Other:</span
+                    ><input
+                      type="text"
+                      class="opt-other-input"
+                      name="ai_tools_other"
+                      placeholder="please specify"
+                  /></label>
+                </div>
+                <div class="details-row">
+                  <label class="details-label" for="ai_tools_details"
+                    >Details <span class="opt-tag">(optional)</span></label
+                  >
+                  <div class="hint">
+                    which ones, how long you've used them, roughly how many
+                    people
+                  </div>
+                  <input
+                    type="text"
+                    id="ai_tools_details"
+                    name="ai_tools_details"
+                    class="text-input"
+                  />
+                </div>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="ai_how_long"
+                  >Roughly how long have you been using them?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  e.g. a few months, over a year, just started
+                </div>
+                <input
+                  type="text"
+                  id="ai_how_long"
+                  name="ai_how_long"
+                  class="text-input"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="ai_who_uses"
+                  >Who uses them day to day?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  e.g. just leadership, one team, most of the company
+                </div>
+                <input
+                  type="text"
+                  id="ai_who_uses"
+                  name="ai_who_uses"
+                  class="text-input"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="ai_consistency"
+                  >Is AI used the same way across the team, or does it vary from
+                  person to person?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="ai_consistency"
+                  name="ai_consistency"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="ai_worked_well"
+                  >What's worked well so far?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="ai_worked_well"
+                  name="ai_worked_well"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="ai_not_worked"
+                  >What hasn't worked, or hasn't gone the way you expected?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="ai_not_worked"
+                  name="ai_not_worked"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="ai_other_systems"
+                  >What other systems or software sit around this area of the
+                  business? <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  CRM, marketing platform, project management, customer service
+                  tools, and so on.
+                </div>
+                <textarea
+                  id="ai_other_systems"
+                  name="ai_other_systems"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="ai_anything_else"
+                  >Anything else about your AI and systems setup we should know?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="ai_anything_else"
+                  name="ai_anything_else"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+            </section>
+            <section class="form-section">
+              <h2 class="sec-title">4. Team</h2>
+              <div class="q-block">
+                <label class="q-label" for="team_members"
+                  >List your current team members relevant to this engagement,
+                  and their roles.
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  Names and roles are fine, or just roles if that's easier.
+                </div>
+                <textarea
+                  id="team_members"
+                  name="team_members"
+                  rows="3"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="team_gaps"
+                  >Are there any gaps, or roles you're looking to fill?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="team_gaps"
+                  name="team_gaps"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="team_carry_forward"
+                  >Who will be responsible for carrying this work forward once
+                  the engagement ends?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <input
+                  type="text"
+                  id="team_carry_forward"
+                  name="team_carry_forward"
+                  class="text-input"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="team_anything_else"
+                  >Anything else about your team we should know?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="team_anything_else"
+                  name="team_anything_else"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+            </section>
+            <section class="form-section">
+              <h2 class="sec-title">5. Process</h2>
+              <div class="q-block">
+                <label class="q-label" for="process_walkthrough"
+                  >Walk me through how this process currently works, step by
+                  step. <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  For example, how a lead becomes a customer, how a request gets
+                  handled, or how work moves through the team.
+                </div>
+                <textarea
+                  id="process_walkthrough"
+                  name="process_walkthrough"
+                  rows="3"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="process_breaks"
+                  >Where does it typically slow down, break, or get missed?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">
+                  e.g. a specific step, a handoff between people, a particular
+                  time of month
+                </div>
+                <textarea
+                  id="process_breaks"
+                  name="process_breaks"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="process_anything_else"
+                  >Anything else about how this process works we should know?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="process_anything_else"
+                  name="process_anything_else"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+            </section>
+            <section class="form-section">
+              <h2 class="sec-title">6. What's Working</h2>
+              <div class="q-block">
+                <label class="q-label" for="working_most_effective"
+                  >What's the most effective thing you're doing in this area
+                  right now, and why do you think it works?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="working_most_effective"
+                  name="working_most_effective"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="working_stronger_period"
+                  >Was there a period where this was working better than it is
+                  today? <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">What were you doing differently then?</div>
+                <textarea
+                  id="working_stronger_period"
+                  name="working_stronger_period"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label"
+                  >Are there tools, subscriptions or AI features you're already
+                  paying for, or already set up, that aren't being used anymore?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <div class="opt-group">
+                  <label class="opt-item" for="c148"
+                    ><input
+                      type="checkbox"
+                      id="c148"
+                      name="working_unused_tools[]"
+                      value="A company-wide AI licence only a few people use"
+                    /><span
+                      >A company-wide AI licence only a few people use</span
+                    ></label
+                  ><label class="opt-item" for="c149"
+                    ><input
+                      type="checkbox"
+                      id="c149"
+                      name="working_unused_tools[]"
+                      value="A meeting notes or transcription tool that's stopped being used"
+                    /><span
+                      >A meeting notes or transcription tool that's stopped
+                      being used</span
+                    ></label
+                  ><label class="opt-item" for="c150"
+                    ><input
+                      type="checkbox"
+                      id="c150"
+                      name="working_unused_tools[]"
+                      value="An automation someone built that's no longer maintained"
+                    /><span
+                      >An automation someone built that's no longer
+                      maintained</span
+                    ></label
+                  ><label class="opt-item" for="c151"
+                    ><input
+                      type="checkbox"
+                      id="c151"
+                      name="working_unused_tools[]"
+                      value="A chatbot or self-service tool that's been turned off"
+                    /><span
+                      >A chatbot or self-service tool that's been turned
+                      off</span
+                    ></label
+                  ><label class="opt-item" for="c152"
+                    ><input
+                      type="checkbox"
+                      id="c152"
+                      name="working_unused_tools[]"
+                      value="A platform bought after a demo and never rolled out"
+                    /><span
+                      >A platform bought after a demo and never rolled out</span
+                    ></label
+                  ><label class="opt-item" for="c153"
+                    ><input
+                      type="checkbox"
+                      id="c153"
+                      name="working_unused_tools[]"
+                      value="None of these"
+                    /><span>None of these</span></label
+                  ><label class="opt-item opt-other" for="c154"
+                    ><input
+                      type="checkbox"
+                      id="c154"
+                      name="working_unused_tools[]"
+                      value="Other" /><span>Other:</span
+                    ><input
+                      type="text"
+                      class="opt-other-input"
+                      name="working_unused_tools_other"
+                      placeholder="please specify"
+                  /></label>
+                </div>
+                <div class="details-row">
+                  <label
+                    class="details-label"
+                    for="working_unused_tools_details"
+                    >Details <span class="opt-tag">(optional)</span></label
+                  >
+                  <div class="hint">
+                    what it is, roughly when it stopped being used
+                  </div>
+                  <input
+                    type="text"
+                    id="working_unused_tools_details"
+                    name="working_unused_tools_details"
+                    class="text-input"
+                  />
+                </div>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="working_hidden_ideas"
+                  >Is there anything you've thought about trying but haven't
+                  raised yet, even if it's not fully formed?
+                  <span class="opt-tag">(optional)</span></label
+                >
+                <div class="hint">Even a half-formed idea is useful here.</div>
+                <textarea
+                  id="working_hidden_ideas"
+                  name="working_hidden_ideas"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="working_anything_else"
+                  >Anything else about what's working we should know?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="working_anything_else"
+                  name="working_anything_else"
+                  rows="2"
+                  class="text-input"
+                ></textarea>
+              </div>
+            </section>
+            <section class="form-section">
+              <h2 class="sec-title">7. Anything else</h2>
+              <div class="q-block">
+                <label class="q-label" for="final_anything_else"
+                  >Anything else you think I should know before we meet?
+                  <span class="opt-tag">(optional)</span></label
+                >
+
+                <textarea
+                  id="final_anything_else"
+                  name="final_anything_else"
+                  rows="3"
+                  class="text-input"
+                ></textarea>
+              </div>
+            </section>
             <div class="submit-row">
-              <button type="submit" class="button" id="submitBtn" style="width: 100%; justify-content: center">
+              <button
+                type="submit"
+                class="button"
+                id="submitBtn"
+                style="width: 100%; justify-content: center"
+              >
                 Send my answers
               </button>
               <p class="form-note">
-                Everything above is optional. Send whatever you've been able to fill in, you don't need to finish it in one go, and we'll pick up the rest on the call.
+                Everything above is optional. Send whatever you've been able to
+                fill in, you don't need to finish it in one go, and we'll pick
+                up the rest on the call.
               </p>
             </div>
           </form>
 
           <div class="form-success" id="formSuccess">
             <strong>Thanks, that's exactly what we need.</strong>
-            We've received your answers and will use them to shape the plan we talk through when we meet.
+            We've received your answers and will use them to shape the plan we
+            talk through when we meet.
           </div>
         </div>
       </div>
@@ -828,9 +3114,11 @@
         var visible = new Set();
         problemChecks.forEach(function (cb) {
           if (cb.checked) {
-            (cb.getAttribute("data-shows") || "").split(" ").forEach(function (id) {
-              if (id) visible.add(id);
-            });
+            (cb.getAttribute("data-shows") || "")
+              .split(" ")
+              .forEach(function (id) {
+                if (id) visible.add(id);
+              });
           }
         });
         allBlocks.forEach(function (block) {
@@ -869,12 +3157,16 @@
               success.style.display = "block";
               window.scrollTo({ top: 0, behavior: "smooth" });
             } else {
-              alert("Something went wrong. Please try again or email info@kindredsystems.com.au");
+              alert(
+                "Something went wrong. Please try again or email info@kindredsystems.com.au",
+              );
               submitBtn.disabled = false;
               submitBtn.textContent = "Send my answers";
             }
           } catch (err) {
-            alert("Something went wrong. Please try again or email info@kindredsystems.com.au");
+            alert(
+              "Something went wrong. Please try again or email info@kindredsystems.com.au",
+            );
             submitBtn.disabled = false;
             submitBtn.textContent = "Send my answers";
           }
