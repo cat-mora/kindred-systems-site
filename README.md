@@ -287,6 +287,26 @@ Copywriting rules specific to the advisory pages:
 - Never describe the A$2,500+/month or A$1,900+/day engagements as being about "one result" without framing the scale of that result (it can be worth hundreds of thousands of dollars, not a small/incremental fix).
 - Follow the additional brand banned-word list in "Brand and copy rules" above, plus (per the Aug 2026 messaging review): no negative-construct triplets ("Not X. Not Y. Not Z.") and no "not X but Y" formulations.
 
+## Forms and lead capture
+
+All forms on this site (contact page, advisory enquiry form, and the client intake form below) submit through **Formspree**, a third-party form-backend service, not a custom backend in this repo.
+
+- **Shared Formspree endpoint:** `https://formspree.io/f/xpqgpdzg`
+- This ONE endpoint is reused by every form on the site. It is not a separate ID per form/page.
+- How it works: the page's `<form>` posts to the Formspree URL via JavaScript `fetch()`. Formspree receives the submission, emails it to `info@kindredsystems.com.au`, and also keeps a copy in Formspree's own online dashboard (log in at formspree.io to view past submissions; CSV export of stored submissions requires a paid Formspree plan, the free plan gives dashboard viewing only).
+- **Free-plan cap:** Formspree's free plan allows 50 submissions/month per form ID. Because every form on the site shares this one ID, that cap is shared too — contact enquiries and intake form submissions all count against the same monthly 50. If combined volume grows, either split forms onto separate Formspree endpoints or upgrade the Formspree plan.
+- To add a CC recipient (e.g. a VA), add a hidden field to the relevant form: `<input type="hidden" name="_cc" value="someone@email.com">`.
+
+### Client intake form
+
+- **Live URL:** `https://kindredsystems.com.au/advisory/intake/`
+- **Source file:** `advisory/intake/index.html`
+- Added 13 Aug 2026. Sent directly to new advisory clients after the Onboarding Call is booked, so Cat has what she needs to shape the first 90-day plan before that call.
+- It is ONE shared link for every client, not a unique link generated per person. There is no login, token or pre-fill. Each client identifies themselves by filling in the "Business name" / "Your name and role" fields at the top, same as any public web form.
+- The page is tagged `noindex, nofollow` in its `<head>` and is not linked from site navigation. It is private/client-only by omission, not by access control — anyone with the direct link can open and submit it.
+- Content structure: 7 sections (Overview, The Opportunity, Current AI and Systems, Team, Process, What's Working, Anything else), with 8 conditional "problem area" blocks in Section 2 that show or hide based on which part of the business the client ticks (Marketing, Sales, the Sales/Marketing handoff, Operations, Productivity, Customer experience, Adoption and consistency, ROI and prioritisation, or "I'm not sure" which reveals all of them). Implemented with a small vanilla-JS show/hide script and `data-shows` attributes on each checkbox, no framework.
+- Submits through the shared Formspree endpoint above. VA CC not yet configured — pending her email address.
+
 ## What not to change without approval
 
 Do not change the core product positioning without approval.
