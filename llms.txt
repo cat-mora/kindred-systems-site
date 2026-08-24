@@ -1,0 +1,31 @@
+# Kindred Systems
+
+> Kindred Systems helps established organisations turn AI investment into a measurable business outcome: money made, money saved, or both.
+
+Kindred Systems is an independent AI strategy and implementation advisory based in Brisbane, Australia, founded by Cathryn Mora. It works with established organisations that have already invested in AI, or are about to, and want a measurable commercial result from it, using the tools they already have rather than new software purchases.
+
+## Who this is for
+
+Established founder-led businesses with at least A$500,000 in annual revenue that either want to invest in AI or have already invested in AI and want a measurable return from it. Also larger organisations at executive level needing an independently pressure-tested view on a high-stakes AI decision.
+
+## What Kindred Systems offers
+
+- Discovery Call: a free, no-obligation 45-minute conversation to work out the right next step.
+- AI Business Outcomes Advisory: a 90-day engagement, renewable for a further 90 days, built around one KPI-focused opportunity to make or save the client money from AI. Includes weekly sessions and direct access to the founder on any working day.
+- Executive AI Sprint: a minimum five-consecutive-day engagement for larger organisations needing an independently pressure-tested AI decision. Delivered in person for Brisbane-based clients, or remotely elsewhere.
+
+## What Kindred Systems does not do
+
+Generic AI training, tool implementation for its own sake, or technology-first work before the business problem is agreed.
+
+## Key pages
+
+- Home: https://kindredsystems.com.au/
+- Advisory (offer details, booking, enquiry form): https://kindredsystems.com.au/advisory/
+- About (founder background): https://kindredsystems.com.au/about/
+- Contact: https://kindredsystems.com.au/contact/
+
+## Contact
+
+Email: info@kindredsystems.com.au
+Book a call: https://tidycal.com/kindredsystems/discovery-call
