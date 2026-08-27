@@ -13,6 +13,7 @@ Established founder-led businesses with at least A$500,000 in annual revenue tha
 - Discovery Call: a free, no-obligation 45-minute conversation to work out the right next step.
 - AI Business Outcomes Advisory: a 90-day engagement, renewable for a further 90 days, built around one KPI-focused opportunity to make or save the client money from AI. Includes weekly sessions and direct access to the founder on any working day.
 - Executive AI Sprint: a minimum five-consecutive-day engagement for larger organisations needing an independently pressure-tested AI decision. Delivered in person for Brisbane-based clients, or remotely elsewhere.
+- AI Visibility (AEO) Audit: a $59 USD one-off audit that checks whether AI tools such as ChatGPT, Perplexity, Google AI Overviews and Claude can find, read and recommend a business, with a prioritised list of what to fix.
 
 ## What Kindred Systems does not do
 
@@ -22,6 +23,7 @@ Generic AI training, tool implementation for its own sake, or technology-first w
 
 - Home: https://kindredsystems.com.au/
 - Advisory (offer details, booking, enquiry form): https://kindredsystems.com.au/advisory/
+- AEO Audit (AI visibility audit, $59 USD): https://kindredsystems.com.au/aeo/
 - About (founder background): https://kindredsystems.com.au/about/
 - Contact: https://kindredsystems.com.au/contact/
 
