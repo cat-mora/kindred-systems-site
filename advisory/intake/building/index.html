@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Pre-Onboarding Intake for Premium Builders / Renovators | Kindred Systems</title>
+    <meta
+      name="description"
+      content="Pre-onboarding intake form for Kindred Systems Advisory prospects in premium builders / renovators, used to prepare the first 90-day plan."
+    />
+    <link
+      rel="canonical"
+      href="https://kindredsystems.com.au/advisory/intake/building/"
+    />
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon-16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <style>
+      :root {
+        --navy: #102a43;
+        --bluecharcoal: #183247;
+        --charcoal: #252a2d;
+        --body: #3f474a;
+        --muted: #66706d;
+        --sage: #8fa99a;
+        --brass: #bfa46a;
+        --ivory: #f7f1e6;
+        --ivory2: #fbf8f1;
+        --stone: #e7e1d6;
+        --white: #ffffff;
+        --shadow: 0 24px 70px rgba(16, 42, 67, 0.1);
+        --radius: 26px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        color: var(--body);
+        background: var(--ivory2);
+        line-height: 1.58;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        width: min(880px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+      header {
+        padding: 20px 0;
+        background: rgba(251, 248, 241, 0.95);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(16, 42, 67, 0.08);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+      }
+      .brand-logo-img {
+        display: block;
+        width: 340px;
+        max-width: min(340px, calc(100vw - 120px));
+        height: auto;
+        object-fit: contain;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--bluecharcoal);
+      }
+      .nav-links a {
+        color: var(--bluecharcoal);
+        transition: color 0.15s;
+      }
+      .nav-links a:hover {
+        color: var(--brass);
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 28px;
+        border-radius: 100px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.18s;
+        cursor: pointer;
+        white-space: nowrap;
+        background: var(--navy);
+        color: var(--white);
+        border: 2px solid var(--navy);
+        font-family: inherit;
+      }
+      .button:hover {
+        background: var(--bluecharcoal);
+        border-color: var(--bluecharcoal);
+      }
+      .button:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--brass);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .eyebrow::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: var(--brass);
+        flex-shrink: 0;
+      }
+      main {
+        padding: 56px 0 90px;
+      }
+      h1 {
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -1px;
+        color: var(--navy);
+        margin: 0 0 16px;
+      }
+      .intro {
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--body);
+        max-width: 680px;
+        margin: 0 0 40px;
+      }
+      .form-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 44px;
+      }
+      .form-section {
+        margin-bottom: 44px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--stone);
+      }
+      .form-section:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .sec-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 26px;
+      }
+      .q-block {
+        margin-bottom: 26px;
+      }
+      .q-block:last-child {
+        margin-bottom: 0;
+      }
+      .q-label {
+        display: block;
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--bluecharcoal);
+        margin-bottom: 6px;
+        line-height: 1.5;
+      }
+      .opt-tag {
+        font-weight: 500;
+        color: var(--muted);
+        font-size: 12.5px;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      .hint {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+      .text-input,
+      textarea.text-input {
+        width: 100%;
+        padding: 11px 16px;
+        border: 1.5px solid var(--stone);
+        border-radius: 10px;
+        font-size: 14px;
+        color: var(--body);
+        background: var(--ivory2);
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .text-input:focus {
+        border-color: var(--navy);
+      }
+      textarea.text-input {
+        resize: vertical;
+      }
+      .submit-row {
+        margin-top: 12px;
+      }
+      .form-note {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin: 14px 0 0;
+      }
+      .form-success {
+        display: none;
+        background: var(--ivory);
+        border-radius: var(--radius);
+        padding: 40px 44px;
+        font-size: 16px;
+        color: var(--body);
+        line-height: 1.6;
+        text-align: center;
+      }
+      .form-success strong {
+        display: block;
+        font-size: 20px;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.55);
+        padding: 40px 0;
+        font-size: 13px;
+      }
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .footer-links a:hover {
+        color: var(--brass);
+      }
+      @media (max-width: 720px) {
+        .form-card {
+          padding: 28px 22px;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="/" aria-label="Kindred Systems home">
+          <img
+            class="brand-logo-img"
+            src="/assets/kindred-logo-header.png"
+            alt="Kindred Systems"
+          />
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="/advisory/">Advisory</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="eyebrow">Pre-onboarding intake</div>
+        <h1>Before we meet, tell us a little more.</h1>
+
+        <div class="form-card">
+          <form
+            id="intakeForm"
+            action="https://formspree.io/f/xpqgpdzg"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New pre-onboarding intake - Premium Builders / Renovators"
+            />
+            <input type="hidden" name="vertical" value="premium-builders-renovators" />
+            <p class="intro">
+              This helps us prepare for your onboarding call and find the strongest opportunity to focus on over your first 90 days together, plus the one number we will agree to track. Please use your best estimate wherever an exact figure is not easy to find, and leave anything you do not know blank.
+            </p>
+            <section class="form-section">
+              <h2 class="sec-title">1. Business overview</h2>
+              <div class="q-block">
+                <label class="q-label" for="overview_q1">Briefly describe the business, the areas you service and the types of building or renovation projects you take on.</label>
+                <textarea id="overview_q1" name="overview_q1" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="overview_q2">What types of projects are the biggest commercial priority for you over the next 12 months?</label>
+                <textarea id="overview_q2" name="overview_q2" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="overview_q3">Roughly what is your current annual revenue?</label>
+                <input type="text" id="overview_q3" name="overview_q3" class="text-input" />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="overview_q4">What would you like annual revenue to be?</label>
+                <input type="text" id="overview_q4" name="overview_q4" class="text-input" />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="overview_q5">Are there any seasonal or capacity patterns that affect when you want more enquiries or when you can take on new work?</label>
+                <textarea id="overview_q5" name="overview_q5" class="text-input" rows="3"></textarea>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">2. Project value and enquiry volume</h2>
+              <div class="q-block">
+                <label class="q-label" for="volume_q1">Roughly what is the average value of the type of project you most want to win? If this varies a lot, please give a few examples.</label>
+                <textarea id="volume_q1" name="volume_q1" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="volume_q2">About how many new enquiries do you receive in an average month?</label>
+                <input type="text" id="volume_q2" name="volume_q2" class="text-input" />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="volume_q3">Where do most enquiries come from? For example, Google, referrals, architects, social media, paid ads, building platforms or other sources.</label>
+                <textarea id="volume_q3" name="volume_q3" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="volume_q4">Are you currently paying for lead generation? If yes, roughly how much per month and through which channels?</label>
+                <textarea id="volume_q4" name="volume_q4" class="text-input" rows="3"></textarea>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">3. Conversion</h2>
+              <div class="q-block">
+                <label class="q-label" for="conversion_q1">Of your monthly enquiries, roughly how many are a good fit for the type of work you want?</label>
+                <input type="text" id="conversion_q1" name="conversion_q1" class="text-input" />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="conversion_q2">How many usually move to a first meeting, site visit or detailed discussion?</label>
+                <input type="text" id="conversion_q2" name="conversion_q2" class="text-input" />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="conversion_q3">How many quotes or proposals do you usually issue each month?</label>
+                <input type="text" id="conversion_q3" name="conversion_q3" class="text-input" />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="conversion_q4">Roughly how many of those quotes or proposals become signed projects?</label>
+                <input type="text" id="conversion_q4" name="conversion_q4" class="text-input" />
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">4. What happens after an enquiry</h2>
+              <div class="q-block">
+                <label class="q-label" for="afterenquiry_q1">What usually happens from the moment a new enquiry comes in through to qualification, meeting or site visit, quote and signed contract?</label>
+                <textarea id="afterenquiry_q1" name="afterenquiry_q1" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="afterenquiry_q2">Roughly how quickly does someone respond to a new enquiry?</label>
+                <input type="text" id="afterenquiry_q2" name="afterenquiry_q2" class="text-input" />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="afterenquiry_q3">What usually happens if you cannot reach the person on the first attempt?</label>
+                <textarea id="afterenquiry_q3" name="afterenquiry_q3" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="afterenquiry_q4">How do you follow up after a quote or proposal has been sent?</label>
+                <textarea id="afterenquiry_q4" name="afterenquiry_q4" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="afterenquiry_q5">What happens to good-fit prospects who are interested but are months away from being ready to start?</label>
+                <textarea id="afterenquiry_q5" name="afterenquiry_q5" class="text-input" rows="3"></textarea>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">5. Existing leads and systems</h2>
+              <div class="q-block">
+                <label class="q-label" for="existing_q1">Roughly how many old enquiries, quoted projects or prospects that did not proceed are still in your database or records?</label>
+                <input type="text" id="existing_q1" name="existing_q1" class="text-input" />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="existing_q2">Do you ever recontact those people? If yes, what does that usually look like?</label>
+                <textarea id="existing_q2" name="existing_q2" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="existing_q3">What CRM, quoting, project management, email, SMS or automation systems do you currently use before a project is won?</label>
+                <textarea id="existing_q3" name="existing_q3" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="existing_q4">Who is responsible for responding to enquiries, qualifying them and following up quotes?</label>
+                <input type="text" id="existing_q4" name="existing_q4" class="text-input" />
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">6. What is working</h2>
+              <div class="q-block">
+                <label class="q-label" for="working_q1">Think about a period when you were winning the kind of projects you wanted. What was working well at the time?</label>
+                <textarea id="working_q1" name="working_q1" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="working_q2">Which part of your enquiry-to-contract process do you think is working best now?</label>
+                <textarea id="working_q2" name="working_q2" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="working_q3">Where do you think the biggest loss is happening now: qualification, slow response, follow-up, quoting, decision time, or somewhere else?</label>
+                <textarea id="working_q3" name="working_q3" class="text-input" rows="3"></textarea>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">7. Next 90 days</h2>
+              <div class="q-block">
+                <label class="q-label" for="next90_q1">If we improved one part of the enquiry-to-client process over the next 90 days, what would you most like to see improve?</label>
+                <textarea id="next90_q1" name="next90_q1" class="text-input" rows="3"></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="next90_q2">How would you know that the next 90 days had been commercially worthwhile?</label>
+                <textarea id="next90_q2" name="next90_q2" class="text-input" rows="3"></textarea>
+              </div>
+            </section>
+
+            <div class="submit-row">
+              <button
+                type="submit"
+                class="button"
+                id="submitBtn"
+                style="width: 100%; justify-content: center"
+              >
+                Send my answers
+              </button>
+              <p class="form-note">
+                Everything above is optional. Send whatever you have been able
+                to fill in, you do not need to finish it in one go, and we
+                will pick up the rest on the call.
+              </p>
+            </div>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <strong>Thanks, that's exactly what we need.</strong>
+            We've received your answers and will use them to guide the plan we
+            talk through when we meet.
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          &copy; <span id="year"></span> Kindred Systems. AI investment, turned
+          into business results.
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/advisory/">Advisory</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Formspree AJAX submit, matching the rest of the site.
+      var form = document.getElementById("intakeForm");
+      var success = document.getElementById("formSuccess");
+      var submitBtn = document.getElementById("submitBtn");
+      if (form) {
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending...";
+          var data = new FormData(form);
+          try {
+            var res = await fetch(form.action, {
+              method: "POST",
+              body: data,
+              headers: { Accept: "application/json" },
+            });
+            var json = await res.json();
+            if (res.ok && json.ok) {
+              form.style.display = "none";
+              success.style.display = "block";
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+              alert(
+                "Something went wrong. Please try again or email info@kindredsystems.com.au",
+              );
+              submitBtn.disabled = false;
+              submitBtn.textContent = "Send my answers";
+            }
+          } catch (err) {
+            alert(
+              "Something went wrong. Please try again or email info@kindredsystems.com.au",
+            );
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send my answers";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
