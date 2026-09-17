@@ -331,9 +331,8 @@
             <p class="intro">
               This gets you into our systems, so nothing holds up your
               onboarding call: your agreement, your invoice, and where we will
-              send your work. Two minutes, that's all it takes. Everything
-              marked optional can wait, send whatever you have and we will pick
-              up the rest on the call.
+              send your work. Every question is optional, send whatever you
+              have and we will pick up the rest on the call.
             </p>
 
             <section class="form-section">
@@ -345,7 +344,6 @@
                   id="contact_name"
                   name="name"
                   class="text-input"
-                  required
                 />
               </div>
               <div class="q-block">
@@ -357,7 +355,6 @@
                   id="contact_business"
                   name="business_name"
                   class="text-input"
-                  required
                 />
               </div>
               <div class="q-block">
@@ -369,7 +366,6 @@
                   id="contact_email"
                   name="email"
                   class="text-input"
-                  required
                 />
               </div>
               <div class="q-block">
@@ -381,13 +377,11 @@
                   id="contact_phone"
                   name="phone"
                   class="text-input"
-                  required
                 />
               </div>
               <div class="q-block">
                 <label class="q-label" for="contact_website"
-                  >Website or LinkedIn
-                  <span class="opt-tag">optional</span></label
+                  >Website or LinkedIn</label
                 >
                 <input
                   type="text"
@@ -403,8 +397,7 @@
               <div class="q-block">
                 <label class="q-label" for="legal_entity"
                   >Legal entity name for your agreement and invoice, if
-                  different from your business name
-                  <span class="opt-tag">optional</span></label
+                  different from your business name</label
                 >
                 <p class="hint">Leave this blank if it's the same as above.</p>
                 <input
@@ -416,18 +409,15 @@
               </div>
               <div class="q-block">
                 <label class="q-label" for="abn">ABN</label>
-                <input
-                  type="text"
-                  id="abn"
-                  name="abn"
-                  class="text-input"
-                  required
-                />
+                <p class="hint">
+                  Leave this blank if you don't have one, for example if
+                  you're not based in Australia.
+                </p>
+                <input type="text" id="abn" name="abn" class="text-input" />
               </div>
               <div class="q-block">
                 <label class="q-label" for="billing_email"
-                  >Billing email, if different from your contact email
-                  <span class="opt-tag">optional</span></label
+                  >Billing email, if different from your contact email</label
                 >
                 <input
                   type="email"
@@ -449,7 +439,6 @@
                   id="postal_address"
                   name="postal_address"
                   class="text-input"
-                  required
                 />
               </div>
             </section>
@@ -466,13 +455,12 @@
                   id="google_account"
                   name="google_account"
                   class="text-input"
-                  required
                 />
               </div>
               <div class="q-block">
                 <label class="q-label" for="cc_others"
-                  >Anyone else who should be copied on documents and updates?
-                  <span class="opt-tag">optional</span></label
+                  >Anyone else who should be copied on documents and
+                  updates?</label
                 >
                 <textarea
                   id="cc_others"
@@ -489,8 +477,7 @@
               </h2>
               <div class="q-block">
                 <label class="q-label" for="birthday"
-                  >Your birthday (day and month only)
-                  <span class="opt-tag">optional</span></label
+                  >Your birthday (day and month only)</label
                 >
                 <p class="hint">
                   So we can mark the day. Nothing more than that.
@@ -505,8 +492,7 @@
               </div>
               <div class="q-block">
                 <label class="q-label" for="coffee_tea"
-                  >Coffee or tea order
-                  <span class="opt-tag">optional</span></label
+                  >Coffee or tea order</label
                 >
                 <input
                   type="text"
@@ -517,8 +503,7 @@
               </div>
               <div class="q-block">
                 <label class="q-label" for="collects_gift"
-                  >Anything you collect, or a gift you'd enjoy
-                  <span class="opt-tag">optional</span></label
+                  >Anything you collect, or a gift you'd enjoy</label
                 >
                 <textarea
                   id="collects_gift"
@@ -529,8 +514,8 @@
               </div>
               <div class="q-block">
                 <label class="q-label" for="anything_else"
-                  >Anything else that would help us work well together
-                  <span class="opt-tag">optional</span></label
+                  >Anything else that would help us work well
+                  together</label
                 >
                 <textarea
                   id="anything_else"
@@ -549,8 +534,7 @@
                 <label class="q-label" for="case_study"
                   >Once we've delivered a result together, are you open to us
                   sharing it as a case study (happy to de-identify if needed),
-                  with your sign-off first?
-                  <span class="opt-tag">optional</span></label
+                  with your sign-off first?</label
                 >
                 <select id="case_study" name="case_study" class="text-input">
                   <option value=""></option>
@@ -561,8 +545,7 @@
               </div>
               <div class="q-block">
                 <label class="q-label" for="case_study_handle"
-                  >If yes, which handle or account should we tag?
-                  <span class="opt-tag">optional</span></label
+                  >If yes, which handle or account should we tag?</label
                 >
                 <input
                   type="text"
@@ -583,8 +566,9 @@
                 Send my details
               </button>
               <p class="form-note">
-                We will use this to set up your agreement, invoice and
-                onboarding call.
+                Everything above is optional. Send whatever you have, we will
+                pick up the rest on the call, and use this to set up your
+                agreement, invoice and onboarding call.
               </p>
             </div>
           </form>
