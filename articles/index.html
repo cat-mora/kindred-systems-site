@@ -674,22 +674,42 @@
             >
               All articles
             </button>
-            <button type="button" class="topic-filter" data-topic="lead-response">
+            <button
+              type="button"
+              class="topic-filter"
+              data-topic="lead-response"
+            >
               Lead response and missed calls
             </button>
             <button type="button" class="topic-filter" data-topic="follow-up">
               Follow-up and longer buying cycles
             </button>
-            <button type="button" class="topic-filter" data-topic="sales-conversations">
+            <button
+              type="button"
+              class="topic-filter"
+              data-topic="sales-conversations"
+            >
               Consultations, proposals and sales conversations
             </button>
-            <button type="button" class="topic-filter" data-topic="crm-database">
+            <button
+              type="button"
+              class="topic-filter"
+              data-topic="crm-database"
+            >
               CRM and cold database reactivation
             </button>
-            <button type="button" class="topic-filter" data-topic="ai-automation">
+            <button
+              type="button"
+              class="topic-filter"
+              data-topic="ai-automation"
+            >
               AI, automation and customer experience
             </button>
-            <button type="button" class="topic-filter" data-topic="industry-examples">
+            <button
+              type="button"
+              class="topic-filter"
+              data-topic="industry-examples"
+            >
               Industry examples
             </button>
             <button type="button" class="topic-filter" data-topic="aeo">
@@ -787,7 +807,9 @@
             Lead Conversion Advisory is where we go through your own enquiry
             process, not just the general answer.
           </p>
-          <a class="button" href="/advisory/">See how Lead Conversion Advisory works</a>
+          <a class="button" href="/advisory/"
+            >See how Lead Conversion Advisory works</a
+          >
         </div>
       </section>
     </main>
@@ -839,7 +861,8 @@
           btn.setAttribute("aria-pressed", "true");
           const topic = btn.getAttribute("data-topic");
           cards().forEach((card) => {
-            const show = topic === "all" || card.getAttribute("data-topic") === topic;
+            const show =
+              topic === "all" || card.getAttribute("data-topic") === topic;
             card.classList.toggle("is-hidden", !show);
           });
         });
