@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>[Exact question as H1] | Kindred Systems Articles</title>
+    <meta name="description" content="[Meta description supplied with the article copy — one or two sentences, not the direct-answer paragraph verbatim.]" />
+
+    <!--
+      THIS PAGE IS A TEMPLATE, NOT A REAL ARTICLE.
+      It is intentionally excluded from the sitemap and marked noindex (see
+      the robots meta tag and robots.txt) so it can never be indexed or
+      mistaken for a published answer. To build a real article:
+
+        1. Duplicate this whole folder to /articles/<short-descriptive-slug>/
+           (see the Article URL pattern rules — no dates, no category
+           folders, short descriptive slugs only).
+        2. Fill in every [bracketed] placeholder with the supplied, approved
+           copy for that article. Do not invent or paraphrase from a
+           generic AI source — this is a structural template only.
+        3. Delete the <meta name="robots" content="noindex" /> tag below and
+           the "noindex" line inside the JSON-LD comment note.
+        4. Remove this comment block entirely once the page is real.
+        5. Add the finished article's URL to /sitemap.xml and link to it from
+           /articles/index.html (see the reusable card markup there) and from
+           at least one relevant service page per the internal-linking rules.
+
+      STRUCTURE THIS TEMPLATE IMPLEMENTS (per the build brief):
+        1. Exact question, or a close natural variation, as the H1.
+        2. A direct answer in the first 40–70 words (see .direct-answer below).
+        3. Descriptive H2 sections (not "Introduction" / "Conclusion").
+        4. Bullets or numbered steps where useful.
+        5. Industry context or a clearly identified example.
+        6. Author block for Cathryn Mora.
+        7. Relevant internal links.
+        8. A CTA appropriate to the topic (see CTA RULES below).
+        9. Published and updated dates, both visible and in schema.
+
+      Not every article needs every section in this exact shape — don't force
+      a question into a structure that doesn't fit it. Keep the direct
+      answer, the author block, the dates and the topic-appropriate CTA on
+      every article regardless.
+
+      CTA RULES (pick ONE, delete the other two blocks and this note):
+        - Lead response, follow-up, CRM, database, sales-conversation and
+          industry-example articles → the "Lead Conversion Advisory" CTA.
+        - Answer Engine Optimisation articles → the "Ask about Answer Engine
+          Optimisation" CTA, linking to the contact form (there is no
+          dedicated AEO page yet). If the contact form supports query
+          parameters or a hidden field, preselect "Answer Engine
+          Optimisation" as the enquiry type.
+        - Articles comparing systems/platforms → the "systems comparison" CTA,
+          which links to the relevant Lead Conversion Advisory section and
+          avoids implying a new platform is always required.
+    -->
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://kindredsystems.com.au/articles/_article-template/" />
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+    <!--
+      SCHEMA NOTE: once this is a real article, replace every [bracketed]
+      value below with the real data. Keep all four blocks: Organization,
+      Person (author), Article, and BreadcrumbList. datePublished/dateModified
+      must exactly match the visible dates in the byline further down the
+      page — structured data must always agree with visible copy.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://kindredsystems.com.au/#org",
+            "name": "Kindred Systems",
+            "url": "https://kindredsystems.com.au",
+            "logo": "https://kindredsystems.com.au/assets/kindred-logo-header.png"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://kindredsystems.com.au/about/#cathryn",
+            "name": "Cathryn Mora",
+            "jobTitle": "Founder",
+            "worksFor": { "@id": "https://kindredsystems.com.au/#org" },
+            "url": "https://kindredsystems.com.au/about/"
+          },
+          {
+            "@type": "Article",
+            "@id": "https://kindredsystems.com.au/articles/[slug]/#article",
+            "headline": "[Exact question, matching the H1]",
+            "description": "[Meta description]",
+            "author": { "@id": "https://kindredsystems.com.au/about/#cathryn" },
+            "publisher": { "@id": "https://kindredsystems.com.au/#org" },
+            "datePublished": "[YYYY-MM-DD]",
+            "dateModified": "[YYYY-MM-DD]",
+            "mainEntityOfPage": "https://kindredsystems.com.au/articles/[slug]/",
+            "url": "https://kindredsystems.com.au/articles/[slug]/"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kindredsystems.com.au/" },
+              { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://kindredsystems.com.au/articles/" },
+              { "@type": "ListItem", "position": 3, "name": "[Short article title]", "item": "https://kindredsystems.com.au/articles/[slug]/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        --navy: #102a43;
+        --bluecharcoal: #183247;
+        --charcoal: #252a2d;
+        --body: #3f474a;
+        --muted: #66706d;
+        --sage: #8fa99a;
+        --brass: #bfa46a;
+        --ivory: #f7f1e6;
+        --ivory2: #fbf8f1;
+        --stone: #e7e1d6;
+        --white: #ffffff;
+        --shadow: 0 24px 70px rgba(16, 42, 67, 0.1);
+        --radius: 26px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--body);
+        background: var(--ivory2);
+        line-height: 1.58;
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { width: min(760px, calc(100% - 40px)); margin: 0 auto; }
+      .container.wide { width: min(1120px, calc(100% - 40px)); }
+      header {
+        padding: 20px 0;
+        background: rgba(251, 248, 241, 0.95);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(16, 42, 67, 0.08);
+      }
+      .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+      .brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
+      .brand-logo-img { display: block; width: 320px; max-width: min(320px, calc(100vw - 160px)); height: auto; object-fit: contain; }
+      .nav-links { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 500; }
+      .nav-links a:hover { color: var(--brass); }
+      .nav-cta {
+        background: var(--navy);
+        color: var(--white) !important;
+        padding: 10px 20px;
+        border-radius: 100px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--brass);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .eyebrow::before { content: ""; display: block; width: 28px; height: 2px; background: var(--brass); flex-shrink: 0; }
+      section { padding: 48px 0; }
+      h1 {
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.8px;
+        color: var(--navy);
+        margin: 0 0 20px;
+      }
+      h2 { font-size: 24px; font-weight: 700; color: var(--navy); margin: 40px 0 14px; }
+      h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin: 24px 0 10px; }
+      .breadcrumb-nav { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      .breadcrumb-nav a { color: var(--muted); }
+      .breadcrumb-nav .sep { margin: 0 8px; color: var(--stone); }
+      .byline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0 0 32px;
+        align-items: center;
+      }
+      .byline .article-topic {
+        background: var(--ivory);
+        color: var(--bluecharcoal);
+        padding: 3px 10px;
+        border-radius: 100px;
+        font-weight: 700;
+      }
+      .direct-answer {
+        font-size: 19px;
+        line-height: 1.6;
+        color: var(--charcoal);
+        background: var(--white);
+        border-left: 4px solid var(--brass);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        padding: 24px 28px;
+        margin: 0 0 36px;
+      }
+      article p { font-size: 16px; line-height: 1.72; color: var(--body); margin: 0 0 20px; }
+      article ul, article ol { margin: 0 0 20px; padding-left: 22px; }
+      article li { font-size: 16px; line-height: 1.65; color: var(--body); margin-bottom: 8px; }
+      .example-box {
+        background: var(--ivory);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        margin: 28px 0;
+      }
+      .example-box p:last-child { margin-bottom: 0; }
+      .author-block {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 28px 32px;
+        margin: 40px 0;
+      }
+      .author-block img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: top center; flex-shrink: 0; }
+      .author-block p { font-size: 14px; margin: 0; }
+      .author-block strong { display: block; color: var(--navy); font-size: 15px; margin-bottom: 4px; }
+      .internal-links { margin: 32px 0; }
+      .internal-links ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+      .internal-links a { color: var(--navy); font-weight: 600; text-decoration: underline; }
+      .cta-block {
+        background: var(--navy);
+        color: var(--white);
+        border-radius: var(--radius);
+        padding: 36px 40px;
+        margin: 40px 0 0;
+        text-align: center;
+      }
+      .cta-block p { color: rgba(255, 255, 255, 0.8); margin: 0 0 20px; }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 28px;
+        border-radius: 100px;
+        font-size: 15px;
+        font-weight: 600;
+        background: var(--brass);
+        color: var(--navy);
+      }
+      footer { background: var(--navy); color: rgba(255, 255, 255, 0.55); padding: 32px 0; font-size: 13px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container wide nav">
+        <a class="brand" href="/" aria-label="Kindred Systems home">
+          <img class="brand-logo-img" src="/assets/kindred-logo-header.png" alt="Kindred Systems" />
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="/advisory/">Lead Conversion Advisory</a>
+          <a href="/about/">About</a>
+          <a href="/articles/">Articles</a>
+          <a href="/contact/">Contact</a>
+          <a href="https://tidycal.com/kindredsystems/discovery-call" class="nav-cta" target="_blank" rel="noopener">Book a Discovery Call</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="container">
+          <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span>
+            <a href="/articles/">Articles</a><span class="sep">/</span>[Short article title]
+          </nav>
+
+          <!-- 1. Exact question (or close natural variation) as the H1 -->
+          <h1>[Exact question as H1]</h1>
+
+          <div class="byline">
+            <span class="article-topic">[Topic — one of the seven filter categories]</span>
+            <span>[X] min read</span>
+            <span>&middot;</span>
+            <span>Published [D Month YYYY]</span>
+            <span>&middot;</span>
+            <span>Updated [D Month YYYY]</span>
+          </div>
+
+          <article>
+            <!-- 2. Direct answer, 40–70 words, no throat-clearing before it -->
+            <p class="direct-answer">
+              [Direct answer to the exact question above, in 40 to 70 words,
+              as the very first thing a reader or an AI answer engine sees.
+              No preamble before this paragraph.]
+            </p>
+
+            <!-- 3. Descriptive H2 sections — rename these, don't leave them
+                 as "Section one" etc. Add or remove sections as the actual
+                 question needs; this is a shape to adapt, not a fixed form. -->
+            <h2>[Descriptive H2 — what causes this / why it matters]</h2>
+            <p>[Body copy.]</p>
+
+            <!-- 4. Bullets or numbered steps where useful -->
+            <h2>[Descriptive H2 — the practical detail or steps]</h2>
+            <ul>
+              <li>[Point one.]</li>
+              <li>[Point two.]</li>
+              <li>[Point three.]</li>
+            </ul>
+
+            <!-- 5. Industry context or a clearly identified example -->
+            <h2>[Descriptive H2 — how this shows up in practice]</h2>
+            <div class="example-box">
+              <p>
+                [A clearly identified example — either a named illustrative
+                industry scenario, explicitly flagged as hypothetical, or a
+                real evidenced result per OFFERS-AND-PRICING.md. Never an
+                invented client engagement or result.]
+              </p>
+            </div>
+
+            <!-- 6. Author block -->
+            <div class="author-block">
+              <img src="/assets/cathryn-headshot-round-web.jpg" alt="Cathryn Mora, Founder of Kindred Systems" />
+              <p>
+                <strong>Cathryn Mora, Founder, Kindred Systems</strong>
+                15+ years across marketing, sales and customer strategy, working
+                with high-value service businesses on lead response, follow-up
+                and conversion. <a href="/about/" style="text-decoration: underline">More about Cathryn</a>
+              </p>
+            </div>
+
+            <!-- 7. Relevant internal links -->
+            <div class="internal-links">
+              <h3>Related</h3>
+              <ul>
+                <li><a href="/articles/[related-slug]/">[Descriptive link text — the related question, not "read more"]</a></li>
+                <li><a href="/advisory/">[Descriptive link to the relevant Lead Conversion Advisory section]</a></li>
+              </ul>
+            </div>
+
+            <!-- 8. CTA appropriate to the topic — keep exactly ONE of the
+                 three blocks below and delete the other two plus this note.
+
+                 (a) DEFAULT — lead response / follow-up / CRM / database /
+                     sales-conversation / industry-example articles: -->
+            <div class="cta-block">
+              <h3 style="color: var(--white)">[CTA heading tied to this article's topic]</h3>
+              <p>[One or two sentences bridging this article's answer to the Advisory.]</p>
+              <a class="button" href="/advisory/">See how Lead Conversion Advisory works</a>
+            </div>
+
+            <!-- (b) AEO articles only — replace (a) with this, and preselect
+                 "Answer Engine Optimisation" as the enquiry type if the
+                 contact form supports a query parameter or hidden field:
+            <div class="cta-block">
+              <h3 style="color: var(--white)">Want to know how your own business shows up in AI search?</h3>
+              <p>Answer Engine Optimisation is a separate service, available to Lead Conversion Advisory clients and other businesses.</p>
+              <a class="button" href="/contact/?enquiry=Answer%20Engine%20Optimisation">Ask about Answer Engine Optimisation</a>
+            </div>
+            -->
+
+            <!-- (c) Articles comparing systems/platforms only — replace (a)
+                 with this. Keep the wording that a new platform isn't always
+                 required:
+            <div class="cta-block">
+              <h3 style="color: var(--white)">Not sure whether you need new software or just a better process?</h3>
+              <p>Lead Conversion Advisory starts with what you already have, not with a new platform to buy.</p>
+              <a class="button" href="/advisory/#[relevant-section-id]">See how systems get assessed in the Advisory</a>
+            </div>
+            -->
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container wide">
+        &copy; <span id="year"></span> Kindred Systems.
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
