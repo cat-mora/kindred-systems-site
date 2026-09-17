@@ -3,15 +3,18 @@
 # Allow AI search visibility bots, block training crawlers
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /articles/_article-template/
 
 User-agent: GPTBot
 Disallow: /
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /articles/_article-template/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /articles/_article-template/
 
 User-agent: ClaudeBot
 Disallow: /
@@ -19,5 +22,6 @@ Disallow: /
 # All other bots
 User-agent: *
 Allow: /
+Disallow: /articles/_article-template/
 
 Sitemap: https://kindredsystems.com.au/sitemap.xml
