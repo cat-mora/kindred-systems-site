@@ -1,4 +1,652 @@
-&lt;!doctype html&gt; &lt;html lang="en-AU"&gt; &lt;head&gt; &lt;meta
-charset="utf-8" /&gt; &lt;meta name="viewport" content="width=device-width,
-initial-scale=1" /&gt; &lt;meta name="robots" content="noindex, nofollow" /&gt;
-&lt;title&gt;Client Details | Kindred Systems&lt;/title&gt;
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Client Details | Kindred Systems</title>
+    <meta
+      name="description"
+      content="Client details form for new Kindred Systems Advisory clients, used to set up your agreement, invoice and document sharing before your onboarding call."
+    />
+    <link
+      rel="canonical"
+      href="https://kindredsystems.com.au/advisory/welcome/"
+    />
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon-16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <style>
+      :root {
+        --navy: #102a43;
+        --bluecharcoal: #183247;
+        --charcoal: #252a2d;
+        --body: #3f474a;
+        --muted: #66706d;
+        --sage: #8fa99a;
+        --brass: #bfa46a;
+        --ivory: #f7f1e6;
+        --ivory2: #fbf8f1;
+        --stone: #e7e1d6;
+        --white: #ffffff;
+        --shadow: 0 24px 70px rgba(16, 42, 67, 0.1);
+        --radius: 26px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        color: var(--body);
+        background: var(--ivory2);
+        line-height: 1.58;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        width: min(880px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+      header {
+        padding: 20px 0;
+        background: rgba(251, 248, 241, 0.95);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(16, 42, 67, 0.08);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+      }
+      .brand-logo-img {
+        display: block;
+        width: 340px;
+        max-width: min(340px, calc(100vw - 120px));
+        height: auto;
+        object-fit: contain;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--bluecharcoal);
+      }
+      .nav-links a {
+        color: var(--bluecharcoal);
+        transition: color 0.15s;
+      }
+      .nav-links a:hover {
+        color: var(--brass);
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 28px;
+        border-radius: 100px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.18s;
+        cursor: pointer;
+        white-space: nowrap;
+        background: var(--navy);
+        color: var(--white);
+        border: 2px solid var(--navy);
+        font-family: inherit;
+      }
+      .button:hover {
+        background: var(--bluecharcoal);
+        border-color: var(--bluecharcoal);
+      }
+      .button:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--brass);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .eyebrow::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: var(--brass);
+        flex-shrink: 0;
+      }
+      main {
+        padding: 56px 0 90px;
+      }
+      h1 {
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -1px;
+        color: var(--navy);
+        margin: 0 0 16px;
+      }
+      .intro {
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--body);
+        max-width: 680px;
+        margin: 0 0 40px;
+      }
+      .form-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 44px;
+      }
+      .form-section {
+        margin-bottom: 44px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--stone);
+      }
+      .form-section:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .sec-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 26px;
+      }
+      .q-block {
+        margin-bottom: 26px;
+      }
+      .q-block:last-child {
+        margin-bottom: 0;
+      }
+      .q-label {
+        display: block;
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--bluecharcoal);
+        margin-bottom: 6px;
+        line-height: 1.5;
+      }
+      .opt-tag {
+        font-weight: 500;
+        color: var(--muted);
+        font-size: 12.5px;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      .hint {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+      .text-input,
+      textarea.text-input,
+      select.text-input {
+        width: 100%;
+        padding: 11px 16px;
+        border: 1.5px solid var(--stone);
+        border-radius: 10px;
+        font-size: 14px;
+        color: var(--body);
+        background: var(--ivory2);
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .text-input:focus {
+        border-color: var(--navy);
+      }
+      textarea.text-input {
+        resize: vertical;
+      }
+      .submit-row {
+        margin-top: 12px;
+      }
+      .form-note {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin: 14px 0 0;
+      }
+      .form-success {
+        display: none;
+        background: var(--ivory);
+        border-radius: var(--radius);
+        padding: 40px 44px;
+        font-size: 16px;
+        color: var(--body);
+        line-height: 1.6;
+        text-align: center;
+      }
+      .form-success strong {
+        display: block;
+        font-size: 20px;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.55);
+        padding: 40px 0;
+        font-size: 13px;
+      }
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .footer-links a:hover {
+        color: var(--brass);
+      }
+      @media (max-width: 720px) {
+        .form-card {
+          padding: 28px 22px;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="/" aria-label="Kindred Systems home">
+          <img
+            class="brand-logo-img"
+            src="/assets/kindred-logo-header.png"
+            alt="Kindred Systems"
+          />
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="/advisory/">Advisory</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="eyebrow">Welcome to Kindred Systems</div>
+        <h1>Before we meet, let's get you set up.</h1>
+
+        <div class="form-card">
+          <form
+            id="clientDetailsForm"
+            action="https://formspree.io/f/xpqgpdzg"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New client details - Kindred Systems Advisory"
+            />
+            <p class="intro">
+              This gets you into our systems, so nothing holds up your
+              onboarding call: your agreement, your invoice, and where we will
+              send your work. Two minutes, that's all it takes. Everything
+              marked optional can wait, send whatever you have and we will
+              pick up the rest on the call.
+            </p>
+
+            <section class="form-section">
+              <h2 class="sec-title">Your details</h2>
+              <div class="q-block">
+                <label class="q-label" for="contact_name">Full name</label>
+                <input
+                  type="text"
+                  id="contact_name"
+                  name="name"
+                  class="text-input"
+                  required
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="contact_business"
+                  >Business or trading name</label
+                >
+                <input
+                  type="text"
+                  id="contact_business"
+                  name="business_name"
+                  class="text-input"
+                  required
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="contact_email"
+                  >Best email for day to day contact</label
+                >
+                <input
+                  type="email"
+                  id="contact_email"
+                  name="email"
+                  class="text-input"
+                  required
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="contact_phone"
+                  >Best phone number</label
+                >
+                <input
+                  type="tel"
+                  id="contact_phone"
+                  name="phone"
+                  class="text-input"
+                  required
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="contact_website"
+                  >Website or LinkedIn <span class="opt-tag">optional</span></label
+                >
+                <input
+                  type="text"
+                  id="contact_website"
+                  name="website"
+                  class="text-input"
+                />
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">Billing and agreement</h2>
+              <div class="q-block">
+                <label class="q-label" for="legal_entity"
+                  >Legal entity name for your agreement and invoice, if
+                  different from your business name
+                  <span class="opt-tag">optional</span></label
+                >
+                <p class="hint">Leave this blank if it's the same as above.</p>
+                <input
+                  type="text"
+                  id="legal_entity"
+                  name="legal_entity"
+                  class="text-input"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="abn"
+                  >ABN <span class="opt-tag">optional</span></label
+                >
+                <p class="hint">Leave this blank if you're a sole trader without one.</p>
+                <input type="text" id="abn" name="abn" class="text-input" />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="billing_email"
+                  >Billing email, if different from your contact email
+                  <span class="opt-tag">optional</span></label
+                >
+                <input
+                  type="email"
+                  id="billing_email"
+                  name="billing_email"
+                  class="text-input"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="postal_address"
+                  >Postal address</label
+                >
+                <p class="hint">
+                  For your paperwork, and the occasional card or gift. Nothing
+                  more than that.
+                </p>
+                <input
+                  type="text"
+                  id="postal_address"
+                  name="postal_address"
+                  class="text-input"
+                  required
+                />
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">Getting your work to you</h2>
+              <div class="q-block">
+                <label class="q-label" for="google_account"
+                  >Google account email, for sharing documents and
+                  reports</label
+                >
+                <input
+                  type="email"
+                  id="google_account"
+                  name="google_account"
+                  class="text-input"
+                  required
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="cc_others"
+                  >Anyone else who should be copied on documents and updates?
+                  <span class="opt-tag">optional</span></label
+                >
+                <textarea
+                  id="cc_others"
+                  name="cc_others"
+                  class="text-input"
+                  rows="2"
+                ></textarea>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">
+                A few details that help us work well together
+              </h2>
+              <div class="q-block">
+                <label class="q-label" for="birthday"
+                  >Your birthday (day and month only)
+                  <span class="opt-tag">optional</span></label
+                >
+                <p class="hint">So we can mark the day. Nothing more than that.</p>
+                <input
+                  type="text"
+                  id="birthday"
+                  name="birthday"
+                  class="text-input"
+                  placeholder="e.g. 14 March"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="coffee_tea"
+                  >Coffee or tea order <span class="opt-tag">optional</span></label
+                >
+                <input
+                  type="text"
+                  id="coffee_tea"
+                  name="coffee_tea"
+                  class="text-input"
+                />
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="collects_gift"
+                  >Anything you collect, or a gift you'd enjoy
+                  <span class="opt-tag">optional</span></label
+                >
+                <textarea
+                  id="collects_gift"
+                  name="collects_gift"
+                  class="text-input"
+                  rows="2"
+                ></textarea>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="anything_else"
+                  >Anything else that would help us work well together
+                  <span class="opt-tag">optional</span></label
+                >
+                <textarea
+                  id="anything_else"
+                  name="anything_else"
+                  class="text-input"
+                  rows="2"
+                ></textarea>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">Sharing your story, once there's one to tell</h2>
+              <div class="q-block">
+                <label class="q-label" for="case_study"
+                  >Once we've delivered a result together, are you open to us
+                  sharing it as a case study (happy to de-identify if needed),
+                  with your sign-off first?
+                  <span class="opt-tag">optional</span></label
+                >
+                <select
+                  id="case_study"
+                  name="case_study"
+                  class="text-input"
+                >
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Ask me later">Ask me later</option>
+                </select>
+              </div>
+              <div class="q-block">
+                <label class="q-label" for="case_study_handle"
+                  >If yes, which handle or account should we tag?
+                  <span class="opt-tag">optional</span></label
+                >
+                <input
+                  type="text"
+                  id="case_study_handle"
+                  name="case_study_handle"
+                  class="text-input"
+                />
+              </div>
+            </section>
+
+            <div class="submit-row">
+              <button
+                type="submit"
+                class="button"
+                id="submitBtn"
+                style="width: 100%; justify-content: center"
+              >
+                Send my details
+              </button>
+              <p class="form-note">
+                We will use this to set up your agreement, invoice and
+                onboarding call.
+              </p>
+            </div>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <strong>Thanks, you're all set.</strong>
+            We've received your details and will be in touch to confirm your
+            onboarding call.
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          &copy; <span id="year"></span> Kindred Systems. AI investment, turned
+          into business results.
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/advisory/">Advisory</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Formspree AJAX submit, matching the rest of the site.
+      var form = document.getElementById("clientDetailsForm");
+      var success = document.getElementById("formSuccess");
+      var submitBtn = document.getElementById("submitBtn");
+      if (form) {
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending...";
+          var data = new FormData(form);
+          try {
+            var res = await fetch(form.action, {
+              method: "POST",
+              body: data,
+              headers: { Accept: "application/json" },
+            });
+            var json = await res.json();
+            if (res.ok && json.ok) {
+              form.style.display = "none";
+              success.style.display = "block";
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+              alert(
+                "Something went wrong. Please try again or email info@kindredsystems.com.au",
+              );
+              submitBtn.disabled = false;
+              submitBtn.textContent = "Send my details";
+            }
+          } catch (err) {
+            alert(
+              "Something went wrong. Please try again or email info@kindredsystems.com.au",
+            );
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send my details";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
