@@ -1,4 +1,4 @@
-# Kindred Systems — robots.txt
+# Kindred Systems robots.txt
 
 # Allow AI search visibility bots, block training crawlers
 User-agent: OAI-SearchBot
