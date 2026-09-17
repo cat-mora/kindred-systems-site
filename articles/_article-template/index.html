@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>[Exact question as H1] | Kindred Systems Articles</title>
-    <meta name="description" content="[Meta description supplied with the article copy — one or two sentences, not the direct-answer paragraph verbatim.]" />
+    <meta
+      name="description"
+      content="[Meta description supplied with the article copy — one or two sentences, not the direct-answer paragraph verbatim.]"
+    />
 
     <!--
       THIS PAGE IS A TEMPLATE, NOT A REAL ARTICLE.
@@ -54,10 +57,23 @@
           avoids implying a new platform is always required.
     -->
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="canonical" href="https://kindredsystems.com.au/articles/_article-template/" />
+    <link
+      rel="canonical"
+      href="https://kindredsystems.com.au/articles/_article-template/"
+    />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon-16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32.png"
+    />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 
     <!--
@@ -101,9 +117,24 @@
           {
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kindredsystems.com.au/" },
-              { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://kindredsystems.com.au/articles/" },
-              { "@type": "ListItem", "position": 3, "name": "[Short article title]", "item": "https://kindredsystems.com.au/articles/[slug]/" }
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://kindredsystems.com.au/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Articles",
+                "item": "https://kindredsystems.com.au/articles/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "[Short article title]",
+                "item": "https://kindredsystems.com.au/articles/[slug]/"
+              }
             ]
           }
         ]
@@ -125,17 +156,29 @@
         --shadow: 0 24px 70px rgba(16, 42, 67, 0.1);
         --radius: 26px;
       }
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
       body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+          sans-serif;
         color: var(--body);
         background: var(--ivory2);
         line-height: 1.58;
       }
-      a { color: inherit; text-decoration: none; }
-      .container { width: min(760px, calc(100% - 40px)); margin: 0 auto; }
-      .container.wide { width: min(1120px, calc(100% - 40px)); }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        width: min(760px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+      .container.wide {
+        width: min(1120px, calc(100% - 40px));
+      }
       header {
         padding: 20px 0;
         background: rgba(251, 248, 241, 0.95);
@@ -145,11 +188,34 @@
         z-index: 100;
         border-bottom: 1px solid rgba(16, 42, 67, 0.08);
       }
-      .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-      .brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
-      .brand-logo-img { display: block; width: 320px; max-width: min(320px, calc(100vw - 160px)); height: auto; object-fit: contain; }
-      .nav-links { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 500; }
-      .nav-links a:hover { color: var(--brass); }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+      }
+      .brand-logo-img {
+        display: block;
+        width: 320px;
+        max-width: min(320px, calc(100vw - 160px));
+        height: auto;
+        object-fit: contain;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .nav-links a:hover {
+        color: var(--brass);
+      }
       .nav-cta {
         background: var(--navy);
         color: var(--white) !important;
@@ -169,8 +235,17 @@
         align-items: center;
         gap: 10px;
       }
-      .eyebrow::before { content: ""; display: block; width: 28px; height: 2px; background: var(--brass); flex-shrink: 0; }
-      section { padding: 48px 0; }
+      .eyebrow::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: var(--brass);
+        flex-shrink: 0;
+      }
+      section {
+        padding: 48px 0;
+      }
       h1 {
         font-size: clamp(28px, 4vw, 42px);
         font-weight: 800;
@@ -179,11 +254,30 @@
         color: var(--navy);
         margin: 0 0 20px;
       }
-      h2 { font-size: 24px; font-weight: 700; color: var(--navy); margin: 40px 0 14px; }
-      h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin: 24px 0 10px; }
-      .breadcrumb-nav { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
-      .breadcrumb-nav a { color: var(--muted); }
-      .breadcrumb-nav .sep { margin: 0 8px; color: var(--stone); }
+      h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 40px 0 14px;
+      }
+      h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 24px 0 10px;
+      }
+      .breadcrumb-nav {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .breadcrumb-nav a {
+        color: var(--muted);
+      }
+      .breadcrumb-nav .sep {
+        margin: 0 8px;
+        color: var(--stone);
+      }
       .byline {
         display: flex;
         flex-wrap: wrap;
@@ -210,16 +304,32 @@
         padding: 24px 28px;
         margin: 0 0 36px;
       }
-      article p { font-size: 16px; line-height: 1.72; color: var(--body); margin: 0 0 20px; }
-      article ul, article ol { margin: 0 0 20px; padding-left: 22px; }
-      article li { font-size: 16px; line-height: 1.65; color: var(--body); margin-bottom: 8px; }
+      article p {
+        font-size: 16px;
+        line-height: 1.72;
+        color: var(--body);
+        margin: 0 0 20px;
+      }
+      article ul,
+      article ol {
+        margin: 0 0 20px;
+        padding-left: 22px;
+      }
+      article li {
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--body);
+        margin-bottom: 8px;
+      }
       .example-box {
         background: var(--ivory);
         border-radius: var(--radius);
         padding: 28px 32px;
         margin: 28px 0;
       }
-      .example-box p:last-child { margin-bottom: 0; }
+      .example-box p:last-child {
+        margin-bottom: 0;
+      }
       .author-block {
         display: flex;
         align-items: center;
@@ -230,12 +340,40 @@
         padding: 28px 32px;
         margin: 40px 0;
       }
-      .author-block img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: top center; flex-shrink: 0; }
-      .author-block p { font-size: 14px; margin: 0; }
-      .author-block strong { display: block; color: var(--navy); font-size: 15px; margin-bottom: 4px; }
-      .internal-links { margin: 32px 0; }
-      .internal-links ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-      .internal-links a { color: var(--navy); font-weight: 600; text-decoration: underline; }
+      .author-block img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: top center;
+        flex-shrink: 0;
+      }
+      .author-block p {
+        font-size: 14px;
+        margin: 0;
+      }
+      .author-block strong {
+        display: block;
+        color: var(--navy);
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+      .internal-links {
+        margin: 32px 0;
+      }
+      .internal-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .internal-links a {
+        color: var(--navy);
+        font-weight: 600;
+        text-decoration: underline;
+      }
       .cta-block {
         background: var(--navy);
         color: var(--white);
@@ -244,7 +382,10 @@
         margin: 40px 0 0;
         text-align: center;
       }
-      .cta-block p { color: rgba(255, 255, 255, 0.8); margin: 0 0 20px; }
+      .cta-block p {
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0 0 20px;
+      }
       .button {
         display: inline-flex;
         align-items: center;
@@ -256,21 +397,37 @@
         background: var(--brass);
         color: var(--navy);
       }
-      footer { background: var(--navy); color: rgba(255, 255, 255, 0.55); padding: 32px 0; font-size: 13px; text-align: center; }
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.55);
+        padding: 32px 0;
+        font-size: 13px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
     <header>
       <div class="container wide nav">
         <a class="brand" href="/" aria-label="Kindred Systems home">
-          <img class="brand-logo-img" src="/assets/kindred-logo-header.png" alt="Kindred Systems" />
+          <img
+            class="brand-logo-img"
+            src="/assets/kindred-logo-header.png"
+            alt="Kindred Systems"
+          />
         </a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="/advisory/">Lead Conversion Advisory</a>
           <a href="/about/">About</a>
           <a href="/articles/">Articles</a>
           <a href="/contact/">Contact</a>
-          <a href="https://tidycal.com/kindredsystems/discovery-call" class="nav-cta" target="_blank" rel="noopener">Book a Discovery Call</a>
+          <a
+            href="https://tidycal.com/kindredsystems/discovery-call"
+            class="nav-cta"
+            target="_blank"
+            rel="noopener"
+            >Book a Discovery Call</a
+          >
         </nav>
       </div>
     </header>
@@ -280,14 +437,17 @@
         <div class="container">
           <nav class="breadcrumb-nav" aria-label="Breadcrumb">
             <a href="/">Home</a><span class="sep">/</span>
-            <a href="/articles/">Articles</a><span class="sep">/</span>[Short article title]
+            <a href="/articles/">Articles</a><span class="sep">/</span>[Short
+            article title]
           </nav>
 
           <!-- 1. Exact question (or close natural variation) as the H1 -->
           <h1>[Exact question as H1]</h1>
 
           <div class="byline">
-            <span class="article-topic">[Topic — one of the seven filter categories]</span>
+            <span class="article-topic"
+              >[Topic — one of the seven filter categories]</span
+            >
             <span>[X] min read</span>
             <span>&middot;</span>
             <span>Published [D Month YYYY]</span>
@@ -298,9 +458,9 @@
           <article>
             <!-- 2. Direct answer, 40–70 words, no throat-clearing before it -->
             <p class="direct-answer">
-              [Direct answer to the exact question above, in 40 to 70 words,
-              as the very first thing a reader or an AI answer engine sees.
-              No preamble before this paragraph.]
+              [Direct answer to the exact question above, in 40 to 70 words, as
+              the very first thing a reader or an AI answer engine sees. No
+              preamble before this paragraph.]
             </p>
 
             <!-- 3. Descriptive H2 sections — rename these, don't leave them
@@ -322,20 +482,26 @@
             <div class="example-box">
               <p>
                 [A clearly identified example — either a named illustrative
-                industry scenario, explicitly flagged as hypothetical, or a
-                real evidenced result per OFFERS-AND-PRICING.md. Never an
-                invented client engagement or result.]
+                industry scenario, explicitly flagged as hypothetical, or a real
+                evidenced result per OFFERS-AND-PRICING.md. Never an invented
+                client engagement or result.]
               </p>
             </div>
 
             <!-- 6. Author block -->
             <div class="author-block">
-              <img src="/assets/cathryn-headshot-round-web.jpg" alt="Cathryn Mora, Founder of Kindred Systems" />
+              <img
+                src="/assets/cathryn-headshot-round-web.jpg"
+                alt="Cathryn Mora, Founder of Kindred Systems"
+              />
               <p>
                 <strong>Cathryn Mora, Founder, Kindred Systems</strong>
                 15+ years across marketing, sales and customer strategy, working
                 with high-value service businesses on lead response, follow-up
-                and conversion. <a href="/about/" style="text-decoration: underline">More about Cathryn</a>
+                and conversion.
+                <a href="/about/" style="text-decoration: underline"
+                  >More about Cathryn</a
+                >
               </p>
             </div>
 
@@ -343,8 +509,18 @@
             <div class="internal-links">
               <h3>Related</h3>
               <ul>
-                <li><a href="/articles/[related-slug]/">[Descriptive link text — the related question, not "read more"]</a></li>
-                <li><a href="/advisory/">[Descriptive link to the relevant Lead Conversion Advisory section]</a></li>
+                <li>
+                  <a href="/articles/[related-slug]/"
+                    >[Descriptive link text — the related question, not "read
+                    more"]</a
+                  >
+                </li>
+                <li>
+                  <a href="/advisory/"
+                    >[Descriptive link to the relevant Lead Conversion Advisory
+                    section]</a
+                  >
+                </li>
               </ul>
             </div>
 
@@ -354,9 +530,16 @@
                  (a) DEFAULT — lead response / follow-up / CRM / database /
                      sales-conversation / industry-example articles: -->
             <div class="cta-block">
-              <h3 style="color: var(--white)">[CTA heading tied to this article's topic]</h3>
-              <p>[One or two sentences bridging this article's answer to the Advisory.]</p>
-              <a class="button" href="/advisory/">See how Lead Conversion Advisory works</a>
+              <h3 style="color: var(--white)">
+                [CTA heading tied to this article's topic]
+              </h3>
+              <p>
+                [One or two sentences bridging this article's answer to the
+                Advisory.]
+              </p>
+              <a class="button" href="/advisory/"
+                >See how Lead Conversion Advisory works</a
+              >
             </div>
 
             <!-- (b) AEO articles only — replace (a) with this, and preselect
