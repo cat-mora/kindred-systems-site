@@ -6,7 +6,7 @@
     <title>[Exact question as H1] | Kindred Systems Articles</title>
     <meta
       name="description"
-      content="[Meta description supplied with the article copy — one or two sentences, not the direct-answer paragraph verbatim.]"
+      content="[Meta description supplied with the article copy: one or two sentences, not the direct-answer paragraph verbatim.]"
     />
 
     <!--
@@ -16,11 +16,11 @@
       mistaken for a published answer. To build a real article:
 
         1. Duplicate this whole folder to /articles/<short-descriptive-slug>/
-           (see the Article URL pattern rules — no dates, no category
+           (see the Article URL pattern rules: no dates, no category
            folders, short descriptive slugs only).
         2. Fill in every [bracketed] placeholder with the supplied, approved
            copy for that article. Do not invent or paraphrase from a
-           generic AI source — this is a structural template only.
+           generic AI source. This is a structural template only.
         3. Delete the <meta name="robots" content="noindex" /> tag below and
            the "noindex" line inside the JSON-LD comment note.
         4. Remove this comment block entirely once the page is real.
@@ -30,7 +30,7 @@
 
       STRUCTURE THIS TEMPLATE IMPLEMENTS (per the build brief):
         1. Exact question, or a close natural variation, as the H1.
-        2. A direct answer in the first 40–70 words (see .direct-answer below).
+        2. A direct answer in the first 40 to 70 words (see .direct-answer below).
         3. Descriptive H2 sections (not "Introduction" / "Conclusion").
         4. Bullets or numbered steps where useful.
         5. Industry context or a clearly identified example.
@@ -39,14 +39,15 @@
         8. A CTA appropriate to the topic (see CTA RULES below).
         9. Published and updated dates, both visible and in schema.
 
-      Not every article needs every section in this exact shape — don't force
+      Not every article needs every section in this exact shape, so don't force
       a question into a structure that doesn't fit it. Keep the direct
       answer, the author block, the dates and the topic-appropriate CTA on
       every article regardless.
 
       CTA RULES (pick ONE, delete the other two blocks and this note):
-        - Lead response, follow-up, CRM, database, sales-conversation and
-          industry-example articles → the "Lead Conversion Advisory" CTA.
+        - Enquiry response, consultations and proposals, follow-up,
+          database nurture, CRM/automation/AI and industry articles → the
+          "Lead Conversion Advisory" CTA.
         - Answer Engine Optimisation articles → the "Ask about Answer Engine
           Optimisation" CTA, linking to the contact form (there is no
           dedicated AEO page yet). If the contact form supports query
@@ -81,7 +82,7 @@
       value below with the real data. Keep all four blocks: Organization,
       Person (author), Article, and BreadcrumbList. datePublished/dateModified
       must exactly match the visible dates in the byline further down the
-      page — structured data must always agree with visible copy.
+      page. Structured data must always agree with visible copy.
     -->
     <script type="application/ld+json">
       {
@@ -446,7 +447,7 @@
 
           <div class="byline">
             <span class="article-topic"
-              >[Topic — one of the seven filter categories]</span
+              >[Topic: one of the six filter categories on /articles/]</span
             >
             <span>[X] min read</span>
             <span>&middot;</span>
@@ -456,21 +457,21 @@
           </div>
 
           <article>
-            <!-- 2. Direct answer, 40–70 words, no throat-clearing before it -->
+            <!-- 2. Direct answer, 40 to 70 words, no throat-clearing before it -->
             <p class="direct-answer">
               [Direct answer to the exact question above, in 40 to 70 words, as
               the very first thing a reader or an AI answer engine sees. No
               preamble before this paragraph.]
             </p>
 
-            <!-- 3. Descriptive H2 sections — rename these, don't leave them
+            <!-- 3. Descriptive H2 sections: rename these, don't leave them
                  as "Section one" etc. Add or remove sections as the actual
                  question needs; this is a shape to adapt, not a fixed form. -->
-            <h2>[Descriptive H2 — what causes this / why it matters]</h2>
+            <h2>[Descriptive H2: what causes this, or why it is costing the business]</h2>
             <p>[Body copy.]</p>
 
             <!-- 4. Bullets or numbered steps where useful -->
-            <h2>[Descriptive H2 — the practical detail or steps]</h2>
+            <h2>[Descriptive H2: the practical detail or steps]</h2>
             <ul>
               <li>[Point one.]</li>
               <li>[Point two.]</li>
@@ -478,10 +479,10 @@
             </ul>
 
             <!-- 5. Industry context or a clearly identified example -->
-            <h2>[Descriptive H2 — how this shows up in practice]</h2>
+            <h2>[Descriptive H2: how this shows up in practice]</h2>
             <div class="example-box">
               <p>
-                [A clearly identified example — either a named illustrative
+                [A clearly identified example: either a named illustrative
                 industry scenario, explicitly flagged as hypothetical, or a real
                 evidenced result per OFFERS-AND-PRICING.md. Never an invented
                 client engagement or result.]
@@ -511,7 +512,7 @@
               <ul>
                 <li>
                   <a href="/articles/[related-slug]/"
-                    >[Descriptive link text — the related question, not "read
+                    >[Descriptive link text: the related question, not "read
                     more"]</a
                   >
                 </li>
@@ -524,11 +525,10 @@
               </ul>
             </div>
 
-            <!-- 8. CTA appropriate to the topic — keep exactly ONE of the
+            <!-- 8. CTA appropriate to the topic. Keep exactly ONE of the
                  three blocks below and delete the other two plus this note.
 
-                 (a) DEFAULT — lead response / follow-up / CRM / database /
-                     sales-conversation / industry-example articles: -->
+                 (a) DEFAULT, for every topic except the two below: -->
             <div class="cta-block">
               <h3 style="color: var(--white)">
                 [CTA heading tied to this article's topic]
@@ -542,7 +542,7 @@
               >
             </div>
 
-            <!-- (b) AEO articles only — replace (a) with this, and preselect
+            <!-- (b) AEO articles only. Replace (a) with this, and preselect
                  "Answer Engine Optimisation" as the enquiry type if the
                  contact form supports a query parameter or hidden field:
             <div class="cta-block">
@@ -552,13 +552,13 @@
             </div>
             -->
 
-            <!-- (c) Articles comparing systems/platforms only — replace (a)
+            <!-- (c) Articles comparing systems or platforms only. Replace (a)
                  with this. Keep the wording that a new platform isn't always
                  required:
             <div class="cta-block">
               <h3 style="color: var(--white)">Not sure whether you need new software or just a better process?</h3>
               <p>Lead Conversion Advisory starts with what you already have, not with a new platform to buy.</p>
-              <a class="button" href="/advisory/#[relevant-section-id]">See how systems get assessed in the Advisory</a>
+              <a class="button" href="/advisory/">See how systems get assessed in the Advisory</a>
             </div>
             -->
           </article>
