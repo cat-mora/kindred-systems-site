@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About Cathryn Mora | Kindred Systems</title>
+    <title>About Cathryn Mora | Lead Conversion Advisor</title>
     <meta
       name="description"
-      content="Cathryn Mora is the founder of Kindred Systems, an advisory practice helping high-value Australian service businesses turn more enquiries into clients. Commercial experience first, AI capability built on top."
+      content="Meet Cathryn Mora, founder of Kindred Systems and a Lead Conversion Advisor with more than 15 years in sales, marketing and business growth."
     />
     <link rel="canonical" href="https://kindredsystems.com.au/about/" />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -23,15 +23,31 @@
       href="/assets/favicon-32.png"
     />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-    <meta property="og:title" content="About Cathryn Mora | Kindred Systems" />
+    <meta
+      property="og:title"
+      content="About Cathryn Mora | Lead Conversion Advisor"
+    />
     <meta
       property="og:description"
-      content="Cathryn Mora is the founder of Kindred Systems, an advisory practice helping high-value Australian service businesses turn more enquiries into clients. Commercial experience first, AI capability built on top."
+      content="Meet Cathryn Mora, founder of Kindred Systems and a Lead Conversion Advisor with more than 15 years in sales, marketing and business growth."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://kindredsystems.com.au/about/" />
     <meta
       property="og:image"
+      content="https://kindredsystems.com.au/assets/ks_social-share.jpg?v=2"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="About Cathryn Mora | Lead Conversion Advisor"
+    />
+    <meta
+      name="twitter:description"
+      content="Meet Cathryn Mora, founder of Kindred Systems and a Lead Conversion Advisor with more than 15 years in sales, marketing and business growth."
+    />
+    <meta
+      name="twitter:image"
       content="https://kindredsystems.com.au/assets/ks_social-share.jpg?v=2"
     />
     <script type="application/ld+json">
@@ -39,7 +55,7 @@
         "@context": "https://schema.org",
         "@graph": [
           {
-            "@type": "Organization",
+            "@type": ["Organization", "ProfessionalService"],
             "@id": "https://kindredsystems.com.au/#org",
             "name": "Kindred Systems",
             "url": "https://kindredsystems.com.au",
@@ -48,22 +64,41 @@
             "founder": {
               "@id": "https://kindredsystems.com.au/about/#cathryn"
             },
-            "description": "Kindred Systems helps high-value Australian service businesses turn more enquiries into clients, through a 90-day Advisory engagement, a short Executive AI Sprint, or a $59 USD AI Visibility (AEO) Audit.",
-            "areaServed": "AU",
+            "areaServed": {
+              "@type": "Place",
+              "name": "Worldwide"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://kindredsystems.com.au/about/#cathryn",
+            "name": "Cathryn Mora",
+            "jobTitle": "Lead Conversion Advisor",
+            "worksFor": { "@id": "https://kindredsystems.com.au/#org" },
+            "founder": { "@id": "https://kindredsystems.com.au/#org" },
+            "url": "https://kindredsystems.com.au/about/",
+            "image": "https://kindredsystems.com.au/assets/cathryn-advisory-2.jpg",
+            "description": "Cathryn Mora is the founder of Kindred Systems and a Lead Conversion Advisor with more than 15 years of experience across marketing, sales, customer experience, CRM, communications and business ownership.",
             "knowsAbout": [
-              "growth strategy",
-              "enquiry and lead conversion",
-              "AI strategy",
-              "answer engine optimisation"
-            ]
+              "lead conversion",
+              "enquiry response and follow-up",
+              "sales conversations",
+              "CRM and database nurture",
+              "customer experience",
+              "automation and AI"
+            ],
+            "homeLocation": {
+              "@type": "Place",
+              "name": "Cleveland, Queensland, Australia"
+            }
           },
           {
             "@type": "AboutPage",
             "@id": "https://kindredsystems.com.au/about/#webpage",
             "url": "https://kindredsystems.com.au/about/",
-            "name": "About Cathryn Mora | Kindred Systems",
+            "name": "About Cathryn Mora | Lead Conversion Advisor",
             "isPartOf": { "@id": "https://kindredsystems.com.au/#org" },
-            "about": { "@id": "https://kindredsystems.com.au/#org" },
+            "about": { "@id": "https://kindredsystems.com.au/about/#cathryn" },
             "breadcrumb": {
               "@type": "BreadcrumbList",
               "itemListElement": [
@@ -80,34 +115,6 @@
                   "item": "https://kindredsystems.com.au/about/"
                 }
               ]
-            }
-          },
-          {
-            "@type": "Person",
-            "@id": "https://kindredsystems.com.au/about/#cathryn",
-            "name": "Cathryn Mora",
-            "jobTitle": "Founder",
-            "worksFor": { "@id": "https://kindredsystems.com.au/#org" },
-            "url": "https://kindredsystems.com.au/about/",
-            "sameAs": ["https://www.linkedin.com/in/cathryn-mora/"],
-            "description": "15+ years across marketing, sales and customer strategy. Founded and grew Change Empire Books 400% in two years before exiting. Hands-on AI systems built and deployed.",
-            "knowsAbout": [
-              "growth strategy",
-              "enquiry and lead conversion",
-              "AI strategy",
-              "AI implementation",
-              "commercial operations",
-              "customer experience"
-            ],
-            "alumniOf": {
-              "@type": "EducationalOrganization",
-              "name": "Queensland University of Technology"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Brisbane",
-              "addressRegion": "QLD",
-              "addressCountry": "AU"
             }
           }
         ]
@@ -129,11 +136,9 @@
         --shadow: 0 24px 70px rgba(16, 42, 67, 0.1);
         --radius: 26px;
       }
-
       * {
         box-sizing: border-box;
       }
-
       body {
         margin: 0;
         font-family:
@@ -143,41 +148,33 @@
         background: var(--ivory2);
         line-height: 1.58;
       }
-
       a {
         color: inherit;
       }
-
       .container {
         width: min(1120px, calc(100% - 40px));
         margin: 0 auto;
       }
-
-      /* NAV */
       header {
         padding: 20px 0;
-        background: rgba(251, 248, 241, 0.95);
-        backdrop-filter: blur(12px);
+        background: var(--ivory2);
         position: sticky;
         top: 0;
         z-index: 100;
         border-bottom: 1px solid rgba(16, 42, 67, 0.08);
       }
-
       .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 24px;
       }
-
       .brand {
         display: inline-flex;
         align-items: center;
         text-decoration: none;
         flex: 0 0 auto;
       }
-
       .brand-logo-img {
         display: block;
         width: 420px;
@@ -185,22 +182,19 @@
         height: auto;
         object-fit: contain;
       }
-
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 28px;
+        gap: 22px;
         font-size: 14px;
         font-weight: 500;
         color: var(--bluecharcoal);
       }
-
       .nav-links a {
         text-decoration: none;
         color: var(--bluecharcoal);
         transition: color 0.15s;
       }
-
       .nav-links a:hover {
         color: var(--brass);
       }
@@ -208,7 +202,6 @@
         color: var(--brass);
         font-weight: 700;
       }
-
       .nav-cta {
         background: var(--navy);
         color: var(--white) !important;
@@ -220,12 +213,10 @@
         text-decoration: none;
         transition: background 0.15s;
       }
-
       .nav-cta:hover {
         background: var(--bluecharcoal);
         color: var(--white) !important;
       }
-
       .hamburger {
         display: none;
         flex-direction: column;
@@ -236,7 +227,6 @@
         border: none;
         z-index: 110;
       }
-
       .hamburger span {
         display: block;
         width: 24px;
@@ -245,7 +235,6 @@
         border-radius: 2px;
         transition: all 0.25s;
       }
-
       .hamburger.open span:nth-child(1) {
         transform: translateY(7px) rotate(45deg);
       }
@@ -255,7 +244,6 @@
       .hamburger.open span:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
       }
-
       .mobile-menu {
         display: none;
         position: fixed;
@@ -265,24 +253,22 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 32px;
+        gap: 28px;
       }
-
       .mobile-menu.open {
         display: flex;
       }
-
       .mobile-menu a {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 600;
         color: var(--navy);
         text-decoration: none;
+        letter-spacing: -0.3px;
+        text-align: center;
       }
-
       .mobile-menu a:hover {
         color: var(--brass);
       }
-
       .mobile-menu .mobile-cta {
         background: var(--navy);
         color: var(--white) !important;
@@ -291,8 +277,6 @@
         font-size: 18px;
         margin-top: 8px;
       }
-
-      /* BUTTONS */
       .button {
         display: inline-flex;
         align-items: center;
@@ -309,24 +293,28 @@
         color: var(--white);
         border: 2px solid var(--navy);
       }
-
       .button:hover {
         background: var(--bluecharcoal);
         border-color: var(--bluecharcoal);
       }
-
       .button.secondary {
         background: transparent;
         color: var(--navy);
         border-color: var(--navy);
       }
-
       .button.secondary:hover {
         background: var(--navy);
         color: var(--white);
       }
-
-      /* SHARED */
+      .button.brass {
+        background: var(--brass);
+        color: var(--navy);
+        border-color: var(--brass);
+      }
+      .button.brass:hover {
+        background: #a88d54;
+        border-color: #a88d54;
+      }
       .eyebrow {
         font-size: 11px;
         font-weight: 700;
@@ -338,7 +326,6 @@
         align-items: center;
         gap: 10px;
       }
-
       .eyebrow::before {
         content: "";
         display: block;
@@ -347,48 +334,36 @@
         background: var(--brass);
         flex-shrink: 0;
       }
-
       section {
-        padding: 72px 0;
+        padding: 80px 0;
       }
-
       .section-divider {
         border: none;
         border-top: 1px solid var(--stone);
         margin: 0;
       }
-
       h1 {
-        font-size: clamp(30px, 4.5vw, 50px);
+        font-size: clamp(30px, 4.2vw, 46px);
         font-weight: 800;
         line-height: 1.1;
         letter-spacing: -1.2px;
         color: var(--navy);
-        margin: 0 0 22px;
+        margin: 0 0 24px;
       }
       h2 {
-        font-size: clamp(24px, 3.2vw, 38px);
+        font-size: clamp(24px, 3.2vw, 34px);
         font-weight: 700;
-        line-height: 1.15;
-        letter-spacing: -0.8px;
+        line-height: 1.18;
+        letter-spacing: -0.7px;
         color: var(--navy);
-        margin: 0 0 18px;
+        margin: 0 0 20px;
       }
-      h3 {
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--navy);
-        margin: 0 0 12px;
-      }
-
-      /* FOUNDER */
       .founder-grid {
         display: grid;
         grid-template-columns: 300px 1fr;
         gap: 64px;
         align-items: start;
       }
-
       .founder-photo {
         width: 100%;
         border-radius: 20px;
@@ -396,96 +371,46 @@
         object-fit: cover;
         object-position: top center;
       }
-
       .founder-body p {
         font-size: 17px;
         line-height: 1.72;
         color: var(--body);
         margin: 0 0 20px;
       }
-
-      .founder-body p.signoff {
-        margin-bottom: 4px;
+      .founder-body p:last-child {
+        margin-bottom: 0;
       }
-
-      .cred-list {
-        list-style: none;
-        padding: 0;
-        margin: 28px 0;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+      .body-copy {
+        font-size: 17px;
+        line-height: 1.72;
+        color: var(--body);
+        max-width: 780px;
+        margin: 0 0 20px;
       }
-
-      .cred-list li {
-        display: flex;
-        gap: 14px;
-        align-items: flex-start;
-        font-size: 15px;
-        line-height: 1.6;
+      .body-copy:last-child {
+        margin-bottom: 0;
       }
-
-      .cred-list li::before {
-        content: "";
-        display: block;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--brass);
-        flex-shrink: 0;
-        margin-top: 7px;
-      }
-
-      .tech-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 24px;
-      }
-
-      .pill {
-        font-size: 12px;
-        font-weight: 600;
-        padding: 5px 12px;
-        border-radius: 100px;
+      .personal-note {
         background: var(--ivory);
-        color: var(--bluecharcoal);
-        border: 1px solid var(--stone);
-      }
-
-      /* KINDRED SECTION */
-      .kindred-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-        margin-top: 44px;
-      }
-
-      .kindred-card {
-        background: var(--white);
         border-radius: var(--radius);
-        padding: 32px 36px;
-        box-shadow: var(--shadow);
+        padding: 44px 48px;
+        max-width: 860px;
       }
-
-      .kindred-card h3 {
-        font-size: 18px;
+      .personal-note h2 {
+        font-size: 26px;
       }
-      .kindred-card p {
-        font-size: 15px;
-        line-height: 1.68;
+      .personal-note p {
+        font-size: 17px;
+        line-height: 1.72;
         color: var(--body);
         margin: 0;
       }
-
-      /* FOOTER */
       footer {
         background: var(--navy);
         color: rgba(255, 255, 255, 0.55);
         padding: 40px 0;
         font-size: 13px;
       }
-
       .footer-inner {
         display: flex;
         align-items: center;
@@ -493,23 +418,18 @@
         gap: 24px;
         flex-wrap: wrap;
       }
-
       .footer-links {
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
       }
-
       .footer-links a {
         color: rgba(255, 255, 255, 0.55);
         text-decoration: none;
       }
-
       .footer-links a:hover {
         color: var(--brass);
       }
-
-      /* RESPONSIVE */
       @media (max-width: 900px) {
         .founder-grid {
           grid-template-columns: 1fr;
@@ -518,20 +438,8 @@
         .founder-photo {
           max-width: 280px;
         }
-        .kindred-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 720px) {
-        section {
-          padding: 52px 0;
-        }
-        .nav-links {
-          display: none;
-        }
-        .hamburger {
-          display: flex;
+        .personal-note {
+          padding: 32px 26px;
         }
         .footer-inner {
           flex-direction: column;
@@ -539,6 +447,20 @@
         }
         .footer-links {
           justify-content: center;
+        }
+      }
+      @media (max-width: 720px) {
+        section {
+          padding: 56px 0;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .personal-note {
+          border-radius: 16px;
         }
       }
     </style>
@@ -550,16 +472,16 @@
       role="dialog"
       aria-label="Navigation menu"
     >
-      <a href="/" onclick="closeMobile()">Home</a>
-      <a href="/advisory/" onclick="closeMobile()">Advisory</a>
+      <a href="/advisory/" onclick="closeMobile()">Lead Conversion Advisory</a>
       <a href="/about/" onclick="closeMobile()">About</a>
+      <a href="/articles/" onclick="closeMobile()">Articles</a>
       <a href="/contact/" onclick="closeMobile()">Contact</a>
       <a
         href="https://tidycal.com/kindredsystems/discovery-call"
         class="mobile-cta"
         target="_blank"
         rel="noopener"
-        >Book a call</a
+        >Book a Discovery Call</a
       >
     </div>
 
@@ -573,15 +495,16 @@
           />
         </a>
         <nav class="nav-links" aria-label="Primary navigation">
-          <a href="/advisory/">Advisory</a>
+          <a href="/advisory/">Lead Conversion Advisory</a>
           <a href="/about/" class="active">About</a>
+          <a href="/articles/">Articles</a>
           <a href="/contact/">Contact</a>
           <a
             href="https://tidycal.com/kindredsystems/discovery-call"
             class="nav-cta"
             target="_blank"
             rel="noopener"
-            >Book a call</a
+            >Book a Discovery Call</a
           >
         </nav>
         <button
@@ -608,112 +531,25 @@
               />
             </div>
             <div class="founder-body">
-              <h1
-                style="font-size: clamp(28px, 4vw, 44px); margin-bottom: 24px"
-              >
-                I probably won't start with the fix you asked for.
+              <h1>
+                I have spent more than 15 years finding where businesses lose
+                growth
               </h1>
-
               <p>
-                Early in my career, I was hired to run marketing for a regional
-                ferry company: brand refresh, campaigns, the usual brief. After
-                a while observing how the business ran day to day, I could see
-                the problem went deeper than marketing. With the owners'
-                permission, I hired a secret shopping company to test the whole
-                experience: calling to book, arriving at the terminal, boarding
-                the vessel, and the crossing itself. That's where the real gaps
-                were. Alongside the brand work, I introduced a loyalty program
-                for locals, built campaigns to attract new audiences in the
-                off-peak periods, hired a customer service trainer to work with
-                all the staff, from booking staff through to onboard staff, and
-                ran a media push that landed newspaper, magazine and television
-                coverage, good enough that the Dalai Lama's team called after
-                seeing it and asked us to host him on his next visit to
-                Australia. The business grew to around 80% of the tightly held
-                local market within a year. That's held true in every business
-                I've worked with since: the fix people ask for is rarely the
-                only fix needed.
+                I am Cathryn Mora, founder of Kindred Systems. My background
+                covers marketing, sales, customer experience, CRM,
+                communications and business ownership. Across those roles, the
+                brief I was given was often only one part of the commercial
+                problem.
               </p>
-
               <p>
-                It's held at scale too. I founded and scaled Change Empire Books
-                into an international publishing and coaching business across
-                Australia, the UK and the US. I was the business's primary
-                revenue driver, personally closing inbound sales at over 80%, on
-                programs priced from $5,000 to $95,000. When COVID hit, I
-                repositioned the business, delivering 400% revenue growth over
-                two years while leading a team of 21. The business exited
-                through acquisition in 2023.
+                That is why I look at the whole path between a person showing
+                interest and deciding to buy. A campaign may be generating
+                enquiries while the response process loses them. A strong
+                consultation may be followed by nothing. A capable team may be
+                relying on one person to remember every follow-up. The useful
+                answer becomes clear once the full journey is visible.
               </p>
-
-              <p>
-                I've brought the same approach to contract work for other
-                businesses: rebuilding a subscriber database of around 900,000
-                people and a nurture email sequence that lifted website visits
-                1,500% in its first month for one client, and running the
-                social, email and SMS campaigns behind a large club's CRM to
-                lift member visitation in a competitive local market for
-                another.
-              </p>
-
-              <p>
-                For larger organisations, that usually means working alongside
-                their own technical people rather than around them. Most already
-                have an in-house IT team, and my role is helping decide where AI
-                fits commercially and how it should work, while their team stays
-                in control of the build. I'm currently completing certification
-                in Microsoft's AI environments, since that's the platform most
-                large and government organisations already run on.
-              </p>
-
-              <p>
-                Smaller businesses often don't have that in-house capability,
-                and that's where Kindred Systems comes in: helping owners and
-                leadership teams work out what's holding performance back and
-                what to do about it.
-              </p>
-
-              <p>
-                More recently, I've worked at senior levels of government, which
-                has given me a working understanding of the policy, procurement
-                and governance considerations that influence decisions inside
-                large organisations.
-              </p>
-
-              <p>
-                I work best with owners and leadership teams who want a straight
-                answer about what's going on, even when it isn't the answer they
-                expected.
-              </p>
-
-              <p>
-                IT managers often ask me what team I support but honestly, I
-                stopped watching football when ET retired (IYKYK) and the short
-                shorts that Capper used to wear turned me off AFL completely! So
-                in my downtime, I am obsessed with working in my tropical-themed
-                garden, walking my dog along the water, and optimistically
-                booking back-to-back pilates classes.
-              </p>
-
-              <p class="signoff">Look forward to working with you soon</p>
-              <p style="margin-bottom: 0">Cathryn</p>
-
-              <div
-                style="
-                  margin-top: 32px;
-                  display: flex;
-                  gap: 14px;
-                  flex-wrap: wrap;
-                "
-              >
-                <a
-                  class="button"
-                  href="https://tidycal.com/kindredsystems/discovery-call"
-                  target="_blank"
-                  rel="noopener"
-                  >Book a call</a
-                >
-              </div>
             </div>
           </div>
         </div>
@@ -723,49 +559,177 @@
 
       <section>
         <div class="container">
+          <div class="eyebrow">Early experience</div>
+          <h2>The job that taught me to look beyond the brief</h2>
+          <p class="body-copy">
+            Early in my career, I joined a regional ferry business to lead
+            marketing and public relations. Once I had observed the business, I
+            could see that marketing alone would not produce the growth the
+            owners wanted. The customer experience varied depending on who
+            answered the phone, how the booking was handled and what happened on
+            the day of travel.
+          </p>
+          <p class="body-copy">
+            With the owners' approval, I arranged secret shopping across the
+            full experience. I then brought in customer-service training,
+            introduced standard procedures, led a rebrand, ran marketing and
+            public relations, created a local loyalty program and helped
+            introduce online ticketing.
+          </p>
+          <p class="body-copy">
+            The business reached about 80% of its local passenger market within
+            twelve months. I also redirected part of the existing marketing
+            budget to create a package-holiday revenue line. It opened a new
+            source of revenue without additional budget and produced a strong
+            return on the funds reallocated.
+          </p>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">Business ownership</div>
+          <h2>I have carried the sales number myself</h2>
+          <p class="body-copy">
+            I later founded Change Empire Books, an international book-coaching
+            and author-services business working across Australia, the United
+            Kingdom and the United States. I built the business from myself
+            alone to a team of 21 and sold it in 2023.
+          </p>
+          <p class="body-copy">
+            I was the primary revenue driver and personally converted more than
+            80% of inbound sales calls for programs priced from $5,000 to
+            $95,000. During COVID, I changed the offers and delivery model and
+            grew revenue by roughly 400% over two years.
+          </p>
+          <p class="body-copy">
+            That experience gave me a close view of what happens on both sides
+            of a high-value sale: what a prospect needs to feel confident, what
+            a salesperson needs to understand, and what the business must have
+            in place so good opportunities are followed through.
+          </p>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">Lead nurture and CRM</div>
+          <h2>The follow-up can be worth more than the campaign</h2>
+          <p class="body-copy">
+            In later contract work for a national broadband retailer, I helped
+            turn a cold database of about 900,000 people back into a usable
+            opportunity. I also rebuilt a ten-day enquiry follow-up sequence,
+            which increased website visits by 1,500% within four weeks.
+          </p>
+          <p class="body-copy">
+            Those were separate pieces of work, but they reinforced the same
+            lesson: a business can have demand, data and software and still
+            leave a large commercial opportunity unused because the process and
+            message have not been built around the customer.
+          </p>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
           <div class="eyebrow">Kindred Systems</div>
-          <h2 style="max-width: 680px; margin-bottom: 16px">Advisory led.</h2>
+          <h2>Why Kindred Systems focuses on lead conversion</h2>
+          <p class="body-copy">
+            High-value service businesses spend a great deal to earn trust and
+            generate enquiries. They also tend to be busy delivering the work.
+            Dentists and surgeons are with patients, lawyers are with clients or
+            in court, advisers are in meetings, agents are at appointments, and
+            builders are on site.
+          </p>
+          <p class="body-copy">
+            That creates a predictable risk. An enquiry arrives while the right
+            person is unavailable, the response is delayed, and the potential
+            client continues looking. Other losses happen later, after a
+            consultation, quote, proposal or finance discussion.
+          </p>
+          <p class="body-copy">
+            Kindred Systems helps owners find those gaps and fix the ones with
+            the greatest commercial value. The work may involve people, process,
+            messaging, systems, automation or AI. The customer experience comes
+            first because faster administration has little value if the person
+            buying feels ignored, confused or pushed away.
+          </p>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">Working style</div>
+          <h2>What you can expect from me</h2>
+          <p class="body-copy">
+            I will ask detailed questions, follow the customer journey further
+            than one department, and tell you when the issue appears somewhere
+            other than where you expected. I will also work with the systems and
+            people you already have before recommending extra software.
+          </p>
+          <p class="body-copy">
+            The work is commercial and practical. We agree what needs to
+            improve, create the assets required to improve it, and measure the
+            result. My aim is to leave your business with a process your team
+            can continue using.
+          </p>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="personal-note">
+            <div class="eyebrow">Personal note</div>
+            <h2>Away from work</h2>
+            <p>
+              I live in Cleveland, Queensland. When I am not following enquiry
+              paths through CRMs, I am usually working on my tropical garden,
+              walking my dog along the water or at the gym, where loud rap gets
+              me through squats, which I loathe!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section style="padding: 72px 0">
+        <div class="container" style="text-align: center">
+          <div class="eyebrow" style="justify-content: center">Get started</div>
+          <h2 style="max-width: 720px; margin: 0 auto 20px">
+            Talk to me about what happens after the enquiry
+          </h2>
           <p
             style="
               font-size: 18px;
-              line-height: 1.65;
-              max-width: 720px;
-              margin: 0 0 44px;
               color: var(--body);
+              max-width: 640px;
+              margin: 0 auto 36px;
+              line-height: 1.65;
             "
           >
-            Kindred Systems is built around advisory: helping established
-            businesses find what's holding performance back and fix it.
+            If your business generates good enquiries but too few become
+            clients, book a Discovery Call. We can discuss what you are seeing,
+            what one extra client may be worth and whether Lead Conversion
+            Advisory is a suitable fit.
           </p>
-
-          <div class="kindred-grid">
-            <div class="kindred-card">
-              <h3>The advisory work</h3>
-              <p>
-                Kindred Systems helps high-value Australian service businesses
-                turn more enquiries into clients: a 90-day Advisory engagement
-                or a short Executive AI Sprint.
-              </p>
-            </div>
-            <div class="kindred-card">
-              <h3>What it does not do</h3>
-              <p>
-                Generic AI training, tool implementation for its own sake, or
-                technology-first work before the business problem is agreed.
-                Engagements are declined when the fit isn't right for both
-                sides.
-              </p>
-            </div>
-            <div class="kindred-card">
-              <h3>Where it is going</h3>
-              <p>
-                More products, more managed services, and over time, software
-                that brings these capabilities to a wider market. A business
-                that works commercially, operationally and sustainably, built
-                around the same principles it helps clients apply.
-              </p>
-            </div>
-          </div>
+          <a
+            class="button"
+            href="https://tidycal.com/kindredsystems/discovery-call"
+            target="_blank"
+            rel="noopener"
+            >Book a Discovery Call</a
+          >
         </div>
       </section>
     </main>
@@ -777,9 +741,9 @@
           into clients.
         </div>
         <nav class="footer-links" aria-label="Footer navigation">
-          <a href="/advisory/">Advisory</a>
-          <a href="/aeo/">AEO Audit</a>
+          <a href="/advisory/">Lead Conversion Advisory</a>
           <a href="/about/">About</a>
+          <a href="/articles/">Articles</a>
           <a href="/contact/">Contact</a>
           <a href="/privacy/">Privacy</a>
         </nav>
@@ -788,17 +752,14 @@
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
-
       const hamburger = document.getElementById("hamburger");
       const mobileMenu = document.getElementById("mobileMenu");
-
       hamburger.addEventListener("click", () => {
         const isOpen = mobileMenu.classList.toggle("open");
         hamburger.classList.toggle("open", isOpen);
         hamburger.setAttribute("aria-expanded", isOpen);
         document.body.style.overflow = isOpen ? "hidden" : "";
       });
-
       function closeMobile() {
         mobileMenu.classList.remove("open");
         hamburger.classList.remove("open");
