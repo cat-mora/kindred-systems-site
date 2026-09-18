@@ -46,15 +46,16 @@ module.exports = async function handler(req, res) {
   body = body || {};
 
   const toolCall =
-    body.message &&
-    body.message.toolCalls &&
-    body.message.toolCalls[0];
+    body.message && body.message.toolCalls && body.message.toolCalls[0];
   const args =
     (toolCall && toolCall.function && toolCall.function.arguments) ||
     body.arguments ||
     body;
 
-  console.log("[voice/book-call] book_sales_call invoked with:", JSON.stringify(args));
+  console.log(
+    "[voice/book-call] book_sales_call invoked with:",
+    JSON.stringify(args),
+  );
 
   if (!OUTBOUND_CALLING_ENABLED) {
     return res.status(200).json({

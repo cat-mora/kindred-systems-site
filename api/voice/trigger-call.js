@@ -178,10 +178,16 @@ async function queueCall(lead, scheduledFor, reason) {
         body: JSON.stringify(record),
       });
     } catch (err) {
-      console.error("[voice/trigger-call] could not queue call in Supabase:", err);
+      console.error(
+        "[voice/trigger-call] could not queue call in Supabase:",
+        err,
+      );
     }
   } else {
-    console.log("[voice/trigger-call] STUB QUEUE (no Supabase env vars set):", JSON.stringify(record));
+    console.log(
+      "[voice/trigger-call] STUB QUEUE (no Supabase env vars set):",
+      JSON.stringify(record),
+    );
   }
 
   return record;
@@ -241,7 +247,10 @@ async function triggerOutboundCall(lead) {
   }
 
   if (!lead.phone) {
-    console.warn("[voice/trigger-call] lead has no phone number, skipping:", lead.id);
+    console.warn(
+      "[voice/trigger-call] lead has no phone number, skipping:",
+      lead.id,
+    );
     return { status: "skipped", reason: "no phone number" };
   }
 
@@ -251,7 +260,11 @@ async function triggerOutboundCall(lead) {
   if (!window.allowed) {
     const scheduledFor = nextAllowedTime(now);
     const queued = await queueCall(lead, scheduledFor, window.reason);
-    return { status: "queued", scheduledFor: queued.scheduled_for, reason: window.reason };
+    return {
+      status: "queued",
+      scheduledFor: queued.scheduled_for,
+      reason: window.reason,
+    };
   }
 
   const result = await placeVapiCall(lead);

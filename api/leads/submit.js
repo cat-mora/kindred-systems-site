@@ -112,9 +112,7 @@ async function storeLead(lead) {
       const text = await res.text().catch(function () {
         return "";
       });
-      throw new Error(
-        "Supabase insert failed (" + res.status + "): " + text,
-      );
+      throw new Error("Supabase insert failed (" + res.status + "): " + text);
     }
 
     const rows = await res.json();
@@ -128,10 +126,16 @@ async function storeLead(lead) {
   // deliberately simple rather than adding a database dependency before
   // this is confirmed against whatever the scoring-pipeline team is
   // already building.
-  console.log("[leads/submit] STUB STORAGE (no Supabase env vars set):", JSON.stringify(lead));
+  console.log(
+    "[leads/submit] STUB STORAGE (no Supabase env vars set):",
+    JSON.stringify(lead),
+  );
   try {
     const fs = require("fs");
-    fs.appendFileSync("/tmp/ai-visibility-leads.jsonl", JSON.stringify(lead) + "\n");
+    fs.appendFileSync(
+      "/tmp/ai-visibility-leads.jsonl",
+      JSON.stringify(lead) + "\n",
+    );
   } catch (err) {
     console.warn("[leads/submit] could not write /tmp stub file:", err.message);
   }
@@ -216,7 +220,10 @@ module.exports = async function handler(req, res) {
     const { triggerOutboundCall } = require("../voice/trigger-call.js");
     await triggerOutboundCall(lead);
   } catch (err) {
-    console.error("[leads/submit] triggerOutboundCall failed (lead is still saved):", err);
+    console.error(
+      "[leads/submit] triggerOutboundCall failed (lead is still saved):",
+      err,
+    );
   }
 
   return res.status(200).json({ ok: true, leadId: stored.id });

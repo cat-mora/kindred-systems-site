@@ -78,7 +78,10 @@ async function markCallRow(id, patch) {
       body: JSON.stringify(patch),
     },
   ).catch(function (err) {
-    console.error("[voice/process-queue] could not update scheduled_calls row:", err);
+    console.error(
+      "[voice/process-queue] could not update scheduled_calls row:",
+      err,
+    );
   });
 }
 
@@ -105,12 +108,20 @@ module.exports = async function handler(req, res) {
     if (!windowCheck.allowed) {
       // Still outside the window (e.g. cron ran a little early/late
       // relative to the boundary) - leave it queued, do not call.
-      results.push({ id: row.id, status: "still_queued", reason: windowCheck.reason });
+      results.push({
+        id: row.id,
+        status: "still_queued",
+        reason: windowCheck.reason,
+      });
       continue;
     }
 
     if (!VAPI_API_KEY || !VAPI_ASSISTANT_ID || !VAPI_PHONE_NUMBER_ID) {
-      results.push({ id: row.id, status: "error", reason: "Missing Vapi env vars" });
+      results.push({
+        id: row.id,
+        status: "error",
+        reason: "Missing Vapi env vars",
+      });
       continue;
     }
 
@@ -138,14 +149,22 @@ module.exports = async function handler(req, res) {
         throw new Error("Vapi call failed (" + vapiRes.status + "): " + text);
       }
 
-      await markCallRow(row.id, { status: "called", called_at: new Date().toISOString() });
+      await markCallRow(row.id, {
+        status: "called",
+        called_at: new Date().toISOString(),
+      });
       results.push({ id: row.id, status: "called" });
     } catch (err) {
       console.error("[voice/process-queue] call failed for row", row.id, err);
-      await markCallRow(row.id, { status: "error", error_message: err.message });
+      await markCallRow(row.id, {
+        status: "error",
+        error_message: err.message,
+      });
       results.push({ id: row.id, status: "error", reason: err.message });
     }
   }
 
-  return res.status(200).json({ ok: true, processed: results.length, results: results });
+  return res
+    .status(200)
+    .json({ ok: true, processed: results.length, results: results });
 };
