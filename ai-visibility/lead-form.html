@@ -9,7 +9,10 @@
       content="Tell us about your business and we'll be in touch to walk through your AI Visibility results and get a time booked in with Cat."
     />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="canonical" href="https://kindredsystems.com.au/ai-visibility/lead-form.html" />
+    <link
+      rel="canonical"
+      href="https://kindredsystems.com.au/ai-visibility/lead-form.html"
+    />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
     <link
       rel="icon"
@@ -513,9 +516,9 @@
             "
           >
             Fill in a few details below. We'll call to walk through your
-            results, answer any quick questions, and get a time booked in
-            with Cat if it's a good fit. If a call isn't convenient, just say
-            so and we'll email some times instead.
+            results, answer any quick questions, and get a time booked in with
+            Cat if it's a good fit. If a call isn't convenient, just say so and
+            we'll email some times instead.
           </p>
 
           <div class="lead-card">
@@ -572,9 +575,7 @@
                   <div class="form-row">
                     <label for="phone"
                       >Phone number
-                      <span class="hint"
-                        >(so we can call you back)</span
-                      ></label
+                      <span class="hint">(so we can call you back)</span></label
                     >
                     <input
                       type="tel"
@@ -625,9 +626,7 @@
                     <option value="2k_5k">$2,000 to $5,000/month</option>
                     <option value="5k_10k">$5,000 to $10,000/month</option>
                     <option value="10k_plus">$10,000+/month</option>
-                    <option value="prefer_not_to_say">
-                      Prefer not to say
-                    </option>
+                    <option value="prefer_not_to_say">Prefer not to say</option>
                   </select>
                 </div>
 
@@ -728,11 +727,11 @@
                 </button>
 
                 <p class="form-note">
-                  We'll call the number above to follow up on this request.
-                  If a call isn't convenient when we ring, just say so and
-                  we'll send some times by email instead. By submitting this
-                  form, you're asking Kindred Systems to contact you about
-                  the AI Visibility report you requested.
+                  We'll call the number above to follow up on this request. If a
+                  call isn't convenient when we ring, just say so and we'll send
+                  some times by email instead. By submitting this form, you're
+                  asking Kindred Systems to contact you about the AI Visibility
+                  report you requested.
                   <a
                     href="/privacy/"
                     style="color: var(--muted); text-decoration: underline"
@@ -757,8 +756,8 @@
     <footer>
       <div class="footer-inner">
         <div>
-          &copy; <span id="year"></span> Kindred Systems. AI investment,
-          turned into business results.
+          &copy; <span id="year"></span> Kindred Systems. AI investment, turned
+          into business results.
         </div>
         <nav class="footer-links" aria-label="Footer navigation">
           <a href="/advisory/">Advisory</a>
@@ -800,7 +799,8 @@
         // to be contacted, captured at the moment they submit, not just
         // shown on screen. See PART 2 of the build notes in
         // /docs/vapi/aeo-qualify-and-book-assistant.md.
-        document.getElementById("submitted_at").value = new Date().toISOString();
+        document.getElementById("submitted_at").value =
+          new Date().toISOString();
 
         var decisionMakerEl = form.querySelector(
           'input[name="decision_maker"]:checked',
