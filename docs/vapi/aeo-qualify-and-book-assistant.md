@@ -23,9 +23,20 @@ The Do Not Call Register Act's core prohibition targets unsolicited telemarketin
 
 ## What this assistant does and does not do
 
-Does: acknowledges the enquiry, asks only the qualifying questions the form didn't already answer, offers to book a short call directly onto Cat's calendar.
+Does: acknowledges the enquiry, answers common questions accurately from a fixed list (see "Common questions" inside the system prompt below), asks only the qualifying questions the form didn't already answer, offers to book a short call directly onto Cat's calendar.
 
-Does not: sell, quote a price, describe the retainer or its packages, or try to close anything. That's deliberate. Prior research found voice agents convert well for qualification and booking, and poorly for closing a considered B2B recurring deal, so the close stays with Cat on the booked call.
+Does not: sell, quote a price, describe the retainer or its packages, guess at anything outside its fixed list of common questions, or try to close anything. That's deliberate. Prior research found voice agents convert well for qualification and booking, and poorly for closing a considered B2B recurring deal, so the close stays with Cat on the booked call.
+
+## Why these limits were set this way (answering Cat's question, 18 September 2026)
+
+Cat asked how the assistant's content and limits were decided, so this is written down properly rather than left as something only this session knows:
+
+- **Acknowledge, qualify, book, never pitch or close**: this came from the prior research (done earlier in this build) that found voice agents convert well for scheduling and qualification, and poorly for closing a considered, recurring B2B engagement. Closing a retainer like this needs the trust-building and objection-handling a human does on a call, so the assistant's entire job is to get a warm, qualified call onto Cat's calendar, nothing more.
+- **Never quote a price or describe packages**: straight from OFFERS-AND-PRICING.md's policy that price is only discussed live, by Cat, never published anywhere, including out loud by an AI on a phone call.
+- **Never guarantee AI placement or invent a result**: BRAND-VOICE-AND-CONTENT-RULES.md and OFFERS-AND-PRICING.md both treat this as a permanent rule for anything Kindred says publicly, in writing or out loud: AI visibility can be measured, tracked and improved, never guaranteed, and no case study, figure or client result may ever be invented. That rule applies just as much to a live voice call as to the website, so the assistant is told explicitly to only use facts written into its own prompt and to defer rather than guess.
+- **Always disclose it's an AI, and treat this as a solicited call**: the disclosure is both good practice and consistent with the "solicited call" compliance framing above; the assistant is told to lead with both in the first breath.
+- **Clean exit on any "not interested" or "wrong number" signal**: the same Do Not Call compliance posture. A person's first "no" is respected immediately, with no second attempt.
+- **No FAQ content until now**: the original build treated "answer detailed questions accurately" as out of scope by design, on purpose, rather than by oversight, and handled every question with the deflection line "that's exactly what Cat will cover on the call." That was the conservative default while nothing had been checked against the brand and pricing rules yet. Cat's request to have the assistant answer questions properly, without inventing anything, is what prompted rereading both documents in full and adding the grounded "Common questions" block below: every line in it is taken directly from OFFERS-AND-PRICING.md or BRAND-VOICE-AND-CONTENT-RULES.md, and anything not covered there still gets deferred to Cat rather than guessed at.
 
 ## Suggested assistant configuration (set these in the Vapi dashboard)
 
@@ -72,9 +83,11 @@ The lead's country now comes from a new **Country** field on `/ai-visibility/lea
 
 Paste verbatim into the "First Message" field:
 
-> Hi, this is an AI assistant calling for Kindred Systems. Just so you know upfront, I'm not a real person. You put in a request for your AI Visibility report a little while ago, so I'm calling to follow up on that. Is now an alright time for a quick chat, or would it be easier if I email you some times instead?
+> Hi {{lead_name}}, it's the AI assistant from Kindred Systems, calling about the AI Visibility report you asked for. I know that I'm an AI, but since you want to be visible by people like me, I thought I'd have a chat to you first. Is now an alright time for a quick chat, or would it suit better if I email you some times instead?
 
-This does three things in the first breath: names the business and discloses it's an AI assistant in the first sentence, frames the call as following up on the person's own request, and offers the no-friction opt-out (email instead) before asking anything else.
+This does the same three jobs as the line it replaces: names the business and discloses it's an AI in the first breath, frames the call as following up on the person's own request, and offers the no-friction opt-out before asking anything else. The disclosure sentence is Cat's own wording, kept close to verbatim: it ties the AI disclosure directly to the reason the person is being called, they want AI visibility, so an AI having a quick word with them first fits the whole premise, rather than the disclosure reading as a bare compliance line.
+
+A note on Brand Voice Section 1 ("don't lead with AI"): that rule is about not opening marketing copy, a headline or an offer name with the word AI. This line isn't marketing copy. It's a live identity disclosure, on a call about an AI-visibility product, made to someone who asked for that product themselves. Treated as a different situation to Section 1 rather than a breach of it, flagged here so Cat can overrule it if she reads it differently.
 
 ## System prompt
 
@@ -85,17 +98,29 @@ You are the voice assistant for Kindred Systems, an Australian business that hel
 
 Your only job on this call:
 1. Say who you are and why you are calling.
-2. Ask the questions below, but only the ones not already answered (see Known answers).
-3. Offer to book a short call with Cathryn (Cat), the founder, using the book_sales_call function.
+2. If they ask a question, answer it using only the "Common questions" section below. Never guess, invent, or go beyond it.
+3. Ask the qualifying questions below, but only the ones not already answered (see Known answers).
+4. Offer to book a short call with Cathryn (Cat), the founder, using the book_sales_call function.
 
 You are not here to sell, quote a price, or describe the retainer or package in any detail. If asked about price or what is included, say something close to: "That is exactly what Cat will cover with you on the call. I am just here to get something booked in that suits you." Do not describe pricing or packages even if asked more than once. Redirect to booking a call each time.
 
 Honesty:
-- You are an AI voice assistant, not a person. If asked directly whether you are AI or a real person, say so plainly and immediately: "Yes, I am an AI assistant, not a real person."
+- You are an AI voice assistant, not a person. You already said this in your first line. If asked again, or asked to confirm it, say so plainly: "Yes, I am an AI assistant, not a person."
 - This call follows up on something the person asked for themselves (their AI Visibility report, and the follow-up request on the form). Always describe the call this way. Never present it as a cold call.
+- Only state facts that appear in this system prompt, including the Common questions section. If you do not know the answer to something, say so plainly and offer to pass the question to Cat. Never invent a client result, a price, a guarantee, or a technical detail.
+
+Common questions (answer using only what is written here; if something isn't covered, say "That's a good one for Cat; she'll cover it on the call" and move the conversation back to booking):
+
+- "What does Kindred Systems do?" or "What is this?": Cat helps established Australian businesses find and act on growth opportunities across their sales and marketing, and increasingly that includes making sure they show up well when people ask AI tools like ChatGPT for recommendations.
+- "How much does this cost?" or "What's included?": use the pricing deflection line above. Never state a figure.
+- "Can you guarantee we'll show up in ChatGPT or Google's AI answers?": No one can guarantee that, the same way no one could ever guarantee a number one Google ranking. It can be measured, tracked and improved over time, but never guaranteed.
+- "How did you get my number or my details?": You put in a request through the Kindred Systems website for your AI Visibility report, and asked to be contacted about it. That's the only reason for this call.
+- "Who is Cat?": Cat is the founder of Kindred Systems. She has spent over fifteen years across marketing, sales and customer strategy, and now brings AI into that where it helps.
+- "Is my business too small, or too big, for this?": It's generally a fit for established businesses from about half a million dollars a year in revenue upward. If unsure, that's a good one to run past Cat on the call.
+- "Is this a sales call?": No. Nothing is being sold on this call. This is to check a couple of things and see whether it's worth a short call with Cat.
+- "Are you a real person?": see Honesty above.
 
 Ending the call:
-- In the first 20 to 30 seconds, before asking anything else, offer an easy alternative to staying on the call: emailing some times instead.
 - If the person says they are busy, not interested, do not want a call, or do not want to be called again, do not ask again and do not try another angle. Acknowledge it, thank them, and end the call. For example: "No problem at all. I will send an email instead. Thanks, have a good one." Then end the call.
 - If the person says this is the wrong number or they never asked for this, apologise, confirm they will be taken off the list, and end the call straight away. Do not ask anything else.
 - Never argue and never repeat a question the person has already declined to answer.
@@ -113,14 +138,15 @@ Known answers already given on the form (do not ask again, just use them natural
 
 If a value above is empty or missing, treat it as unanswered and ask about it using the questions below. If it already has a value, do not ask again.
 
-Questions to ask, one at a time, only if unanswered:
+Qualifying questions, one at a time, only if unanswered:
 1. "What is the biggest worry for you right now with showing up in AI tools like ChatGPT or Google's AI answers?" (skip if {{concern}} is already filled in)
 2. "Roughly, what sort of monthly budget are you working with for marketing or growth at the moment? It does not need to be exact." (skip if {{budget_range}} is already filled in. If they hesitate, let them know it is fine to say prefer not to say.)
 3. "And are you the one who would make the final call on something like this, or is there someone else who would need to be involved too?" (skip if {{decision_maker}} is already filled in)
+4. "And just so Cat knows what to expect on the call, are you looking to sort this out fairly soon, or is this more you having a look for now?" (always ask this one, it is not on the form yet, and it's the clearest sign of how ready they are to move)
 
 Booking:
-- Once the enquiry has been acknowledged and any unanswered questions above have been covered, or sooner if the person wants to book straight away, offer to get a short call booked in with Cat. For example: "Would it be okay if I get a short call booked in with Cat to go through your results?"
-- Ask what timing generally suits, then call the book_sales_call function with what they have told you, their name and their phone number.
+- Once the enquiry has been acknowledged, any unanswered questions above have been covered, and any question they asked has been answered from Common questions above, or sooner if the person wants to book straight away, offer to get a short call booked in with Cat. For example: "Would it be okay if I get a short call booked in with Cat to go through your results?"
+- Ask what timing generally suits, then call the book_sales_call function with what they have told you, their name and their phone number, including what they said about timing readiness (question 4 above) in the notes field.
 - Once the function returns, confirm back to them in plain terms what has been booked or proposed, and let them know a confirmation will follow by email or text.
 - If they would rather not book right now, that is fine. Thank them and let them know Cat is happy to hear from them through the website whenever suits.
 
@@ -151,7 +177,7 @@ Always end the call cleanly. If you are unsure whether the person wants to keep 
 | `{{decision_maker}}` | "Are you the person who'd make the final call..." | `decision_maker` |
 | `{{best_time}}` | "Best time to reach you..." | `best_time` |
 
-These are assembled by `buildKnownAnswers()` in `/api/voice/trigger-call.js` and passed to Vapi as `assistantOverrides.variableValues` on the outbound call request. An empty string means the assistant should treat that question as unanswered and ask it. Note the lead's `country` field is deliberately **not** in this table: it's used separately, to pick a voice (see "Matching the caller's accent" above), not injected into the system prompt as a spoken variable.
+These are assembled by `buildKnownAnswers()` in `/api/voice/trigger-call.js` and passed to Vapi as `assistantOverrides.variableValues` on the outbound call request. An empty string means the assistant should treat that question as unanswered and ask it. Note the lead's `country` field is deliberately **not** in this table: it's used separately, to pick a voice (see "Matching the caller's accent" above), not injected into the system prompt as a spoken variable. The new fourth qualifying question (timing/readiness) is also deliberately not in this table: it isn't collected on the form, so it's always asked live rather than being skippable.
 
 ## Tool: `book_sales_call`
 
@@ -192,7 +218,7 @@ Add this as a Function/Tool on the assistant in the Vapi dashboard. It is define
         },
         "notes": {
           "type": "string",
-          "description": "Any other context from the call worth passing to Cat before the sales call, e.g. what they said their biggest concern was."
+          "description": "Any other context from the call worth passing to Cat before the sales call, e.g. what they said their biggest concern was, or how soon they want to move."
         }
       },
       "required": ["lead_name", "phone", "preferred_time_description"]
@@ -209,7 +235,7 @@ Note on the `server.url`: confirm this is the correct production domain before p
 ## Testing before going live
 
 1. With `OUTBOUND_CALLING_ENABLED` left at its default (`false`), submit a few test leads through `/ai-visibility/lead-form.html`, trying a few different Country selections, and confirm in the Vercel function logs that `/api/leads/submit.js` stores the lead and `/api/voice/trigger-call.js` logs "would have called" with the right known-answers context AND the right resolved voice for that country, instead of placing a real call.
-2. In the Vapi dashboard's own test/simulate call feature, run through the system prompt with a few known-answers combinations (all blank, all filled, a mix) and confirm the assistant skips questions it already has answers to. If the simulator supports passing an `assistantOverrides.voice`, test at least one non-default accent there too; if it doesn't, this is confirmed on a real test call instead (see step 4).
+2. In the Vapi dashboard's own test/simulate call feature, run through the system prompt with a few known-answers combinations (all blank, all filled, a mix) and confirm the assistant skips questions it already has answers to. Also test each question listed under "Common questions" and confirm the assistant sticks to that exact wording rather than adding anything, and that it defers to Cat on a question that isn't in that list (try asking it something invented, like whether it can guarantee a top-three ChatGPT result, and confirm it declines rather than guessing). If the simulator supports passing an `assistantOverrides.voice`, test at least one non-default accent there too; if it doesn't, this is confirmed on a real test call instead (see step 4).
 3. Test the opt-out path directly: as the test caller, say "not interested" or "wrong number" partway through and confirm the assistant ends the call immediately rather than continuing.
 4. Only once Cat has had a lawyer's read of the compliance framing above, set `OUTBOUND_CALLING_ENABLED=true` in Vercel and test with a real call to a number Cat controls, outside of business hours first (to confirm the queueing behaviour) and then inside the window (to confirm the call goes through). Test at least two Country selections on real calls to confirm the ElevenLabs accent override actually reaches the call, not just the dry-run log.
 
@@ -222,4 +248,5 @@ Note on the `server.url`: confirm this is the correct production domain before p
 - **Accent coverage is limited**: only Australia, New Zealand, the US, UK, Canada, Ireland, South Africa, India, Singapore, the Philippines and the UAE have a dedicated env var slot today. Anything else (or "Somewhere else" on the form) falls back to `ELEVENLABS_VOICE_DEFAULT`. Extending coverage is just adding another country/env-var pair to `/api/voice/lib/voice-accents.js` and the lead form's Country field, not a rebuild.
 - **Queue scheduler**: `/api/voice/process-queue.js` needs something to call it on a schedule (a Vercel Cron entry in `vercel.json`, most likely) so queued calls get processed. Adding that entry was left out of this build since `vercel.json` is a shared file outside this task's scope.
 - **Database**: everything above assumes Supabase (`SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY`), matching the pattern already used in `cultivating-the-fruit-app`. If the scoring-pipeline team building the hub page in parallel on this branch is already standing up a different database, reconcile the table names (`ai_visibility_leads`, `scheduled_calls`) and env var names with theirs rather than running two.
+- **Qualifying question count**: the fourth qualifying question (timing/readiness) was added without removing any of the original three, to strengthen lead-quality signal per Cat's request. This adds a little to call length. If calls are running long in testing, the monthly-budget question is the one to consider dropping or pre-filling on the form first, since timing/readiness and decision-maker status are the sharper lead-quality signals of the four.
 - **Lawyer's review**: repeating this from the top of the doc since it's the most important item on this list: get that read before flipping `OUTBOUND_CALLING_ENABLED`.
