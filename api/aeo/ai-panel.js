@@ -27,25 +27,29 @@
 // unless a verified Stripe payment has been passed in — see
 // lib/payment-gate.js and the `paymentVerified` guard below.
 
-'use strict';
+"use strict";
 
-const { AI_PANEL_PROMPT_TEMPLATES } = require('./lib/config');
-const { makeEvidence } = require('./lib/evidence-utils');
-const { requirePaidAccess, PaymentRequiredError } = require('./lib/payment-gate');
+const { AI_PANEL_PROMPT_TEMPLATES } = require("./lib/config");
+const { makeEvidence } = require("./lib/evidence-utils");
+const {
+  requirePaidAccess,
+  PaymentRequiredError,
+} = require("./lib/payment-gate");
 
-const OPENAI_API_BASE = 'https://api.openai.com/v1';
-const AI_PANEL_MODEL = process.env.OPENAI_AI_PANEL_MODEL || 'gpt-4o';
+const OPENAI_API_BASE = "https://api.openai.com/v1";
+const AI_PANEL_MODEL = process.env.OPENAI_AI_PANEL_MODEL || "gpt-4o";
 
 // --- Deterministic entity matching (no LLM involved) ----------------------
 
-const BUSINESS_SUFFIX_RE = /\b(pty ltd|pty\.? ltd\.?|ltd|llc|inc|co\.?|group|company)\b/gi;
+const BUSINESS_SUFFIX_RE =
+  /\b(pty ltd|pty\.? ltd\.?|ltd|llc|inc|co\.?|group|company)\b/gi;
 
 function normaliseEntityName(name) {
-  return String(name || '')
+  return String(name || "")
     .toLowerCase()
-    .replace(BUSINESS_SUFFIX_RE, '')
-    .replace(/[^a-z0-9\s]/g, '')
-    .replace(/\s+/g, ' ')
+    .replace(BUSINESS_SUFFIX_RE, "")
+    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
@@ -75,11 +79,17 @@ function levenshtein(a, b) {
  */
 function findEntityMentions(responseText, entityName) {
   const normalisedName = normaliseEntityName(entityName);
-  if (!normalisedName) return { mentioned: false, firstIndex: null, recommended: false, occurrences: 0 };
+  if (!normalisedName)
+    return {
+      mentioned: false,
+      firstIndex: null,
+      recommended: false,
+      occurrences: 0,
+    };
 
-  const normalisedText = String(responseText || '')
+  const normalisedText = String(responseText || "")
     .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, ' ');
+    .replace(/[^a-z0-9\s]/g, " ");
 
   const occurrenceIndices = [];
   let searchFrom = 0;
@@ -99,7 +109,7 @@ function findEntityMentions(responseText, entityName) {
     const words = normalisedText.split(/\s+/);
     const nameWordCount = normalisedName.split(/\s+/).length;
     for (let i = 0; i <= words.length - nameWordCount; i += 1) {
-      const windowText = words.slice(i, i + nameWordCount).join(' ');
+      const windowText = words.slice(i, i + nameWordCount).join(" ");
       const distance = levenshtein(windowText, normalisedName);
       if (distance <= Math.max(1, Math.floor(normalisedName.length * 0.15))) {
         fuzzyMatch = true;
@@ -114,19 +124,28 @@ function findEntityMentions(responseText, entityName) {
   // "Recommended" heuristic (deterministic, string-based — not an LLM call):
   // mentioned AND either (a) appears inside a numbered/bulleted list item,
   // or (b) appears within ~60 chars of a recommendation verb.
-  const RECOMMEND_WORDS = /(recommend|suggest|consider|best|top|great choice|go with|check out|worth trying)/;
+  const RECOMMEND_WORDS =
+    /(recommend|suggest|consider|best|top|great choice|go with|check out|worth trying)/;
   let recommended = false;
   if (mentioned && firstIndex !== null) {
     const windowStart = Math.max(0, firstIndex - 60);
-    const windowEnd = Math.min(normalisedText.length, firstIndex + normalisedName.length + 60);
+    const windowEnd = Math.min(
+      normalisedText.length,
+      firstIndex + normalisedName.length + 60,
+    );
     const window = normalisedText.slice(windowStart, windowEnd);
     const inListItem = /(^|\n)\s*(\d+[.)]|[-*])\s/.test(
-      String(responseText).slice(Math.max(0, firstIndex - 5), firstIndex + 5)
+      String(responseText).slice(Math.max(0, firstIndex - 5), firstIndex + 5),
     );
     recommended = RECOMMEND_WORDS.test(window) || inListItem;
   }
 
-  return { mentioned, firstIndex, recommended, occurrences: occurrenceIndices.length };
+  return {
+    mentioned,
+    firstIndex,
+    recommended,
+    occurrences: occurrenceIndices.length,
+  };
 }
 
 // --- Prompt panel construction --------------------------------------------
@@ -134,9 +153,9 @@ function findEntityMentions(responseText, entityName) {
 function buildPromptPanel({ industry, service, location }) {
   return AI_PANEL_PROMPT_TEMPLATES.map((template) =>
     template
-      .replace(/{industry}/g, industry || service || 'business')
-      .replace(/{service}/g, service || industry || 'this service')
-      .replace(/{location}/g, location || 'my area')
+      .replace(/{industry}/g, industry || service || "business")
+      .replace(/{service}/g, service || industry || "this service")
+      .replace(/{location}/g, location || "my area"),
   );
 }
 
@@ -144,23 +163,27 @@ function buildPromptPanel({ industry, service, location }) {
 
 async function callOpenAiOnce(prompt, apiKey) {
   const res = await fetch(`${OPENAI_API_BASE}/chat/completions`, {
-    method: 'POST',
+    method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       model: AI_PANEL_MODEL,
       temperature: 0.7, // representative of a real user's default experience, not tuned for consistency
-      messages: [{ role: 'user', content: prompt }],
+      messages: [{ role: "user", content: prompt }],
     }),
   });
   if (!res.ok) {
-    const body = await res.text().catch(() => '');
-    throw new Error(`OpenAI AI-panel call failed: HTTP ${res.status} ${body.slice(0, 300)}`);
+    const body = await res.text().catch(() => "");
+    throw new Error(
+      `OpenAI AI-panel call failed: HTTP ${res.status} ${body.slice(0, 300)}`,
+    );
   }
   const data = await res.json();
-  return data.choices && data.choices[0] && data.choices[0].message ? data.choices[0].message.content : '';
+  return data.choices && data.choices[0] && data.choices[0].message
+    ? data.choices[0].message.content
+    : "";
 }
 
 /**
@@ -180,11 +203,15 @@ async function callOpenAiOnce(prompt, apiKey) {
  */
 async function runAiPanel(input) {
   if (input.paymentVerified !== true) {
-    throw new PaymentRequiredError('runAiPanel called without a verified payment — refusing to spend on OpenAI calls.');
+    throw new PaymentRequiredError(
+      "runAiPanel called without a verified payment — refusing to spend on OpenAI calls.",
+    );
   }
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
-    throw new Error('OPENAI_API_KEY is not configured — cannot run the AI panel.');
+    throw new Error(
+      "OPENAI_API_KEY is not configured — cannot run the AI panel.",
+    );
   }
 
   const prompts = buildPromptPanel(input);
@@ -199,8 +226,11 @@ async function runAiPanel(input) {
   }
 
   const entities = [
-    { name: input.businessName, role: 'target' },
-    ...(input.competitorNames || []).map((name) => ({ name, role: 'competitor' })),
+    { name: input.businessName, role: "target" },
+    ...(input.competitorNames || []).map((name) => ({
+      name,
+      role: "competitor",
+    })),
   ];
 
   const perEntity = {};
@@ -224,13 +254,16 @@ async function runAiPanel(input) {
   }
 
   const rawEvidence = {
-    engine: 'openai-chatgpt',
+    engine: "openai-chatgpt",
     model: AI_PANEL_MODEL,
     promptsRun: responses.length,
     promptPanel: prompts,
     // Full raw responses kept for the narrative layer / audit trail, but
     // truncated defensively in case a response is unexpectedly huge.
-    responses: responses.map((r) => ({ prompt: r.prompt, responseText: r.responseText.slice(0, 4000) })),
+    responses: responses.map((r) => ({
+      prompt: r.prompt,
+      responseText: r.responseText.slice(0, 4000),
+    })),
     entities: perEntity,
   };
 
@@ -238,11 +271,16 @@ async function runAiPanel(input) {
   // lib/scoring.js computeAIDiscoverabilitySubscore expects.
   const targetResult = perEntity[input.businessName];
 
-  return makeEvidence('ai-panel', 'OpenAI (ChatGPT) chat completions, fixed prompt panel', rawEvidence, {
-    promptsRun: targetResult.promptsRun,
-    mentions: targetResult.mentions,
-    recommendedCount: targetResult.recommendedCount,
-  });
+  return makeEvidence(
+    "ai-panel",
+    "OpenAI (ChatGPT) chat completions, fixed prompt panel",
+    rawEvidence,
+    {
+      promptsRun: targetResult.promptsRun,
+      mentions: targetResult.mentions,
+      recommendedCount: targetResult.recommendedCount,
+    },
+  );
 }
 
 // EXTENSION POINT for a future multi-engine panel (Gemini / Perplexity /
@@ -254,8 +292,8 @@ async function runAiPanel(input) {
 // yet — see config.js EXCLUDED_BY_DESIGN.multiEngineAiPanel.
 
 module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    res.status(405).json({ error: 'POST required' });
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "POST required" });
     return;
   }
   const {
@@ -269,7 +307,7 @@ module.exports = async (req, res) => {
   } = req.body || {};
 
   if (!businessName) {
-    res.status(400).json({ error: 'businessName is required' });
+    res.status(400).json({ error: "businessName is required" });
     return;
   }
 

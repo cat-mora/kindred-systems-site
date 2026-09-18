@@ -9,14 +9,14 @@
 // Uses the Stripe REST API directly over fetch (no `stripe` npm package),
 // so this file has zero new dependencies to install. Needs STRIPE_SECRET_KEY.
 
-'use strict';
+"use strict";
 
-const STRIPE_API_BASE = 'https://api.stripe.com/v1';
+const STRIPE_API_BASE = "https://api.stripe.com/v1";
 
 class PaymentRequiredError extends Error {
   constructor(message) {
     super(message);
-    this.name = 'PaymentRequiredError';
+    this.name = "PaymentRequiredError";
     this.statusCode = 402;
   }
 }
@@ -34,42 +34,51 @@ class PaymentRequiredError extends Error {
  */
 async function requirePaidAccess(stripeSessionId, assessmentId) {
   if (!stripeSessionId) {
-    throw new PaymentRequiredError('No Stripe session id supplied — payment not verified.');
+    throw new PaymentRequiredError(
+      "No Stripe session id supplied — payment not verified.",
+    );
   }
   const secretKey = process.env.STRIPE_SECRET_KEY;
   if (!secretKey) {
     // Fail closed. Never treat "we can't check" as "assume paid".
     throw new PaymentRequiredError(
-      'STRIPE_SECRET_KEY is not configured — cannot verify payment, refusing to run paid checks.'
+      "STRIPE_SECRET_KEY is not configured — cannot verify payment, refusing to run paid checks.",
     );
   }
 
   let res;
   try {
-    res = await fetch(`${STRIPE_API_BASE}/checkout/sessions/${encodeURIComponent(stripeSessionId)}`, {
-      headers: { Authorization: `Bearer ${secretKey}` },
-    });
+    res = await fetch(
+      `${STRIPE_API_BASE}/checkout/sessions/${encodeURIComponent(stripeSessionId)}`,
+      {
+        headers: { Authorization: `Bearer ${secretKey}` },
+      },
+    );
   } catch (err) {
     throw new PaymentRequiredError(`Stripe lookup failed: ${err.message}`);
   }
 
   if (!res.ok) {
-    throw new PaymentRequiredError(`Stripe session lookup returned HTTP ${res.status}`);
+    throw new PaymentRequiredError(
+      `Stripe session lookup returned HTTP ${res.status}`,
+    );
   }
 
   const session = await res.json();
 
-  if (session.payment_status !== 'paid') {
+  if (session.payment_status !== "paid") {
     throw new PaymentRequiredError(
-      `Stripe session ${stripeSessionId} is not paid (payment_status=${session.payment_status}).`
+      `Stripe session ${stripeSessionId} is not paid (payment_status=${session.payment_status}).`,
     );
   }
 
   if (assessmentId) {
-    const linkedId = session.client_reference_id || (session.metadata && session.metadata.assessmentId);
+    const linkedId =
+      session.client_reference_id ||
+      (session.metadata && session.metadata.assessmentId);
     if (linkedId && linkedId !== assessmentId) {
       throw new PaymentRequiredError(
-        `Stripe session ${stripeSessionId} is paid but is linked to a different assessment.`
+        `Stripe session ${stripeSessionId} is paid but is linked to a different assessment.`,
       );
     }
   }

@@ -4,7 +4,7 @@
 // Scorecard pipeline. Nothing in here is a secret — actual credentials come
 // from environment variables (see /api/aeo/README.md for the full list).
 
-'use strict';
+"use strict";
 
 // ---------------------------------------------------------------------------
 // Pricing (business decision, not yet finally confirmed by the owner)
@@ -13,7 +13,7 @@
 // "97" or "9700" directly in a check/handler. When the business confirms the
 // real price, change it here only.
 const PAID_REPORT_PRICE_CENTS = 9700; // TODO: confirm final price with business owner
-const PAID_REPORT_CURRENCY = 'AUD';
+const PAID_REPORT_CURRENCY = "AUD";
 
 // ---------------------------------------------------------------------------
 // Scoring weights — CURRENT, ADOPTED weights only.
@@ -26,9 +26,9 @@ const SCORING_WEIGHTS = Object.freeze({
   entityAuthority: 0.15, // Entity & Brand Authority
   technicalReadiness: 0.15, // Website Technical Readiness
   contentCoverage: 0.15, // Content & Answer Coverage
-  thirdPartyAuthority: 0.10, // Third-Party Authority & Citations
-  searchVisibility: 0.10, // Search Visibility (traditional)
-  competitivePosition: 0.10, // Competitive Position
+  thirdPartyAuthority: 0.1, // Third-Party Authority & Citations
+  searchVisibility: 0.1, // Search Visibility (traditional)
+  competitivePosition: 0.1, // Competitive Position
 });
 
 const WEIGHT_SUM = Object.values(SCORING_WEIGHTS).reduce((a, b) => a + b, 0);
@@ -49,53 +49,53 @@ if (Math.abs(WEIGHT_SUM - 1) > 1e-9) {
 // They are scored separately for exactly this reason — see scoring.js.
 const AI_CRAWLER_BOTS = Object.freeze([
   {
-    id: 'oai-searchbot',
-    userAgent: 'OAI-SearchBot',
-    purpose: 'search-citation',
-    engine: 'ChatGPT Search',
-    weightInScore: 'high', // this is the one that actually moves the needle
+    id: "oai-searchbot",
+    userAgent: "OAI-SearchBot",
+    purpose: "search-citation",
+    engine: "ChatGPT Search",
+    weightInScore: "high", // this is the one that actually moves the needle
   },
   {
-    id: 'gptbot',
-    userAgent: 'GPTBot',
-    purpose: 'training-data',
-    engine: 'OpenAI (training)',
-    weightInScore: 'low',
+    id: "gptbot",
+    userAgent: "GPTBot",
+    purpose: "training-data",
+    engine: "OpenAI (training)",
+    weightInScore: "low",
   },
   {
-    id: 'claudebot',
-    userAgent: 'ClaudeBot',
-    purpose: 'training-data',
-    engine: 'Anthropic (training)',
-    weightInScore: 'low',
+    id: "claudebot",
+    userAgent: "ClaudeBot",
+    purpose: "training-data",
+    engine: "Anthropic (training)",
+    weightInScore: "low",
   },
   {
-    id: 'claude-searchbot',
-    userAgent: 'Claude-SearchBot',
-    purpose: 'search-citation',
-    engine: 'Claude (search/browsing)',
-    weightInScore: 'medium',
+    id: "claude-searchbot",
+    userAgent: "Claude-SearchBot",
+    purpose: "search-citation",
+    engine: "Claude (search/browsing)",
+    weightInScore: "medium",
   },
   {
-    id: 'perplexitybot',
-    userAgent: 'PerplexityBot',
-    purpose: 'search-citation',
-    engine: 'Perplexity',
-    weightInScore: 'medium',
+    id: "perplexitybot",
+    userAgent: "PerplexityBot",
+    purpose: "search-citation",
+    engine: "Perplexity",
+    weightInScore: "medium",
   },
   {
-    id: 'google-extended',
-    userAgent: 'Google-Extended',
-    purpose: 'ai-features',
-    engine: 'Google AI Overviews / Gemini',
-    weightInScore: 'medium',
+    id: "google-extended",
+    userAgent: "Google-Extended",
+    purpose: "ai-features",
+    engine: "Google AI Overviews / Gemini",
+    weightInScore: "medium",
   },
   {
-    id: 'ccbot',
-    userAgent: 'CCBot',
-    purpose: 'training-data',
-    engine: 'Common Crawl (feeds many LLMs)',
-    weightInScore: 'low',
+    id: "ccbot",
+    userAgent: "CCBot",
+    purpose: "training-data",
+    engine: "Common Crawl (feeds many LLMs)",
+    weightInScore: "low",
   },
 ]);
 
@@ -119,13 +119,13 @@ const MAX_COMPETITORS = 5;
 // panel fixed across assessments so scores are comparable over time — do not
 // let the LLM freely generate its own prompts.
 const AI_PANEL_PROMPT_TEMPLATES = Object.freeze([
-  'What are the best {industry} businesses in {location}?',
-  'Who does {service} near {location}?',
-  'Recommend a {service} business in {location}.',
-  'I need {service} in {location}. Who should I use?',
+  "What are the best {industry} businesses in {location}?",
+  "Who does {service} near {location}?",
+  "Recommend a {service} business in {location}.",
+  "I need {service} in {location}. Who should I use?",
   "What's a good {industry} company in {location} and why?",
-  'Can you suggest a reliable {service} provider in {location}?',
-  'Top-rated {industry} businesses in {location}?',
+  "Can you suggest a reliable {service} provider in {location}?",
+  "Top-rated {industry} businesses in {location}?",
 ]);
 
 // ---------------------------------------------------------------------------
@@ -134,12 +134,12 @@ const AI_PANEL_PROMPT_TEMPLATES = Object.freeze([
 // ---------------------------------------------------------------------------
 const EXCLUDED_BY_DESIGN = Object.freeze({
   backlinkIntegration:
-    'DataForSEO Backlinks API (or similar) is deliberately excluded from ' +
-    'this build to control cost. Not missing by oversight.',
+    "DataForSEO Backlinks API (or similar) is deliberately excluded from " +
+    "this build to control cost. Not missing by oversight.",
   multiEngineAiPanel:
-    'Gemini/Perplexity/Claude AI-panel testing was explicitly dropped for ' +
-    'the initial build. ChatGPT (OpenAI) only, ~77% AI search/chat market ' +
-    'share cited as the reason. Extension point left in ai-panel.js.',
+    "Gemini/Perplexity/Claude AI-panel testing was explicitly dropped for " +
+    "the initial build. ChatGPT (OpenAI) only, ~77% AI search/chat market " +
+    "share cited as the reason. Extension point left in ai-panel.js.",
 });
 
 module.exports = {

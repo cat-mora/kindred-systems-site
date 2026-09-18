@@ -13,9 +13,9 @@
 // number 0-100. computeOverallScore() combines the seven subscores using the
 // CURRENT, ADOPTED weights from config.js.
 
-'use strict';
+"use strict";
 
-const { SCORING_WEIGHTS } = require('./config');
+const { SCORING_WEIGHTS } = require("./config");
 
 function clamp(n, min = 0, max = 100) {
   if (Number.isNaN(n) || n === null || n === undefined) return 0;
@@ -23,7 +23,9 @@ function clamp(n, min = 0, max = 100) {
 }
 
 function average(numbers) {
-  const valid = numbers.filter((n) => typeof n === 'number' && !Number.isNaN(n));
+  const valid = numbers.filter(
+    (n) => typeof n === "number" && !Number.isNaN(n),
+  );
   if (valid.length === 0) return 0;
   return valid.reduce((a, b) => a + b, 0) / valid.length;
 }
@@ -69,9 +71,11 @@ function computeEntityAuthoritySubscore(schemaEvidence, placesEvidence) {
     score += 30;
   }
 
-  if (placesEvidence && typeof placesEvidence.reviewCount === 'number') {
+  if (placesEvidence && typeof placesEvidence.reviewCount === "number") {
     const reviewScore = clamp((placesEvidence.reviewCount / 50) * 100); // 50+ reviews = full marks
-    const ratingScore = placesEvidence.rating ? clamp((placesEvidence.rating / 5) * 100) : 0;
+    const ratingScore = placesEvidence.rating
+      ? clamp((placesEvidence.rating / 5) * 100)
+      : 0;
     const napScore = placesEvidence.napConsistent === false ? 0 : 100;
     score = average([score, reviewScore, ratingScore, napScore]);
   }
@@ -83,14 +87,20 @@ function computeEntityAuthoritySubscore(schemaEvidence, placesEvidence) {
 // 3. Website Technical Readiness (15%)
 // ---------------------------------------------------------------------------
 // Inputs: robots-llms.js, sitemap.js, raw-vs-rendered.js, pagespeed.js
-function computeTechnicalReadinessSubscore({ robotsLlms, sitemap, rawVsRendered, pagespeed }) {
+function computeTechnicalReadinessSubscore({
+  robotsLlms,
+  sitemap,
+  rawVsRendered,
+  pagespeed,
+}) {
   const parts = [];
 
   if (robotsLlms) {
     const bots = robotsLlms.botRules || {};
     const botIds = Object.keys(bots);
     if (botIds.length) {
-      const blockedHighValue = bots['oai-searchbot'] && bots['oai-searchbot'].blockedEntirely;
+      const blockedHighValue =
+        bots["oai-searchbot"] && bots["oai-searchbot"].blockedEntirely;
       const openCount = botIds.filter((id) => !bots[id].blockedEntirely).length;
       let botScore = clamp((openCount / botIds.length) * 100);
       if (blockedHighValue) botScore = clamp(botScore - 40); // OAI-SearchBot is the one that matters most
@@ -110,7 +120,7 @@ function computeTechnicalReadinessSubscore({ robotsLlms, sitemap, rawVsRendered,
     parts.push(clamp(100 - gapRatio * 100));
   }
 
-  if (pagespeed && typeof pagespeed.mobileScore === 'number') {
+  if (pagespeed && typeof pagespeed.mobileScore === "number") {
     parts.push(clamp(pagespeed.mobileScore));
   }
 
@@ -129,7 +139,7 @@ function computeContentCoverageSubscore(contentEvidence) {
   parts.push(contentEvidence.hasDirectAnswerParagraph ? 100 : 20);
   parts.push(clamp((contentEvidence.listOrBulletCount || 0) * 20)); // up to 5 lists = full marks
   parts.push(clamp(((contentEvidence.wordCount || 0) / 800) * 100)); // 800+ words = full marks
-  if (typeof contentEvidence.readabilityScore === 'number') {
+  if (typeof contentEvidence.readabilityScore === "number") {
     parts.push(clamp(contentEvidence.readabilityScore));
   }
   return clamp(average(parts));
@@ -143,8 +153,14 @@ function computeContentCoverageSubscore(contentEvidence) {
 // config.js EXCLUDED_BY_DESIGN.backlinkIntegration.
 function computeThirdPartyAuthoritySubscore(serpEvidence) {
   if (!serpEvidence) return 0;
-  const citingDomainsScore = clamp(((serpEvidence.citingDomainCount || 0) / 10) * 100); // 10+ = full marks
-  const aiOverviewScore = serpEvidence.aiOverviewMentionsBusiness ? 100 : serpEvidence.aiOverviewPresent ? 30 : 0;
+  const citingDomainsScore = clamp(
+    ((serpEvidence.citingDomainCount || 0) / 10) * 100,
+  ); // 10+ = full marks
+  const aiOverviewScore = serpEvidence.aiOverviewMentionsBusiness
+    ? 100
+    : serpEvidence.aiOverviewPresent
+      ? 30
+      : 0;
   return clamp(average([citingDomainsScore, aiOverviewScore]));
 }
 
@@ -153,7 +169,11 @@ function computeThirdPartyAuthoritySubscore(serpEvidence) {
 // ---------------------------------------------------------------------------
 // Input: serp-visibility.js evidence (organic rank)
 function computeSearchVisibilitySubscore(serpEvidence) {
-  if (!serpEvidence || typeof serpEvidence.organicRank !== 'number' || serpEvidence.organicRank <= 0) {
+  if (
+    !serpEvidence ||
+    typeof serpEvidence.organicRank !== "number" ||
+    serpEvidence.organicRank <= 0
+  ) {
     return 0;
   }
   // Rank 1 = 100, rank 10 = ~10, rank >20 = ~0. Simple, monotonic, deterministic.
@@ -167,8 +187,13 @@ function computeSearchVisibilitySubscore(serpEvidence) {
 // against the combined set of {target, competitors}. Pure statistics, no
 // external call — competitor scores are computed the same way as the
 // target's, just with the lighter pipeline (see competitor-pipeline.js).
-function computeCompetitivePositionSubscore(targetPreCompetitiveScore, competitorScores) {
-  const scores = Array.isArray(competitorScores) ? competitorScores.filter((n) => typeof n === 'number') : [];
+function computeCompetitivePositionSubscore(
+  targetPreCompetitiveScore,
+  competitorScores,
+) {
+  const scores = Array.isArray(competitorScores)
+    ? competitorScores.filter((n) => typeof n === "number")
+    : [];
   if (scores.length === 0) return 50; // no competitor data: neutral midpoint, not a penalty
   const beaten = scores.filter((s) => targetPreCompetitiveScore > s).length;
   const tied = scores.filter((s) => targetPreCompetitiveScore === s).length;
@@ -208,19 +233,23 @@ function computePartialScore(subscores, includedKeys) {
   const includedWeights = {};
   let sum = 0;
   for (const key of includedKeys) {
-    if (!(key in SCORING_WEIGHTS)) throw new Error(`Unknown scoring category: ${key}`);
+    if (!(key in SCORING_WEIGHTS))
+      throw new Error(`Unknown scoring category: ${key}`);
     includedWeights[key] = SCORING_WEIGHTS[key];
     sum += SCORING_WEIGHTS[key];
   }
-  if (sum === 0) throw new Error('At least one included category is required');
+  if (sum === 0) throw new Error("At least one included category is required");
   const renormalised = {};
-  for (const key of includedKeys) renormalised[key] = includedWeights[key] / sum;
+  for (const key of includedKeys)
+    renormalised[key] = includedWeights[key] / sum;
 
   const score = computeOverallScore(subscores, renormalised);
   return {
     score,
     includedCategories: includedKeys,
-    excludedCategories: Object.keys(SCORING_WEIGHTS).filter((k) => !includedKeys.includes(k)),
+    excludedCategories: Object.keys(SCORING_WEIGHTS).filter(
+      (k) => !includedKeys.includes(k),
+    ),
     renormalisedWeights: renormalised,
   };
 }

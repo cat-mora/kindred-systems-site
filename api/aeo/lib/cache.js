@@ -17,9 +17,9 @@
 //     - Supabase table `aeo_check_cache(domain, check_id, payload, expires_at)`
 //   Keep the exported function signatures identical so no caller changes.
 
-'use strict';
+"use strict";
 
-const { CACHE_TTL_DAYS } = require('./config');
+const { CACHE_TTL_DAYS } = require("./config");
 
 const memoryStore = new Map();
 

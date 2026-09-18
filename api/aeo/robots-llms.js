@@ -6,10 +6,14 @@
 // separately from GPTBot (OpenAI training-data collection) — they are NOT
 // the same concern and must never be lumped together.
 
-'use strict';
+"use strict";
 
-const { AI_CRAWLER_BOTS } = require('./lib/config');
-const { makeEvidence, safeFetchText, normaliseDomain } = require('./lib/evidence-utils');
+const { AI_CRAWLER_BOTS } = require("./lib/config");
+const {
+  makeEvidence,
+  safeFetchText,
+  normaliseDomain,
+} = require("./lib/evidence-utils");
 
 /**
  * Parses a robots.txt body into { [userAgentLower]: { disallow: string[], allow: string[] } }
@@ -20,15 +24,15 @@ function parseRobotsTxt(body) {
   const groups = []; // [{ agents: string[], disallow: string[], allow: string[] }]
   let current = null;
 
-  const lines = String(body || '').split(/\r?\n/);
+  const lines = String(body || "").split(/\r?\n/);
   for (const rawLine of lines) {
-    const line = rawLine.replace(/#.*$/, '').trim();
+    const line = rawLine.replace(/#.*$/, "").trim();
     if (!line) continue;
-    const [rawKey, ...rest] = line.split(':');
+    const [rawKey, ...rest] = line.split(":");
     const key = rawKey.trim().toLowerCase();
-    const value = rest.join(':').trim();
+    const value = rest.join(":").trim();
 
-    if (key === 'user-agent') {
+    if (key === "user-agent") {
       // A new User-agent line right after rules starts a new group; a
       // User-agent line right after another User-agent line (no rules yet)
       // extends the current group (agents sharing one rule block).
@@ -37,9 +41,9 @@ function parseRobotsTxt(body) {
         groups.push(current);
       }
       current.agents.push(value.toLowerCase());
-    } else if (key === 'disallow' && current) {
+    } else if (key === "disallow" && current) {
       if (value) current.disallow.push(value);
-    } else if (key === 'allow' && current) {
+    } else if (key === "allow" && current) {
       if (value) current.allow.push(value);
     }
   }
@@ -50,18 +54,25 @@ function parseRobotsTxt(body) {
 function evaluateBotAccess(groups, userAgent) {
   const ua = userAgent.toLowerCase();
   const specific = groups.find((g) => g.agents.includes(ua));
-  const wildcard = groups.find((g) => g.agents.includes('*'));
+  const wildcard = groups.find((g) => g.agents.includes("*"));
   const applicable = specific || wildcard || null;
 
   if (!applicable) {
-    return { found: false, blockedEntirely: false, disallowedPaths: [], matchedGroup: 'none' };
+    return {
+      found: false,
+      blockedEntirely: false,
+      disallowedPaths: [],
+      matchedGroup: "none",
+    };
   }
-  const blockedEntirely = applicable.disallow.some((p) => p === '/' || p === '');
+  const blockedEntirely = applicable.disallow.some(
+    (p) => p === "/" || p === "",
+  );
   return {
     found: true,
     blockedEntirely,
     disallowedPaths: applicable.disallow,
-    matchedGroup: specific ? 'specific' : 'wildcard',
+    matchedGroup: specific ? "specific" : "wildcard",
   };
 }
 
@@ -70,7 +81,10 @@ async function checkRobotsAndLlms(domainInput) {
   const robotsUrl = `${origin}/robots.txt`;
   const llmsUrl = `${origin}/llms.txt`;
 
-  const [robotsRes, llmsRes] = await Promise.all([safeFetchText(robotsUrl), safeFetchText(llmsUrl)]);
+  const [robotsRes, llmsRes] = await Promise.all([
+    safeFetchText(robotsUrl),
+    safeFetchText(llmsUrl),
+  ]);
 
   const groups = robotsRes.ok ? parseRobotsTxt(robotsRes.text) : [];
   const botRules = {};
@@ -93,17 +107,24 @@ async function checkRobotsAndLlms(domainInput) {
     llmsTxtContent: llmsRes.ok ? llmsRes.text.slice(0, 5000) : null,
     botRules,
     // Called out explicitly because it's the single highest-impact fact on this check.
-    oaiSearchBotBlocked: botRules['oai-searchbot'].blockedEntirely,
+    oaiSearchBotBlocked: botRules["oai-searchbot"].blockedEntirely,
   };
 
-  return makeEvidence('robots-llms', 'robots.txt / llms.txt fetch', rawEvidence);
+  return makeEvidence(
+    "robots-llms",
+    "robots.txt / llms.txt fetch",
+    rawEvidence,
+  );
 }
 
 // --- Vercel serverless handler --------------------------------------------
 module.exports = async (req, res) => {
-  const domain = req.method === 'POST' ? (req.body && req.body.domain) : req.query.domain;
+  const domain =
+    req.method === "POST" ? req.body && req.body.domain : req.query.domain;
   if (!domain) {
-    res.status(400).json({ error: 'domain is required (query param or JSON body field)' });
+    res
+      .status(400)
+      .json({ error: "domain is required (query param or JSON body field)" });
     return;
   }
   try {

@@ -6,16 +6,16 @@
 // this can be run in CI with zero extra setup, or wired into Jest/Vitest
 // later by wrapping these same assertions in `test()` blocks).
 
-'use strict';
+"use strict";
 
-const assert = require('assert');
+const assert = require("assert");
 const {
   computeAIDiscoverabilitySubscore,
   computeEntityAuthoritySubscore,
   computeCompetitivePositionSubscore,
   computeOverallScore,
   computePartialScore,
-} = require('./scoring');
+} = require("./scoring");
 
 let passed = 0;
 function check(name, fn) {
@@ -25,7 +25,7 @@ function check(name, fn) {
 }
 
 // 1. Determinism: identical evidence in -> identical score out, every time.
-check('computeOverallScore is deterministic across repeated calls', () => {
+check("computeOverallScore is deterministic across repeated calls", () => {
   const subscores = {
     aiDiscoverability: 72,
     entityAuthority: 55,
@@ -43,7 +43,7 @@ check('computeOverallScore is deterministic across repeated calls', () => {
 });
 
 // 2. Sanity check on the weighted formula with a hand-computed expectation.
-check('computeOverallScore matches a hand-calculated weighted sum', () => {
+check("computeOverallScore matches a hand-calculated weighted sum", () => {
   // All subscores = 100 must yield overall = 100 regardless of weights.
   const allMax = {
     aiDiscoverability: 100,
@@ -73,7 +73,7 @@ check('computeOverallScore matches a hand-calculated weighted sum', () => {
 });
 
 // 3. AI discoverability: being recommended must score higher than merely mentioned.
-check('recommendation counts for more than a bare mention', () => {
+check("recommendation counts for more than a bare mention", () => {
   const merelyMentioned = computeAIDiscoverabilitySubscore({
     promptsRun: 5,
     mentions: 5,
@@ -89,45 +89,72 @@ check('recommendation counts for more than a bare mention', () => {
 });
 
 // 4. Entity authority: invalid schema must score below absent schema.
-check('present-but-invalid schema scores worse than no schema at all', () => {
+check("present-but-invalid schema scores worse than no schema at all", () => {
   const noSchema = computeEntityAuthoritySubscore({ schemas: [] }, null);
   const invalidSchema = computeEntityAuthoritySubscore(
-    { schemas: [{ type: 'LocalBusiness', valid: false }] },
-    null
+    { schemas: [{ type: "LocalBusiness", valid: false }] },
+    null,
   );
   const validSchema = computeEntityAuthoritySubscore(
-    { schemas: [{ type: 'LocalBusiness', valid: true }] },
-    null
+    { schemas: [{ type: "LocalBusiness", valid: true }] },
+    null,
   );
-  assert.ok(invalidSchema < noSchema, `expected invalid (${invalidSchema}) < absent (${noSchema})`);
-  assert.ok(validSchema > noSchema, `expected valid (${validSchema}) > absent (${noSchema})`);
+  assert.ok(
+    invalidSchema < noSchema,
+    `expected invalid (${invalidSchema}) < absent (${noSchema})`,
+  );
+  assert.ok(
+    validSchema > noSchema,
+    `expected valid (${validSchema}) > absent (${noSchema})`,
+  );
 });
 
 // 5. Competitive position is a pure, deterministic percentile.
-check('competitive position percentile is deterministic and monotonic', () => {
+check("competitive position percentile is deterministic and monotonic", () => {
   const competitorScores = [40, 55, 60, 70, 90];
   const low = computeCompetitivePositionSubscore(30, competitorScores);
   const mid = computeCompetitivePositionSubscore(65, competitorScores);
   const high = computeCompetitivePositionSubscore(95, competitorScores);
   assert.ok(low < mid && mid < high);
-  assert.strictEqual(computeCompetitivePositionSubscore(65, competitorScores), mid); // repeat call, same result
+  assert.strictEqual(
+    computeCompetitivePositionSubscore(65, competitorScores),
+    mid,
+  ); // repeat call, same result
   assert.strictEqual(computeCompetitivePositionSubscore(999, []), 50); // no competitor data -> neutral
 });
 
 // 6. Free-tier partial score renormalises weights and is still deterministic.
-check('computePartialScore renormalises included weights to sum to 1', () => {
-  const subscores = { technicalReadiness: 80, contentCoverage: 60, entityAuthority: 40 };
-  const result1 = computePartialScore(subscores, ['technicalReadiness', 'contentCoverage', 'entityAuthority']);
-  const result2 = computePartialScore(subscores, ['technicalReadiness', 'contentCoverage', 'entityAuthority']);
-  const weightSum = Object.values(result1.renormalisedWeights).reduce((a, b) => a + b, 0);
+check("computePartialScore renormalises included weights to sum to 1", () => {
+  const subscores = {
+    technicalReadiness: 80,
+    contentCoverage: 60,
+    entityAuthority: 40,
+  };
+  const result1 = computePartialScore(subscores, [
+    "technicalReadiness",
+    "contentCoverage",
+    "entityAuthority",
+  ]);
+  const result2 = computePartialScore(subscores, [
+    "technicalReadiness",
+    "contentCoverage",
+    "entityAuthority",
+  ]);
+  const weightSum = Object.values(result1.renormalisedWeights).reduce(
+    (a, b) => a + b,
+    0,
+  );
   assert.ok(Math.abs(weightSum - 1) < 1e-9);
   assert.strictEqual(result1.score, result2.score);
-  assert.deepStrictEqual(result1.excludedCategories.sort(), [
-    'aiDiscoverability',
-    'competitivePosition',
-    'searchVisibility',
-    'thirdPartyAuthority',
-  ].sort());
+  assert.deepStrictEqual(
+    result1.excludedCategories.sort(),
+    [
+      "aiDiscoverability",
+      "competitivePosition",
+      "searchVisibility",
+      "thirdPartyAuthority",
+    ].sort(),
+  );
 });
 
 console.log(`\n${passed} scoring tests passed.`);

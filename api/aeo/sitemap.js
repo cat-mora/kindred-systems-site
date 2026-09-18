@@ -4,9 +4,13 @@
 // from robots.txt, and counts URLs found (including nested sitemap-index
 // files, one level deep, since that's a common real-world pattern).
 
-'use strict';
+"use strict";
 
-const { makeEvidence, safeFetchText, normaliseDomain } = require('./lib/evidence-utils');
+const {
+  makeEvidence,
+  safeFetchText,
+  normaliseDomain,
+} = require("./lib/evidence-utils");
 
 function extractLocs(xml) {
   const locs = [];
@@ -17,12 +21,12 @@ function extractLocs(xml) {
 }
 
 function looksLikeValidXml(xml) {
-  if (!xml || !xml.trim().startsWith('<?xml')) {
+  if (!xml || !xml.trim().startsWith("<?xml")) {
     // Some sitemaps omit the XML declaration but are still well-formed;
     // fall back to checking for a root <urlset> or <sitemapindex> tag.
-    if (!/<\s*(urlset|sitemapindex)[\s>]/i.test(xml || '')) return false;
+    if (!/<\s*(urlset|sitemapindex)[\s>]/i.test(xml || "")) return false;
   }
-  return /<\s*(urlset|sitemapindex)[\s>]/i.test(xml || '');
+  return /<\s*(urlset|sitemapindex)[\s>]/i.test(xml || "");
 }
 
 async function checkSitemap(domainInput) {
@@ -45,7 +49,9 @@ async function checkSitemap(domainInput) {
     // Follow up to 3 child sitemaps to get a real URL count, bounded to
     // keep this check fast and cheap.
     const childrenToCheck = topLevelLocs.slice(0, 3);
-    const childResults = await Promise.all(childrenToCheck.map((url) => safeFetchText(url)));
+    const childResults = await Promise.all(
+      childrenToCheck.map((url) => safeFetchText(url)),
+    );
     for (const child of childResults) {
       childSitemapsChecked += 1;
       if (child.ok && looksLikeValidXml(child.text)) {
@@ -55,9 +61,11 @@ async function checkSitemap(domainInput) {
   }
 
   const referencedInRobots =
-    robotsRes.ok && new RegExp(`sitemap:\\s*${sitemapUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i').test(
-      robotsRes.text
-    );
+    robotsRes.ok &&
+    new RegExp(
+      `sitemap:\\s*${sitemapUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`,
+      "i",
+    ).test(robotsRes.text);
 
   const rawEvidence = {
     domain: origin,
@@ -71,13 +79,16 @@ async function checkSitemap(domainInput) {
     referencedInRobotsTxt: Boolean(referencedInRobots),
   };
 
-  return makeEvidence('sitemap', 'sitemap.xml fetch', rawEvidence);
+  return makeEvidence("sitemap", "sitemap.xml fetch", rawEvidence);
 }
 
 module.exports = async (req, res) => {
-  const domain = req.method === 'POST' ? (req.body && req.body.domain) : req.query.domain;
+  const domain =
+    req.method === "POST" ? req.body && req.body.domain : req.query.domain;
   if (!domain) {
-    res.status(400).json({ error: 'domain is required (query param or JSON body field)' });
+    res
+      .status(400)
+      .json({ error: "domain is required (query param or JSON body field)" });
     return;
   }
   try {

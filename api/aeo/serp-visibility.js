@@ -18,10 +18,13 @@
 // NOT part of serp-visibility or anywhere else in this codebase, by design,
 // to control cost — not an oversight.
 
-'use strict';
+"use strict";
 
-const { makeEvidence } = require('./lib/evidence-utils');
-const { requirePaidAccess, PaymentRequiredError } = require('./lib/payment-gate');
+const { makeEvidence } = require("./lib/evidence-utils");
+const {
+  requirePaidAccess,
+  PaymentRequiredError,
+} = require("./lib/payment-gate");
 
 /**
  * Real integration shape for SerpApi's Google Search endpoint (swap the
@@ -39,7 +42,9 @@ async function fetchSerpResults(query, location, apiKey) {
     return null; // signals "not configured" to the caller
   }
   // TODO: real implementation — see comment above.
-  throw new Error('serp-visibility fetchSerpResults() is not yet implemented — SERPAPI_KEY was provided but no provider call exists yet.');
+  throw new Error(
+    "serp-visibility fetchSerpResults() is not yet implemented — SERPAPI_KEY was provided but no provider call exists yet.",
+  );
 }
 
 /**
@@ -53,21 +58,29 @@ async function fetchSerpResults(query, location, apiKey) {
  */
 function normaliseSerpApiResponse(raw, businessName, businessDomain) {
   const organicResults = (raw && raw.organic_results) || [];
-  const normalisedDomain = String(businessDomain || '').replace(/^https?:\/\//, '').replace(/^www\./, '');
-  const matchIndex = organicResults.findIndex((r) => String(r.link || '').includes(normalisedDomain));
+  const normalisedDomain = String(businessDomain || "")
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "");
+  const matchIndex = organicResults.findIndex((r) =>
+    String(r.link || "").includes(normalisedDomain),
+  );
   const organicRank = matchIndex >= 0 ? matchIndex + 1 : null;
 
   const aiOverview = raw && raw.ai_overview;
   const aiOverviewPresent = Boolean(aiOverview);
-  const aiOverviewText = aiOverview ? String(aiOverview.text || '') : '';
+  const aiOverviewText = aiOverview ? String(aiOverview.text || "") : "";
   const aiOverviewMentionsBusiness =
-    aiOverviewPresent && businessName ? aiOverviewText.toLowerCase().includes(String(businessName).toLowerCase()) : false;
+    aiOverviewPresent && businessName
+      ? aiOverviewText
+          .toLowerCase()
+          .includes(String(businessName).toLowerCase())
+      : false;
 
   const citingDomains = new Set();
   if (aiOverview && Array.isArray(aiOverview.references)) {
     for (const ref of aiOverview.references) {
       try {
-        citingDomains.add(new URL(ref.link).host.replace(/^www\./, ''));
+        citingDomains.add(new URL(ref.link).host.replace(/^www\./, ""));
       } catch {
         // ignore malformed reference URLs
       }
@@ -83,53 +96,89 @@ function normaliseSerpApiResponse(raw, businessName, businessDomain) {
   };
 }
 
-async function checkSerpVisibility({ businessName, businessDomain, query, location, paymentVerified }) {
+async function checkSerpVisibility({
+  businessName,
+  businessDomain,
+  query,
+  location,
+  paymentVerified,
+}) {
   if (paymentVerified !== true) {
-    throw new PaymentRequiredError('checkSerpVisibility called without a verified payment.');
+    throw new PaymentRequiredError(
+      "checkSerpVisibility called without a verified payment.",
+    );
   }
 
   const apiKey = process.env.SERPAPI_KEY;
   if (!apiKey) {
     return makeEvidence(
-      'serp-visibility',
-      'SERP API (SerpApi/DataForSEO/Serper.dev)',
+      "serp-visibility",
+      "SERP API (SerpApi/DataForSEO/Serper.dev)",
       {
         available: false,
-        reason: 'SERPAPI_KEY not configured', // TODO: needs SERPAPI_KEY env var
+        reason: "SERPAPI_KEY not configured", // TODO: needs SERPAPI_KEY env var
         query,
         location,
       },
-      { organicRank: null, aiOverviewPresent: false, aiOverviewMentionsBusiness: false, citingDomainCount: 0 }
+      {
+        organicRank: null,
+        aiOverviewPresent: false,
+        aiOverviewMentionsBusiness: false,
+        citingDomainCount: 0,
+      },
     );
   }
 
   try {
     const raw = await fetchSerpResults(query, location, apiKey);
     const parsed = normaliseSerpApiResponse(raw, businessName, businessDomain);
-    return makeEvidence('serp-visibility', 'SerpApi Google Search', { available: true, query, location, raw: null, ...parsed }, parsed);
+    return makeEvidence(
+      "serp-visibility",
+      "SerpApi Google Search",
+      { available: true, query, location, raw: null, ...parsed },
+      parsed,
+    );
   } catch (err) {
     return makeEvidence(
-      'serp-visibility',
-      'SERP API (SerpApi/DataForSEO/Serper.dev)',
+      "serp-visibility",
+      "SERP API (SerpApi/DataForSEO/Serper.dev)",
       { available: false, reason: err.message, query, location },
-      { organicRank: null, aiOverviewPresent: false, aiOverviewMentionsBusiness: false, citingDomainCount: 0 }
+      {
+        organicRank: null,
+        aiOverviewPresent: false,
+        aiOverviewMentionsBusiness: false,
+        citingDomainCount: 0,
+      },
     );
   }
 }
 
 module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    res.status(405).json({ error: 'POST required' });
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "POST required" });
     return;
   }
-  const { businessName, businessDomain, query, location, assessmentId, stripeSessionId } = req.body || {};
+  const {
+    businessName,
+    businessDomain,
+    query,
+    location,
+    assessmentId,
+    stripeSessionId,
+  } = req.body || {};
   if (!businessName || !query) {
-    res.status(400).json({ error: 'businessName and query are required' });
+    res.status(400).json({ error: "businessName and query are required" });
     return;
   }
   try {
     await requirePaidAccess(stripeSessionId, assessmentId);
-    const evidence = await checkSerpVisibility({ businessName, businessDomain, query, location, paymentVerified: true });
+    const evidence = await checkSerpVisibility({
+      businessName,
+      businessDomain,
+      query,
+      location,
+      paymentVerified: true,
+    });
     res.status(200).json(evidence);
   } catch (err) {
     const status = err instanceof PaymentRequiredError ? err.statusCode : 500;

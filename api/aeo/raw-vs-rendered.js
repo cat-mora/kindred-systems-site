@@ -20,9 +20,15 @@
 // real call — everything downstream (diffContent, scoring) already expects
 // exactly the shape it returns.
 
-'use strict';
+"use strict";
 
-const { makeEvidence, safeFetchText, normaliseDomain, extractHeadings, stripHtmlToText } = require('./lib/evidence-utils');
+const {
+  makeEvidence,
+  safeFetchText,
+  normaliseDomain,
+  extractHeadings,
+  stripHtmlToText,
+} = require("./lib/evidence-utils");
 
 const CONTACT_INFO_RE = /(\+?\d[\d\s().-]{7,}\d)|([\w.+-]+@[\w-]+\.[\w.-]+)/g;
 
@@ -35,7 +41,11 @@ const CONTACT_INFO_RE = /(\+?\d[\d\s().-]{7,}\d)|([\w.+-]+@[\w-]+\.[\w.-]+)/g;
 async function fetchRenderedHtml(url) {
   const apiKey = process.env.FIRECRAWL_API_KEY;
   if (!apiKey) {
-    return { available: false, html: null, reason: 'FIRECRAWL_API_KEY not configured' };
+    return {
+      available: false,
+      html: null,
+      reason: "FIRECRAWL_API_KEY not configured",
+    };
   }
   // TODO: real implementation once a key is available, e.g.:
   // const res = await fetch('https://api.firecrawl.dev/v1/scrape', {
@@ -45,7 +55,11 @@ async function fetchRenderedHtml(url) {
   // });
   // const data = await res.json();
   // return { available: true, html: data.data.html, reason: null };
-  return { available: false, html: null, reason: 'Rendering integration not yet implemented' };
+  return {
+    available: false,
+    html: null,
+    reason: "Rendering integration not yet implemented",
+  };
 }
 
 /**
@@ -55,20 +69,39 @@ async function fetchRenderedHtml(url) {
  * contact info (phone/email), which matters a lot for local-business AEO.
  */
 function diffContent(rawHtml, renderedHtml) {
-  const rawHeadings = extractHeadings(rawHtml).map((h) => h.text.toLowerCase().trim());
-  const renderedHeadings = extractHeadings(renderedHtml).map((h) => h.text.toLowerCase().trim());
-  const headingsOnlyAfterRender = renderedHeadings.filter((h) => h && !rawHeadings.includes(h));
+  const rawHeadings = extractHeadings(rawHtml).map((h) =>
+    h.text.toLowerCase().trim(),
+  );
+  const renderedHeadings = extractHeadings(renderedHtml).map((h) =>
+    h.text.toLowerCase().trim(),
+  );
+  const headingsOnlyAfterRender = renderedHeadings.filter(
+    (h) => h && !rawHeadings.includes(h),
+  );
 
   const rawText = stripHtmlToText(rawHtml);
   const renderedText = stripHtmlToText(renderedHtml);
-  const rawWordCount = rawText ? rawText.split(/\s+/).filter(Boolean).length : 0;
-  const renderedWordCount = renderedText ? renderedText.split(/\s+/).filter(Boolean).length : 0;
+  const rawWordCount = rawText
+    ? rawText.split(/\s+/).filter(Boolean).length
+    : 0;
+  const renderedWordCount = renderedText
+    ? renderedText.split(/\s+/).filter(Boolean).length
+    : 0;
 
-  const rawContacts = new Set((rawText.match(CONTACT_INFO_RE) || []).map((s) => s.trim()));
-  const renderedContacts = new Set((renderedText.match(CONTACT_INFO_RE) || []).map((s) => s.trim()));
-  const contactsOnlyAfterRender = Array.from(renderedContacts).filter((c) => !rawContacts.has(c));
+  const rawContacts = new Set(
+    (rawText.match(CONTACT_INFO_RE) || []).map((s) => s.trim()),
+  );
+  const renderedContacts = new Set(
+    (renderedText.match(CONTACT_INFO_RE) || []).map((s) => s.trim()),
+  );
+  const contactsOnlyAfterRender = Array.from(renderedContacts).filter(
+    (c) => !rawContacts.has(c),
+  );
 
-  const wordCountGapRatio = renderedWordCount > 0 ? Math.max(0, (renderedWordCount - rawWordCount) / renderedWordCount) : 0;
+  const wordCountGapRatio =
+    renderedWordCount > 0
+      ? Math.max(0, (renderedWordCount - rawWordCount) / renderedWordCount)
+      : 0;
 
   // gapScore: 0 = no meaningful gap, 1 = huge amount of content only exists post-render.
   // Weighted so missing contact info / headings hurts more than a raw word-count gap alone.
@@ -76,7 +109,7 @@ function diffContent(rawHtml, renderedHtml) {
     1,
     wordCountGapRatio * 0.5 +
       Math.min(1, headingsOnlyAfterRender.length / 3) * 0.3 +
-      Math.min(1, contactsOnlyAfterRender.length) * 0.2
+      Math.min(1, contactsOnlyAfterRender.length) * 0.2,
   );
 
   return {
@@ -113,15 +146,23 @@ async function checkRawVsRendered(domainInput) {
   // (no known gap) rather than penalising sites when we simply couldn't
   // render them yet — that's an availability gap in OUR tooling, not a
   // fact about the site.
-  return makeEvidence('raw-vs-rendered', 'raw HTML fetch + headless render diff', rawEvidence, {
-    gapScore: diff ? diff.gapScore : 0,
-  });
+  return makeEvidence(
+    "raw-vs-rendered",
+    "raw HTML fetch + headless render diff",
+    rawEvidence,
+    {
+      gapScore: diff ? diff.gapScore : 0,
+    },
+  );
 }
 
 module.exports = async (req, res) => {
-  const domain = req.method === 'POST' ? (req.body && req.body.domain) : req.query.domain;
+  const domain =
+    req.method === "POST" ? req.body && req.body.domain : req.query.domain;
   if (!domain) {
-    res.status(400).json({ error: 'domain is required (query param or JSON body field)' });
+    res
+      .status(400)
+      .json({ error: "domain is required (query param or JSON body field)" });
     return;
   }
   try {

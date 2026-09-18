@@ -11,24 +11,24 @@
 // domain that shows up across multiple client assessments isn't re-crawled
 // from scratch every time.
 
-'use strict';
+"use strict";
 
-const { MAX_COMPETITORS } = require('./config');
-const { withCache } = require('./cache');
-const { computePartialScore } = require('./scoring');
-const { checkRobotsAndLlms } = require('../robots-llms');
-const { checkSchema } = require('../schema-check');
-const { checkSerpVisibility } = require('../serp-visibility');
+const { MAX_COMPETITORS } = require("./config");
+const { withCache } = require("./cache");
+const { computePartialScore } = require("./scoring");
+const { checkRobotsAndLlms } = require("../robots-llms");
+const { checkSchema } = require("../schema-check");
+const { checkSerpVisibility } = require("../serp-visibility");
 
 // Categories we can fairly compare target vs. competitor on with the LIGHT
 // pipeline (no content-structure or places data is gathered for
 // competitors, and competitivePosition doesn't apply to itself).
 const COMPARABLE_CATEGORIES = [
-  'aiDiscoverability',
-  'entityAuthority',
-  'technicalReadiness',
-  'thirdPartyAuthority',
-  'searchVisibility',
+  "aiDiscoverability",
+  "entityAuthority",
+  "technicalReadiness",
+  "thirdPartyAuthority",
+  "searchVisibility",
 ];
 
 const {
@@ -37,7 +37,7 @@ const {
   computeTechnicalReadinessSubscore,
   computeThirdPartyAuthoritySubscore,
   computeSearchVisibilitySubscore,
-} = require('./scoring');
+} = require("./scoring");
 
 /**
  * Runs the light pipeline for one competitor and returns its comparable
@@ -49,10 +49,19 @@ const {
  *   ai-panel.js `entities` map from the ONE shared panel call already made
  *   for the target assessment.
  */
-async function runLightPipelineForCompetitor(competitor, sharedAiPanelEntity, query, location) {
+async function runLightPipelineForCompetitor(
+  competitor,
+  sharedAiPanelEntity,
+  query,
+  location,
+) {
   const [robotsLlms, schema, serp] = await Promise.all([
-    withCache(competitor.domain, 'robots-llms', () => checkRobotsAndLlms(competitor.domain)),
-    withCache(competitor.domain, 'schema-check', () => checkSchema(competitor.domain)),
+    withCache(competitor.domain, "robots-llms", () =>
+      checkRobotsAndLlms(competitor.domain),
+    ),
+    withCache(competitor.domain, "schema-check", () =>
+      checkSchema(competitor.domain),
+    ),
     // Citation/search-visibility check does cost real money per competitor
     // (capped at MAX_COMPETITORS for exactly that reason) so it is NOT
     // cached the same way technical checks are — rankings move day to day.
@@ -67,10 +76,16 @@ async function runLightPipelineForCompetitor(competitor, sharedAiPanelEntity, qu
 
   const subscores = {
     aiDiscoverability: computeAIDiscoverabilitySubscore(
-      sharedAiPanelEntity || { promptsRun: 0, mentions: 0, recommendedCount: 0 }
+      sharedAiPanelEntity || {
+        promptsRun: 0,
+        mentions: 0,
+        recommendedCount: 0,
+      },
     ),
     entityAuthority: computeEntityAuthoritySubscore(schema.rawEvidence, null),
-    technicalReadiness: computeTechnicalReadinessSubscore({ robotsLlms: robotsLlms.rawEvidence }),
+    technicalReadiness: computeTechnicalReadinessSubscore({
+      robotsLlms: robotsLlms.rawEvidence,
+    }),
     thirdPartyAuthority: computeThirdPartyAuthoritySubscore(serp.rawEvidence),
     searchVisibility: computeSearchVisibilitySubscore(serp.rawEvidence),
   };
@@ -92,7 +107,12 @@ async function runLightPipelineForCompetitor(competitor, sharedAiPanelEntity, qu
  *   single shared ai-panel.js call for this assessment (target + all named
  *   competitors), keyed by business name.
  */
-async function runCompetitorComparison(competitors, sharedAiPanelEntities, query, location) {
+async function runCompetitorComparison(
+  competitors,
+  sharedAiPanelEntities,
+  query,
+  location,
+) {
   const capped = (competitors || []).slice(0, MAX_COMPETITORS);
   const results = [];
   for (const competitor of capped) {
@@ -103,7 +123,7 @@ async function runCompetitorComparison(competitors, sharedAiPanelEntities, query
       competitor,
       sharedAiPanelEntities ? sharedAiPanelEntities[competitor.name] : null,
       query,
-      location
+      location,
     );
     results.push(result);
   }

@@ -15,29 +15,36 @@
 //   upsell: { priceCents, currency, categoriesUnlocked }
 // }
 
-'use strict';
+"use strict";
 
-const crypto = require('crypto');
-const { withCache } = require('./lib/cache');
-const { normaliseDomain } = require('./lib/evidence-utils');
+const crypto = require("crypto");
+const { withCache } = require("./lib/cache");
+const { normaliseDomain } = require("./lib/evidence-utils");
 const {
   computeTechnicalReadinessSubscore,
   computeContentCoverageSubscore,
   computeEntityAuthoritySubscore,
   computePartialScore,
-} = require('./lib/scoring');
-const { buildFreeTierSummary } = require('./lib/narrative');
-const { PAID_REPORT_PRICE_CENTS, PAID_REPORT_CURRENCY } = require('./lib/config');
+} = require("./lib/scoring");
+const { buildFreeTierSummary } = require("./lib/narrative");
+const {
+  PAID_REPORT_PRICE_CENTS,
+  PAID_REPORT_CURRENCY,
+} = require("./lib/config");
 
-const { checkRobotsAndLlms } = require('./robots-llms');
-const { checkSitemap } = require('./sitemap');
-const { checkRawVsRendered } = require('./raw-vs-rendered');
-const { checkSchema } = require('./schema-check');
-const { checkContentStructure } = require('./content-structure');
-const { checkInternalLinks } = require('./internal-links');
-const { checkPageSpeed } = require('./pagespeed');
+const { checkRobotsAndLlms } = require("./robots-llms");
+const { checkSitemap } = require("./sitemap");
+const { checkRawVsRendered } = require("./raw-vs-rendered");
+const { checkSchema } = require("./schema-check");
+const { checkContentStructure } = require("./content-structure");
+const { checkInternalLinks } = require("./internal-links");
+const { checkPageSpeed } = require("./pagespeed");
 
-const FREE_INCLUDED_CATEGORIES = ['technicalReadiness', 'contentCoverage', 'entityAuthority'];
+const FREE_INCLUDED_CATEGORIES = [
+  "technicalReadiness",
+  "contentCoverage",
+  "entityAuthority",
+];
 
 async function runFreePipeline(domainInput) {
   const domain = normaliseDomain(domainInput);
@@ -47,23 +54,31 @@ async function runFreePipeline(domainInput) {
   // a scorecard for the same domain within the TTL window doesn't re-crawl
   // from scratch. Content/internal-links are cached too since they only
   // change when the site changes, not per visitor.
-  const [robotsLlms, sitemap, rawVsRendered, schema, content, internalLinks, pagespeed] = await Promise.all([
-    withCache(domain, 'robots-llms', () => checkRobotsAndLlms(domain)),
-    withCache(domain, 'sitemap', () => checkSitemap(domain)),
-    withCache(domain, 'raw-vs-rendered', () => checkRawVsRendered(domain)),
-    withCache(domain, 'schema-check', () => checkSchema(domain)),
-    withCache(domain, 'content-structure', () => checkContentStructure(domain)),
-    withCache(domain, 'internal-links', () => checkInternalLinks(domain)),
-    withCache(domain, 'pagespeed', () => checkPageSpeed(domain)),
+  const [
+    robotsLlms,
+    sitemap,
+    rawVsRendered,
+    schema,
+    content,
+    internalLinks,
+    pagespeed,
+  ] = await Promise.all([
+    withCache(domain, "robots-llms", () => checkRobotsAndLlms(domain)),
+    withCache(domain, "sitemap", () => checkSitemap(domain)),
+    withCache(domain, "raw-vs-rendered", () => checkRawVsRendered(domain)),
+    withCache(domain, "schema-check", () => checkSchema(domain)),
+    withCache(domain, "content-structure", () => checkContentStructure(domain)),
+    withCache(domain, "internal-links", () => checkInternalLinks(domain)),
+    withCache(domain, "pagespeed", () => checkPageSpeed(domain)),
   ]);
 
   const evidenceById = {
-    'robots-llms': robotsLlms,
+    "robots-llms": robotsLlms,
     sitemap,
-    'raw-vs-rendered': rawVsRendered,
-    'schema-check': schema,
-    'content-structure': content,
-    'internal-links': internalLinks,
+    "raw-vs-rendered": rawVsRendered,
+    "schema-check": schema,
+    "content-structure": content,
+    "internal-links": internalLinks,
     pagespeed,
   };
 
@@ -85,7 +100,7 @@ async function runFreePipeline(domainInput) {
     assessmentId,
     domain,
     generatedAtISO: new Date().toISOString(),
-    tier: 'free',
+    tier: "free",
     score: scoreInfo,
     subscores,
     summary,
@@ -99,13 +114,13 @@ async function runFreePipeline(domainInput) {
 }
 
 module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    res.status(405).json({ error: 'POST required' });
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "POST required" });
     return;
   }
   const { domain } = req.body || {};
   if (!domain) {
-    res.status(400).json({ error: 'domain is required' });
+    res.status(400).json({ error: "domain is required" });
     return;
   }
   try {

@@ -5,10 +5,15 @@
 // MAX_CRAWL_PAGES pages and MAX_CRAWL_DEPTH levels so this stays fast and
 // cheap regardless of site size.
 
-'use strict';
+"use strict";
 
-const { MAX_CRAWL_PAGES, MAX_CRAWL_DEPTH } = require('./lib/config');
-const { makeEvidence, safeFetchText, normaliseDomain, extractInternalLinks } = require('./lib/evidence-utils');
+const { MAX_CRAWL_PAGES, MAX_CRAWL_DEPTH } = require("./lib/config");
+const {
+  makeEvidence,
+  safeFetchText,
+  normaliseDomain,
+  extractInternalLinks,
+} = require("./lib/evidence-utils");
 
 // URL path fragments we consider "key pages" for a local-business site.
 // Depth-to-first-match is recorded for each.
@@ -36,16 +41,29 @@ async function crawl(startUrl) {
     // eslint-disable-next-line no-await-in-loop
     const res = await safeFetchText(url);
     if (!res.ok) {
-      pages.push({ url, depth, ok: false, status: res.status, outboundInternalLinks: 0 });
+      pages.push({
+        url,
+        depth,
+        ok: false,
+        status: res.status,
+        outboundInternalLinks: 0,
+      });
       continue;
     }
 
     for (const [key, pattern] of Object.entries(KEY_PAGE_PATTERNS)) {
-      if (keyPageDepth[key] === null && pattern.test(url)) keyPageDepth[key] = depth;
+      if (keyPageDepth[key] === null && pattern.test(url))
+        keyPageDepth[key] = depth;
     }
 
     const links = extractInternalLinks(res.text, url);
-    pages.push({ url, depth, ok: true, status: res.status, outboundInternalLinks: links.length });
+    pages.push({
+      url,
+      depth,
+      ok: true,
+      status: res.status,
+      outboundInternalLinks: links.length,
+    });
 
     for (const link of links) {
       linkCounts[link] = (linkCounts[link] || 0) + 1;
@@ -55,7 +73,12 @@ async function crawl(startUrl) {
     }
   }
 
-  return { pages, linkCounts, keyPageDepth, hitPageCap: pages.length >= MAX_CRAWL_PAGES };
+  return {
+    pages,
+    linkCounts,
+    keyPageDepth,
+    hitPageCap: pages.length >= MAX_CRAWL_PAGES,
+  };
 }
 
 async function checkInternalLinks(domainInput) {
@@ -68,7 +91,8 @@ async function checkInternalLinks(domainInput) {
 
   const avgOutboundLinks =
     pages.length > 0
-      ? pages.reduce((sum, p) => sum + (p.outboundInternalLinks || 0), 0) / pages.length
+      ? pages.reduce((sum, p) => sum + (p.outboundInternalLinks || 0), 0) /
+        pages.length
       : 0;
 
   const rawEvidence = {
@@ -81,16 +105,28 @@ async function checkInternalLinks(domainInput) {
     keyPageDepth, // e.g. { contact: 1, about: 1, services: 0, blog: null, pricing: null }
     orphanPageCount: orphanCandidates.length,
     orphanPageSample: orphanCandidates.slice(0, 10),
-    pages: pages.map((p) => ({ url: p.url, depth: p.depth, ok: p.ok, status: p.status })),
+    pages: pages.map((p) => ({
+      url: p.url,
+      depth: p.depth,
+      ok: p.ok,
+      status: p.status,
+    })),
   };
 
-  return makeEvidence('internal-links', `bounded crawl (max ${MAX_CRAWL_PAGES} pages)`, rawEvidence);
+  return makeEvidence(
+    "internal-links",
+    `bounded crawl (max ${MAX_CRAWL_PAGES} pages)`,
+    rawEvidence,
+  );
 }
 
 module.exports = async (req, res) => {
-  const domain = req.method === 'POST' ? (req.body && req.body.domain) : req.query.domain;
+  const domain =
+    req.method === "POST" ? req.body && req.body.domain : req.query.domain;
   if (!domain) {
-    res.status(400).json({ error: 'domain is required (query param or JSON body field)' });
+    res
+      .status(400)
+      .json({ error: "domain is required (query param or JSON body field)" });
     return;
   }
   try {

@@ -5,9 +5,9 @@
 // is allowed to "decide" a score or ask an LLM to judge anything. That
 // separation is the whole point of the three-layer design (see README.md).
 
-'use strict';
+"use strict";
 
-const { FETCH_TIMEOUT_MS } = require('./config');
+const { FETCH_TIMEOUT_MS } = require("./config");
 
 /**
  * Builds one evidence object in the shape every check must return.
@@ -32,14 +32,17 @@ function makeEvidence(checkId, source, rawEvidence, extra = {}) {
  */
 async function fetchWithTimeout(url, options = {}) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), options.timeoutMs || FETCH_TIMEOUT_MS);
+  const timeout = setTimeout(
+    () => controller.abort(),
+    options.timeoutMs || FETCH_TIMEOUT_MS,
+  );
   try {
     const res = await fetch(url, {
       ...options,
       signal: controller.signal,
       headers: {
-        'User-Agent':
-          'KindredSystemsAEOBot/1.0 (+https://kindredsystems.com.au/aeo; AI Visibility Scorecard)',
+        "User-Agent":
+          "KindredSystemsAEOBot/1.0 (+https://kindredsystems.com.au/aeo; AI Visibility Scorecard)",
         ...(options.headers || {}),
       },
     });
@@ -80,8 +83,8 @@ async function safeFetchText(url, options = {}) {
 
 /** Normalises a user-supplied domain/URL into a clean https origin. */
 function normaliseDomain(input) {
-  let value = String(input || '').trim();
-  if (!value) throw new Error('domain is required');
+  let value = String(input || "").trim();
+  if (!value) throw new Error("domain is required");
   if (!/^https?:\/\//i.test(value)) value = `https://${value}`;
   const url = new URL(value);
   return `${url.protocol}//${url.host}`;
@@ -90,7 +93,8 @@ function normaliseDomain(input) {
 /** Extracts all <script type="application/ld+json"> block contents. */
 function extractJsonLdBlocks(html) {
   const blocks = [];
-  const re = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  const re =
+    /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let match;
   while ((match = re.exec(html)) !== null) {
     blocks.push(match[1].trim());
@@ -100,14 +104,14 @@ function extractJsonLdBlocks(html) {
 
 /** Strips tags to plain text (rough, good enough for word-count/readability). */
 function stripHtmlToText(html) {
-  return String(html || '')
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/\s+/g, ' ')
+  return String(html || "")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
@@ -132,7 +136,7 @@ function extractInternalLinks(html, baseUrl) {
     try {
       const resolved = new URL(match[1], base);
       if (resolved.host === base.host && /^https?:$/.test(resolved.protocol)) {
-        resolved.hash = '';
+        resolved.hash = "";
         links.add(resolved.toString());
       }
     } catch {

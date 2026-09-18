@@ -16,12 +16,15 @@
 //   possible) + paid evidence + the full 7-category weighted score +
 //   competitor comparison + a validated LLM narrative.
 
-'use strict';
+"use strict";
 
-const { normaliseDomain } = require('./lib/evidence-utils');
-const { withCache } = require('./lib/cache');
-const { requirePaidAccess, PaymentRequiredError } = require('./lib/payment-gate');
-const { MAX_COMPETITORS } = require('./lib/config');
+const { normaliseDomain } = require("./lib/evidence-utils");
+const { withCache } = require("./lib/cache");
+const {
+  requirePaidAccess,
+  PaymentRequiredError,
+} = require("./lib/payment-gate");
+const { MAX_COMPETITORS } = require("./lib/config");
 const {
   computeTechnicalReadinessSubscore,
   computeContentCoverageSubscore,
@@ -32,20 +35,23 @@ const {
   computeCompetitivePositionSubscore,
   computeOverallScore,
   computePartialScore,
-} = require('./lib/scoring');
-const { generateValidatedNarrative } = require('./lib/narrative');
+} = require("./lib/scoring");
+const { generateValidatedNarrative } = require("./lib/narrative");
 
-const { checkRobotsAndLlms } = require('./robots-llms');
-const { checkSitemap } = require('./sitemap');
-const { checkRawVsRendered } = require('./raw-vs-rendered');
-const { checkSchema } = require('./schema-check');
-const { checkContentStructure } = require('./content-structure');
-const { checkInternalLinks } = require('./internal-links');
-const { checkPageSpeed } = require('./pagespeed');
-const { runAiPanel } = require('./ai-panel');
-const { checkSerpVisibility } = require('./serp-visibility');
-const { checkPlaces } = require('./places');
-const { runCompetitorComparison, COMPARABLE_CATEGORIES } = require('./lib/competitor-pipeline');
+const { checkRobotsAndLlms } = require("./robots-llms");
+const { checkSitemap } = require("./sitemap");
+const { checkRawVsRendered } = require("./raw-vs-rendered");
+const { checkSchema } = require("./schema-check");
+const { checkContentStructure } = require("./content-structure");
+const { checkInternalLinks } = require("./internal-links");
+const { checkPageSpeed } = require("./pagespeed");
+const { runAiPanel } = require("./ai-panel");
+const { checkSerpVisibility } = require("./serp-visibility");
+const { checkPlaces } = require("./places");
+const {
+  runCompetitorComparison,
+  COMPARABLE_CATEGORIES,
+} = require("./lib/competitor-pipeline");
 
 async function runPaidPipeline(input) {
   const {
@@ -60,27 +66,36 @@ async function runPaidPipeline(input) {
     expectedNap,
   } = input;
 
-  if (!businessName) throw new Error('businessName is required');
-  if (!domainInput) throw new Error('domain is required');
+  if (!businessName) throw new Error("businessName is required");
+  if (!domainInput) throw new Error("domain is required");
 
   // Hard gate. Throws PaymentRequiredError (HTTP 402) if not verified.
   await requirePaidAccess(stripeSessionId, assessmentId);
 
   const domain = normaliseDomain(domainInput);
   const cappedCompetitors = (competitors || []).slice(0, MAX_COMPETITORS);
-  const searchQuery = `${service || industry || 'business'} ${location || ''}`.trim();
+  const searchQuery =
+    `${service || industry || "business"} ${location || ""}`.trim();
 
   // Re-use (or freshly run, if not cached / cache expired) the same
   // technical + content evidence the free tier already gathered for this
   // domain, rather than re-crawling from scratch.
-  const [robotsLlms, sitemap, rawVsRendered, schema, content, internalLinks, pagespeed] = await Promise.all([
-    withCache(domain, 'robots-llms', () => checkRobotsAndLlms(domain)),
-    withCache(domain, 'sitemap', () => checkSitemap(domain)),
-    withCache(domain, 'raw-vs-rendered', () => checkRawVsRendered(domain)),
-    withCache(domain, 'schema-check', () => checkSchema(domain)),
-    withCache(domain, 'content-structure', () => checkContentStructure(domain)),
-    withCache(domain, 'internal-links', () => checkInternalLinks(domain)),
-    withCache(domain, 'pagespeed', () => checkPageSpeed(domain)),
+  const [
+    robotsLlms,
+    sitemap,
+    rawVsRendered,
+    schema,
+    content,
+    internalLinks,
+    pagespeed,
+  ] = await Promise.all([
+    withCache(domain, "robots-llms", () => checkRobotsAndLlms(domain)),
+    withCache(domain, "sitemap", () => checkSitemap(domain)),
+    withCache(domain, "raw-vs-rendered", () => checkRawVsRendered(domain)),
+    withCache(domain, "schema-check", () => checkSchema(domain)),
+    withCache(domain, "content-structure", () => checkContentStructure(domain)),
+    withCache(domain, "internal-links", () => checkInternalLinks(domain)),
+    withCache(domain, "pagespeed", () => checkPageSpeed(domain)),
   ]);
 
   // Paid checks for the TARGET. ai-panel is called once here and its
@@ -95,7 +110,13 @@ async function runPaidPipeline(input) {
       competitorNames: cappedCompetitors.map((c) => c.name),
       paymentVerified: true,
     }),
-    checkSerpVisibility({ businessName, businessDomain: domain, query: searchQuery, location, paymentVerified: true }),
+    checkSerpVisibility({
+      businessName,
+      businessDomain: domain,
+      query: searchQuery,
+      location,
+      paymentVerified: true,
+    }),
     checkPlaces({ businessName, location, expectedNap, paymentVerified: true }),
   ]);
 
@@ -103,12 +124,15 @@ async function runPaidPipeline(input) {
     cappedCompetitors,
     aiPanel.rawEvidence.entities,
     searchQuery,
-    location
+    location,
   );
 
   const subscores = {
     aiDiscoverability: computeAIDiscoverabilitySubscore(aiPanel),
-    entityAuthority: computeEntityAuthoritySubscore(schema.rawEvidence, places.rawEvidence),
+    entityAuthority: computeEntityAuthoritySubscore(
+      schema.rawEvidence,
+      places.rawEvidence,
+    ),
     technicalReadiness: computeTechnicalReadinessSubscore({
       robotsLlms: robotsLlms.rawEvidence,
       sitemap: sitemap.rawEvidence,
@@ -126,33 +150,46 @@ async function runPaidPipeline(input) {
   // comparable-category subset used for competitors (no content-structure/
   // places data exists for competitors, so it would be unfair to include
   // those in the comparison — see lib/competitor-pipeline.js).
-  const targetComparableScore = computePartialScore(subscores, COMPARABLE_CATEGORIES).score;
-  const competitorComparableScores = competitorComparison.competitors.map((c) => c.comparableScore);
-  subscores.competitivePosition = computeCompetitivePositionSubscore(targetComparableScore, competitorComparableScores);
+  const targetComparableScore = computePartialScore(
+    subscores,
+    COMPARABLE_CATEGORIES,
+  ).score;
+  const competitorComparableScores = competitorComparison.competitors.map(
+    (c) => c.comparableScore,
+  );
+  subscores.competitivePosition = computeCompetitivePositionSubscore(
+    targetComparableScore,
+    competitorComparableScores,
+  );
 
   const overallScore = computeOverallScore(subscores);
 
   const evidenceById = {
-    'robots-llms': robotsLlms,
+    "robots-llms": robotsLlms,
     sitemap,
-    'raw-vs-rendered': rawVsRendered,
-    'schema-check': schema,
-    'content-structure': content,
-    'internal-links': internalLinks,
+    "raw-vs-rendered": rawVsRendered,
+    "schema-check": schema,
+    "content-structure": content,
+    "internal-links": internalLinks,
     pagespeed,
-    'ai-panel': aiPanel,
-    'serp-visibility': serp,
+    "ai-panel": aiPanel,
+    "serp-visibility": serp,
     places,
   };
 
-  const narrative = await generateValidatedNarrative(evidenceById, subscores, overallScore, businessName);
+  const narrative = await generateValidatedNarrative(
+    evidenceById,
+    subscores,
+    overallScore,
+    businessName,
+  );
 
   return {
     assessmentId,
     domain,
     businessName,
     generatedAtISO: new Date().toISOString(),
-    tier: 'paid',
+    tier: "paid",
     overallScore,
     subscores,
     competitivePosition: {
@@ -170,8 +207,8 @@ async function runPaidPipeline(input) {
 }
 
 module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    res.status(405).json({ error: 'POST required' });
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "POST required" });
     return;
   }
   try {
