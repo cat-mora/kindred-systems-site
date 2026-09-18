@@ -30,6 +30,16 @@
 // their docs - confirm the current request format before enabling, Vapi's
 // API has changed format before).
 //
+// ACCENT MATCHING, added 18 September 2026 at Cat's request: the call
+// also carries a per-lead voice override, sourced from ElevenLabs via
+// /api/voice/lib/voice-accents.js, so the assistant speaks in an accent
+// matched to the lead's own country rather than one fixed voice for
+// everyone. Cat flagged that both her Vapi and ElevenLabs accounts may
+// be dormant - see the setup steps at the top of voice-accents.js and in
+// docs/vapi/aeo-qualify-and-book-assistant.md before expecting this to
+// do anything beyond falling back to the assistant's own dashboard
+// voice.
+//
 // CALLING WINDOW (compliance constraint, not just the assistant's own
 // awareness - this file enforces it too):
 //   Weekdays  9am-8pm, recipient's local time
@@ -40,10 +50,13 @@
 // form does not currently collect the person's state/timezone. Most of
 // the Australian population is in an eastern-state timezone, but this
 // will be wrong for WA (and to a lesser extent SA/NT) leads near the
-// edges of the window. Ideally capture state/timezone on the form, or
-// derive it from phone area code, before this goes live - flagged in the
-// build report as needing a human decision, not something to keep
-// guessing at unprompted.
+// edges of the window, and now also for any overseas lead the new
+// Country field on the lead form lets through - the calling window
+// below is not adjusted per country yet, only the voice accent is.
+// Ideally capture state/timezone (or derive a real timezone from the
+// new country field) before this goes live for overseas leads at any
+// volume - flagged in the build report as needing a human decision, not
+// something to keep guessing at unprompted.
 //
 // ASSUMPTION FLAGGED: isAustralianPublicHoliday() below is a stub that
 // always returns false. There is no bundled AU public holiday calendar
@@ -51,6 +64,8 @@
 // or the `date-holidays` npm package once this project has a
 // package.json) before relying on this check - also flagged in the build
 // report.
+
+const { resolveVoiceForCountry } = require("./lib/voice-accents.js");
 
 const OUTBOUND_CALLING_ENABLED =
   String(process.env.OUTBOUND_CALLING_ENABLED || "false").toLowerCase() ===
@@ -127,7 +142,11 @@ function nextAllowedTime(date) {
 // Builds the context Vapi passes into the assistant so it does not
 // re-ask anything already answered on the form. Keys match the
 // {{template_variables}} referenced in
-// /docs/vapi/aeo-qualify-and-book-assistant.md's system prompt.
+// /docs/vapi/aeo-qualify-and-book-assistant.md's system prompt. Note:
+// the lead's country (used for voice-accent matching, not for this
+// object) is read separately in placeVapiCall() below via
+// resolveVoiceForCountry() - it is deliberately not injected here as a
+// prompt variable, since the assistant doesn't need to mention it.
 function buildKnownAnswers(lead) {
   return {
     lead_name: lead.name || "",
@@ -200,6 +219,28 @@ async function placeVapiCall(lead) {
     );
   }
 
+  const voice = resolveVoiceForCountry(lead.country);
+
+  const assistantOverrides = {
+    variableValues: buildKnownAnswers(lead),
+  };
+
+  // Only override the voice when a real ElevenLabs voice ID is actually
+  // configured for this lead's country (or the ELEVENLABS_VOICE_DEFAULT
+  // fallback) - see /api/voice/lib/voice-accents.js. An empty voiceId
+  // means nothing has been set up in Vercel yet, so this leaves the
+  // assistant's own dashboard-configured voice alone rather than sending
+  // a broken override to Vapi. Confirm this "voice" override shape
+  // against Vapi's current docs before relying on it - written from
+  // their documented assistant "voice" field pattern, not tested against
+  // a live account, same caveat as the call request format below.
+  if (voice.voiceId) {
+    assistantOverrides.voice = {
+      provider: voice.provider,
+      voiceId: voice.voiceId,
+    };
+  }
+
   // Confirm this request format against Vapi's current docs before
   // enabling - this is written from their documented outbound-call
   // pattern (POST /call with assistantId + phoneNumberId + customer),
@@ -217,9 +258,7 @@ async function placeVapiCall(lead) {
         number: lead.phone,
         name: lead.name,
       },
-      assistantOverrides: {
-        variableValues: buildKnownAnswers(lead),
-      },
+      assistantOverrides: assistantOverrides,
     }),
   });
 
@@ -237,9 +276,14 @@ async function placeVapiCall(lead) {
 // - it no-ops unless OUTBOUND_CALLING_ENABLED is explicitly "true".
 async function triggerOutboundCall(lead) {
   if (!OUTBOUND_CALLING_ENABLED) {
+    const voice = resolveVoiceForCountry(lead.country);
     console.log(
       "[voice/trigger-call] OUTBOUND_CALLING_ENABLED is false - would have called",
       lead.phone,
+      "country:",
+      lead.country || "(none given, defaults to AU accent)",
+      "resolved voice:",
+      JSON.stringify(voice),
       "with context",
       JSON.stringify(buildKnownAnswers(lead)),
     );

@@ -11,6 +11,12 @@
 // and the person still gets a 200, because losing the lead is worse than
 // losing the call.
 //
+// COUNTRY FIELD, added 18 September 2026 at Cat's request: the lead form
+// now asks the person's country, defaulting to Australia. It is stored
+// on the lead record and used by /api/voice/trigger-call.js (via
+// /api/voice/lib/voice-accents.js) to pick an ElevenLabs voice accent
+// that roughly matches the lead, not just used for phone normalisation.
+//
 // STORAGE
 // -------
 // The sibling app (cultivating-the-fruit-app) already uses Supabase, with
@@ -34,6 +40,7 @@
 //     name text not null,
 //     email text not null,
 //     phone text not null,
+//     country text default 'AU',           -- added 18 Sept 2026, drives voice-accent matching
 //     business_name text,
 //     website text,
 //     concern text,
@@ -49,6 +56,10 @@
 //     raw jsonb,
 //     created_at timestamptz not null default now()
 //   );
+//
+// If this table already exists from an earlier deploy without the
+// `country` column, add it with:
+//   alter table ai_visibility_leads add column if not exists country text default 'AU';
 //
 // Until that table exists (or the env vars aren't set), leads are logged
 // to the function's console output only. Vercel function logs are not a
@@ -66,18 +77,47 @@ function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value || "");
 }
 
-// Best-effort AU phone normalisation to E.164 (+61...). This assumes an
-// Australian mobile or landline number entered in a local format (04xx xxx
-// xxx, 02 xxxx xxxx, etc). It does not validate the number is real or
-// currently reachable, and does not handle non-AU numbers - flagged as a
-// known limitation, see the report handed back with this build.
-function normalisePhoneAU(raw) {
+// Calling codes for the countries this funnel explicitly supports a
+// voice accent for (see /api/voice/lib/voice-accents.js and
+// /docs/vapi/aeo-qualify-and-book-assistant.md). Deliberately small and
+// best-effort, not a full ITU calling-code table - a country missing
+// from this list is left as typed (see normalisePhone() below) rather
+// than guessed at.
+const COUNTRY_CALLING_CODES = {
+  AU: "61",
+  NZ: "64",
+  US: "1",
+  CA: "1",
+  GB: "44",
+  IE: "353",
+  ZA: "27",
+  IN: "91",
+  SG: "65",
+  PH: "63",
+  AE: "971",
+};
+
+// Best-effort normalisation to E.164-ish (+<calling code><digits>),
+// generalised 18 September 2026 from an AU-only version to use the new
+// Country field. Still assumes the person entered a full local number
+// with their own country's leading 0 already in place (true for
+// AU/NZ/GB/ZA local format, not universal - same class of limitation as
+// the AU-only version this replaces, still flagged as a known
+// limitation, not fully solved). If the raw value already starts with
+// "+", it's trusted as-is. A country not in COUNTRY_CALLING_CODES (for
+// example "OTHER") is left as typed, digits and a leading "+" only,
+// rather than guessed at.
+function normalisePhone(raw, countryCode) {
   if (!raw) return "";
   var digits = String(raw).replace(/[^\d+]/g, "");
   if (digits.startsWith("+")) return digits;
-  if (digits.startsWith("0")) return "+61" + digits.slice(1);
-  if (digits.startsWith("61")) return "+" + digits;
-  return digits;
+
+  var callingCode = COUNTRY_CALLING_CODES[String(countryCode || "").toUpperCase()];
+  if (!callingCode) return digits;
+
+  if (digits.startsWith("0")) return "+" + callingCode + digits.slice(1);
+  if (digits.startsWith(callingCode)) return "+" + digits;
+  return "+" + callingCode + digits;
 }
 
 async function storeLead(lead) {
@@ -94,6 +134,7 @@ async function storeLead(lead) {
         name: lead.name,
         email: lead.email,
         phone: lead.phone,
+        country: lead.country,
         business_name: lead.business_name,
         website: lead.website,
         concern: lead.concern,
@@ -171,6 +212,10 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ ok: false, error: "Invalid email address" });
   }
 
+  const country = body.country
+    ? String(body.country).trim().toUpperCase()
+    : "AU";
+
   const lead = {
     id:
       typeof require("crypto").randomUUID === "function"
@@ -178,7 +223,8 @@ module.exports = async function handler(req, res) {
         : String(Date.now()) + "-" + Math.random().toString(16).slice(2),
     name: String(body.name).trim(),
     email: String(body.email).trim().toLowerCase(),
-    phone: normalisePhoneAU(body.phone),
+    phone: normalisePhone(body.phone, country),
+    country: country,
     business_name: (body.business_name || "").trim(),
     website: (body.website || "").trim(),
     concern: (body.concern || "").trim(),
