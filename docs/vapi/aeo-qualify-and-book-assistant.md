@@ -15,7 +15,7 @@ Calls may only be placed:
 - **Never** on Sundays
 - **Never** on a declared Australian public holiday
 
-`/api/voice/trigger-call.js` checks this before every call and queues (rather than skips) anything outside the window, via `/api/voice/process-queue.js`. See that file's comments for two flagged limitations: it currently assumes `Australia/Sydney` time (the form doesn't collect the lead's own state or timezone yet), and its public-holiday check is a stub that always returns `false` until a real AU holiday data source is wired in. Both are called out again at the end of this doc under "Open items".
+`/api/voice/trigger-call.js` checks this before every call and queues (rather than skips) anything outside the window, via `/api/voice/process-queue.js`. See that file's comments for two flagged limitations: it currently assumes `Australia/Sydney` time (the form doesn't collect the lead's own state or timezone yet, and the new Country field described below doesn't fix this either - country is not the same as timezone), and its public-holiday check is a stub that always returns `false` until a real AU holiday data source is wired in. Both are called out again at the end of this doc under "Open items".
 
 ## Why this is framed as a solicited call, not telemarketing
 
@@ -30,12 +30,43 @@ Does not: sell, quote a price, describe the retainer or its packages, or try to 
 ## Suggested assistant configuration (set these in the Vapi dashboard)
 
 - **Model**: any of Vapi's supported conversational models will do here since there's no complex reasoning involved, pick whichever Cat already has quota/cost preference for.
-- **Voice**: an Australian-accented voice if one is available in Cat's chosen provider. Cat should listen to a couple of options in the Vapi dashboard and pick one that sounds friendly and unhurried, not upbeat-salesy - this is a values call, not a pitch.
+- **Voice**: set a sensible Australian-accented voice as the dashboard default (this is the fallback used for any lead whose country doesn't resolve to a configured accent, or if the accent-matching setup below isn't finished yet). The real per-call voice comes from ElevenLabs via `assistantOverrides.voice`, matched to the lead's own country - see "Matching the caller's accent" below. Whichever voice ends up as the dashboard default, or in each `ELEVENLABS_VOICE_*` env var, it should sound friendly and unhurried, not upbeat-salesy - this is a values call, not a pitch.
 - **Transcriber**: default provider is fine.
 - **First message mode**: "assistant speaks first" (this call is outbound, the assistant always opens).
 - **Silence timeout**: keep this generous (30 seconds or more) - some people take a moment to decide whether to keep talking, and this assistant should never sound like it's rushing someone off the phone.
 - **End call phrases**: add something like "no thanks", "not interested", "take me off your list", "wrong number" as end-call trigger phrases if Vapi's dashboard supports configuring these separately from the system prompt (belt-and-suspenders alongside the system prompt instructions below).
 - **Max call duration**: 6 to 8 minutes is plenty for acknowledge + qualify + book. Cap it so a call can't run long even if something goes wrong.
+
+## Matching the caller's accent (ElevenLabs, per country)
+
+Added 18 September 2026 at Cat's request: the assistant now speaks in an ElevenLabs voice matched to the lead's own country, rather than one fixed voice for everyone. This is an **accent match only** - the assistant still speaks English throughout, per the system prompt below, nothing here changes the language. It's entirely config-driven: `/api/voice/lib/voice-accents.js` maps a country code to a Vercel env var name, and `/api/voice/trigger-call.js` sends that voice ID to Vapi as a per-call `assistantOverrides.voice` on every outbound call. No code change is needed to add, change or remove a voice, only an env var.
+
+Cat mentioned both the Vapi and ElevenLabs accounts may be dormant. Before any of this can work for real:
+
+1. **Confirm both accounts are active.** Log into Vapi and ElevenLabs directly and check neither subscription has lapsed or paused. Reactivating either, if it needs a payment method or a plan change, needs Cat's own login - not something this build can do from here.
+2. **Get fresh API keys if either was rotated, or has never been generated.** `VAPI_API_KEY` (already needed regardless of accents, see "Stays switched off" above) and, separately, an ElevenLabs API key.
+3. **Link ElevenLabs to Vapi as a Voice Provider**, inside Vapi's own dashboard (Voice Providers / Integrations - wording may have moved, check Vapi's current docs). This is the piece that actually lets Vapi speak with an ElevenLabs voice: this build's code only ever sends a `voiceId`, it never calls ElevenLabs directly, so if this link isn't set up in Vapi, the override will fail or silently fall back to the dashboard default.
+4. **Pick or clone one ElevenLabs voice per accent Cat wants covered.** A reasonable starting set, matching the countries the lead form's new Country field offers: Australian, New Zealand, American, British, Canadian, Irish, South African, Indian, Singaporean, Filipino, and a neutral or British-leaning voice for UAE unless Cat finds something more specific. Copy each one's Voice ID from ElevenLabs.
+5. **Set the matching env var in Vercel** for each accent Cat wants covered, plus one default:
+
+   | Country | Env var |
+   |---|---|
+   | Australia | `ELEVENLABS_VOICE_AU` |
+   | New Zealand | `ELEVENLABS_VOICE_NZ` |
+   | United States | `ELEVENLABS_VOICE_US` |
+   | United Kingdom | `ELEVENLABS_VOICE_GB` |
+   | Canada | `ELEVENLABS_VOICE_CA` |
+   | Ireland | `ELEVENLABS_VOICE_IE` |
+   | South Africa | `ELEVENLABS_VOICE_ZA` |
+   | India | `ELEVENLABS_VOICE_IN` |
+   | Singapore | `ELEVENLABS_VOICE_SG` |
+   | Philippines | `ELEVENLABS_VOICE_PH` |
+   | United Arab Emirates | `ELEVENLABS_VOICE_AE` |
+   | Everyone else / "Somewhere else" on the form | `ELEVENLABS_VOICE_DEFAULT` |
+
+Leaving any one of these unset is safe: that country falls back to `ELEVENLABS_VOICE_DEFAULT`, and if that's unset too, the call just uses the voice set as the assistant's own dashboard default, exactly as it worked before this feature existed. Under-configuring this never breaks anything, it just means fewer accents actually get matched.
+
+The lead's country now comes from a new **Country** field on `/ai-visibility/lead-form.html` (defaults to Australia, the person can pick another). It is stored alongside the rest of the lead record and is a separate signal from phone-number normalisation - it does **not** fix the timezone/calling-window assumption flagged above, since country is not the same as timezone. That is still open, see "Open items" below.
 
 ## First message
 
@@ -120,7 +151,7 @@ Always end the call cleanly. If you are unsure whether the person wants to keep 
 | `{{decision_maker}}` | "Are you the person who'd make the final call..." | `decision_maker` |
 | `{{best_time}}` | "Best time to reach you..." | `best_time` |
 
-These are assembled by `buildKnownAnswers()` in `/api/voice/trigger-call.js` and passed to Vapi as `assistantOverrides.variableValues` on the outbound call request. An empty string means the assistant should treat that question as unanswered and ask it.
+These are assembled by `buildKnownAnswers()` in `/api/voice/trigger-call.js` and passed to Vapi as `assistantOverrides.variableValues` on the outbound call request. An empty string means the assistant should treat that question as unanswered and ask it. Note the lead's `country` field is deliberately **not** in this table: it's used separately, to pick a voice (see "Matching the caller's accent" above), not injected into the system prompt as a spoken variable.
 
 ## Tool: `book_sales_call`
 
@@ -177,16 +208,18 @@ Note on the `server.url`: confirm this is the correct production domain before p
 
 ## Testing before going live
 
-1. With `OUTBOUND_CALLING_ENABLED` left at its default (`false`), submit a few test leads through `/ai-visibility/lead-form.html` and confirm in the Vercel function logs that `/api/leads/submit.js` stores the lead and `/api/voice/trigger-call.js` logs "would have called" with the right known-answers context, instead of placing a real call.
-2. In the Vapi dashboard's own test/simulate call feature, run through the system prompt with a few known-answers combinations (all blank, all filled, a mix) and confirm the assistant skips questions it already has answers to.
+1. With `OUTBOUND_CALLING_ENABLED` left at its default (`false`), submit a few test leads through `/ai-visibility/lead-form.html`, trying a few different Country selections, and confirm in the Vercel function logs that `/api/leads/submit.js` stores the lead and `/api/voice/trigger-call.js` logs "would have called" with the right known-answers context AND the right resolved voice for that country, instead of placing a real call.
+2. In the Vapi dashboard's own test/simulate call feature, run through the system prompt with a few known-answers combinations (all blank, all filled, a mix) and confirm the assistant skips questions it already has answers to. If the simulator supports passing an `assistantOverrides.voice`, test at least one non-default accent there too; if it doesn't, this is confirmed on a real test call instead (see step 4).
 3. Test the opt-out path directly: as the test caller, say "not interested" or "wrong number" partway through and confirm the assistant ends the call immediately rather than continuing.
-4. Only once Cat has had a lawyer's read of the compliance framing above, set `OUTBOUND_CALLING_ENABLED=true` in Vercel and test with a real call to a number Cat controls, outside of business hours first (to confirm the queueing behaviour) and then inside the window (to confirm the call goes through).
+4. Only once Cat has had a lawyer's read of the compliance framing above, set `OUTBOUND_CALLING_ENABLED=true` in Vercel and test with a real call to a number Cat controls, outside of business hours first (to confirm the queueing behaviour) and then inside the window (to confirm the call goes through). Test at least two Country selections on real calls to confirm the ElevenLabs accent override actually reaches the call, not just the dry-run log.
 
 ## Open items flagged for a human decision
 
-- **Timezone assumption**: the calling-window check in `/api/voice/trigger-call.js` assumes `Australia/Sydney` time for every lead, since the form doesn't currently capture state or timezone. This is wrong for WA leads near the edges of the window. Decide whether to add a state/timezone field to the lead form, or derive it from phone area code, before this goes live nationally.
+- **Timezone assumption**: the calling-window check in `/api/voice/trigger-call.js` assumes `Australia/Sydney` time for every lead, since the form doesn't currently capture state or timezone. This is wrong for WA leads near the edges of the window, and for any overseas lead the new Country field now lets through - country is not the same as timezone, and this has not been fixed as part of the accent-matching work. Decide whether to add a state/timezone field to the lead form, or derive it from phone area code or country, before this goes live nationally or internationally.
 - **Public holiday data**: `isAustralianPublicHoliday()` in `/api/voice/trigger-call.js` is a stub that always returns `false`. It needs a real data source (state public holidays differ) before the "never on a public holiday" rule has any effect.
-- **Vapi API format**: the outbound-call request in `/api/voice/trigger-call.js` and `/api/voice/process-queue.js`, and the tool webhook format in `/api/voice/book-call.js`, are written from Vapi's documented patterns but have not been tested against a live Vapi account. Confirm the exact request/response format against their current docs when Cat sets the assistant up.
+- **Vapi API format**: the outbound-call request in `/api/voice/trigger-call.js` and `/api/voice/process-queue.js`, the `assistantOverrides.voice` override shape used for accent matching, and the tool webhook format in `/api/voice/book-call.js`, are all written from Vapi's documented patterns but have not been tested against a live Vapi account. Confirm the exact request/response format against their current docs when Cat sets the assistant up.
+- **Vapi/ElevenLabs account status**: Cat flagged both accounts may be dormant. Neither the ElevenLabs voice-accent matching nor the calls themselves will work until both are confirmed active, and ElevenLabs is linked to Vapi as a Voice Provider - see "Matching the caller's accent" above for the exact steps, all of which need Cat's own login.
+- **Accent coverage is limited**: only Australia, New Zealand, the US, UK, Canada, Ireland, South Africa, India, Singapore, the Philippines and the UAE have a dedicated env var slot today. Anything else (or "Somewhere else" on the form) falls back to `ELEVENLABS_VOICE_DEFAULT`. Extending coverage is just adding another country/env-var pair to `/api/voice/lib/voice-accents.js` and the lead form's Country field, not a rebuild.
 - **Queue scheduler**: `/api/voice/process-queue.js` needs something to call it on a schedule (a Vercel Cron entry in `vercel.json`, most likely) so queued calls get processed. Adding that entry was left out of this build since `vercel.json` is a shared file outside this task's scope.
 - **Database**: everything above assumes Supabase (`SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY`), matching the pattern already used in `cultivating-the-fruit-app`. If the scoring-pipeline team building the hub page in parallel on this branch is already standing up a different database, reconcile the table names (`ai_visibility_leads`, `scheduled_calls`) and env var names with theirs rather than running two.
 - **Lawyer's review**: repeating this from the top of the doc since it's the most important item on this list: get that read before flipping `OUTBOUND_CALLING_ENABLED`.
