@@ -59,7 +59,9 @@ const VAPI_ELEVENLABS_PROVIDER_KEY = "11labs";
 // country match -> ELEVENLABS_VOICE_DEFAULT -> "" (meaning "leave the
 // assistant's own dashboard-configured voice alone").
 function resolveVoiceForCountry(countryCode) {
-  const normalised = String(countryCode || "").trim().toUpperCase();
+  const normalised = String(countryCode || "")
+    .trim()
+    .toUpperCase();
   const envVarName = ACCENT_ENV_VAR_BY_COUNTRY[normalised];
   const specificVoiceId = envVarName ? process.env[envVarName] || "" : "";
 

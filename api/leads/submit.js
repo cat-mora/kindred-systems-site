@@ -112,7 +112,8 @@ function normalisePhone(raw, countryCode) {
   var digits = String(raw).replace(/[^\d+]/g, "");
   if (digits.startsWith("+")) return digits;
 
-  var callingCode = COUNTRY_CALLING_CODES[String(countryCode || "").toUpperCase()];
+  var callingCode =
+    COUNTRY_CALLING_CODES[String(countryCode || "").toUpperCase()];
   if (!callingCode) return digits;
 
   if (digits.startsWith("0")) return "+" + callingCode + digits.slice(1);
