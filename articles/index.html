@@ -712,7 +712,7 @@
           <!-- Topic filters: client-side show/hide only. Every article card
                stays present in the rendered HTML regardless of which filter is
                selected, so nothing here creates a separate, duplicate URL.
-               The data-topic values below must match the six categories
+               The data-topic values below must match the categories
                described underneath, and the data-topic on each article card. -->
           <div
             class="topic-filters"
@@ -775,49 +775,303 @@
             >
               Lead conversion in specific industries
             </button>
-          </div>
-
-          <div class="articles-empty" id="articlesEmpty">
-            <p>
-              Nothing is published here yet. The first articles are being
-              written and this page will list them, filterable by topic, as soon
-              as they are live.
-            </p>
-            <p>
-              Want an answer sooner? Book a Discovery Call and ask Cathryn
-              directly.
-            </p>
-            <a
-              class="button"
-              href="https://tidycal.com/kindredsystems/discovery-call"
-              target="_blank"
-              rel="noopener"
-              >Book a Discovery Call</a
+            <button
+              type="button"
+              class="topic-filter"
+              data-topic="aeo"
+              aria-pressed="false"
             >
+              Answer Engine Optimisation
+            </button>
           </div>
 
           <!--
-            REUSABLE ARTICLE-CARD MARKUP (copy one per real article once the
-            article pack is supplied). Wrap one or more inside
-            <div class="articles-grid" id="articlesGrid"> ... </div>, and remove
-            the #articlesEmpty block above once at least one real article
-            exists. data-topic must be one of: enquiry-response,
-            consultations-proposals, follow-up, database-nurture,
-            crm-automation-ai, industries.
-
-            <a class="article-card" data-topic="enquiry-response" href="/articles/good-lead-response-time/">
+            Article cards below are generated from the approved article pack.
+            data-topic must be one of: enquiry-response, consultations-proposals,
+            follow-up, database-nurture, crm-automation-ai, industries, aeo.
+            /articles/_article-template/ is the shape for any new article.
+          -->
+          <div class="articles-grid" id="articlesGrid">
+            <a
+              class="article-card"
+              data-topic="enquiry-response"
+              href="/articles/what-is-lead-conversion-service-business/"
+            >
               <div class="article-meta">
                 <span class="article-topic">Enquiry response and missed calls</span>
-                <span>6 min read</span>
-                <span>Updated 17 September 2026</span>
+                <span>5 min read</span>
+                <span>Updated 20 September 2026</span>
               </div>
-              <h3>What is a good lead response time for a high-value service business?</h3>
-              <p class="article-summary">One-sentence summary of the answer, taken from the article's opening paragraph.</p>
+              <h3>What is lead conversion, and how can a service business improve it?</h3>
+              <p class="article-summary">Lead conversion is what happens between someone making an enquiry and becoming a paying client.</p>
               <span class="article-link-text">Read the answer &rarr;</span>
             </a>
-          -->
-          <div class="articles-grid" id="articlesGrid" style="display: none">
-            <!-- Real article cards go here. -->
+            <a
+              class="article-card"
+              data-topic="enquiry-response"
+              href="/articles/convert-more-leads-without-more-marketing-spend/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Enquiry response and missed calls</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How can a business convert more leads without spending more on lead generation?</h3>
+              <p class="article-summary">Start with the enquiries you already receive. Find out how many are contacted, how many book, how many attend and how many become clients.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="consultations-proposals"
+              href="/articles/good-lead-conversion-rate-high-value-services/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Consultations, quotes and proposals</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>What is a good lead conversion rate for a high-value service business?</h3>
+              <p class="article-summary">There is no single conversion rate that every high-value service business should aim for.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="enquiry-response"
+              href="/articles/how-quickly-respond-new-enquiry/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Enquiry response and missed calls</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How quickly should a business respond to a new enquiry?</h3>
+              <p class="article-summary">Reply as quickly as you can without rushing or giving the wrong information.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="follow-up"
+              href="/articles/how-many-times-follow-up-lead/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Follow-up and long buying cycles</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How many times should you follow up with a lead?</h3>
+              <p class="article-summary">There is no magic number. Follow up while you still have something helpful to say, or when you agreed to contact the person again.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="follow-up"
+              href="/articles/why-good-leads-stop-responding/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Follow-up and long buying cycles</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>Why do good leads stop responding or disappear after an enquiry?</h3>
+              <p class="article-summary">Good leads stop responding when life gets in the way or the business leaves important questions unanswered.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="consultations-proposals"
+              href="/articles/find-where-leads-are-lost-sales-process/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Consultations, quotes and proposals</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How can you tell where leads are being lost in your sales process?</h3>
+              <p class="article-summary">Write down what should happen from the first enquiry until somebody becomes a client.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="crm-automation-ai"
+              href="/articles/do-you-need-new-crm-improve-lead-conversion/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">CRM, automation and AI</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>Do you need a new CRM to improve lead conversion?</h3>
+              <p class="article-summary">Not necessarily. Many businesses already have software that can track enquiries, but the team is not using it consistently or nobody is responsible for follow-up.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="database-nurture"
+              href="/articles/reactivate-cold-lead-database-without-damaging-trust/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Database nurture and reactivation</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How do you reactivate a cold lead database without damaging trust?</h3>
+              <p class="article-summary">Start by confirming you are permitted to contact the people, cleaning the data and segmenting it by the relationship and original interest.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="crm-automation-ai"
+              href="/articles/can-ai-follow-up-leads-without-feeling-impersonal/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">CRM, automation and AI</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>Can AI follow up leads without making the experience feel impersonal?</h3>
+              <p class="article-summary">Yes, if AI helps the team reply faster and remember follow-up without taking over conversations that need care or judgement.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="crm-automation-ai"
+              href="/articles/what-to-automate-lead-follow-up-what-remains-human/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">CRM, automation and AI</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>What should be automated in lead follow-up, and what should remain human?</h3>
+              <p class="article-summary">Automate simple, repeatable tasks such as confirming an enquiry, sending reminders, assigning follow-up and providing approved information.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="industries"
+              href="/articles/cosmetic-dental-follow-up-unaccepted-treatment-plans/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Lead conversion in specific industries</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How should cosmetic dental practices follow up unaccepted treatment plans?</h3>
+              <p class="article-summary">Follow up unaccepted treatment plans by checking understanding, inviting questions and making the next clinical or administrative step clear.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="industries"
+              href="/articles/why-cosmetic-surgery-enquiries-disappear-after-consultation/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Lead conversion in specific industries</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>Why do cosmetic surgery enquiries disappear after a consultation?</h3>
+              <p class="article-summary">People may stop replying after a cosmetic surgery consultation because the decision suddenly feels more real.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="industries"
+              href="/articles/how-quickly-law-firm-respond-new-client-enquiry/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Lead conversion in specific industries</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How quickly should a law firm respond to a new client enquiry?</h3>
+              <p class="article-summary">A law firm should acknowledge a new enquiry promptly and triage any urgent deadline, safety or conflict issue through an approved intake process.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="industries"
+              href="/articles/family-law-follow-up-without-pressure/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Lead conversion in specific industries</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How should family law firms follow up with prospective clients without adding pressure?</h3>
+              <p class="article-summary">First confirm how and when it is safe to contact the person. Explain what happens next and give them an easy way to ask questions, wait or stop contact.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="industries"
+              href="/articles/financial-adviser-nurture-prospects-not-ready/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Lead conversion in specific industries</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How should financial advisers nurture prospects who are not ready to proceed?</h3>
+              <p class="article-summary">Ask what the person is waiting for and agree on when you will contact them again.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="industries"
+              href="/articles/real-estate-follow-up-open-home-property-enquiries/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Lead conversion in specific industries</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How should real estate agents follow up open-home attendees and property enquiries?</h3>
+              <p class="article-summary">Reply promptly with the information the buyer asked for, then ask about their needs, timing, finance position and preferred contact.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="industries"
+              href="/articles/identify-buyers-who-also-have-property-to-sell/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Lead conversion in specific industries</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How can real estate agents identify buyers who also have a property to sell?</h3>
+              <p class="article-summary">Ask buyers whether they need to sell another property before they can buy, then record the answer and who will follow it up.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="industries"
+              href="/articles/why-building-renovation-prospects-disappear-after-quote/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Lead conversion in specific industries</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>Why do building and renovation prospects disappear after receiving a quote or proposal?</h3>
+              <p class="article-summary">People often stop replying because the quote gives them more questions.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
+            <a
+              class="article-card"
+              data-topic="aeo"
+              href="/articles/how-to-be-recommended-by-chatgpt/"
+            >
+              <div class="article-meta">
+                <span class="article-topic">Answer Engine Optimisation</span>
+                <span>4 min read</span>
+                <span>Updated 20 September 2026</span>
+              </div>
+              <h3>How can a business improve its chances of being recommended by ChatGPT?</h3>
+              <p class="article-summary">Make it easy for ChatGPT and other answer engines to understand what your business does and confirm that the information is accurate.</p>
+              <span class="article-link-text">Read the answer &rarr;</span>
+            </a>
           </div>
 
           <div class="category-grid">
@@ -855,6 +1109,15 @@
                 How to use systems to support a sound conversion process, reduce
                 missed steps and improve customer experience without automating
                 the wrong process.
+              </p>
+            </div>
+            <div class="category-card">
+              <h3>Answer Engine Optimisation</h3>
+              <p>
+                How to make a business easier for ChatGPT and other answer
+                engines to understand, verify and include in relevant answers.
+                Answer Engine Optimisation is a separate service, available to
+                advisory clients and other businesses.
               </p>
             </div>
             <div class="category-card">
