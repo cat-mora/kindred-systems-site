@@ -1,0 +1,70 @@
+name: Sitemap and IndexNow
+
+# Keeps sitemap.xml generated from the pages that actually exist, and tells
+# IndexNow which pages changed. Neither file should ever be edited by hand.
+#
+# Runs on main only. A pull request will not show a sitemap change; the sitemap
+# updates on merge, which is when the pages are actually live.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: sitemap-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+        with:
+          # Full history, because lastmod comes from each file's own last commit
+          # date rather than from today. A shallow clone would date every page
+          # the same and make lastmod useless.
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Regenerate sitemap
+        run: node scripts/generate-sitemap.mjs
+
+      - name: Commit sitemap if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- sitemap.xml; then
+            echo "Sitemap unchanged."
+          else
+            git add sitemap.xml
+            git commit -m "chore: regenerate sitemap.xml"
+            # The Code Check workflow pushes formatting fixes to the same branch,
+            # so the two can collide. Rebase and retry rather than losing either.
+            pushed=false
+            for attempt in 1 2 3 4 5; do
+              if git pull --rebase --autostash && git push; then
+                pushed=true
+                break
+              fi
+              sleep $((attempt * 5))
+            done
+            if [ "$pushed" = false ]; then
+              echo "::error::Could not push the regenerated sitemap after 5 attempts."
+              exit 1
+            fi
+          fi
+
+      - name: Notify IndexNow of changed pages
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: node scripts/ping-indexnow.mjs
