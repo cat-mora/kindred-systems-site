@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      AI Business Outcomes Advisory &amp; Executive AI Sprint | Kindred Systems
+      Lead Conversion Advisory for High Value Services | Kindred Systems
     </title>
     <meta
       name="description"
-      content="Kindred Systems helps high-value Australian service businesses turn more enquiries into clients, through a 90-day AI Business Outcomes Advisory engagement or a short Executive AI Sprint."
+      content="Find and fix lost enquiries, slow follow-up and sales gaps with Lead Conversion Advisory for high-value service businesses worldwide."
     />
     <link rel="canonical" href="https://kindredsystems.com.au/advisory/" />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
@@ -27,11 +27,11 @@
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
     <meta
       property="og:title"
-      content="AI Business Outcomes Advisory & Executive AI Sprint | Kindred Systems"
+      content="Lead Conversion Advisory for High Value Services | Kindred Systems"
     />
     <meta
       property="og:description"
-      content="Kindred Systems helps high-value Australian service businesses turn more enquiries into clients, through a 90-day AI Business Outcomes Advisory engagement or a short Executive AI Sprint."
+      content="Find and fix lost enquiries, slow follow-up and sales gaps with Lead Conversion Advisory for high-value service businesses worldwide."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kindredsystems.com.au/advisory/" />
@@ -39,12 +39,25 @@
       property="og:image"
       content="https://kindredsystems.com.au/assets/ks_social-share.jpg?v=2"
     />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Lead Conversion Advisory for High Value Services | Kindred Systems"
+    />
+    <meta
+      name="twitter:description"
+      content="Find and fix lost enquiries, slow follow-up and sales gaps with Lead Conversion Advisory for high-value service businesses worldwide."
+    />
+    <meta
+      name="twitter:image"
+      content="https://kindredsystems.com.au/assets/ks_social-share.jpg?v=2"
+    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@graph": [
           {
-            "@type": "Organization",
+            "@type": ["Organization", "ProfessionalService"],
             "@id": "https://kindredsystems.com.au/#org",
             "name": "Kindred Systems",
             "url": "https://kindredsystems.com.au",
@@ -53,21 +66,50 @@
             "founder": {
               "@id": "https://kindredsystems.com.au/about/#cathryn"
             },
-            "description": "Kindred Systems helps high-value Australian service businesses turn more enquiries into clients, through a 90-day AI Business Outcomes Advisory engagement, a short Executive AI Sprint, or a $59 USD AI Visibility (AEO) Audit.",
-            "areaServed": "AU",
-            "knowsAbout": [
-              "growth strategy",
-              "enquiry and lead conversion",
-              "AI strategy",
-              "answer engine optimisation"
-            ]
+            "areaServed": {
+              "@type": "Place",
+              "name": "Worldwide"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://kindredsystems.com.au/about/#cathryn",
+            "name": "Cathryn Mora",
+            "jobTitle": "Lead Conversion Advisor",
+            "worksFor": { "@id": "https://kindredsystems.com.au/#org" },
+            "url": "https://kindredsystems.com.au/about/"
+          },
+          {
+            "@type": "Service",
+            "@id": "https://kindredsystems.com.au/advisory/#service",
+            "name": "Lead Conversion Advisory",
+            "serviceType": "Lead conversion advisory",
+            "url": "https://kindredsystems.com.au/advisory/",
+            "provider": { "@id": "https://kindredsystems.com.au/#org" },
+            "description": "Lead Conversion Advisory examines the full enquiry-to-client path for established high-value service businesses, identifies where suitable prospects are being lost, and improves the highest-value gap through process, messaging, follow-up, sales, CRM, automation or AI.",
+            "areaServed": {
+              "@type": "Place",
+              "name": "Worldwide"
+            },
+            "audience": {
+              "@type": "BusinessAudience",
+              "name": "Established high-value service businesses"
+            },
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "name": "Online delivery",
+              "serviceUrl": "https://kindredsystems.com.au/advisory/"
+            }
           },
           {
             "@type": "WebPage",
             "@id": "https://kindredsystems.com.au/advisory/#webpage",
             "url": "https://kindredsystems.com.au/advisory/",
-            "name": "AI Business Outcomes Advisory & Executive AI Sprint | Kindred Systems",
+            "name": "Lead Conversion Advisory for High Value Services | Kindred Systems",
             "isPartOf": { "@id": "https://kindredsystems.com.au/#org" },
+            "about": {
+              "@id": "https://kindredsystems.com.au/advisory/#service"
+            },
             "breadcrumb": {
               "@type": "BreadcrumbList",
               "itemListElement": [
@@ -80,81 +122,54 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Advisory",
+                  "name": "Lead Conversion Advisory",
                   "item": "https://kindredsystems.com.au/advisory/"
                 }
               ]
             }
           },
           {
-            "@type": "Service",
-            "name": "AI Business Outcomes Advisory",
-            "provider": { "@id": "https://kindredsystems.com.au/#org" },
-            "description": "Kindred Systems helps high-value Australian service businesses turn more enquiries into clients, through a 90-day AI Business Outcomes Advisory engagement or a short Executive AI Sprint.",
-            "url": "https://kindredsystems.com.au/advisory/",
-            "areaServed": "AU",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Advisory engagements",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "name": "Discovery Call",
-                  "price": "0",
-                  "priceCurrency": "AUD"
-                },
-                {
-                  "@type": "Offer",
-                  "name": "AI Business Outcomes Advisory"
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Executive AI Sprint"
-                }
-              ]
-            }
-          },
-          {
             "@type": "FAQPage",
+            "@id": "https://kindredsystems.com.au/advisory/#faq",
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Does GST apply to Kindred Systems' fees?",
+                "name": "Do you advise or implement?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Australian clients are invoiced with 10% GST added. Invoices are issued per engagement milestone or monthly for retainers."
+                  "text": "Both can be included within the agreed scope. The work may involve analysis and advice, as well as creating messages, sequences, procedures, CRM workflows, reporting and other assets needed to improve the selected result. Specialist technical support can be recommended where required."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Are travel costs included for on-site AI advisory work?",
+                "name": "How much does Lead Conversion Advisory cost?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Travel and accommodation for on-site engagements are charged at cost and agreed before work begins. Remote engagements incur no travel cost."
+                  "text": "Each engagement is scoped around the business, the commercial opportunity and the work required. Pricing is discussed during the Discovery Call after there is enough information to assess fit."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Do we need to nominate someone to run the engagement internally?",
+                "name": "Can you guarantee a conversion increase?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "For multi-day and retainer engagements, clients need to nominate an internal sponsor with real decision-making authority. Engagements without this tend to stall."
+                  "text": "No adviser can responsibly guarantee how individual customers will decide. Kindred Systems can establish a baseline, identify gaps, create and apply the agreed changes, and measure what happens afterwards."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Is client information kept confidential during an engagement?",
+                "name": "Will you recommend software you sell?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Confidentiality terms are available before substantive discovery begins. Client information is not shared with third parties or used across other engagements."
+                  "text": "Recommendations begin with what the business needs and what its current systems can already do. If the existing platform can support the required process, the first option is to use it better. If it cannot, we can assess other platforms, add an appropriate solution or, where needed, provide a custom system that Kindred Systems builds and manages. The recommendation depends on what will serve the business, rather than selling software it does not need. Any commission or margin from a recommended platform is disclosed in writing."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How much capacity does Kindred Systems have for new AI Business Outcomes Advisory clients?",
+                "name": "Can you help us appear in ChatGPT recommendations?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "AI Business Outcomes Advisory slots are limited to keep each 90-day engagement well resourced. Enquire early if your timeline is fixed, such as a board date or budget cycle."
+                  "text": "Yes. Answer Engine Optimisation is a separate service Kindred Systems has added for businesses that want ChatGPT and other answer engines to understand their business and include it in relevant answers. It is available to advisory clients and other businesses, and it is not part of the standard Lead Conversion Advisory engagement. Visibility can be measured and improved, but no business can be promised a guaranteed recommendation or position in ChatGPT or another answer engine."
                 }
               }
             ]
@@ -192,7 +207,6 @@
       }
       a {
         color: inherit;
-        text-decoration: none;
       }
       .container {
         width: min(1120px, calc(100% - 40px));
@@ -215,6 +229,7 @@
       .brand {
         display: inline-flex;
         align-items: center;
+        text-decoration: none;
         flex: 0 0 auto;
       }
       .brand-logo-img {
@@ -227,12 +242,13 @@
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 28px;
+        gap: 22px;
         font-size: 14px;
         font-weight: 500;
         color: var(--bluecharcoal);
       }
       .nav-links a {
+        text-decoration: none;
         color: var(--bluecharcoal);
         transition: color 0.15s;
       }
@@ -251,10 +267,12 @@
         font-size: 13px;
         font-weight: 600;
         white-space: nowrap;
+        text-decoration: none;
         transition: background 0.15s;
       }
       .nav-cta:hover {
         background: var(--bluecharcoal);
+        color: var(--white) !important;
       }
       .hamburger {
         display: none;
@@ -292,15 +310,18 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 32px;
+        gap: 28px;
       }
       .mobile-menu.open {
         display: flex;
       }
       .mobile-menu a {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 600;
         color: var(--navy);
+        text-decoration: none;
+        letter-spacing: -0.3px;
+        text-align: center;
       }
       .mobile-menu a:hover {
         color: var(--brass);
@@ -317,16 +338,17 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 13px 24px;
-        border-radius: 999px;
+        padding: 14px 28px;
+        border-radius: 100px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.18s;
+        cursor: pointer;
+        white-space: nowrap;
         background: var(--navy);
         color: var(--white);
-        font-weight: 700;
-        font-size: 15px;
         border: 2px solid var(--navy);
-        cursor: pointer;
-        transition: all 0.15s;
-        white-space: nowrap;
       }
       .button:hover {
         background: var(--bluecharcoal);
@@ -335,12 +357,11 @@
       .button.secondary {
         background: transparent;
         color: var(--navy);
-        border-color: rgba(16, 42, 67, 0.3);
+        border-color: var(--navy);
       }
       .button.secondary:hover {
         background: var(--navy);
         color: var(--white);
-        border-color: var(--navy);
       }
       .button.brass {
         background: var(--brass);
@@ -352,88 +373,75 @@
         border-color: #a88d54;
       }
       .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--bluecharcoal);
-        font-size: 13px;
+        font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        margin-bottom: 18px;
+        color: var(--brass);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
       .eyebrow::before {
         content: "";
+        display: block;
         width: 28px;
         height: 2px;
         background: var(--brass);
         flex-shrink: 0;
       }
       section {
-        padding: 74px 0;
+        padding: 80px 0;
       }
       .section-divider {
         border: none;
-        border-top: 1px solid rgba(16, 42, 67, 0.08);
+        border-top: 1px solid var(--stone);
         margin: 0;
       }
       h1 {
-        font-size: clamp(36px, 5vw, 64px);
+        font-size: clamp(32px, 5vw, 52px);
         font-weight: 800;
         line-height: 1.08;
-        letter-spacing: -0.03em;
+        letter-spacing: -1.5px;
         color: var(--navy);
         margin: 0 0 24px;
       }
       h2 {
-        font-size: clamp(28px, 4vw, 46px);
+        font-size: clamp(26px, 3.5vw, 38px);
         font-weight: 700;
-        line-height: 1.1;
-        letter-spacing: -0.03em;
-        color: var(--bluecharcoal);
-        margin: 0;
+        line-height: 1.15;
+        letter-spacing: -0.8px;
+        color: var(--navy);
+        margin: 0 0 20px;
       }
       h3 {
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 700;
-        color: var(--bluecharcoal);
+        color: var(--navy);
         margin: 0 0 12px;
       }
-      h4 {
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--bluecharcoal);
-        margin: 0 0 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
+      .lead-copy {
+        font-size: 18px;
+        line-height: 1.7;
+        color: var(--body);
+        max-width: 760px;
+        margin: 0 0 22px;
       }
-      .pill {
-        border: 1px solid rgba(16, 42, 67, 0.12);
-        border-radius: 999px;
-        padding: 8px 14px;
-        font-size: 13px;
-        color: var(--bluecharcoal);
-        background: rgba(247, 241, 230, 0.78);
+      .body-copy {
+        font-size: 16px;
+        line-height: 1.7;
+        color: var(--body);
+        max-width: 760px;
+        margin: 0 0 20px;
+      }
+      .body-copy:last-child {
+        margin-bottom: 0;
       }
       .hero {
         padding: 80px 0 70px;
         position: relative;
         overflow: hidden;
-      }
-      .hero::before {
-        content: "";
-        position: absolute;
-        width: 680px;
-        height: 680px;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(143, 169, 154, 0.22),
-          rgba(143, 169, 154, 0)
-        );
-        right: -240px;
-        top: -240px;
-        z-index: 0;
       }
       .hero-inner {
         position: relative;
@@ -444,16 +452,16 @@
         align-items: center;
       }
       .hero p.lead {
-        margin: 24px 0 34px;
-        font-size: clamp(17px, 1.8vw, 20px);
-        color: var(--charcoal);
-        line-height: 1.55;
-        max-width: 620px;
+        font-size: 18px;
+        line-height: 1.65;
+        color: var(--body);
+        margin: 0 0 20px;
       }
       .hero-actions {
         display: flex;
-        flex-wrap: wrap;
         gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 28px;
       }
       .hero-photo-card {
         background: var(--white);
@@ -464,24 +472,24 @@
       .hero-photo-card img {
         width: 100%;
         display: block;
+        aspect-ratio: 4 / 5;
         object-fit: cover;
         object-position: top center;
-        max-height: 360px;
       }
       .card-caption {
-        padding: 20px 24px;
+        padding: 22px 26px 26px;
       }
       .card-caption strong {
         display: block;
-        font-size: 15px;
         color: var(--navy);
+        font-size: 15px;
         margin-bottom: 6px;
       }
       .card-caption p {
         font-size: 13px;
+        line-height: 1.6;
         color: var(--muted);
         margin: 0;
-        line-height: 1.55;
       }
       .plain-list {
         list-style: none;
@@ -490,7 +498,7 @@
         display: flex;
         flex-direction: column;
         gap: 14px;
-        max-width: 760px;
+        max-width: 820px;
       }
       .plain-list li {
         font-size: 16px;
@@ -509,260 +517,130 @@
         border-radius: 50%;
         background: var(--brass);
       }
-      .steps-grid {
+      .area-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 1fr 1fr;
         gap: 24px;
         margin-top: 36px;
       }
-      .step-card {
+      .area-card {
         background: var(--white);
         border-radius: 18px;
-        padding: 28px 24px;
+        padding: 30px 32px;
         box-shadow: 0 4px 20px rgba(16, 42, 67, 0.06);
+        border-top: 3px solid var(--brass);
       }
-      .step-num {
-        width: 34px;
-        height: 34px;
-        border-radius: 8px;
+      .area-card h3 {
+        font-size: 19px;
+        margin-bottom: 10px;
+      }
+      .area-card p {
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--body);
+        margin: 0;
+      }
+      .objection-list {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        margin-top: 36px;
+        max-width: 820px;
+      }
+      .objection-item h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .objection-item p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--body);
+        margin: 0;
+      }
+      .steps-list {
+        list-style: none;
+        counter-reset: step;
+        padding: 0;
+        margin: 36px 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 860px;
+      }
+      .steps-list li {
+        counter-increment: step;
+        background: var(--white);
+        border-radius: 16px;
+        padding: 24px 28px 24px 74px;
+        box-shadow: 0 4px 20px rgba(16, 42, 67, 0.06);
+        position: relative;
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--body);
+      }
+      .steps-list li::before {
+        content: counter(step);
+        position: absolute;
+        left: 26px;
+        top: 24px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
         background: var(--navy);
         color: var(--white);
+        font-size: 14px;
+        font-weight: 700;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 14px;
-        font-weight: 700;
-        margin-bottom: 14px;
       }
-      .step-card h4 {
-        text-transform: none;
-        letter-spacing: 0;
-        font-size: 15px;
-        color: var(--navy);
-        margin: 0 0 8px;
-      }
-      .step-card p {
-        font-size: 14px;
-        line-height: 1.6;
-        color: var(--body);
-        margin: 0;
-      }
-      .ai-note {
-        background: var(--ivory);
-        border-radius: var(--radius);
-        padding: 40px 44px;
-        margin-top: 8px;
-      }
-      .ai-note p {
-        font-size: 17px;
-        line-height: 1.68;
-        color: var(--body);
-        margin: 0 0 18px;
-        max-width: 760px;
-      }
-      .ai-note p:last-child {
-        margin-bottom: 0;
-      }
-      .offers-grid {
+      .faq-list {
         display: flex;
         flex-direction: column;
-        gap: 22px;
-        margin-top: 44px;
+        gap: 28px;
+        margin: 36px 0 0;
+        max-width: 820px;
       }
-      .offer-card {
-        background: var(--white);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: 38px 44px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 32px;
-        align-items: start;
+      .faq-item h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
       }
-      .offer-card .offer-cta {
-        align-self: center;
-      }
-      .offer-card.featured {
-        border-top: 4px solid var(--brass);
-      }
-      .offer-card.free {
-        border-top: 4px solid var(--sage);
-      }
-      .offer-num {
-        font-size: 13px;
-        font-weight: 800;
-        color: var(--brass);
-        letter-spacing: 0.06em;
-        margin-bottom: 10px;
-      }
-      .offer-format {
-        font-size: 13px;
-        color: var(--muted);
-        font-weight: 600;
-        margin: 6px 0 14px;
-      }
-      .who-box {
-        background: var(--ivory);
-        border-radius: 14px;
-        padding: 14px 18px;
-        margin: 0 0 18px;
-      }
-      .who-label {
-        display: block;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--brass);
-        margin-bottom: 5px;
-      }
-      .who-box p {
-        font-size: 14px;
-        line-height: 1.55;
-        color: var(--body);
-        margin: 0;
-      }
-      .offer-price {
-        font-size: 20px;
-        font-weight: 800;
-        color: var(--bluecharcoal);
-        margin: 10px 0 4px;
-      }
-      .offer-price.gold {
-        color: var(--brass);
-      }
-      .offer-price.free {
-        color: var(--sage);
-      }
-      .offer-card p.covers {
+      .faq-item p {
         font-size: 15px;
-        line-height: 1.65;
+        line-height: 1.7;
         color: var(--body);
         margin: 0 0 14px;
       }
-      .offer-cta {
-        text-align: right;
-        flex-shrink: 0;
+      .faq-item p:last-child {
+        margin-bottom: 0;
       }
-      .about-grid {
-        display: grid;
-        grid-template-columns: 260px 1fr;
-        gap: 52px;
-        align-items: start;
-      }
-      .about-grid img {
-        width: 100%;
-        border-radius: 20px;
-        display: block;
-        object-fit: cover;
-        object-position: top center;
-      }
-      .about-body p {
-        margin: 0 0 18px;
-        font-size: 17px;
-        line-height: 1.64;
-      }
-      .cred-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 24px;
-      }
-      .know-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-top: 36px;
-      }
-      .know-item {
-        background: var(--white);
-        border-radius: 16px;
-        padding: 24px 28px;
-        box-shadow: 0 4px 20px rgba(16, 42, 67, 0.06);
-      }
-      .know-item h4 {
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--navy);
-        margin: 0 0 8px;
-        text-transform: none;
-        letter-spacing: 0;
-      }
-      .know-item p {
-        font-size: 14px;
-        line-height: 1.65;
-        color: var(--body);
-        margin: 0;
-      }
-      .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-        margin-top: 44px;
-      }
-      .contact-option {
-        background: var(--white);
-        border-radius: var(--radius);
-        padding: 36px 40px;
-        box-shadow: var(--shadow);
-      }
-      .contact-option h3 {
-        font-size: 20px;
-        margin-bottom: 12px;
-      }
-      .contact-option p {
-        font-size: 15px;
-        line-height: 1.65;
-        color: var(--body);
-        margin: 0 0 20px;
-      }
-      .form-row {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        margin-bottom: 14px;
-      }
-      .form-row label {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--bluecharcoal);
-      }
-      .form-row input,
-      .form-row select,
-      .form-row textarea {
-        padding: 11px 16px;
-        border: 1.5px solid var(--stone);
-        border-radius: 10px;
-        font-size: 14px;
-        color: var(--body);
-        background: var(--ivory2);
-        font-family: inherit;
-        outline: none;
-        transition: border-color 0.15s;
-      }
-      .form-row input:focus,
-      .form-row select:focus,
-      .form-row textarea:focus {
-        border-color: var(--navy);
-      }
-      .form-row textarea {
-        resize: vertical;
-        min-height: 100px;
-      }
-      .form-note {
-        font-size: 12px;
-        color: var(--muted);
-        line-height: 1.5;
-        margin: 12px 0 0;
-      }
-      .form-success {
-        display: none;
+      .aeo-box {
         background: var(--ivory);
-        border-radius: 12px;
-        padding: 20px 24px;
-        font-size: 15px;
+        border-radius: 18px;
+        padding: 30px 32px;
+        margin-top: 32px;
+        max-width: 820px;
+      }
+      .aeo-box p {
+        font-size: 16px;
+        line-height: 1.65;
         color: var(--body);
-        line-height: 1.6;
+        margin: 0 0 18px;
+      }
+      .proof-panel {
+        background: var(--navy);
+        border-radius: var(--radius);
+        padding: 48px 52px;
+      }
+      .proof-panel h2 {
+        color: var(--white);
+      }
+      .proof-panel p {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 16px;
+        line-height: 1.7;
+        margin: 0 0 20px;
+        max-width: 760px;
       }
       footer {
         background: var(--navy);
@@ -784,111 +662,24 @@
       }
       .footer-links a {
         color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
       }
       .footer-links a:hover {
         color: var(--brass);
       }
-      .proof-strip {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-      .proof-stat {
-        background: var(--white);
-        border-radius: 18px;
-        padding: 24px 26px;
-        box-shadow: 0 4px 20px rgba(16, 42, 67, 0.06);
-      }
-      .proof-stat .stat-number {
-        font-size: 32px;
-        font-weight: 800;
-        color: var(--navy);
-        line-height: 1.1;
-        margin-bottom: 8px;
-      }
-      .proof-stat p {
-        font-size: 14px;
-        line-height: 1.55;
-        color: var(--body);
-        margin: 0;
-      }
-      .proof-stat .stat-source {
-        display: block;
-        font-size: 12px;
-        color: var(--muted);
-        margin-top: 8px;
-      }
-      .ladder-list {
-        list-style: none;
-        padding: 0;
-        margin: 18px 0 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .ladder-list li {
-        font-size: 15px;
-        line-height: 1.6;
-        color: var(--body);
-        padding-left: 20px;
-        position: relative;
-      }
-      .ladder-list li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 8px;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--brass);
-      }
-      @media (max-width: 920px) {
-        .hero-inner,
-        .about-grid,
-        .contact-grid,
-        .proof-strip {
+      @media (max-width: 900px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .hero-photo-card {
+          max-width: 420px;
+        }
+        .area-grid {
           grid-template-columns: 1fr;
         }
-        .steps-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .offer-card {
-          grid-template-columns: 1fr;
-          gap: 20px;
-          text-align: left;
-        }
-        .offer-cta {
-          text-align: left;
-        }
-        .know-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-      @media (max-width: 720px) {
-        .nav-links {
-          display: none;
-        }
-        .hamburger {
-          display: flex;
-        }
-        section {
-          padding: 52px 0;
-        }
-        .offer-card {
-          padding: 28px 22px;
-        }
-        .steps-grid {
-          grid-template-columns: 1fr;
-        }
-        .ai-note {
-          padding: 28px 24px;
-        }
-        .contact-option {
-          padding: 28px 22px;
-        }
-        .know-grid {
-          grid-template-columns: 1fr;
+        .proof-panel {
+          padding: 36px 28px;
         }
         .footer-inner {
           flex-direction: column;
@@ -896,6 +687,23 @@
         }
         .footer-links {
           justify-content: center;
+        }
+      }
+      @media (max-width: 720px) {
+        section {
+          padding: 56px 0;
+        }
+        .hero {
+          padding: 48px 0 40px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .proof-panel {
+          border-radius: 16px;
         }
       }
     </style>
@@ -907,16 +715,16 @@
       role="dialog"
       aria-label="Navigation menu"
     >
-      <a href="/" onclick="closeMobile()">Home</a>
-      <a href="/advisory/" onclick="closeMobile()">Advisory</a>
+      <a href="/advisory/" onclick="closeMobile()">Lead Conversion Advisory</a>
       <a href="/about/" onclick="closeMobile()">About</a>
+      <a href="/articles/" onclick="closeMobile()">Articles</a>
       <a href="/contact/" onclick="closeMobile()">Contact</a>
       <a
         href="https://tidycal.com/kindredsystems/discovery-call"
         class="mobile-cta"
         target="_blank"
         rel="noopener"
-        >Book a call</a
+        >Book a Discovery Call</a
       >
     </div>
 
@@ -930,15 +738,16 @@
           />
         </a>
         <nav class="nav-links" aria-label="Primary navigation">
-          <a href="/advisory/" class="active">Advisory</a>
+          <a href="/advisory/" class="active">Lead Conversion Advisory</a>
           <a href="/about/">About</a>
+          <a href="/articles/">Articles</a>
           <a href="/contact/">Contact</a>
           <a
             href="https://tidycal.com/kindredsystems/discovery-call"
             class="nav-cta"
             target="_blank"
             rel="noopener"
-            >Book a call</a
+            >Book a Discovery Call</a
           >
         </nav>
         <button
@@ -956,26 +765,31 @@
       <section class="hero">
         <div class="container hero-inner">
           <div>
-            <div class="eyebrow">Advisory &amp; Consulting</div>
-            <h1>
-              Two ways to turn more of your enquiries into paying clients.
-            </h1>
+            <div class="eyebrow">Lead Conversion Advisory</div>
+            <h1>Lead Conversion Advisory for high-value service businesses</h1>
             <p style="font-size: 13px; color: var(--muted); margin: 0 0 18px">
-              Last updated: 14 September 2026
+              Last updated: 17 September 2026
             </p>
             <p class="lead">
-              If good enquiries are slipping through the cracks before they
-              become clients, you don&rsquo;t need another marketing initiative.
-              You need someone independent to find whatever will make you money,
-              save you money, or both, then get it done with the tools you
-              already have, using automation tools, including AI, where
-              relevant. This can be delivered in one of two ways below.
+              Your business has already done the hard and expensive part:
+              earning an enquiry from someone considering a significant
+              purchase. Kindred Systems helps you improve everything that
+              happens next, so more of those people become paying clients.
+            </p>
+            <p class="lead">
+              We examine the full enquiry-to-client path, find where suitable
+              prospects are being lost, and work with you to fix the
+              highest-value gap. The answer may involve process, messaging,
+              follow-up, sales, CRM, automation, AI, or a combination of them.
             </p>
             <div class="hero-actions">
-              <a class="button" href="#offers"
-                >See the two ways to work together</a
+              <a
+                class="button"
+                href="https://tidycal.com/kindredsystems/discovery-call"
+                target="_blank"
+                rel="noopener"
+                >Book a Discovery Call</a
               >
-              <a class="button secondary" href="#contact">Book a call</a>
             </div>
           </div>
           <div class="hero-photo-card">
@@ -986,48 +800,9 @@
             <div class="card-caption">
               <strong>Cathryn Mora, Founder, Kindred Systems</strong>
               <p>
-                15+ years across marketing, sales and customer strategy.
-                Independent growth advisory, using AI to accelerate results.
+                Lead Conversion Advisor with more than 15 years across
+                marketing, sales, customer experience, CRM and business growth.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr class="section-divider" />
-
-      <section style="padding-top: 0">
-        <div class="container">
-          <div class="proof-strip">
-            <div class="proof-stat">
-              <div class="stat-number">80%</div>
-              <p>
-                market share reached within 12 months, by fixing the customer
-                journey and follow-up rather than spending more on new leads.
-              </p>
-              <span class="stat-source"
-                >Regional tourism and transport operator</span
-              >
-            </div>
-            <div class="proof-stat">
-              <div class="stat-number">1,500%</div>
-              <p>
-                increase in website visits within four weeks, from a rebuilt
-                database re-engagement and nurture sequence.
-              </p>
-              <span class="stat-source"
-                >National broadband retailer, ~900,000-record database</span
-              >
-            </div>
-            <div class="proof-stat">
-              <div class="stat-number">400%</div>
-              <p>
-                revenue growth in two years, building and scaling Change Empire
-                Books from the ground up.
-              </p>
-              <span class="stat-source"
-                >Change Empire Books, Cathryn&rsquo;s own business</span
-              >
             </div>
           </div>
         </div>
@@ -1037,28 +812,264 @@
 
       <section>
         <div class="container">
-          <div class="eyebrow">Sound familiar?</div>
-          <h2>What this usually looks like.</h2>
+          <div class="eyebrow">The commercial problem</div>
+          <h2>
+            Good enquiries are easier to lose than most businesses realise
+          </h2>
+          <p class="lead-copy">
+            High-value services usually involve risk, trust, timing and more
+            than one conversation. Prospects compare providers, speak to
+            partners or family, think about finance, and take time to decide.
+            During that time, a slow response, unclear next step or generic
+            follow-up can end a sale that still looked promising inside the CRM.
+          </p>
+          <p class="body-copy">
+            The owner often knows this is happening but has little time to
+            investigate it. The team is busy serving current clients. Marketing
+            continues because new leads are easy to count. Lost conversion is
+            harder to see, even when a small improvement could be worth far more
+            than another campaign.
+          </p>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">The desired result</div>
+          <h2>A clearer path from interest to decision</h2>
+          <p class="lead-copy">
+            The aim is a lead journey your team can follow and your prospective
+            clients can understand:
+          </p>
+          <ul class="plain-list">
+            <li>Enquiries receive a timely, useful response.</li>
+            <li>Suitable prospects know what happens next.</li>
+            <li>Consultations and proposals lead into relevant follow-up.</li>
+            <li>
+              Longer-term prospects remain connected until the timing is right.
+            </li>
+            <li>
+              The database becomes a useful source of future opportunities.
+            </li>
+            <li>Leaders can see the numbers from enquiry through to client.</li>
+          </ul>
+          <p class="body-copy" style="margin-top: 28px">
+            The work is tied to a commercial result agreed with you. We create
+            the messages, sequences, procedures and tools needed to improve that
+            result, then review how they perform. You keep those assets inside
+            the business.
+          </p>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">Areas of work</div>
+          <h2>What we may work on together</h2>
+          <p class="lead-copy">
+            Every business loses opportunities in a different place, so the work
+            is selected around the gap with the highest commercial value. It may
+            include several of the areas below.
+          </p>
+          <div class="area-grid">
+            <div class="area-card">
+              <h3>Faster, more useful first responses</h3>
+              <p>
+                Missed calls, web forms, social messages and after-hours
+                enquiries need a clear owner and a response that helps the
+                person take the next step. We can review response time, routing,
+                qualification, booking and what the first message says.
+              </p>
+            </div>
+            <div class="area-card">
+              <h3>Consultations that lead somewhere</h3>
+              <p>
+                A booked consultation is only one stage in the sale. We can
+                improve confirmation, preparation, attendance, the conversation
+                itself, finance information, decision support and what happens
+                afterwards.
+              </p>
+            </div>
+            <div class="area-card">
+              <h3>Quotes and proposals that keep moving</h3>
+              <p>
+                Long preparation times and inconsistent follow-up give prospects
+                space to lose confidence or choose another provider. We can
+                improve the handover, turnaround, presentation, next-step
+                agreement and follow-up around proposals.
+              </p>
+            </div>
+            <div class="area-card">
+              <h3>Follow-up that helps people decide</h3>
+              <p>
+                High-value decisions often take time. We can create follow-up
+                that answers the questions people raise, deals with common
+                concerns and stays relevant across a longer buying cycle,
+                without making the customer feel pressured.
+              </p>
+            </div>
+            <div class="area-card">
+              <h3>A database that produces future opportunities</h3>
+              <p>
+                Older enquiries, past clients, referrals and people who were not
+                ready can be segmented and contacted with a useful reason to
+                re-engage. The aim is a repeatable source of conversations,
+                rather than an occasional bulk email.
+              </p>
+            </div>
+            <div class="area-card">
+              <h3>Sales conversations and team consistency</h3>
+              <p>
+                A strong conversion process still depends on people. We can
+                review qualification, discovery questions, common objections,
+                how options are explained, and what your best salesperson does
+                that the rest of the team could use.
+              </p>
+            </div>
+            <div class="area-card">
+              <h3>CRM, automation and AI</h3>
+              <p>
+                Your systems should make the agreed process easier to run and
+                easier to measure. We can improve stages, responsibilities,
+                reminders, templates, reporting and handovers in your existing
+                CRM. Where automation or AI can improve speed, capacity or
+                customer experience, it can be designed into the process with a
+                clear human handover.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">Concerns</div>
+          <h2>Concerns we can work through before anything changes</h2>
+          <div class="objection-list">
+            <div class="objection-item">
+              <h3>We already have a CRM</h3>
+              <p>
+                That is useful. The review begins with how it is being used,
+                where information is missing and whether the system reflects the
+                way customers buy. Better use of the current CRM may be enough.
+              </p>
+            </div>
+            <div class="objection-item">
+              <h3>Our business is built on relationships</h3>
+              <p>
+                So is the advisory work. A faster response or a relevant
+                reminder should support the human relationship. Customer-facing
+                technology is used with care because a poor automated experience
+                can cost trust quickly.
+              </p>
+            </div>
+            <div class="objection-item">
+              <h3>Our clients take months to decide</h3>
+              <p>
+                A long decision cycle increases the value of useful nurture. The
+                aim is to remain helpful while circumstances, timing or
+                confidence develop, so the prospect remembers your business when
+                they are ready.
+              </p>
+            </div>
+            <div class="objection-item">
+              <h3>We are already too busy</h3>
+              <p>
+                That is often why enquiries are lost. The work focuses on fewer
+                gaps with high commercial value and creates a process the team
+                can continue using. It may also reduce repeated chasing, manual
+                administration and dependence on the owner.
+              </p>
+            </div>
+            <div class="objection-item">
+              <h3>We tried automation and it did not help</h3>
+              <p>
+                Automation repeats the process it is given. We first examine the
+                timing, responsibility, message and customer need. Technology is
+                added after those decisions, with the result measured in
+                conversion and customer experience.
+              </p>
+            </div>
+            <div class="objection-item">
+              <h3>We probably need more leads first</h3>
+              <p>
+                The current conversion rate is worth understanding before lead
+                volume increases. If the process is losing good prospects now,
+                more demand can increase marketing cost without producing the
+                expected revenue.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">The approach</div>
+          <h2>How Lead Conversion Advisory works</h2>
+          <ol class="steps-list">
+            <li>
+              We establish the commercial result you want and the number that
+              will show whether the work is helping.
+            </li>
+            <li>
+              We review what happens from first enquiry through response,
+              conversation, next step, follow-up, decision and measurement.
+            </li>
+            <li>
+              We identify the highest-value gap and agree what should change
+              first.
+            </li>
+            <li>
+              We create the practical assets needed to make that change, such as
+              messages, follow-up sequences, procedures, CRM stages, reporting
+              or automation.
+            </li>
+            <li>
+              We review the result, refine what is not performing as expected
+              and leave your team with a process they can continue running.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section>
+        <div class="container">
+          <div class="eyebrow">Fit</div>
+          <h2>Who this work is designed for</h2>
+          <p class="lead-copy">
+            Lead Conversion Advisory is designed for owners, founders,
+            directors, principals and partners who can approve the work and want
+            a measurable commercial result. The advisory is delivered worldwide
+            through video calls and online collaboration.
+          </p>
           <ul class="plain-list">
             <li>
-              Good enquiries don&rsquo;t answer the first call or email, and
-              nobody tries again.
+              The business already generates enquiries and has enough volume to
+              identify patterns.
+            </li>
+            <li>One new client has meaningful commercial value.</li>
+            <li>
+              The buying decision involves trust, consideration and several
+              stages.
             </li>
             <li>
-              Nobody can say how many of last month&rsquo;s enquiries became
-              paying clients, or why the rest didn&rsquo;t.
+              The business is willing to examine its current process and provide
+              access to the relevant information.
             </li>
             <li>
-              Older leads and past enquirers sit untouched in a spreadsheet or
-              CRM.
-            </li>
-            <li>
-              Follow-up happens when someone has time, not on a process everyone
-              follows.
-            </li>
-            <li>
-              Nobody owns what happens after someone enquires, so it comes down
-              to who remembers.
+              A person with decision-making authority will support the work and
+              help remove delays.
             </li>
           </ul>
         </div>
@@ -1068,282 +1079,25 @@
 
       <section>
         <div class="container">
-          <div class="eyebrow">What changes</div>
-          <h2>What working this way gets you.</h2>
-          <p
-            style="
-              margin: 16px 0 0;
-              font-size: 18px;
-              max-width: 760px;
-              color: var(--body);
-              line-height: 1.5;
-            "
-          >
-            Money made, money saved, or both, with a plain answer ready whenever
-            you need one. That&rsquo;s what both engagements below are built to
-            deliver, each working to a clearly scoped block of time so the focus
-            stays sharp and the result stays measurable.
-          </p>
-        </div>
-      </section>
-
-      <hr class="section-divider" />
-
-      <section>
-        <div class="container">
-          <div class="eyebrow">How this gets done</div>
-          <h2 style="margin-bottom: 20px">How this gets done, in practice.</h2>
-          <div class="ai-note">
+          <div class="proof-panel">
+            <div class="eyebrow">Proof</div>
+            <h2>Why work with Cathryn Mora</h2>
             <p>
-              Every engagement starts with the one thing you most want to
-              change, usually more clients from the enquiries you already get.
-              That&rsquo;s usually a good starting brief. From there, the work
-              is finding whatever inside that brief will do the most for your
-              cost, your revenue, or the value of the business itself, using the
-              tools you already have rather than a new piece of software to buy.
+              Cathryn combines more than 15 years across marketing, sales, CRM,
+              customer experience and business growth with hands-on
+              understanding of automation and AI. She has done this work
+              in-house, within agencies, as a business owner, and through
+              consulting and advisory engagements. Her experience includes
+              generating leads, handling high-value sales calls, building
+              follow-up, leading teams and carrying responsibility for
+              commercial results.
             </p>
-            <p>
-              Sometimes that&rsquo;s exactly what you expected. Sometimes it
-              becomes clear once the work is underway that the bigger
-              opportunity lies somewhere slightly different, and that gets
-              worked through together, not sprung on you afterwards. None of
-              this is improvised. I work to a proven framework built to get you
-              a result, not to keep you relying on me longer than you need to.
+            <p style="margin-bottom: 28px">
+              That experience helps her look beyond a single campaign or
+              platform. The work follows the customer's whole path and the way
+              your team delivers it.
             </p>
-            <p>
-              What you&rsquo;re left with isn&rsquo;t a slide deck, and
-              it&rsquo;s often not something new either. More often it&rsquo;s a
-              tool or workflow you already had, finally used to its full
-              potential, because I&rsquo;ve gone looking for whatever&rsquo;s
-              most likely to help fastest: something that&rsquo;s worked before,
-              or something nobody has tried yet. Either way, it becomes a real
-              asset: your own people can run it and keep building on it for
-              years after the engagement ends. The point isn&rsquo;t to keep you
-              relying on me. It&rsquo;s for the result to keep growing once
-              I&rsquo;m gone.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <hr class="section-divider" />
-
-      <section id="offers">
-        <div class="container">
-          <div class="eyebrow">Engagement options</div>
-          <h2>Two ways to work together.</h2>
-          <p
-            style="
-              margin: 16px 0 0;
-              font-size: 18px;
-              max-width: 760px;
-              color: var(--body);
-              line-height: 1.5;
-            "
-          >
-            Each engagement is designed so you know what you are getting before
-            you commit.
-          </p>
-
-          <div class="offers-grid">
-            <div class="offer-card free">
-              <div>
-                <div class="offer-num">01 &nbsp;&middot;&nbsp; ENTRY POINT</div>
-                <h3>Discovery Call</h3>
-                <div class="offer-price free">Free</div>
-                <div class="offer-format">45 minutes, one-off</div>
-                <div class="who-box">
-                  <span class="who-label">Who this is for</span>
-                  <p>
-                    Anyone who wants more of their enquiries to become clients
-                    and isn&rsquo;t sure yet whether the Advisory or the Sprint
-                    is the right next step.
-                  </p>
-                </div>
-                <p class="covers">
-                  A no-obligation conversation about where things stand for your
-                  business, and whether one of the two engagements below is the
-                  right next step.
-                </p>
-              </div>
-              <div class="offer-cta">
-                <a class="button secondary" href="#contact"
-                  >Book a Discovery Call</a
-                >
-              </div>
-            </div>
-
-            <div class="offer-card featured">
-              <div>
-                <div class="offer-num">02</div>
-                <h3>AI Business Outcomes Advisory</h3>
-                <div class="who-box">
-                  <span class="who-label">Who this is for</span>
-                  <p>
-                    Established founder-led businesses with at least A$500,000
-                    in annual revenue that want more of the enquiries
-                    they&rsquo;re already generating to become clients.
-                  </p>
-                </div>
-                <p class="covers">
-                  You know the feeling: another AI licence renewed, another
-                  update that says things are &ldquo;progressing&rdquo;, and you
-                  still can&rsquo;t put a dollar figure on what any of it has
-                  earned. It&rsquo;s your revenue funding it, so you&rsquo;re
-                  the one who needs to know. Ninety days in, you will.
-                  You&rsquo;ll know exactly what changed and what it was worth,
-                  so you can feel confident it&rsquo;s making you money, not
-                  just another subscription cost stacked on top of the rest.
-                </p>
-                <ul class="ladder-list">
-                  <li>
-                    You stop spreading budget across half-finished initiatives,
-                    because the engagement is built around whichever one will
-                    make you the most money, save you the most money, or both.
-                  </li>
-                  <li>
-                    This is a KPI-focused process, agreed with you at the start.
-                    Your team leaves with whatever assets they need to keep
-                    hitting that number, not just a plan for how the engagement
-                    began.
-                  </li>
-                  <li>
-                    You stop needing to keep paying someone, because the assets
-                    we build together stay with your people after the engagement
-                    ends, and keep working long after I&rsquo;m gone.
-                  </li>
-                  <li>
-                    You stop losing days to a question that could&rsquo;ve been
-                    answered that afternoon, because alongside the weekly
-                    sessions, you can reach me directly on any working day, not
-                    just wait for the next meeting.
-                  </li>
-                </ul>
-                <p class="covers" style="font-size: 13px; color: var(--muted)">
-                  None of this is improvised. The engagement runs on a proven
-                  framework built to get you a result, not to keep me around
-                  longer than necessary.
-                </p>
-              </div>
-              <div class="offer-cta">
-                <a class="button brass" href="#contact"
-                  >Enquire about the Advisory</a
-                >
-              </div>
-            </div>
-
-            <div class="offer-card">
-              <div>
-                <div class="offer-num">03</div>
-                <h3>Executive AI Sprint</h3>
-                <div class="offer-format">Minimum 5 consecutive days</div>
-                <div class="who-box">
-                  <span class="who-label">Who this is for</span>
-                  <p>
-                    Larger organisations, at the executive level, that need an
-                    independent view on a high-stakes AI decision.
-                  </p>
-                </div>
-                <p class="covers">
-                  Built for larger organisations, where more is riding on the
-                  decision. You know how it goes at that scale: leadership needs
-                  a call defended, the numbers behind it haven&rsquo;t been
-                  independently tested, and the deadline isn&rsquo;t moving.
-                  Having someone inside the business for a defined stretch of
-                  consecutive days changes that. What goes forward is a case
-                  that&rsquo;s been pressure-tested before anyone has to defend
-                  it in the room.
-                </p>
-                <ul class="ladder-list">
-                  <li>
-                    The decision rests on evidence that&rsquo;s been
-                    pressure-tested beforehand, so it holds up when someone
-                    pushes back on it afterwards.
-                  </li>
-                  <li>
-                    You&rsquo;re not waiting a week for the next scheduled call
-                    to get an answer. A question raised on day one gets resolved
-                    by day two, while the evidence is still fresh and the right
-                    people are still in the room.
-                  </li>
-                  <li>
-                    What&rsquo;s been assumed internally gets checked before it
-                    goes to whoever signs off, so nobody&rsquo;s putting their
-                    name to a number that turns out to be wrong.
-                  </li>
-                  <li>
-                    The findings and the assets go to your own team, so
-                    you&rsquo;re not paying an outside firm to keep holding
-                    knowledge about your own business.
-                  </li>
-                </ul>
-                <p class="covers" style="font-size: 13px; color: var(--muted)">
-                  Delivered over a consecutive stretch of days or weeks. For
-                  Brisbane-based clients, this can be delivered in person. For
-                  larger delivery requirements, Kindred Systems can partner with
-                  an advisory firm to scale the work.
-                </p>
-              </div>
-              <div class="offer-cta">
-                <a class="button" href="#contact">Enquire about the Sprint</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr class="section-divider" />
-
-      <section id="about">
-        <div class="container">
-          <div class="eyebrow">About</div>
-          <div class="about-grid">
-            <img
-              src="/assets/cathryn-advisory-2.jpg"
-              alt="Cathryn Mora, Kindred Systems founder"
-            />
-            <div class="about-body">
-              <h2
-                style="margin-bottom: 22px; font-size: clamp(26px, 3.5vw, 40px)"
-              >
-                Commercial first. Always.
-              </h2>
-              <p>
-                My background is not technical in the traditional sense. For 15
-                years I worked across marketing, sales, customer strategy and
-                commercial operations, in both bricks-and-mortar and online
-                businesses, agencies, not-for-profits and my own company. The
-                measure of success was always commercial, not technical.
-              </p>
-              <p>
-                I founded and scaled an international business from the ground
-                up, contributing to significant revenue growth before exiting
-                through acquisition. That experience influences how I approach
-                AI work: I do not start with a favourite tool. I start with the
-                outcome, the team, the constraints, and the reality of what
-                adoption looks like in practice.
-              </p>
-              <p>
-                Through Kindred Systems, I advise established businesses on AI
-                priorities, implementation decisions and adoption. The advisory
-                work is grounded in a genuine understanding of what AI can
-                realistically do, not what vendors and hype say it does.
-              </p>
-              <p>
-                I work best with founders, operations leaders and leadership
-                teams who want someone who can see the full picture, ask the
-                right questions, and help the right work get done in the right
-                order.
-              </p>
-              <div class="cred-pills">
-                <span class="pill">AI strategy</span>
-                <span class="pill">Organisational change</span>
-                <span class="pill">Customer journeys</span>
-                <span class="pill">Implementation advisory</span>
-                <span class="pill">Adoption planning</span>
-                <span class="pill">Commercial operations</span>
-              </div>
-            </div>
+            <a class="button brass" href="/about/">Meet Cathryn</a>
           </div>
         </div>
       </section>
@@ -1352,204 +1106,121 @@
 
       <section>
         <div class="container">
-          <div class="eyebrow">Good to know</div>
-          <h2 style="margin-bottom: 8px">Before you enquire.</h2>
-          <p
-            style="
-              font-size: 17px;
-              color: var(--body);
-              margin: 14px 0 0;
-              max-width: 680px;
-              line-height: 1.5;
-            "
-          >
-            Practical details that answer most questions before they come up.
-          </p>
-          <div class="know-grid">
-            <div class="know-item">
-              <h4>GST</h4>
+          <div class="eyebrow">Frequently asked questions</div>
+          <h2>Questions about the advisory</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>Do you advise or implement?</h3>
               <p>
-                Australian clients are invoiced with 10% GST added. Invoices are
-                issued per engagement milestone or monthly for retainers.
+                Both can be included within the agreed scope. The work may
+                involve analysis and advice, as well as creating messages,
+                sequences, procedures, CRM workflows, reporting and other assets
+                needed to improve the selected result. Specialist technical
+                support can be recommended where required.
               </p>
             </div>
-            <div class="know-item">
-              <h4>Travel and on-site work</h4>
+            <div class="faq-item">
+              <h3>How much does Lead Conversion Advisory cost?</h3>
               <p>
-                Travel and accommodation for on-site engagements are charged at
-                cost and agreed before work begins. Remote engagements incur no
-                travel cost.
+                Each engagement is scoped around the business, the commercial
+                opportunity and the work required. Pricing is discussed during
+                the Discovery Call after there is enough information to assess
+                fit.
               </p>
             </div>
-            <div class="know-item">
-              <h4>Internal sponsor</h4>
+            <div class="faq-item">
+              <h3>Can you guarantee a conversion increase?</h3>
               <p>
-                For multi-day and retainer engagements, clients need to nominate
-                an internal sponsor with real decision-making authority.
-                Engagements without this tend to stall.
+                No adviser can responsibly guarantee how individual customers
+                will decide. Kindred Systems can establish a baseline, identify
+                gaps, create and apply the agreed changes, and measure what
+                happens afterwards.
               </p>
             </div>
-            <div class="know-item">
-              <h4>Confidentiality</h4>
+            <div class="faq-item">
+              <h3>Will you recommend software you sell?</h3>
               <p>
-                Confidentiality terms are available before substantive discovery
-                begins. Client information is not shared with third parties or
-                used across other engagements.
+                Recommendations begin with what the business needs and what its
+                current systems can already do. If the existing platform can
+                support the required process, the first option is to use it
+                better. If it cannot, we can assess other platforms, add an
+                appropriate solution or, where needed, provide a custom system
+                that Kindred Systems builds and manages. The recommendation
+                depends on what will serve the business, rather than selling
+                software it does not need. Any commission or margin from a
+                recommended platform is disclosed in writing.
               </p>
             </div>
-            <div class="know-item">
-              <h4>Advisory capacity</h4>
+            <div class="faq-item">
+              <h3>Can you help us appear in ChatGPT recommendations?</h3>
               <p>
-                AI Business Outcomes Advisory slots are limited to keep each
-                90-day engagement well resourced. Enquire early if your timeline
-                is fixed, such as a board date or budget cycle.
+                Yes. Answer Engine Optimisation is a separate service Kindred
+                Systems has added for businesses that want ChatGPT and other
+                answer engines to understand their business and include it in
+                relevant answers. It is available to advisory clients and other
+                businesses, and it is not part of the standard Lead Conversion
+                Advisory engagement. Visibility can be measured and improved,
+                but no business can be promised a guaranteed recommendation or
+                position in ChatGPT or another answer engine.
               </p>
             </div>
+          </div>
+          <div class="aeo-box">
+            <p>
+              Want to know how visible your business is to ChatGPT and other
+              answer engines? Talk to us about Answer Engine Optimisation.
+            </p>
+            <a
+              class="button secondary"
+              href="/contact/?enquiry=Answer%20Engine%20Optimisation"
+              >Ask about Answer Engine Optimisation</a
+            >
           </div>
         </div>
       </section>
 
       <hr class="section-divider" />
 
-      <section id="contact">
-        <div class="container">
-          <div class="eyebrow">Get in touch</div>
-          <h2>Getting enquiries, but not enough of them becoming clients?</h2>
+      <section id="contact" style="padding: 72px 0">
+        <div class="container" style="text-align: center">
+          <div class="eyebrow" style="justify-content: center">Get started</div>
+          <h2 style="max-width: 720px; margin: 0 auto 20px">
+            Start with the enquiries already coming in
+          </h2>
           <p
             style="
-              margin: 14px 0 0;
               font-size: 18px;
-              max-width: 680px;
               color: var(--body);
-              line-height: 1.5;
+              max-width: 640px;
+              margin: 0 auto 36px;
+              line-height: 1.65;
             "
           >
-            Book a call to talk through your situation, or send an enquiry if
-            you prefer to put something in writing first.
+            Book a Discovery Call to discuss what happens after someone contacts
+            your business, where you suspect opportunities are being lost and
+            what a stronger conversion process could be worth.
           </p>
-
-          <div class="contact-grid">
-            <div class="contact-option">
-              <h3>Book a call</h3>
-              <p>
-                A 45-minute conversation to talk through your situation, what
-                you are trying to achieve, and whether this is the right fit. No
-                obligation on either side.
-              </p>
-              <div
-                style="
-                  min-height: 500px;
-                  border-radius: var(--radius);
-                  overflow: hidden;
-                  background: var(--white);
-                "
-              >
-                <div
-                  class="tidycal-embed"
-                  data-path="kindredsystems/discovery-call"
-                ></div>
-                <script src="https://tidycal.com/js/embed.js" async></script>
-              </div>
-            </div>
-
-            <div class="contact-option">
-              <h3>Send an enquiry</h3>
-              <p>
-                Tell us about your business and what you are trying to solve. We
-                review all enquiries and respond within one business day.
-              </p>
-              <form
-                class="enquiry-form"
-                id="enquiryForm"
-                action="https://formspree.io/f/xpqgpdzg"
-                method="POST"
-              >
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="Advisory enquiry - kindredsystems.com.au/advisory"
-                />
-                <div class="form-row">
-                  <label for="name">Your name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    required
-                  />
-                </div>
-                <div class="form-row">
-                  <label for="email">Email address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="you@yourcompany.com"
-                    required
-                  />
-                </div>
-                <div class="form-row">
-                  <label for="business">Business or organisation</label>
-                  <input
-                    type="text"
-                    id="business"
-                    name="business"
-                    placeholder="Business name"
-                  />
-                </div>
-                <div class="form-row">
-                  <label for="interest">What are you interested in?</label>
-                  <select id="interest" name="interest">
-                    <option value="">Select one</option>
-                    <option value="Discovery Call">
-                      Discovery Call (Free)
-                    </option>
-                    <option value="AI Business Outcomes Advisory">
-                      AI Business Outcomes Advisory
-                    </option>
-                    <option value="Executive AI Sprint">
-                      Executive AI Sprint
-                    </option>
-                    <option value="Not sure yet">Not sure which one yet</option>
-                  </select>
-                </div>
-                <div class="form-row">
-                  <label for="message">What are you trying to solve?</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Brief description of the situation and what you want to change"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  class="button"
-                  style="
-                    width: 100%;
-                    justify-content: center;
-                    cursor: pointer;
-                    font-family: inherit;
-                  "
-                >
-                  Send enquiry
-                </button>
-                <p class="form-note">
-                  We review all enquiries and respond within one business day.
-                  Your information is kept confidential.
-                  <a
-                    href="/privacy/"
-                    style="color: var(--muted); text-decoration: underline"
-                    >Privacy policy</a
-                  >
-                </p>
-              </form>
-              <div class="form-success" id="formSuccess">
-                Thanks. We have received your enquiry and will be in touch
-                within one business day.
-              </div>
-            </div>
+          <div
+            style="
+              max-width: 760px;
+              margin: 0 auto;
+              background: var(--white);
+              border-radius: var(--radius);
+              box-shadow: var(--shadow);
+              overflow: hidden;
+              text-align: left;
+              min-height: 500px;
+            "
+          >
+            <div
+              class="tidycal-embed"
+              data-path="kindredsystems/discovery-call"
+            ></div>
+            <script src="https://tidycal.com/js/embed.js" async></script>
           </div>
+          <p style="margin-top: 28px">
+            <a class="button secondary" href="/contact/">Send an enquiry</a>
+          </p>
         </div>
       </section>
     </main>
@@ -1561,9 +1232,9 @@
           into clients.
         </div>
         <nav class="footer-links" aria-label="Footer navigation">
-          <a href="/advisory/">Advisory</a>
-          <a href="/aeo/">AEO Audit</a>
+          <a href="/advisory/">Lead Conversion Advisory</a>
           <a href="/about/">About</a>
+          <a href="/articles/">Articles</a>
           <a href="/contact/">Contact</a>
           <a href="/privacy/">Privacy</a>
         </nav>
@@ -1572,34 +1243,6 @@
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
-      const form = document.getElementById("enquiryForm");
-      const success = document.getElementById("formSuccess");
-      if (form) {
-        form.addEventListener("submit", async function (e) {
-          e.preventDefault();
-          const data = new FormData(form);
-          try {
-            const res = await fetch(form.action, {
-              method: "POST",
-              body: data,
-              headers: { Accept: "application/json" },
-            });
-            const json = await res.json();
-            if (res.ok && json.ok) {
-              form.style.display = "none";
-              success.style.display = "block";
-            } else {
-              alert(
-                "Something went wrong. Please try again or email info@kindredsystems.com.au",
-              );
-            }
-          } catch (err) {
-            alert(
-              "Something went wrong. Please try again or email info@kindredsystems.com.au",
-            );
-          }
-        });
-      }
       const hamburger = document.getElementById("hamburger");
       const mobileMenu = document.getElementById("mobileMenu");
       hamburger.addEventListener("click", () => {
