@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/aeo",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/aeo/",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
