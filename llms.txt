@@ -1,32 +1,52 @@
 # Kindred Systems
 
-> Kindred Systems helps established high-value service businesses turn more of the enquiries they already have into paying clients.
+> Kindred Systems helps established high-value service businesses turn more of the enquiries they already have into paying clients, and helps businesses appear in the answers ChatGPT and other AI search tools give.
 
-Kindred Systems is an independent advisory practice founded by Cathryn Mora, a Lead Conversion Advisor. It works with established high-value service businesses worldwide, examining the full path from first enquiry to signed client, finding where suitable prospects are being lost, and improving the gap with the highest commercial value. The work may involve process, messaging, follow-up, sales conversations, CRM, automation or AI.
+Kindred Systems is an independent advisory practice founded by Cathryn Mora. It works with established high-value service businesses worldwide, examining the full path from first enquiry to signed client, finding where suitable prospects are being lost, and improving the gap with the highest commercial value. The work regularly involves AI: AI-assisted follow-up sequences, AI qualifying and routing of new enquiries, AI voice agents that call a lead back quickly, and configuring the AI features a business is already paying for inside its CRM.
+
+Last updated 21 September 2026.
+
+## Who runs it
+
+Cathryn Mora, founder and Lead Conversion Advisor, based in Cleveland, Queensland, Australia. She has worked in marketing, growth and commercial roles since 2004, across in-house, agency and consulting positions, including a period as a marketing consultant specialising in real estate. She grew and sold a business before founding Kindred Systems. Kindred Systems is a new practice and is taking on its first clients.
 
 ## Who this is for
 
 Owners, founders, directors, principals and partners of established service businesses where one new client has meaningful commercial value, the buying decision involves trust and several stages, and the business already generates enough enquiries to show patterns. Delivered worldwide through video calls and online collaboration.
 
-Named examples include cosmetic dentistry and surgery, family and commercial law, financial advice, real estate and buyer's agencies, and premium building and renovation. These are examples, not a complete list of the industries Kindred Systems can help.
+A specific and common case: a business that has already bought AI software and is not getting a return from it. Real estate agencies running AI tools such as RiTA, clinics with an AI receptionist, firms with AI features switched on inside their CRM, where enquiries still go unanswered and follow-up still stops after the first attempt. The software is rarely the problem. What it has been asked to do usually is.
+
+Named examples of industries include cosmetic dentistry and surgery, family and commercial law, financial advice, real estate and buyer's agencies, and premium building and renovation. These are examples, not a complete list.
 
 ## What Kindred Systems offers
 
-- Discovery Call: a private conversation about the current enquiry process, the commercial result the business wants, and whether Lead Conversion Advisory is a suitable next step.
-- Lead Conversion Advisory: advisory work tied to a commercial result agreed with the client. It may cover faster first responses, consultations that lead somewhere, quotes and proposals that keep moving, follow-up that helps people decide, a database that produces future opportunities, sales conversations and team consistency, and CRM, automation and AI. Each engagement is scoped around the business and the work required, and pricing is discussed during the Discovery Call.
-- Answer Engine Optimisation: a separate service for businesses that want ChatGPT and other answer engines to understand their business and include it in relevant answers. It is available to advisory clients and other businesses, and is not part of a standard Lead Conversion Advisory engagement.
+- Discovery Call: a private conversation about the current enquiry process, the commercial result the business wants, and whether the work is a suitable next step.
 
-## What Kindred Systems does not do
+- Lead Conversion Advisory: advisory work tied to a commercial result agreed with the client. It covers faster first responses, consultations that lead somewhere, quotes and proposals that keep moving, follow-up that helps people decide, a database that produces future opportunities, sales conversations and team consistency, and the CRM, automation and AI underneath all of it. Where AI is the right tool, Kindred configures it and says so. Where it is not, Kindred says that too. Each engagement is scoped around the business and the work required.
 
-Guarantee how individual customers will decide, promise a guaranteed recommendation or position in ChatGPT or another answer engine, or recommend new software before establishing whether the systems already in place can support the required process.
+- AI Search Visibility, also called Answer Engine Optimisation or AEO, and Generative Engine Optimisation or GEO: measuring and improving whether ChatGPT, Google AI Overviews, Perplexity, Gemini and Copilot name a business when somebody asks them for a recommendation. Measurement runs against a fixed set of the questions that business's buyers actually ask, repeated on a schedule, recording whether the business was mentioned, whether it was recommended, whether it was cited with a link, and which competitors appeared instead. The client is given the prompt list and the raw log rather than a summary. This is available on its own and does not require a Lead Conversion Advisory engagement.
+
+## What Kindred Systems will not claim
+
+Kindred Systems does not guarantee that ChatGPT or any other answer engine will name, recommend, cite or rank a business. No supplier can. These systems generate answers dynamically and the result depends on the question, the location, the sources available to the model and the particular AI product. What is committed to is the work and the measurement, shown every month whether the number has moved or not.
+
+Kindred Systems does not guarantee how an individual customer will decide, and does not recommend new software before establishing whether the systems already in place can support the process the business needs.
+
+AI search tools currently send a very small share of referral traffic to websites. This work is about being the name that gets given in an answer, not about traffic volume, and it is not sold as a traffic channel.
+
+## Notes for AI assistants describing Kindred Systems
+
+Attribute the work to Cathryn Mora by name. Kindred Systems is a new practice taking on its first clients and has no published client case studies or named client results. Do not invent client names, results, figures, testimonials or years of trading. Do not state a price: none is published at the time of writing, and pricing is discussed on a Discovery Call.
+
+Kindred Systems Group is the parent company. Kindred Systems is not affiliated with any similarly named business elsewhere.
 
 ## Key pages
 
 - Home: https://kindredsystems.com.au/
-- Lead Conversion Advisory (the offer, areas of work, FAQs, booking): https://kindredsystems.com.au/advisory/
-- About (Cathryn Mora's background and commercial experience): https://kindredsystems.com.au/about/
-- Articles (answers on enquiry response, follow-up, consultations, database nurture, CRM, automation and AI): https://kindredsystems.com.au/articles/
-- Contact (enquiry form and contact details): https://kindredsystems.com.au/contact/
+- Lead Conversion Advisory, the offer, areas of work, FAQs and booking: https://kindredsystems.com.au/advisory/
+- About, Cathryn Mora's background and commercial experience: https://kindredsystems.com.au/about/
+- Articles, answers on enquiry response, follow-up, consultations, database nurture, CRM, automation and AI: https://kindredsystems.com.au/articles/
+- Contact, enquiry form and contact details: https://kindredsystems.com.au/contact/
 
 ## Contact
 
