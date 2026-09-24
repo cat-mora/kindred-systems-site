@@ -319,7 +319,7 @@
         <div class="form-card">
           <form
             id="intakeForm"
-            action="https://formspree.io/f/xpqgpdzg"
+            action="/api/submit-form"
             method="POST"
           >
             <input
@@ -781,7 +781,9 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Formspree AJAX submit, matching the rest of the site.
+      // Submits to our own Vercel serverless function (api/submit-form.js),
+      // which sends the email via Resend. Replaces the old shared Formspree
+      // endpoint.
       var form = document.getElementById("intakeForm");
       var success = document.getElementById("formSuccess");
       var submitBtn = document.getElementById("submitBtn");
@@ -790,12 +792,15 @@
           e.preventDefault();
           submitBtn.disabled = true;
           submitBtn.textContent = "Sending...";
-          var data = new FormData(form);
+          var payload = Object.fromEntries(new FormData(form).entries());
           try {
             var res = await fetch(form.action, {
               method: "POST",
-              body: data,
-              headers: { Accept: "application/json" },
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify(payload),
             });
             var json = await res.json();
             if (res.ok && json.ok) {
