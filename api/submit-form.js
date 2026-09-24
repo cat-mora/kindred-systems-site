@@ -62,7 +62,10 @@ module.exports = async function handler(req, res) {
   // names a different site.
   const origin = req.headers.origin || req.headers.referer || "";
   if (origin && !origin.includes(ALLOWED_ORIGIN_SUBSTRING)) {
-    console.warn("submit-form: rejected request from unexpected origin", origin);
+    console.warn(
+      "submit-form: rejected request from unexpected origin",
+      origin,
+    );
     res.status(403).json({ ok: false, error: "Origin not allowed" });
     return;
   }
