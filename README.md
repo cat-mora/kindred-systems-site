@@ -289,23 +289,31 @@ Copywriting rules specific to the advisory pages:
 
 ## Forms and lead capture
 
-All forms on this site (contact page, advisory enquiry form, and the client intake form below) submit through **Formspree**, a third-party form-backend service, not a custom backend in this repo.
+All forms on this site (contact page, the six advisory intake forms, and the client-details/welcome form) submit to **`api/submit-form.js`**, a Vercel serverless function in this repo, not a third-party form backend.
 
-- **Shared Formspree endpoint:** `https://formspree.io/f/xpqgpdzg`
-- This ONE endpoint is reused by every form on the site. It is not a separate ID per form/page.
-- How it works: the page's `<form>` posts to the Formspree URL via JavaScript `fetch()`. Formspree receives the submission, emails it to `info@kindredsystems.com.au`, and also keeps a copy in Formspree's own online dashboard (log in at formspree.io to view past submissions; CSV export of stored submissions requires a paid Formspree plan, the free plan gives dashboard viewing only).
-- **Free-plan cap:** Formspree's free plan allows 50 submissions/month per form ID. Because every form on the site shares this one ID, that cap is shared too — contact enquiries and intake form submissions all count against the same monthly 50. If combined volume grows, either split forms onto separate Formspree endpoints or upgrade the Formspree plan.
-- To add a CC recipient (e.g. a VA), add a hidden field to the relevant form: `<input type="hidden" name="_cc" value="someone@email.com">`.
+- **Why not Formspree:** every form used to share one Formspree endpoint (`https://formspree.io/f/xpqgpdzg`). Formspree kept returning a genuine success response to the browser while submissions silently never reached `info@kindredsystems.com.au` - most likely an account-side notification setting or the free plan's shared 50 submissions/month cap. Neither was visible or fixable from this repo, so the dependency was replaced (24 Sept 2026).
+- **How it works now:** each page's `<form>` posts JSON to `/api/submit-form` via `fetch()`. The function sends the notification email through **Resend** and logs every attempt, so a delivery problem shows up in Vercel's function logs instead of disappearing.
+- **Required env var:** `RESEND_API_KEY`, set in Vercel project settings (never committed to this repo). Without it the function returns an error and logs why.
+- **Optional env vars:** `LEAD_NOTIFY_EMAIL` (recipient override, defaults to `info@kindredsystems.com.au`) and `RESEND_FROM_EMAIL` (sender override, defaults to Resend's shared sandbox address - verify the `kindredsystems.com.au` sending domain in Resend to use a branded from-address instead).
+- To CC someone (e.g. a VA), extend `api/submit-form.js` to read an extra recipient, or add it via `LEAD_NOTIFY_EMAIL` as a comma-separated list once that's needed.
 
-### Client intake form
+### Client intake forms
 
-- **Live URL:** `https://kindredsystems.com.au/advisory/intake/`
-- **Source file:** `advisory/intake/index.html`
-- Added 13 Aug 2026. Sent directly to new advisory clients after the Onboarding Call is booked, so Cat has what she needs to shape the first 90-day plan before that call.
-- It is ONE shared link for every client, not a unique link generated per person. There is no login, token or pre-fill. Each client identifies themselves by filling in the "Business name" / "Your name and role" fields at the top, same as any public web form.
-- The page is tagged `noindex, nofollow` in its `<head>` and is not linked from site navigation. It is private/client-only by omission, not by access control — anyone with the direct link can open and submit it.
-- Content structure: 7 sections (Overview, The Opportunity, Current AI and Systems, Team, Process, What's Working, Anything else), with 8 conditional "problem area" blocks in Section 2 that show or hide based on which part of the business the client ticks (Marketing, Sales, the Sales/Marketing handoff, Operations, Productivity, Customer experience, Adoption and consistency, ROI and prioritisation, or "I'm not sure" which reveals all of them). Implemented with a small vanilla-JS show/hide script and `data-shows` attributes on each checkbox, no framework.
-- Submits through the shared Formspree endpoint above. VA CC not yet configured — pending her email address.
+- **Live URLs:** `https://kindredsystems.com.au/advisory/intake/` (general) plus `/building/`, `/cosmetic/`, `/familylaw/`, `/financial/`, `/realestate/` variants, one per industry vertical.
+- **Source files:** `advisory/intake/index.html` and `advisory/intake/<vertical>/index.html`.
+- Added 13 Aug 2026, split into per-industry variants after that. Sent directly to new advisory clients after the Onboarding Call is booked, so Cat has what she needs to shape the first 90-day plan before that call.
+- Each is ONE shared link for every client in that vertical, not a unique link generated per person. There is no login, token or pre-fill. Each client identifies themselves by filling in the "Your details" section at the top, same as any public web form.
+- The pages are tagged `noindex, nofollow` in their `<head>` and are not linked from site navigation. They are private/client-only by omission, not by access control - anyone with the direct link can open and submit them.
+- Content structure: a "Your details" section (name, business name, email, phone - all optional) followed by 7 numbered sections (Business overview, Client/lead value and enquiry volume, Conversion, What happens after an enquiry, Existing leads and systems, What is working, Next 90 days), worded per vertical.
+- Submits to `/api/submit-form` (see above).
+
+### Client-details ("welcome") form
+
+- **Live URL:** `https://kindredsystems.com.au/advisory/welcome/`
+- **Source file:** `advisory/welcome/index.html`
+- Sent to a client once they've signed on, to collect what's needed for their agreement, invoice and document sharing before onboarding.
+- Same privacy model as the intake forms: `noindex, nofollow`, not linked from navigation, one shared link.
+- Submits to `/api/submit-form` (see above).
 
 ## What not to change without approval
 

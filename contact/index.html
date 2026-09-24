@@ -554,11 +554,7 @@
                 Prefer to write first? Tell us about your business and what you
                 are trying to solve.
               </p>
-              <form
-                id="contactForm"
-                action="https://formspree.io/f/xpqgpdzg"
-                method="POST"
-              >
+              <form id="contactForm" action="/api/submit-form" method="POST">
                 <input
                   type="hidden"
                   name="_subject"
@@ -635,12 +631,15 @@
       if (form) {
         form.addEventListener("submit", async function (e) {
           e.preventDefault();
-          const data = new FormData(form);
+          const payload = Object.fromEntries(new FormData(form).entries());
           try {
             const res = await fetch(form.action, {
               method: "POST",
-              body: data,
-              headers: { Accept: "application/json" },
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify(payload),
             });
             const json = await res.json();
             if (res.ok && json.ok) {
