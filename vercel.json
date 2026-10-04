@@ -10,6 +10,16 @@
       "source": "/aeo/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/call",
+      "destination": "https://tidycal.com/kindredsystems/discovery-call",
+      "permanent": false
+    },
+    {
+      "source": "/call/",
+      "destination": "https://tidycal.com/kindredsystems/discovery-call",
+      "permanent": false
     }
   ]
 }
