@@ -3,12 +3,12 @@
   "redirects": [
     {
       "source": "/aeo",
-      "destination": "/",
+      "destination": "/ai-visibility/",
       "permanent": true
     },
     {
       "source": "/aeo/",
-      "destination": "/",
+      "destination": "/ai-visibility/",
       "permanent": true
     },
     {
