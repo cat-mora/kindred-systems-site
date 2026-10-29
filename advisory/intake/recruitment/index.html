@@ -352,7 +352,7 @@
           <h2>Rather talk it through?</h2>
           <p>
             You can answer the same questions out loud with our AI intake
-            assistant instead of typing. It takes about 20 minutes, asks one
+            assistant instead of typing. It takes about 25 minutes, asks one
             question at a time, and you can cut in whenever you like. Rough
             numbers are fine, and there is no need to mention any candidate or
             client names.
@@ -393,7 +393,9 @@
               together, plus the one number we will agree to track. Please use
               your best estimate wherever an exact figure is not easy to find,
               and leave anything you do not know blank. There is no need to
-              include the names of any candidates or clients.
+              include the names of any candidates or clients. The questions
+              about what goes wrong are the most useful ones for us. A quick,
+              honest example is more helpful than a polished answer.
             </p>
             <section class="form-section">
               <h2 class="sec-title">Your details</h2>
@@ -489,7 +491,22 @@
             </section>
 
             <section class="form-section">
-              <h2 class="sec-title">2. Interviews and candidate records</h2>
+              <h2 class="sec-title">2. Finding candidates</h2>
+              <div class="q-block">
+                <label class="q-label" for="sourcing_q1"
+                  >When a new role comes in, how do you find candidates for it? Where does that slow down, or what makes it harder than it should be?</label
+                >
+                <textarea
+                  id="sourcing_q1"
+                  name="sourcing_q1"
+                  class="text-input"
+                  rows="3"
+                ></textarea>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">3. Interviews and candidate records</h2>
               <div class="q-block">
                 <label class="q-label" for="candidates_q1"
                   >About how many candidate interviews do you or the team do in
@@ -553,10 +570,36 @@
                   class="text-input"
                 />
               </div>
+              <div class="q-block">
+                <label class="q-label" for="candidates_q6"
+                  >What goes wrong or gets missed after interviews? For example, notes that never get written up, CVs that reach the client late, or good candidates you can't find again later.</label
+                >
+                <textarea
+                  id="candidates_q6"
+                  name="candidates_q6"
+                  class="text-input"
+                  rows="3"
+                ></textarea>
+              </div>
             </section>
 
             <section class="form-section">
-              <h2 class="sec-title">3. Clients and keeping in touch</h2>
+              <h2 class="sec-title">4. Sending candidates to clients</h2>
+              <div class="q-block">
+                <label class="q-label" for="submissions_q1"
+                  >Once you send candidates to a client, what happens through to a placement? Think about feedback, interview times, offers and references. Where do things stall or need chasing?</label
+                >
+                <textarea
+                  id="submissions_q1"
+                  name="submissions_q1"
+                  class="text-input"
+                  rows="4"
+                ></textarea>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h2 class="sec-title">5. Clients and keeping in touch</h2>
               <div class="q-block">
                 <label class="q-label" for="clients_q1"
                   >Are all your clients and hiring contacts in your recruitment
@@ -583,10 +626,21 @@
                   rows="3"
                 ></textarea>
               </div>
+              <div class="q-block">
+                <label class="q-label" for="clients_q3"
+                  >Where do clients or candidates slip through the cracks? For example, follow-ups that don't happen, roles you hear about too late, or good people you lose touch with.</label
+                >
+                <textarea
+                  id="clients_q3"
+                  name="clients_q3"
+                  class="text-input"
+                  rows="3"
+                ></textarea>
+              </div>
             </section>
 
             <section class="form-section">
-              <h2 class="sec-title">4. Systems</h2>
+              <h2 class="sec-title">6. Systems</h2>
               <div class="q-block">
                 <label class="q-label" for="systems_q1"
                   >Which recruitment software do you use, such as JobAdder,
@@ -613,10 +667,21 @@
                   class="text-input"
                 />
               </div>
+              <div class="q-block">
+                <label class="q-label" for="systems_q3"
+                  >What frustrates you about your recruitment software or how it is set up? Is there anything you do by hand, or copy from one system to another, that feels like it shouldn't need doing?</label
+                >
+                <textarea
+                  id="systems_q3"
+                  name="systems_q3"
+                  class="text-input"
+                  rows="3"
+                ></textarea>
+              </div>
             </section>
 
             <section class="form-section">
-              <h2 class="sec-title">5. Next 90 days</h2>
+              <h2 class="sec-title">7. Next 90 days</h2>
               <div class="q-block">
                 <label class="q-label" for="next90_q1"
                   >If the admin side of the business ran the way you would like,
