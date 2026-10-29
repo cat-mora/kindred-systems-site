@@ -260,6 +260,38 @@
         color: var(--navy);
         margin-bottom: 10px;
       }
+      .voice-card {
+        background: var(--ivory);
+        border: 1.5px solid var(--stone);
+        border-radius: var(--radius);
+        padding: 32px 36px;
+        margin-bottom: 28px;
+      }
+      .voice-card h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 10px;
+      }
+      .voice-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        margin: 0 0 12px;
+      }
+      .voice-card .form-note a {
+        text-decoration: underline;
+      }
+      .voice-status {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--bluecharcoal);
+        margin: 14px 0 0;
+        min-height: 1.4em;
+      }
+      .button.is-live {
+        background: var(--brass);
+        border-color: var(--brass);
+      }
       footer {
         background: var(--navy);
         color: rgba(255, 255, 255, 0.55);
@@ -315,6 +347,33 @@
       <div class="container">
         <div class="eyebrow">Pre-onboarding intake</div>
         <h1>Before we meet, tell us a little more.</h1>
+
+        <div class="voice-card" id="voiceCard">
+          <h2>Rather talk it through?</h2>
+          <p>
+            You can answer the same questions out loud with our AI intake
+            assistant instead of typing. It takes about 20 minutes, asks one
+            question at a time, and you can cut in whenever you like. Rough
+            numbers are fine, and there is no need to mention any candidate or
+            client names.
+          </p>
+          <p>
+            Your answers and a written transcript are emailed to Cathryn. No
+            audio recording is kept. Your browser will ask to use your
+            microphone when you start.
+          </p>
+          <button type="button" class="button" id="voiceBtn" disabled>
+            Start the voice intake
+          </button>
+          <p class="voice-status" id="voiceStatus" aria-live="polite"></p>
+          <p class="form-note">
+            By starting the call you agree to your voice being processed by
+            third-party software to create the transcript. See our
+            <a href="/privacy/">privacy policy</a>. If the call drops, anything
+            you have said so far still reaches Cathryn, and you can finish here
+            in the written form.
+          </p>
+        </div>
 
         <div class="form-card">
           <form
@@ -680,6 +739,78 @@
           }
         });
       }
+    </script>
+    <script type="module">
+      // Voice intake. The public key and assistant ID come from Vercel
+      // environment variables via /api/vapi-config, so nothing is
+      // hardcoded in this file.
+      import Vapi from "https://esm.sh/@vapi-ai/web@2.7.1";
+
+      var btn = document.getElementById("voiceBtn");
+      var statusEl = document.getElementById("voiceStatus");
+      var vapi = null;
+      var assistantId = null;
+      var live = false;
+
+      function setIdle(message) {
+        live = false;
+        btn.disabled = false;
+        btn.classList.remove("is-live");
+        btn.textContent = "Start the voice intake";
+        statusEl.textContent = message || "";
+      }
+
+      try {
+        var res = await fetch("/api/vapi-config");
+        var cfg = await res.json();
+        if (!res.ok || !cfg.publicKey || !cfg.assistantId) throw new Error();
+        vapi = new Vapi(cfg.publicKey);
+        assistantId = cfg.assistantId;
+        btn.disabled = false;
+
+        vapi.on("call-start", function () {
+          live = true;
+          btn.disabled = false;
+          btn.classList.add("is-live");
+          btn.textContent = "End the call";
+          statusEl.textContent = "Connected. The assistant will speak first.";
+        });
+        vapi.on("call-end", function () {
+          setIdle(
+            "Thanks, the call has ended and your answers are on their way to Cathryn. You can add anything else in the written form below.",
+          );
+        });
+        vapi.on("error", function (e) {
+          console.error("Voice intake error", e);
+          setIdle(
+            "The call could not continue. Please try again, or use the written form below.",
+          );
+        });
+      } catch (err) {
+        statusEl.textContent =
+          "The voice intake is not available right now. Please use the written form below.";
+      }
+
+      btn.addEventListener("click", async function () {
+        if (!vapi) return;
+        if (live) {
+          btn.disabled = true;
+          statusEl.textContent = "Ending the call...";
+          vapi.stop();
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = "Connecting...";
+        statusEl.textContent = "";
+        try {
+          await vapi.start(assistantId);
+        } catch (err) {
+          console.error("Voice intake start failed", err);
+          setIdle(
+            "The call could not start. Please check your microphone permission and try again, or use the written form below.",
+          );
+        }
+      });
     </script>
   </body>
 </html>
