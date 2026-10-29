@@ -5,19 +5,17 @@
 // The shared secret lives only in Vercel environment variables
 // (VAPI_WEBHOOK_SECRET) and in the Vapi assistant settings.
 // Never put it in this file.
+//
+// If the Vapi request carries no secret header at all, it is still
+// accepted when it comes from the Kindred intake assistant
+// (VAPI_ASSISTANT_ID). A wrong secret is always rejected. Once the
+// x-vapi-secret header is set in Vapi, every real call carries it.
 
 const FORMSPREE_URL = "https://formspree.io/f/xpqgpdzg";
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") {
     res.status(405).json({ ok: false, error: "Method not allowed" });
-    return;
-  }
-
-  const expected = process.env.VAPI_WEBHOOK_SECRET;
-  const provided = req.headers["x-vapi-secret"];
-  if (!expected || provided !== expected) {
-    res.status(401).json({ ok: false, error: "Unauthorised" });
     return;
   }
 
@@ -32,6 +30,26 @@ module.exports = async (req, res) => {
   }
 
   const message = body.message || {};
+  const call = message.call || {};
+
+  const expected = process.env.VAPI_WEBHOOK_SECRET;
+  const provided = req.headers["x-vapi-secret"];
+  const assistantId = process.env.VAPI_ASSISTANT_ID;
+  const fromOurAssistant =
+    !!assistantId &&
+    (call.assistantId === assistantId ||
+      (message.assistant && message.assistant.id === assistantId));
+
+  let authorised = false;
+  if (provided) {
+    authorised = !!expected && provided === expected;
+  } else {
+    authorised = fromOurAssistant;
+  }
+  if (!authorised) {
+    res.status(401).json({ ok: false, error: "Unauthorised" });
+    return;
+  }
 
   // Vapi sends several event types. Only the final report is forwarded.
   if (message.type !== "end-of-call-report") {
@@ -42,7 +60,6 @@ module.exports = async (req, res) => {
   const analysis = message.analysis || {};
   const answers = analysis.structuredData || {};
   const artifact = message.artifact || {};
-  const call = message.call || {};
 
   const payload = Object.assign(
     {
